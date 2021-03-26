@@ -1,0 +1,60 @@
+@import "./variables";
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.bg-light-gray {
+  background-color: $bg-light-gray;
+}
+
+.bg-gray-card {
+  background-color: $bg-light-gray;
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.badge-gray {
+  color: $color-gray;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: $color-light-neutral-2;
+  font-size: 11.6px;
+}
+
+.vertical-gray-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(239, 242, 245);
+  border-radius: 10px;
+  padding: 4px;
+  margin-top: 10px;
+
+  &__item {
+    padding: 6px 20px;
+    font-size: 13px;
+    font-weight: bolder;
+    color: $color-gray;
+    border-radius: inherit;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--selected {
+      background-color: #fff;
+    }
+
+    &.other {
+      padding: 6px 10px;
+    }
+
+    &:hover {
+      background-color: rgb(248, 250, 253);
+    }
+  }
+}
