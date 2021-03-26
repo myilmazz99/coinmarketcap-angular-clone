@@ -1,4 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./app/styles/variables";
+@import "./app/styles/overrides";
+@import "./app/styles/utilities";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.5;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif !important;
+  overflow-x: hidden;
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+}
+
+strong {
+  font-weight: bolder;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bolder;
+}
