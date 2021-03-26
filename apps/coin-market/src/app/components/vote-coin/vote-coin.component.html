@@ -1,0 +1,55 @@
+<section class="vote-coin">
+  <div class="vote-coin__text">
+    <p class="vote-coin__text__question">
+      <strong *ngIf="!didVote; else votedTitle"
+        >How do you feel about Bitcoin today?</strong
+      >
+    </p>
+    <p class="vote-coin__text__briefing">
+      <span *ngIf="!didVote; else votedDesc"
+        >Vote to see community results</span
+      >
+    </p>
+  </div>
+  <div class="vote-coin__button-group" *ngIf="!didVote; else bar">
+    <button class="vote-coin__button-group__button" (click)="vote(1)">
+      👍 Good
+    </button>
+    <button class="vote-coin__button-group__button" (click)="vote(-1)">
+      👎 Bad
+    </button>
+  </div>
+</section>
+
+<ng-template #votedTitle>
+  <strong
+    >You voted - <span *ngIf="voted > 0; then goodVote; else badVote"></span
+  ></strong>
+</ng-template>
+
+<ng-template #votedDesc>
+  <span
+    >Your vote is for 24 hours. In order to update how you feel about Bitcoin,
+    come back tomorrow!
+  </span>
+</ng-template>
+
+<ng-template #goodVote> 👍 Good </ng-template>
+<ng-template #badVote> 👎 Bad </ng-template>
+
+<ng-template #bar>
+  <div class="vote-coin__progress-bar">
+    <mat-progress-bar [color]="primary" mode="determinate" [value]="good">
+    </mat-progress-bar>
+    <div class="vote-coin__progress-bar__count">
+      <div class="vote-coin__progress-bar__count--good">
+        {{ good }}% Good 👍
+      </div>
+    </div>
+    <div class="vote-coin__progress-bar__count">
+      <div class="vote-coin__progress-bar__count--bad">
+        {{ 100 - good }}% Bad 👎
+      </div>
+    </div>
+  </div>
+</ng-template>
