@@ -1,0 +1,45 @@
+<section class="coin-converter">
+  <div class="currency">
+    <div class="currency__details">
+      <figure>
+        <img src="assets/img/logo/btc.png" alt="..." />
+      </figure>
+      <div class="currency__details__name">
+        <small>BTC</small>
+        <p>Bitcoin</p>
+      </div>
+    </div>
+    <input
+      #coinInput
+      class="currency__input"
+      type="text"
+      name="coin"
+      [(ngModel)]="coinAmount"
+      [value]="coin"
+      (focus)="onFocus($event, usdInput)"
+      (input)="onChange(coinInput)"
+    />
+  </div>
+  <div class="currency bg-light-gray">
+    <div class="currency__details">
+      <figure class="currency-logo">
+        <img src="assets/img/logo/usd.svg" alt="..." />
+      </figure>
+      <div class="currency__details__name">
+        <small>USD</small>
+        <p>United States Dollar</p>
+      </div>
+    </div>
+    <input
+      #usdInput
+      name="usd"
+      class="currency__input"
+      type="text"
+      placeholder="0"
+      [(ngModel)]="usdAmount"
+      [value]="usd"
+      (focus)="onFocus($event, coinInput)"
+      (input)="onChange(usdInput)"
+    />
+  </div>
+</section>

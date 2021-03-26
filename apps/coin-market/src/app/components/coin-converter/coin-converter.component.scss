@@ -1,0 +1,61 @@
+@import "../../styles/variables";
+
+.coin-converter {
+  border: 2px solid $border-color;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 16px;
+
+  .currency {
+    padding: 24px;
+    display: flex;
+
+    &:last-child {
+      background-color: $bg-light-gray;
+      border-bottom-left-radius: inherit;
+      border-bottom-right-radius: inherit;
+    }
+
+    &__details {
+      display: flex;
+      align-items: center;
+
+      &__name {
+        p {
+          margin: 0;
+          font-weight: bold;
+          white-space: nowrap;
+        }
+        small {
+          color: $color-gray;
+        }
+      }
+
+      figure {
+        margin: 0 12px;
+
+        img {
+          width: 32px;
+        }
+      }
+    }
+
+    &__input {
+      font-size: 18px;
+      font-family: inherit;
+      flex-grow: 1;
+      border: none;
+      font-weight: bolder;
+      text-align: right;
+      background-color: transparent;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: rgb(207, 214, 228);
+      }
+    }
+  }
+}
