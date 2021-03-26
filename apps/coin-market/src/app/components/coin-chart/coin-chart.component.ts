@@ -7,8 +7,8 @@ IndicatorsCore(Highcharts);
 
 @Component({
   selector: "coin-chart",
-  styleUrls: ["./coinChart.component.scss"],
-  templateUrl: "./coinChart.component.html",
+  styleUrls: ["./coin-chart.component.scss"],
+  templateUrl: "./coin-chart.component.html",
 })
 export class CoinChartComponent {
   Highcharts: typeof Highcharts;
