@@ -4,6 +4,7 @@ import dataDerivates from "apps/coin-market/src/assets/data/dataDerivates";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator } from "@angular/material/paginator";
+import { Pair } from "../models/pair";
 
 @Component({
   selector: "coin-market-table",
@@ -11,6 +12,25 @@ import { MatPaginator } from "@angular/material/paginator";
   styleUrls: ["./table.component.scss"],
 })
 export class TableComponent implements AfterViewInit, DoCheck {
+
+  selectedValue = "All";
+
+  pairs: Pair[] = [
+    { value: 0, viewValue: "All" },
+    { value: 1, viewValue: "USDT" },
+    { value: 2, viewValue: "BUSD" },
+    { value: 3, viewValue: "USD" },
+    { value: 4, viewValue: "BTC" },
+    { value: 5, viewValue: "JPY" },
+    { value: 6, viewValue: "KRW" },
+    { value: 7, viewValue: "EUR" },
+    { value: 8, viewValue: "USDC" },
+    { value: 9, viewValue: "UST" },
+    { value: 10, viewValue: "GBP" },
+    { value: 11, viewValue: "TRY" },
+  ];
+
+  
   displayedColumns: string[] = [
     "position",
     "source",

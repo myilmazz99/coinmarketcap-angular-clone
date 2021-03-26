@@ -1,7 +1,7 @@
 <div id="first">
   <span><h1>Bitcoin Markets</h1></span>
   <span><h3>Spot Derivates</h3></span>
-  <coin-market-select (newItemEvent)="filterPair($event)"></coin-market-select>
+  <coin-market-select [selectedValue]="selectedValue" [pairs]="pairs" (newItemEvent)="filterPair($event)"></coin-market-select>
 </div>
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
