@@ -23,3 +23,28 @@
     }
   }
 }
+
+/* HIGHCHARTS */
+.highcharts-credits {
+  display: none;
+}
+
+.highcharts-navigator-outline {
+  stroke-width: 0;
+}
+
+.highcharts-scrollbar {
+  display: none;
+}
+
+.highcharts-crosshair {
+  stroke: rgb(166, 176, 195);
+  stroke-dasharray: 4;
+}
+
+.highcharts-series-0 {
+  & path:last-child {
+    stroke: rgb(56, 97, 251);
+    stroke-width: 1px;
+  }
+}
