@@ -19,6 +19,9 @@ export class CoinChartComponent {
   ) => {
     this.Chart = chart;
   };
+  chartOptions: Highcharts.Options;
+
+  //data
   selected = "Price";
 
   //legend
@@ -90,6 +93,4 @@ export class CoinChartComponent {
       ],
     };
   }
-
-  chartOptions: Highcharts.Options;
 }
