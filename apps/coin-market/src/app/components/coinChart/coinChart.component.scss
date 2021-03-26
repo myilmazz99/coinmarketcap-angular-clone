@@ -1,0 +1,18 @@
+@import "../../styles/variables";
+
+h3 {
+  margin: 25px 0;
+}
+
+.mat-checkbox {
+  margin-right: 10px;
+}
+
+.coin-chart {
+  &__options {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}

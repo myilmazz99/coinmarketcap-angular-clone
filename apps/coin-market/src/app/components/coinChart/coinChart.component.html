@@ -1,1 +1,32 @@
-<p>Coin Chart works!</p>
+<div class="coin-chart">
+  <h3>Bitcoin Chart</h3>
+
+  <div class="coin-chart__options">
+    <ul class="vertical-gray-list">
+      <li
+        class="vertical-gray-list__item"
+        [class.vertical-gray-list__item--selected]="selected === 'Price'"
+        (click)="selected = 'Price'"
+      >
+        Price
+      </li>
+      <li
+        class="vertical-gray-list__item"
+        [class.vertical-gray-list__item--selected]="selected === 'MarketCap'"
+        (click)="selected = 'MarketCap'"
+      >
+        Market Cap
+      </li>
+    </ul>
+    <chart-range-selector [Chart]="Chart"></chart-range-selector>
+  </div>
+  <highcharts-chart
+    class="coin-chart"
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+    [constructorType]="constructorType"
+    [callbackFunction]="chartCallback"
+    style="width: 100%; height: 400px; display: block"
+  ></highcharts-chart>
+  <coin-chart-legend [legend]="legend" [Chart]="Chart"></coin-chart-legend>
+</div>
