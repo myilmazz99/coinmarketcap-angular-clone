@@ -1,0 +1,86 @@
+<div id="first">
+  <span><h1>Bitcoin Markets</h1></span>
+  <span><h3>Spot Derivates</h3></span>
+  <coin-market-select (newItemEvent)="filterPair($event)"></coin-market-select>
+</div>
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <ng-container matColumnDef="position">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>#</th>
+    <td mat-cell id="position" *matCellDef="let market">
+      {{ market.position }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="source">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Source</th>
+    <td mat-cell class="bold" *matCellDef="let market">
+      <div class="logosource">
+        <img class="icon" [src]="market.imageUrl" />{{ market.source }}
+      </div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="pairs">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Pairs</th>
+    <td mat-cell class="bold" id="pairs" *matCellDef="let market">
+      {{ market.pairs }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+    <td mat-cell class="bold" *matCellDef="let market; for: sortedData">
+      {{ market.price | currency: "USD":"$":"0.2-2" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="volume">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Volume</th>
+    <td mat-cell *matCellDef="let market">
+      {{ market.volume | currency: "USD":"$":"4.0-2" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="volumePercentage">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Volume %</th>
+    <td mat-cell *matCellDef="let market">{{ market.volumePercentage }}%</td>
+  </ng-container>
+
+  <ng-container matColumnDef="liquidity">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <span class="info"
+        >Liquidity<img
+          class="icon"
+          matTooltip="Liquidity scores a market pair from 0 to 1000 based on the slippage incurred by various order sizes. A higher score indicates a more liquid market."
+          src="assets/img/info.png"
+        />
+      </span>
+    </th>
+    <td mat-cell *matCellDef="let market">{{ market.liquidity }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="confidence">
+    <th mat-header-cell *matHeaderCellDef>
+      <span class="info"
+        >Confidence<img
+          class="icon"
+          matTooltip="CoinMarketCap algorithmically compares the Reported Volume of exchanges against our data model. The Confidence Indicator indicates the level of confidence we have that the Reported Volume is accurate. Confidence Indicator reports a number from 0% to 100%, and are categorized into bands:"
+          src="assets/img/info.png"
+        />
+      </span>
+    </th>
+    <td mat-cell *matCellDef="let market">
+      <span class="confidence"> {{ market.confidence }} </span>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="updated">
+    <th mat-header-cell *matHeaderCellDef>Updated</th>
+    <td mat-cell *matCellDef="let market">{{ market.updated }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[20]"></mat-paginator>
