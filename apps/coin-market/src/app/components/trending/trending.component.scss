@@ -1,0 +1,84 @@
+@import "../../styles/variables";
+
+.trending {
+  &__list {
+    &__item {
+      display: flex;
+      align-items: center;
+      padding: 12px 0 12px 8px;
+
+      &:hover {
+        background-color: $color-light-neutral-2;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $border-color;
+      }
+
+      &__logo {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+      }
+
+      &__sponsored {
+        flex-grow: 1;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        & > div:first-child {
+          flex-grow: 1;
+        }
+        &__title {
+          font-weight: bold;
+        }
+
+        &__desc {
+          color: $color-gray;
+          font-weight: 500;
+        }
+
+        &__footer {
+          a {
+            display: block;
+            text-align: center;
+            background-color: rgb(56, 97, 251);
+            padding: 8px 16px;
+            color: #fff;
+            font-size: 12px;
+            text-decoration: none;
+            border-radius: 10px;
+
+            &:hover {
+              background-color: darken($color: rgb(56, 97, 251), $amount: 5);
+            }
+          }
+
+          small {
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            font-size: 11px;
+            color: $color-gray;
+
+            img {
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+
+      &__name--full {
+        font-weight: bold;
+        margin: 0 5px 0 10px;
+      }
+
+      &__name--shorten {
+        color: $color-gray;
+        font-weight: 500;
+        font-size: 11px;
+        flex-grow: 1;
+      }
+    }
+  }
+}
