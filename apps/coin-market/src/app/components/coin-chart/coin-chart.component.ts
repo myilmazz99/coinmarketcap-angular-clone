@@ -50,7 +50,11 @@ export class CoinChartComponent {
       tooltip: {
         split: false,
         shared: true,
-        headerFormat: "",
+        useHTML: true,
+        headerFormat: `<div class="highcharts-tooltip__line">
+        <div class="highcharts-tooltip__line__body">{point.key}
+        </div>
+      </div>`,
       },
       series: [
         {
@@ -62,7 +66,17 @@ export class CoinChartComponent {
           tooltip: {
             pointFormatter: function () {
               const usd = numToUsd().format(this.y);
-              return `<b>${new Date(this.x)}</b> <br/>  Price: <b>$ ${usd}</b>`;
+              return `
+                      <div class="highcharts-tooltip__line">
+                        <div class="highcharts-tooltip__line__header">
+                          <div class="highcharts-tooltip__line__header__color" style="background:${this.color}">
+                          </div>
+                          Price:
+                        </div>
+                        <div class="highcharts-tooltip__line__body">
+                        $ ${usd}
+                        </div>
+                      </div>`;
             },
           },
           states: {
@@ -78,7 +92,18 @@ export class CoinChartComponent {
           data: [...this.chartData.coin],
           name: "BTC",
           tooltip: {
-            pointFormat: `<br/>  Price({series.name}): <b>{point.y} {series.name}</b>`,
+            pointFormatter: function () {
+              return `<div class="highcharts-tooltip__line">
+            <div class="highcharts-tooltip__line__header">
+              <div class="highcharts-tooltip__line__header__color" style="background:${this.color}">
+              </div>
+              Price(${this.series.name}):
+            </div>
+            <div class="highcharts-tooltip__line__body">
+             ${this.y} ${this.series.name}
+            </div>
+          </div>`;
+            },
           },
           states: {
             hover: { lineWidth: 2 },

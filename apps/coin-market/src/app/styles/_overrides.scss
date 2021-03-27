@@ -48,3 +48,25 @@
     stroke-width: 1px;
   }
 }
+
+.highcharts-tooltip {
+  &__line {
+    display: flex;
+
+    &__header {
+      display: flex;
+      align-items: center;
+
+      &__color {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+    }
+
+    &__body {
+      font-weight: bold;
+    }
+  }
+}
