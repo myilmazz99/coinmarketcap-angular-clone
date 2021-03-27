@@ -47,7 +47,11 @@ export class CoinChartComponent {
         inputEnabled: false,
         enabled: false,
       },
-      yAxis: {},
+      tooltip: {
+        split: false,
+        shared: true,
+        headerFormat: "",
+      },
       series: [
         {
           id: "usd",
@@ -56,12 +60,9 @@ export class CoinChartComponent {
           data: [...this.chartData.usd],
           name: "USD",
           tooltip: {
-            headerFormat: "",
             pointFormatter: function () {
               const usd = numToUsd().format(this.y);
-              return `<b>${new Date(
-                this.x
-              )}</b> <br/>  Price: <b>$ ${usd}</b> <br/> Vol 24h: <b>$ ${usd}</b>`;
+              return `<b>${new Date(this.x)}</b> <br/>  Price: <b>$ ${usd}</b>`;
             },
           },
           states: {
@@ -77,13 +78,7 @@ export class CoinChartComponent {
           data: [...this.chartData.coin],
           name: "BTC",
           tooltip: {
-            headerFormat: "",
-            pointFormatter: function () {
-              const usd = numToUsd().format(this.y);
-              return `<b>${new Date(
-                this.x
-              )}</b> <br/>  Price: <b>$ ${usd}</b> <br/> Vol 24h: <b>$ ${usd}</b>`;
-            },
+            pointFormat: `<br/>  Price({series.name}): <b>{point.y} {series.name}</b>`,
           },
           states: {
             hover: { lineWidth: 2 },
