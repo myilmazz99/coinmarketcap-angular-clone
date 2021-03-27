@@ -15,7 +15,7 @@
       type="text"
       name="coin"
       [(ngModel)]="coinAmount"
-      [value]="coin"
+      [value]="coin | currency: 'USD':'':'1.0-6'"
       (focus)="onFocus($event, usdInput)"
       (input)="onChange(coinInput)"
     />
@@ -37,7 +37,7 @@
       type="text"
       placeholder="0"
       [(ngModel)]="usdAmount"
-      [value]="usd"
+      [value]="usd | currency: 'USD':'':'1.0-6'"
       (focus)="onFocus($event, coinInput)"
       (input)="onChange(usdInput)"
     />

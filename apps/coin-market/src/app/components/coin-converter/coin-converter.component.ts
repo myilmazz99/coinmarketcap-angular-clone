@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { numToUsd } from "../../helpers/numToUsd";
 
 @Component({
   selector: "coin-converter",
@@ -10,8 +9,8 @@ export class CoinConverterComponent {
   coinAmount = 0;
   usdAmount = 0;
   exchangeRate = 52556.41;
-  coin: string;
-  usd: string;
+  coin: number;
+  usd: number;
 
   constructor() {}
 
@@ -21,8 +20,7 @@ export class CoinConverterComponent {
   }
 
   onChange(input: HTMLInputElement) {
-    if (input.name === "coin")
-      this.usd = numToUsd().format(this.coinAmount * this.exchangeRate);
-    else this.coin = numToUsd().format(this.usdAmount / this.exchangeRate);
+    if (input.name === "coin") this.usd = this.coinAmount * this.exchangeRate;
+    else this.coin = this.usdAmount / this.exchangeRate;
   }
 }

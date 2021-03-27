@@ -14,6 +14,7 @@ import { ChartRangeSelectorComponent } from "./components/chart-range-selector/c
 import { HttpClientModule } from "@angular/common/http";
 import { VoteCoinComponent } from "./components/vote-coin/vote-coin.component";
 import { CoinChartLegendComponent } from "./components/coin-chart-legend/coin-chart-legend.component";
+import { CurrencyPipe } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { CoinChartLegendComponent } from "./components/coin-chart-legend/coin-ch
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

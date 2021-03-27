@@ -1,8 +1,8 @@
+import { CurrencyPipe } from "@angular/common";
 import { Component } from "@angular/core";
 import * as Highcharts from "highcharts/highstock";
 
 import IndicatorsCore from "highcharts/indicators/indicators";
-import { numToUsd } from "../../helpers/numToUsd";
 IndicatorsCore(Highcharts);
 
 @Component({
@@ -29,7 +29,7 @@ export class CoinChartComponent {
 
   chartData = { usd: [], coin: [] };
 
-  constructor() {
+  constructor(private currencyPipe: CurrencyPipe) {
     this.Highcharts = Highcharts;
     this.constructorType = "stockChart";
 
@@ -37,7 +37,7 @@ export class CoinChartComponent {
       var day = new Date().getDate();
       this.chartData.usd.push([
         new Date().setDate(day - i),
-        Math.floor(Math.random() * 1000 + 1),
+        Math.floor(Math.random() * 100000 + 1),
       ]);
       this.chartData.coin.push([new Date().setDate(day - i), 1]);
     }
@@ -65,16 +65,22 @@ export class CoinChartComponent {
           name: "USD",
           tooltip: {
             pointFormatter: function () {
-              const usd = numToUsd().format(this.y);
               return `
                       <div class="highcharts-tooltip__line">
                         <div class="highcharts-tooltip__line__header">
-                          <div class="highcharts-tooltip__line__header__color" style="background:${this.color}">
+                          <div class="highcharts-tooltip__line__header__color" style="background:${
+                            this.color
+                          }">
                           </div>
                           Price:
                         </div>
                         <div class="highcharts-tooltip__line__body">
-                        $ ${usd}
+                         ${currencyPipe.transform(
+                           this.y,
+                           "USD",
+                           "symbol",
+                           "1.6-6"
+                         )}
                         </div>
                       </div>`;
             },
