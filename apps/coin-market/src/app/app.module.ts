@@ -15,6 +15,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { VoteCoinComponent } from "./components/vote-coin/vote-coin.component";
 import { CoinChartLegendComponent } from "./components/coin-chart-legend/coin-chart-legend.component";
 import { CurrencyPipe } from "@angular/common";
+import { CoinChartCalendarComponent } from './components/coin-chart/coin-chart-calendar/coin-chart-calendar.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CurrencyPipe } from "@angular/common";
     ChartRangeSelectorComponent,
     VoteCoinComponent,
     CoinChartLegendComponent,
+    CoinChartCalendarComponent,
   ],
   imports: [
     BrowserModule,
