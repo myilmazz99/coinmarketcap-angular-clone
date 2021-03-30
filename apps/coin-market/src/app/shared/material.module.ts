@@ -10,6 +10,12 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatMenuModule } from "@angular/material/menu";
+import { MatTableModule } from "@angular/material/table";
+import { MatSelectModule } from "@angular/material/select";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatSortModule } from "@angular/material/sort";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatTabsModule } from "@angular/material/tabs";
 
 const modules: any[] = [
   MatSliderModule,
@@ -23,6 +29,12 @@ const modules: any[] = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatMenuModule,
+  MatTableModule,
+  MatSelectModule,
+  MatSortModule,
+  MatPaginatorModule,
+  MatTooltipModule,
+  MatTabsModule,
 ];
 
 @NgModule({
