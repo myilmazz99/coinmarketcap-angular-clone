@@ -16,6 +16,7 @@ import { CoinChartLegendComponent } from "./components/coin-chart/coin-chart-leg
 import { CurrencyPipe } from "@angular/common";
 import { CoinChartCalendarComponent } from "./components/coin-chart/chart-range-selector/coin-chart-calendar/coin-chart-calendar.component";
 import { ChartRangeSelectorComponent } from "./components/coin-chart/chart-range-selector/chart-range-selector.component";
+import { OverviewComponent } from './components/overview/overview.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ChartRangeSelectorComponent } from "./components/coin-chart/chart-range
     VoteCoinComponent,
     CoinChartLegendComponent,
     CoinChartCalendarComponent,
+    OverviewComponent,
   ],
   imports: [
     BrowserModule,
