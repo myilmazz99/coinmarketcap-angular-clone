@@ -9,10 +9,7 @@
   font-weight: 500;
   line-height: 1.5;
 }
-html,
-body {
-  height: 100%;
-}
+
 body {
   margin: 0;
   font-family: "Inter", sans-serif !important;
@@ -36,3 +33,8 @@ h5,
 h6 {
   font-weight: bolder;
 }
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+} // Roboto kaldır !!!!!font-family: "Inter", sans-serif !important;
+// *{
+//     font-weight: 500;
+// }

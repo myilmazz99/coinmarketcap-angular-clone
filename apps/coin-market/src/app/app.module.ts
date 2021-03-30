@@ -18,6 +18,9 @@ import { CoinChartCalendarComponent } from "./components/coin-chart/chart-range-
 import { ChartRangeSelectorComponent } from "./components/coin-chart/chart-range-selector/chart-range-selector.component";
 import { OverviewComponent } from './components/overview/overview.component';
 
+import { TableComponent } from "./table/table.component";
+import { SelectComponent } from "./select/select.component";
+import { MarketsService } from "./shared/services/markets.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,8 @@ import { OverviewComponent } from './components/overview/overview.component';
     CoinChartLegendComponent,
     CoinChartCalendarComponent,
     OverviewComponent,
+    TableComponent,
+    SelectComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,10 @@ import { OverviewComponent } from './components/overview/overview.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [CurrencyPipe],
+  providers: [
+    CurrencyPipe, 
+    MarketsService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
