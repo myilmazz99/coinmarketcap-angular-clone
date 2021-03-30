@@ -1,9 +1,5 @@
-import { Component, Input, ViewChild } from "@angular/core";
-import {
-  MatCalendar,
-  MatCalendarCellCssClasses,
-  MatCalendarView,
-} from "@angular/material/datepicker";
+import { Component, Input } from "@angular/core";
+import { MatCalendarCellCssClasses } from "@angular/material/datepicker";
 import { MatMenuTrigger } from "@angular/material/menu";
 
 @Component({
