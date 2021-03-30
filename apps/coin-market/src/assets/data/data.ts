@@ -1,16 +1,6 @@
-export interface Markets {
-  position: number;
-  imageUrl: string;
-  source: string;
-  pairs: string;
-  price: number;
-  volume: number;
-  volumePercentage: number;
-  liquidity: number;
-  confidence: string;
-  updated: string;
-}
-const data: Markets[] = [
+import { Market } from "apps/coin-market/src/app/models/market";
+
+const data: Market[] = [
   {
     position: 1,
     imageUrl: "assets/img/Binance.png",

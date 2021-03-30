@@ -11,6 +11,8 @@ import { MatSortModule } from "@angular/material/sort";
 import { FormsModule } from "@angular/forms";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatTooltipModule } from "@angular/material/tooltip";
+import { HttpClientModule } from "@angular/common/http";
+import { MarketsService } from "./shared/services/markets.service";
 
 @NgModule({
   declarations: [AppComponent, TableComponent, SelectComponent],
@@ -23,8 +25,9 @@ import { MatTooltipModule } from "@angular/material/tooltip";
     FormsModule,
     MatPaginatorModule,
     MatTooltipModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [MarketsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

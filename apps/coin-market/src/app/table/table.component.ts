@@ -1,10 +1,13 @@
 import { Component, ViewChild, AfterViewInit, DoCheck } from "@angular/core";
 import data from "apps/coin-market/src/assets/data/data";
-import dataDerivates from "apps/coin-market/src/assets/data/dataDerivates";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator } from "@angular/material/paginator";
 import { Pair } from "../models/pair";
+import { MarketsService } from "apps/coin-market/src/app/shared/services/markets.service";
+import { Observable } from "rxjs";
+import { Market } from "apps/coin-market/src/app/models/market";
+import { DataSource } from "@angular/cdk/collections";
 
 @Component({
   selector: "coin-market-table",
@@ -12,6 +15,35 @@ import { Pair } from "../models/pair";
   styleUrls: ["./table.component.scss"],
 })
 export class TableComponent implements AfterViewInit, DoCheck {
+  marketItems$: Observable<Market[]>;
+
+  constructor(private marketService: MarketsService) {
+    // this.marketItems$ = this.marketService.marketItems$;
+  }
+
+  public markets = this.marketService.getMarkets();
+
+  // // // public markets = [];
+  // // // constructor(private _marketService: MarketsService) {}
+
+  // // // ngOnInit() {
+  // // //   this._marketService.getMarkets().subscribe((data) => (this.markets = data));
+  // // // }
+  // // //*************************** */
+  // // // marketItems$: Observable<Markets[]>;
+  // // // constructor(private marketsService: MarketsService) {}
+  // // // ngOnInit() {
+  // // //   this.marketItems$ = this.marketsService.getMarkets();
+  // // //   console.log(this.marketItems$);
+  // // // }
+
+  // // // public markets = [];
+
+  // // // constructor(private marketService: MarketsService) {}
+
+  // // // ngOnInit() {
+  // // //   this.markets = this.marketService.getMarkets();
+  // // // }
 
   selectedValue = "All";
 
@@ -30,7 +62,6 @@ export class TableComponent implements AfterViewInit, DoCheck {
     { value: 11, viewValue: "TRY" },
   ];
 
-  
   displayedColumns: string[] = [
     "position",
     "source",
@@ -42,8 +73,7 @@ export class TableComponent implements AfterViewInit, DoCheck {
     "confidence",
     "updated",
   ];
-  dataSource = new MatTableDataSource(data);
-  dataSource2 = new MatTableDataSource(dataDerivates);
+  dataSource = new MatTableDataSource(this.markets);
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -66,7 +96,6 @@ export class TableComponent implements AfterViewInit, DoCheck {
       ) as HTMLCollectionOf<HTMLElement>
     );
     bg.forEach((e) => {
-      console.log(e);
       switch (e.innerText) {
         case "Low":
           e.style.background = "#ff3333";
@@ -96,3 +125,13 @@ export class TableComponent implements AfterViewInit, DoCheck {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
+
+// export class UserDataSource extends DataSource<any> {
+//   constructor(private marketService: MarketsService) {
+//     super();
+//   }
+//   connect(): Observable<Market[]> {
+//     return this.marketService.getMarkets();
+//   }
+//   disconnect() {}
+// }
