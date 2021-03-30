@@ -21,6 +21,7 @@ import { OverviewComponent } from './components/overview/overview.component';
 import { TableComponent } from "./table/table.component";
 import { SelectComponent } from "./select/select.component";
 import { MarketsService } from "./shared/services/markets.service";
+import { NameSectionComponent } from './components/name-section/name-section.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { MarketsService } from "./shared/services/markets.service";
     OverviewComponent,
     TableComponent,
     SelectComponent,
+    NameSectionComponent,
   ],
   imports: [
     BrowserModule,
