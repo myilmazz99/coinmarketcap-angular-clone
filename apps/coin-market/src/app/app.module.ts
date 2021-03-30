@@ -10,12 +10,12 @@ import { CoinStatisticsComponent } from "./components/coin-statistics/coin-stati
 import { CoinConverterComponent } from "./components/coin-converter/coin-converter.component";
 import { TrendingComponent } from "./components/trending/trending.component";
 import { FormsModule } from "@angular/forms";
-import { ChartRangeSelectorComponent } from "./components/chart-range-selector/chart-range-selector.component";
 import { HttpClientModule } from "@angular/common/http";
 import { VoteCoinComponent } from "./components/vote-coin/vote-coin.component";
-import { CoinChartLegendComponent } from "./components/coin-chart-legend/coin-chart-legend.component";
+import { CoinChartLegendComponent } from "./components/coin-chart/coin-chart-legend/coin-chart-legend.component";
 import { CurrencyPipe } from "@angular/common";
-import { CoinChartCalendarComponent } from './components/coin-chart/coin-chart-calendar/coin-chart-calendar.component';
+import { CoinChartCalendarComponent } from "./components/coin-chart/chart-range-selector/coin-chart-calendar/coin-chart-calendar.component";
+import { ChartRangeSelectorComponent } from "./components/coin-chart/chart-range-selector/chart-range-selector.component";
 
 @NgModule({
   declarations: [

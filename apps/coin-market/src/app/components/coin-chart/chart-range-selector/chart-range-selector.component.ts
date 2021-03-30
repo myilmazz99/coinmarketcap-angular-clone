@@ -1,5 +1,6 @@
 import { Component, Input, ViewChild } from "@angular/core";
 import { MatMenuTrigger } from "@angular/material/menu";
+import * as Highcharts from "highcharts/highstock";
 
 @Component({
   selector: "chart-range-selector",
