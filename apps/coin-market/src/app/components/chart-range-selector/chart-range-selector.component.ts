@@ -1,4 +1,5 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, ViewChild } from "@angular/core";
+import { MatMenuTrigger } from "@angular/material/menu";
 
 @Component({
   selector: "chart-range-selector",
@@ -72,4 +73,7 @@ export class ChartRangeSelectorComponent {
         break;
     }
   }
+
+  //calendar
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 }

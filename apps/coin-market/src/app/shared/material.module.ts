@@ -6,8 +6,10 @@ import { LayoutModule } from "@angular/cdk/layout";
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
-
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
+import { MatMenuModule } from "@angular/material/menu";
 
 const modules: any[] = [
   MatSliderModule,
@@ -18,6 +20,9 @@ const modules: any[] = [
   MatIconModule,
   MatCheckboxModule,
   MatProgressBarModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatMenuModule,
 ];
 
 @NgModule({

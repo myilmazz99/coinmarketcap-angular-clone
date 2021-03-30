@@ -7,8 +7,15 @@
   >
     {{ r }}
   </li>
-  <li class="vertical-gray-list__item other">
+  <li class="vertical-gray-list__item other" [matMenuTriggerFor]="calendarMenu">
     <mat-icon>calendar_today</mat-icon>
   </li>
   <li class="vertical-gray-list__item other">LOG</li>
 </ul>
+
+<mat-menu #calendarMenu>
+  <coin-chart-calendar
+    [Chart]="Chart"
+    [trigger]="trigger"
+  ></coin-chart-calendar>
+</mat-menu>
