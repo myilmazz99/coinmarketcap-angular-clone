@@ -22,6 +22,10 @@ import { TableComponent } from "./table/table.component";
 import { SelectComponent } from "./select/select.component";
 import { MarketsService } from "./shared/services/markets.service";
 import { NameSectionComponent } from './components/name-section/name-section.component';
+import { PriceSectionComponent } from './components/price-section/price-section.component';
+import { StatsSectionComponent } from './components/stats-section/stats-section.component';
+import { BuyAddButtonSectionComponent } from './components/buy-add-button-section/buy-add-button-section.component';
+import { LinkSectionComponent } from './components/link-section/link-section.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +41,10 @@ import { NameSectionComponent } from './components/name-section/name-section.com
     TableComponent,
     SelectComponent,
     NameSectionComponent,
+    PriceSectionComponent,
+    StatsSectionComponent,
+    BuyAddButtonSectionComponent,
+    LinkSectionComponent,
   ],
   imports: [
     BrowserModule,
