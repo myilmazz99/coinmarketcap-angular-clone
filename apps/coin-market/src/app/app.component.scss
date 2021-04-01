@@ -6,7 +6,7 @@ body {
   //line-height: 1.5em;
 }
 
-.container-mhtp {
+.container-cryptocurrencies-coins-bitcoin {
   width: 100%;
   max-width: 1400px;
   padding-right: 15px;
@@ -22,13 +22,12 @@ body {
         "nameSection priceSection buyAddButtonSection"
         "linkSection statsSection statsSection ";
 
-
-      .priceSection {
+      .price-section {
         grid-area: priceSection;
         background-color: $background;
         margin: 0px;
 
-        .priceHeading {
+        .price-heading {
           color: #58667e;
           font-size: 12px;
           font-weight: 500;
@@ -43,36 +42,21 @@ body {
           }
         }
 
-        .priceTitle {
+        .price-title {
           margin: 0px;
           display: flex;
           //justify-content: flex-end;
           align-items: center;
 
-          .priceValue {
+          .price-value {
             font-size: 32px;
             font-weight: 700;
             line-height: 42px;
             margin-right: 16px;
           }
-          /*
-      .priceSpan .icon{
-        margin-right: 4px;
-        font-size: 0.6em;
-        display: inline-block;
-        font-family: 'CMC V2';
-        font-style: normal;
-        font-weight: normal;
-        line-height: 1;
-        -webkit-font-smoothing: antialiased;
-        //-moz-osx-font-smoothing: grayscale;
-        color: #fff;
-        font-size: 14px;
-        font-weight: 600;
-      } */
         }
 
-        .alternatePrices {
+        .alternate-prices {
           margin-top: 6px;
           margin-bottom: 14px;
           display: flex;
@@ -92,7 +76,7 @@ body {
           }
         }
 
-        .sliderSection {
+        .slider-section {
           margin: 14px 0 8px 0;
           display: flex;
           align-items: center;
@@ -102,14 +86,14 @@ body {
             margin: 0px 16px 0px 0px;
             white-space: nowrap;
 
-            .highLowLabel {
+            .high-low-label {
               color: #58667e;
               font-size: 12px;
               font-weight: 400;
               line-height: 18px;
             }
 
-            .highLowValue {
+            .high-low-value {
               color: #000;
               font-size: 12px;
               font-weight: 600;
@@ -117,12 +101,12 @@ body {
             }
           }
 
-          .sliderPill {
+          .slider-pill {
             margin: 0px;
             width: 100%;
             max-width: 170px;
 
-            .sliderFull {
+            .slider-full {
               height: 6px;
               display: inline-block;
               position: relative;
@@ -162,7 +146,7 @@ body {
         }
       }
 
-      .buyAddButtonSection {
+      .buy-add-button-section {
         grid-area: buyAddButtonSection;
         background-color: $background;
         margin: 0px;
@@ -174,7 +158,7 @@ body {
           padding-top: 16px;
           padding-bottom: 16px;
 
-          .buttonSection {
+          .button-section {
             display: flex;
             -webkit-box-pack: end;
             justify-content: flex-end;
@@ -197,13 +181,13 @@ body {
               outline: none;
             }
           }
-          .sponsoredMark {
+          .sponsored-mark {
             margin-bottom: 8px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
 
-            .sponsoredText {
+            .sponsored-text-area {
               color: #808a9d;
               font-size: 11px;
               font-weight: 600;
@@ -213,7 +197,7 @@ body {
         }
       }
 
-      .linkSection {
+      .link-section {
         grid-area: linkSection;
         background-color: $background;
         padding-right: 24px;
@@ -251,7 +235,7 @@ body {
                 align-items: center;
               }
 
-              .buttonName {
+              .button-name {
                 margin: 0 6px;
               }
 
@@ -280,7 +264,7 @@ body {
             font-weight: 500;
           }
 
-          .linkContent {
+          .link-content {
             display: flex;
             flex-wrap: wrap;
             list-style-type: none;
@@ -291,7 +275,7 @@ body {
               text-decoration: none;
             }
 
-            .tagBadge {
+            .tag-badge {
               border-left: none;
               margin-left: 0;
               margin-right: 4px;
@@ -306,7 +290,7 @@ body {
               margin-bottom: 4px;
             }
 
-            .viewAll {
+            .view-all {
               display: initial;
               color: #3861fb;
               cursor: pointer;
@@ -319,12 +303,12 @@ body {
         }
       }
 
-      .statsSection {
+      .stats-section {
         grid-area: statsSection;
         background-color: $background;
         margin-bottom: 16px;
 
-        .statsContainer {
+        .stats-container {
           margin-top: 24px;
           display: grid;
           grid-template-columns: repeat(12, 1fr);
@@ -332,14 +316,14 @@ body {
           padding-top: 24px;
           padding-bottom: 4px;
 
-          .statsBlock {
+          .stats-block {
             grid-column: span 3;
             border-bottom: 1px solid #eff2f5;
             display: flex;
             flex-direction: column;
 
-            .statsBlockInner {
-              .statsLabel {
+            .stats-block-inner {
+              .stats-label {
                 height: 23px;
                 margin: 0px 0px 4px;
                 display: flex;
@@ -350,10 +334,10 @@ body {
                 line-height: 18px;
               }
 
-              .statsItemBelow {
+              .stats-item-below {
                 align-items: center;
 
-                .statsValue {
+                .stats-value {
                   color: #000;
                   font-size: 12px;
                   font-weight: 600;
@@ -366,12 +350,12 @@ body {
                 }
               }
             }
-            .statsBlockInner:nth-child(2) {
+            .stats-block-inner:nth-child(2) {
               margin-top: 28px;
             }
           }
 
-          .statsSupplyBlock {
+          .stats-supply-block {
             grid-column: span 3;
             //display: flex;
             //flex-direction: column;
@@ -380,7 +364,7 @@ body {
             flex-wrap: wrap;
             max-width: 100%;
 
-            .statsLabel {
+            .stats-label {
               margin: 0px 0px 4px;
               display: flex;
               align-items: center;
@@ -390,7 +374,7 @@ body {
               line-height: 18px;
             }
 
-            .statsSecond {
+            .stats-second {
               margin: 0px;
               display: flex;
               -webkit-box-pack: justify;
@@ -398,7 +382,7 @@ body {
               -webkit-box-align: baseline;
               align-items: baseline;
 
-              .statsValue {
+              .stats-value {
                 color: #000;
                 font-size: 12px;
                 font-weight: 600;
@@ -410,7 +394,7 @@ body {
                 align-items: center;
               }
 
-              .statsBlockPercentage {
+              .stats-block-percentage {
                 color: #58667e;
                 font-size: 12px;
                 font-weight: 500;
@@ -418,7 +402,7 @@ body {
               }
             }
 
-            .statsThird {
+            .stats-third {
               margin: 0px 0px 4px;
               flex: 0 0 100%;
 
@@ -452,7 +436,7 @@ body {
               display: flex;
               justify-content: space-between;
 
-              .supplyValue {
+              .supply-value {
                 color: #000;
                 font-size: 12px;
                 font-weight: 500;
@@ -466,23 +450,23 @@ body {
   }
 }
 
-.mySvg {
+.my-svg {
   margin: 0px 0px 0px 4px;
   height: 14px;
   width: 14px;
 }
 
-.myCapSvg {
+.my-cap-svg {
   color: rgb(166, 176, 195);
 }
 
-.capSvg {
+.cap-svg {
   margin-left: 3px;
   vertical-align: middle;
   line-height: 0;
 }
 
-.namePillBase {
+.name-pill-base {
   margin: 0px 0px 0px 8px;
   cursor: pointer;
 
@@ -496,26 +480,26 @@ body {
   white-space: nowrap;
 }
 
-.externalLinkIcon {
+.external-link-icon {
   color: #808a9d;
   height: 16px;
 }
 
 @media (min-width: 768px) {
-  .statsBlock:first-of-type {
+  .stats-block:first-of-type {
     padding-left: 0;
   }
 }
 
 @media (min-width: 1000px) and (max-width: 1376px) {
-  .statsBlock {
+  .stats-block {
     grid-column: span 3;
     padding-top: 12px;
   }
 }
 
 @media (min-width: 768px) {
-  .statsBlock {
+  .stats-block {
     grid-column: span 4;
     border-bottom: none;
     border-right: 1px solid #eff2f5;
@@ -525,20 +509,20 @@ body {
 }
 
 @media (min-width: 768px) {
-  .statsItemBelow {
+  .stats-item-below {
     display: block;
   }
 }
 
 @media (min-width: 1000px) {
-  .statsSupplyBlock {
+  .stats-supply-block {
     grid-column: span 3;
     padding-left: 24px;
   }
 }
 
 @media (min-width: 768px) {
-  .statsSupplyBlock {
+  .stats-supply-block {
     grid-column: span 12;
     display: block;
     padding-left: 0;
@@ -555,7 +539,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  .linkSection {
+  .link-section {
     padding-right: 24px;
     order: 3;
     flex: 0 0 50%;
