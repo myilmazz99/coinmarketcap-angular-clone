@@ -1,6 +1,6 @@
-@import "./app/styles/variables";
-@import "./app/styles/overrides";
-@import "./app/styles/utilities";
+@import "./assets/styles/variables";
+@import "./assets/styles/overrides";
+@import "./assets/styles/utilities";
 
 * {
   box-sizing: border-box;
@@ -23,8 +23,4 @@ ul {
 
 strong {
   font-weight: bolder;
-}
-
-:root {
-  --background-color: #f9fbfe;
 }

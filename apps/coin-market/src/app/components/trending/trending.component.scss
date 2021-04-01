@@ -1,5 +1,3 @@
-@import "../../styles/variables";
-
 .trending {
   &__list {
     &__item {
@@ -8,11 +6,11 @@
       padding: 12px 0 12px 8px;
 
       &:hover {
-        background-color: $color-light-neutral-2;
+        background-color: var(--color-light-neutral-2);
       }
 
       &:not(:last-child) {
-        border-bottom: 1px solid $border-color;
+        border-bottom: 1px solid var(--border-color);
       }
 
       &__logo {
@@ -34,7 +32,7 @@
         }
 
         &__desc {
-          color: $color-gray;
+          color: var(--color-gray);
           font-weight: 500;
         }
 
@@ -59,7 +57,7 @@
             display: flex;
             align-items: center;
             font-size: 11px;
-            color: $color-gray;
+            color: var(--color-gray);
 
             img {
               margin-right: 5px;
@@ -74,7 +72,7 @@
       }
 
       &__name--shorten {
-        color: $color-gray;
+        color: var(--color-gray);
         font-weight: 500;
         font-size: 11px;
         flex-grow: 1;
