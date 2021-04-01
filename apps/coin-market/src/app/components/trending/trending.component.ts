@@ -1,12 +1,17 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
+import { Observable } from "rxjs";
+import { Coin } from "../../models/coin";
+import { CoinService } from "../../shared/services/coin.service";
 
 @Component({
   selector: "trending",
   templateUrl: "./trending.component.html",
   styleUrls: ["./trending.component.scss"],
 })
-export class TrendingComponent implements OnInit {
-  constructor() {}
+export class TrendingComponent {
+  trendingCoins$: Observable<Coin[]>;
 
-  ngOnInit(): void {}
+  constructor(private coinService: CoinService) {
+    this.trendingCoins$ = coinService.getTrendingCoins();
+  }
 }
