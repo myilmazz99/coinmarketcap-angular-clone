@@ -1,12 +1,11 @@
-$background: #f9fbfe;
-
 body {
   text-size-adjust: 100%;
   font-size: 15px;
-  //line-height: 1.5em;
+  //line-height: 1.5;
 }
 
 .container-cryptocurrencies-coins-bitcoin {
+
   width: 100%;
   max-width: 1400px;
   padding-right: 15px;
@@ -16,10 +15,31 @@ body {
   padding-top: 24px;
 
   .container-inner {
-      display: grid;
-      grid-template-areas:
-        "nameSection priceSection buyAddButtonSection"
-        "linkSection statsSection statsSection ";
+    
+    display: grid;
+    grid-template-areas:
+      "nameSection priceSection buyAddButtonSection"
+      "linkSection statsSection statsSection ";
+
+      ._name-section{
+        grid-area: nameSection;
+      }
+
+      ._price-section{
+        grid-area: priceSection;
+      }
+
+      ._button-section{
+        grid-area: buyAddButtonSection;
+      }
+
+      ._link-section{
+        grid-area: linkSection;
+      }
+
+      ._stats-section{
+        grid-area: statsSection;
+      }
   }
 }
 
