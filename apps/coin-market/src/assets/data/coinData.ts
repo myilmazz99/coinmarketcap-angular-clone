@@ -1,4 +1,5 @@
 import { Coin } from "../../app/models/coin";
+import { VoteCoinData } from "../../app/models/voteCoinData.model";
 
 export const fakeCoin = new Coin({
   name: "Bitcoin",
@@ -45,3 +46,9 @@ export const fakeTrendingCoinList: Coin[] = [
     rank: 227,
   }),
 ];
+
+export const fakeCoinVotes: VoteCoinData = {
+  coinId: 1,
+  good: 82,
+  bad: 18,
+};
