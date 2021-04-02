@@ -1,0 +1,59 @@
+table {
+    width: 95%;
+    margin: 2rem auto;
+    border-collapse: separate;
+    text-indent: initial;
+
+    th {
+        color: rgb(34, 37, 49);
+        display: table-cell;
+        vertical-align: inherit;
+        font-weight: bold;
+    }
+}
+#pairs {
+    color: blue;
+    &:hover {
+        cursor: pointer;
+    }
+}
+#first {
+    margin: 2rem 2rem;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 2fr 12fr 0.5fr;
+    grid-gap: 1.6rem;
+}
+h1 {
+    margin-top: 1.7rem;
+    padding-left: 2rem;
+    font-weight: bold;
+}
+.icon {
+    height: 18px;
+    width: 27px;
+    display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#position {
+    color: gray;
+}
+.bold {
+    font-weight: bold;
+}
+.logosource {
+    display: flex;
+    flex-direction: row;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.confidence {
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+.info {
+    display: flex;
+    flex-direction: row;
+}

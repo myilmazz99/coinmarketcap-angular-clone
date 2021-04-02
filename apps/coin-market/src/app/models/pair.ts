@@ -1,2 +1,1 @@
-export class Pair {
-}
+export class Pair {}
