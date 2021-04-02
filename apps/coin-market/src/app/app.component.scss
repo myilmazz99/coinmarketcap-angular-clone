@@ -16,6 +16,7 @@ body {
   background-image: linear-gradient(to top, #fefeff, #f8fafd);
   .container-inner {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
       "nameSection priceSection buyAddButtonSection"
       "linkSection statsSection statsSection ";

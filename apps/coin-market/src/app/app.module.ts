@@ -26,6 +26,8 @@ import { PriceSectionComponent } from './components/price-section/price-section.
 import { StatsSectionComponent } from './components/stats-section/stats-section.component';
 import { BuyAddButtonSectionComponent } from './components/buy-add-button-section/buy-add-button-section.component';
 import { LinkSectionComponent } from './components/link-section/link-section.component';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +55,7 @@ import { LinkSectionComponent } from './components/link-section/link-section.com
     HighchartsChartModule,
     FormsModule,
     HttpClientModule,
+    MatIconModule,
   ],
   providers: [
     CurrencyPipe, 

@@ -1,4 +1,11 @@
 /*ANGULAR MATERIAL*/
+@import "~@angular/material/theming";
+
+$custom-typography: mat-typography-config(
+  $font-family: "Inter, sans-serif",
+);
+
+@include mat-core($custom-typography);
 
 .mat-icon {
   width: auto !important;

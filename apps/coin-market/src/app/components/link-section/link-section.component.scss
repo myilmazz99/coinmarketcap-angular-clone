@@ -112,7 +112,14 @@
 @media (min-width: 768px) {
   .link-section {
     padding-right: 24px;
-    order: 3;
-    flex: 0 0 50%;
+    //order: 3;
+    //flex: 0 0 50%;
   }
+}
+
+@media (min-width: 1376px) {
+.linksSection {
+    order: 4;
+    flex: 0 0 36%;
+}
 }
