@@ -5,41 +5,40 @@ body {
 }
 
 .container-cryptocurrencies-coins-bitcoin {
-
   width: 100%;
-  max-width: 1400px;
+  //max-width: 1400px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
   padding-top: 24px;
-
+  //background-color: var(--background-color);
+  background-image: linear-gradient(to top, #fefeff, #f8fafd);
   .container-inner {
-    
     display: grid;
     grid-template-areas:
       "nameSection priceSection buyAddButtonSection"
       "linkSection statsSection statsSection ";
 
-      ._name-section{
-        grid-area: nameSection;
-      }
+    ._name-section {
+      grid-area: nameSection;
+    }
 
-      ._price-section{
-        grid-area: priceSection;
-      }
+    ._price-section {
+      grid-area: priceSection;
+    }
 
-      ._button-section{
-        grid-area: buyAddButtonSection;
-      }
+    ._button-section {
+      grid-area: buyAddButtonSection;
+    }
 
-      ._link-section{
-        grid-area: linkSection;
-      }
+    ._link-section {
+      grid-area: linkSection;
+    }
 
-      ._stats-section{
-        grid-area: statsSection;
-      }
+    ._stats-section {
+      grid-area: statsSection;
+    }
   }
 }
 
@@ -47,5 +46,14 @@ body {
   .container-inner {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container-inner {
+    padding-right: 60px;
+    padding-left: 60px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
