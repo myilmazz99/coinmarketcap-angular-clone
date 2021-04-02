@@ -16,12 +16,10 @@ body {
   padding-top: 24px;
 
   .container-inner {
-    .sc-BTC {
       display: grid;
       grid-template-areas:
         "nameSection priceSection buyAddButtonSection"
         "linkSection statsSection statsSection ";
-    }
   }
 }
 

@@ -1,43 +1,41 @@
 <div class="price-section">
   <h1 class="price-heading">
-    Bitcoin Price
-    <small>(BTC)</small>
+    {{coin.name + ' Price'}}
+    <small>{{'(' + coin.shortName + ')'}}</small>
   </h1>
   <div class="price-title">
-    <div class="price-value">$55,122.24</div>
-    <span
-      style="background-color:#16c784;color:#fff;padding:5px 8px;border-radius:8px;font-size:14px;font-weight:600"
+    <div class="price-value">{{'$' + coin.price}}</div>
+    <span style="background-color:#16c784;color:#fff;padding:5px 8px;border-radius:8px;font-size:14px;font-weight:600"
       class="price-span">
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="12px" width="12px" viewBox="5 0 20 16"
         style="margin:0">
         <path
           d="M18.0566 16H5.94336C5.10459 16 4.68455 14.9782 5.27763 14.3806L11.3343 8.27783C11.7019 7.90739 12.2981 7.90739 12.6657 8.27783L18.7223 14.3806C19.3155 14.9782 18.8954 16 18.0566 16Z">
         </path>
-      </svg>2.16%
+      </svg>{{coin.priceStatus + '%'}}
     </span>
   </div>
   <div class="alternate-prices">
-    <p>33.49 ETH
+    <p>{{coin.priceSideValue + ' ' + coin.priceSideName}}
       <span style="color: #ea3943; padding: 0px; border-radius: 8px;">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"
-          style="height:12px;width:12px;" class="my-svg">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" style="height:12px;width:12px;"
+          class="my-svg">
           <path
             d="M18.0566 8H5.94336C5.10459 8 4.68455 9.02183 5.27763 9.61943L11.3343 15.7222C11.7019 16.0926 12.2981 16.0926 12.6657 15.7222L18.7223 9.61943C19.3155 9.02183 18.8954 8 18.0566 8Z">
           </path>
         </svg>
-        1.24%</span>
+        {{coin.pricePercentage + '%'}}</span>
     </p>
   </div>
   <div class="slider-section">
     <div class="nowrap-low">
       <span class="high-low-label">Low:</span>
-      <span class="high-low-value">$50,870.59</span>
+      <span class="high-low-value">{{'$' + coin.priceLow}}</span>
     </div>
     <div class="slider-pill">
       <span style="width:100%" class="slider-full">
         <span style="width: 92%;">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24px" width="24px"
-            viewBox="0 0 24 24">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24px" width="24px" viewBox="0 0 24 24">
             <path
               d="M18.0566 16H5.94336C5.10459 16 4.68455 14.9782 5.27763 14.3806L11.3343 8.27783C11.7019 7.90739 12.2981 7.90739 12.6657 8.27783L18.7223 14.3806C19.3155 14.9782 18.8954 16 18.0566 16Z">
             </path>
@@ -47,7 +45,7 @@
     </div>
     <div class="nowrap-high">
       <span class="high-low-label">High:</span>
-      <span class="high-low-value">$55,210.15</span>
+      <span class="high-low-value">${{'$' + coin.priceHigh}}</span>
     </div>
     <div class="name-pill-base" display="inline-block">
       24h

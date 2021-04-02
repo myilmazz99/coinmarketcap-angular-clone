@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="stats-item-below">
-          <div class="stats-value">$1,028,360,948,721</div>
+          <div class="stats-value">{{'$' + coin.marketCapPrice}}</div>
           <span
             style="color:#16c784;padding:0;border-radius:8px;display:block;margin-top:0;font-size:12px;font-weight:600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="12px" width="12px" viewBox="0 0 22 16">
@@ -22,7 +22,7 @@
                 d="M18.0566 16H5.94336C5.10459 16 4.68455 14.9782 5.27763 14.3806L11.3343 8.27783C11.7019 7.90739 12.2981 7.90739 12.6657 8.27783L18.7223 14.3806C19.3155 14.9782 18.8954 16 18.0566 16Z">
               </path>
             </svg>
-            3.27%
+            {{coin.marketCapPercentage+ '%'}}
           </span>
         </div>
       </div>
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="stats-item-below">
-          <div class="stats-value">$1,156,036,894,571</div>
+          <div class="stats-value">{{'$' + coin.fullyMarketCapPrice}}</div>
           <span
             style="color:#16c784;padding:0;border-radius:8px;display:block;margin-top:0;font-size:12px;font-weight:600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="12px" width="12px" viewBox="0 0 22 16">
@@ -49,7 +49,7 @@
                 d="M18.0566 16H5.94336C5.10459 16 4.68455 14.9782 5.27763 14.3806L11.3343 8.27783C11.7019 7.90739 12.2981 7.90739 12.6657 8.27783L18.7223 14.3806C19.3155 14.9782 18.8954 16 18.0566 16Z">
               </path>
             </svg>
-            3.28%
+            {{coin.fullyMarketCapPercentage+ '%'}}
           </span>
         </div>
       </div>
@@ -69,7 +69,7 @@
           </div>
         </div>
         <div class="stats-item-below">
-          <div class="stats-value">$1,028,360,948,721</div>
+          <div class="stats-value">{{'$' + coin.volumePrice}}</div>
           <span
             style="color:#16c784;padding:0;border-radius:8px;display:block;margin-top:0;font-size:12px;font-weight:600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="12px" width="12px" viewBox="0 0 22 16">
@@ -77,7 +77,7 @@
                 d="M18.0566 16H5.94336C5.10459 16 4.68455 14.9782 5.27763 14.3806L11.3343 8.27783C11.7019 7.90739 12.2981 7.90739 12.6657 8.27783L18.7223 14.3806C19.3155 14.9782 18.8954 16 18.0566 16Z">
               </path>
             </svg>
-            8.37%
+            {{coin.volumePercentage+ '%'}}
           </span>
         </div>
       </div>
@@ -86,7 +86,7 @@
           Volume / Market Cap
         </div>
         <div class="stats-item-below">
-          <div class="stats-value">0.04989</div>
+          <div class="stats-value">{{coin.volumeMarketCapNumber}}</div>
         </div>
       </div>
     </div>
@@ -103,8 +103,8 @@
         </div>
       </div>
       <div display="flex" class="stats-second">
-        <div class="stats-value">18,666,012 BTC</div>
-        <div class="stats-block-percentage">89%</div>
+        <div class="stats-value">{{coin.circulatingSupplyNumber + ' ' + coin.shortName}}</div>
+        <div class="stats-block-percentage">{{coin.circulatingSupplyPercentage + '%'}}</div>
       </div>
       <div class="stats-third">
         <span style="width:100%" class="span-first">
@@ -122,7 +122,7 @@
             </svg>
           </div>
         </div>
-        <div class="supply-value">21,000,000</div>
+        <div class="supply-value">{{coin.maxSupplyNumber}}</div>
       </div>
       <div class="total-supply">
         <div class="stats-label">Total Supply
@@ -135,7 +135,7 @@
             </svg>
           </div>
         </div>
-        <div class="supply-value">18,666,012</div>
+        <div class="supply-value">{{coin.totalSupplyNumber}}</div>
       </div>
     </div>
   </div>
