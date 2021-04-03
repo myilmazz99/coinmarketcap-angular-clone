@@ -5,7 +5,8 @@
   </h1>
   <div class="price-title">
     <div class="price-value">{{coin.price | currency: 'USD':'$':'0.2-2'}}</div>
-    <span style="background-color:#16c784;color:#fff;padding:5px 8px;border-radius:8px;font-size:14px;font-weight:600"
+    <span
+      style="background-color: var(--up-color);color:#fff;padding:5px 8px;border-radius:8px;font-size:14px;font-weight:600"
       class="price-span">
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="12px" width="12px" viewBox="5 0 20 16"
         style="margin:0">
@@ -17,7 +18,7 @@
   </div>
   <div class="alternate-prices">
     <p>{{coin.priceSideValue}} {{coin.priceSideName}}
-      <span style="color: #ea3943; padding: 0px; border-radius: 8px;">
+      <span style="color: var(--down-color); padding: 0px; border-radius: 8px;">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" style="height:12px;width:12px;"
           class="my-svg">
           <path

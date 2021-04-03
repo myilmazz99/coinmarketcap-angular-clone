@@ -31,8 +31,8 @@
 
       small {
         word-break: initial;
-        background-color: #eff2f5;
-        color: #58667e;
+        background-color: var(--color-light-neutral-2);
+        color: var(--color-light-neutral-6);
         border-radius: 4px;
         padding: 2px 6px;
         font-size: 12px;
@@ -77,8 +77,8 @@
 
     .namePill__3p {
       margin-right: 8px;
-      background-color: #eff2f5;
-      color: #58667e;
+      background-color: var(--color-light-neutral-2);
+      color: var(--color-light-neutral-6);
       border-radius: 4px;
       padding: 2px 6px;
       font-size: 11px;
@@ -88,7 +88,7 @@
     }
 
     .namePill-rank {
-      background-color: #808a9d;
+      background-color: var(--color-light-neutral-5);
       color: #fff;
     }
   }
