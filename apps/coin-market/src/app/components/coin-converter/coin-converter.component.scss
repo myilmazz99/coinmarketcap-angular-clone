@@ -1,7 +1,5 @@
-@import "../../styles/variables";
-
 .coin-converter {
-  border: 2px solid $border-color;
+  border: 2px solid var(--border-color);
   padding: 0;
   box-shadow: none;
   border-radius: 16px;
@@ -11,7 +9,7 @@
     display: flex;
 
     &:last-child {
-      background-color: $bg-light-gray;
+      background-color: var(--bg-light-gray);
       border-bottom-left-radius: inherit;
       border-bottom-right-radius: inherit;
     }
@@ -27,7 +25,7 @@
           white-space: nowrap;
         }
         small {
-          color: $color-gray;
+          color: var(--color-gray);
         }
       }
 

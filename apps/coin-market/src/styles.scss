@@ -1,6 +1,6 @@
-@import "./app/styles/variables";
-@import "./app/styles/overrides";
-@import "./app/styles/utilities";
+@import "./assets/styles/variables";
+@import "./assets/styles/overrides";
+@import "./assets/styles/utilities";
 
 * {
   box-sizing: border-box;
@@ -12,9 +12,18 @@
 
 body {
   margin: 0;
-  font-family: "Inter", sans-serif !important;
   overflow-x: hidden;
   font-size: 14px;
+  font-family: "Inter", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bolder;
 }
 
 ul {
@@ -25,18 +34,7 @@ strong {
   font-weight: bolder;
 }
 
-
-// html,
-// body {
-//   height: 100%;
-// }
-// body {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-//   //font-family: Roboto, "Helvetica Neue", sans-serif;
-//   font-family: Inter, -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, Helvetica, Arial, sans-serif !important;
-// }
-:root {
-  --background-color: #f9fbfe;
+a {
+  color: currentColor;
+  text-decoration: none;
 }

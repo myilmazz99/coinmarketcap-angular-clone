@@ -1,15 +1,12 @@
-<section class="coin-converter">
+<section class="coin-converter" *ngIf="coin$ | async as coin">
   <div class="currency">
     <div class="currency__details">
       <figure>
-        <img
-          src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png"
-          alt="..."
-        />
+        <img [src]="coin.icon" alt="..." />
       </figure>
       <div class="currency__details__name">
-        <small>BTC</small>
-        <p>Bitcoin</p>
+        <small>{{ coin.symbol }}</small>
+        <p>{{ coin.name }}</p>
       </div>
     </div>
     <input
@@ -18,9 +15,8 @@
       type="text"
       name="coin"
       [(ngModel)]="coinAmount"
-      [value]="coin | currency: 'USD':'':'1.0-6'"
+      [value]="usdAmount / coin.price | currency: 'USD':'':'1.0-6'"
       (focus)="onFocus($event, usdInput)"
-      (input)="onChange(coinInput)"
     />
   </div>
   <div class="currency bg-light-gray">
@@ -43,9 +39,8 @@
       type="text"
       placeholder="0"
       [(ngModel)]="usdAmount"
-      [value]="usd | currency: 'USD':'':'1.0-6'"
+      [value]="coin.price * coinAmount | currency: 'USD':'':'1.0-6'"
       (focus)="onFocus($event, coinInput)"
-      (input)="onChange(usdInput)"
     />
   </div>
 </section>
