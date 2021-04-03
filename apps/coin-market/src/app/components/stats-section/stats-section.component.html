@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="stats-item-below">
-          <div class="stats-value">{{'$' + coin.marketCapPrice}}</div>
+          <div class="stats-value">{{coin.marketCapPrice | currency: 'USD':'$':'0.0-0'}}</div>
           <span
             style="color:#16c784;padding:0;border-radius:8px;display:block;margin-top:0;font-size:12px;font-weight:600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="12px" width="12px" viewBox="0 0 22 16">
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="stats-item-below">
-          <div class="stats-value">{{'$' + coin.fullyMarketCapPrice}}</div>
+          <div class="stats-value">{{coin.fullyMarketCapPrice | currency: 'USD':'$':'0.0-0'}}</div>
           <span
             style="color:#16c784;padding:0;border-radius:8px;display:block;margin-top:0;font-size:12px;font-weight:600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="12px" width="12px" viewBox="0 0 22 16">
@@ -69,7 +69,7 @@
           </div>
         </div>
         <div class="stats-item-below">
-          <div class="stats-value">{{'$' + coin.volumePrice}}</div>
+          <div class="stats-value">{{coin.volumePrice | currency: 'USD':'$':'0.0-0'}}</div>
           <span
             style="color:#16c784;padding:0;border-radius:8px;display:block;margin-top:0;font-size:12px;font-weight:600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="12px" width="12px" viewBox="0 0 22 16">
@@ -122,7 +122,7 @@
             </svg>
           </div>
         </div>
-        <div class="supply-value">{{coin.maxSupplyNumber}}</div>
+        <div class="supply-value">{{coin.maxSupplyNumber | currency:'0.0-0'}}</div>
       </div>
       <div class="total-supply">
         <div class="stats-label">Total Supply

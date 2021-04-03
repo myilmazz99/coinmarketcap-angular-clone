@@ -30,7 +30,7 @@
   <div class="slider-section">
     <div class="nowrap-low">
       <span class="high-low-label">Low:</span>
-      <span class="high-low-value">{{'$' + coin.priceLow}}</span>
+      <span class="high-low-value">{{coin.priceLow | currency: 'USD':'$':'0.2-2'}}</span>
     </div>
     <div class="slider-pill">
       <span style="width:100%" class="slider-full">
@@ -45,7 +45,7 @@
     </div>
     <div class="nowrap-high">
       <span class="high-low-label">High:</span>
-      <span class="high-low-value">${{'$' + coin.priceHigh}}</span>
+      <span class="high-low-value">{{coin.priceHigh | currency: 'USD':'$':'0.2-2'}}</span>
     </div>
     <div class="name-pill-base" display="inline-block">
       24h

@@ -5,6 +5,8 @@ body {
 }
 
 .container-cryptocurrencies-coins-bitcoin {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   //max-width: 1400px;
   padding-right: 15px;
@@ -14,6 +16,48 @@ body {
   padding-top: 24px;
   //background-color: var(--background-color);
   background-image: linear-gradient(to top, #fefeff, #f8fafd);
+
+  .top-links-section {
+    display: flex;
+
+    a {
+      color: rgb(88, 102, 126);
+      padding-right: 5px;
+      position: relative;
+      white-space: nowrap;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 18px;
+      //margin: 0px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .material-icons {
+      font-size: 18px;
+      line-height: 100%;
+      color: rgb(88, 102, 126);
+      padding-right: 8px;
+      //position: absolute;
+      top: 2px;
+    }
+
+    .finally-span {
+      flex: 1 1 0%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--color-primary-black);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 18px;
+      margin: 0px;
+    }
+  }
+
   .container-inner {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -43,18 +87,22 @@ body {
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .container-inner {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    //flex-wrap: wrap;
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1100px) {
   .container-inner {
     padding-right: 60px;
     padding-left: 60px;
     margin-right: auto;
     margin-left: auto;
+  }
+  .top-links-section {
+    padding-left: 60px;
   }
 }
