@@ -7,7 +7,7 @@
     margin-top: 24px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    border-top: 1px solid #eff2f5;
+    border-top: 1px solid var(--control-dropdown-background-color);
     padding-top: 24px;
     padding-bottom: 4px;
 
@@ -23,7 +23,7 @@
           margin: 0px 0px 4px;
           display: flex;
           align-items: center;
-          color: #58667e;
+          color: var(--text-color-sub);
           font-size: 12px;
           font-weight: 500;
           line-height: 18px;
@@ -33,7 +33,7 @@
           align-items: center;
 
           .stats-value {
-            color: #000;
+            color: var(--color-primary-black);
             font-size: 12px;
             font-weight: 600;
             line-height: 18px;
@@ -63,7 +63,7 @@
         margin: 0px 0px 4px;
         display: flex;
         align-items: center;
-        color: #58667e;
+        color: var(--text-color-sub);
         font-size: 12px;
         font-weight: 500;
         line-height: 18px;
@@ -78,7 +78,7 @@
         align-items: baseline;
 
         .stats-value {
-          color: #000;
+          color: var(--color-primary-black);
           font-size: 12px;
           font-weight: 600;
           line-height: 18px;
@@ -90,7 +90,7 @@
         }
 
         .stats-block-percentage {
-          color: #58667e;
+          color: var(--text-color-sub);
           font-size: 12px;
           font-weight: 500;
           line-height: 18px;
@@ -105,20 +105,20 @@
           height: 6px;
           display: inline-block;
           position: relative;
-          background: #eff2f5;
+          background-color: var(--control-dropdown-background-color);
           border-radius: 4px;
           line-height: 5;
 
           span {
             display: inherit;
-            background-color: #cfd6e4;
+            background-color: var(--theme-light-color);
             height: 100%;
             position: absolute;
             left: 0px;
             top: 0px;
             border-top-left-radius: inherit;
             border-bottom-left-radius: inherit;
-            color: #cfd6e4;
+            color: var(--theme-light-color);
             border-top-right-radius: 0px;
             border-bottom-right-radius: 0px;
             transition: width 3s ease-in-out 0s;
@@ -132,7 +132,7 @@
         justify-content: space-between;
 
         .supply-value {
-          color: #000;
+          color: var(--color-primary-black);
           font-size: 12px;
           font-weight: 500;
           line-height: 18px;
@@ -146,8 +146,8 @@
   margin: 0px 0px 0px 8px;
   cursor: pointer;
 
-  background-color: #eff2f5;
-  color: #58667e;
+  background-color: var(--control-dropdown-background-color);
+  color: var(--text-color-sub);
   border-radius: 4px;
   padding: 2px 6px;
   font-size: 11px;
@@ -183,7 +183,7 @@
   .stats-block {
     grid-column: span 4;
     border-bottom: none;
-    border-right: 1px solid #eff2f5;
+    border-right: 1px solid var(--control-dropdown-background-color);
     padding-left: 24px;
     padding-top: 8px;
   }

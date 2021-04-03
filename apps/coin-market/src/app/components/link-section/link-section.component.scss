@@ -22,8 +22,8 @@
       li {
         .button-link {
           text-decoration: none;
-          background-color: #eff2f5;
-          color: #000;
+          background-color: var(--control-dropdown-background-color);
+          color: var(--color-primary-black);
           border: none;
           outline: none;
           border-radius: 8px;
@@ -42,9 +42,9 @@
 
         &:hover {
           .button-link {
-            background-color: #808a9d;
+            background-color: var(--color-light-neutral-5);
             cursor: pointer;
-            color: #fff;
+            color: var(--color-primary-white);
           }
         }
       }
@@ -58,7 +58,7 @@
 
   .container-second {
     .heading {
-      color: #58667e;
+      color: var(--color-light-neutral-6);
       font-size: 11px;
       line-height: 18px;
       margin-bottom: 4px;
@@ -80,8 +80,8 @@
         border-left: none;
         margin-left: 0;
         margin-right: 4px;
-        background-color: #eff2f5;
-        color: #58667e;
+        background-color: var(--color-light-neutral-7);
+        color: var(--color-light-neutral-6);
         //border-left: 3px solid var(--bg-color);
         border-radius: 40px;
         padding: 2px 8px;
@@ -93,7 +93,7 @@
 
       .view-all {
         display: initial;
-        color: #3861fb;
+        color: var(--color-primary-blue);
         cursor: pointer;
         font-size: 11px;
         font-weight: 500;
@@ -105,7 +105,7 @@
 }
 
 .external-link-icon {
-  color: #808a9d;
+  color: var(--color-light-neutral-5);
   height: 16px;
 }
 
@@ -118,8 +118,8 @@
 }
 
 @media (min-width: 1376px) {
-.linksSection {
+  .linksSection {
     order: 4;
     flex: 0 0 36%;
-}
+  }
 }

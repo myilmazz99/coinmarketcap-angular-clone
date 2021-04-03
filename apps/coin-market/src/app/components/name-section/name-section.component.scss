@@ -67,7 +67,7 @@
       .material-icons {
         font-size: 18px;
         line-height: 100%;
-        color: #b9c0ce;
+        color: var(--color-light-neutral-4);
       }
     }
   }
@@ -89,7 +89,7 @@
 
     .namePill-rank {
       background-color: var(--color-light-neutral-5);
-      color: #fff;
+      color: var(--color-primary-white);
     }
   }
 }
