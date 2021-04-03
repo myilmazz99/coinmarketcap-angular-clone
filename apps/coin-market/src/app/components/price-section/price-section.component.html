@@ -1,6 +1,6 @@
 <div class="price-section">
   <h1 class="price-heading">
-    {{coin.name + ' Price'}}
+    {{coin.name}} {{'Price'}}
     <small>{{'(' + coin.shortName + ')'}}</small>
   </h1>
   <div class="price-title">
@@ -16,7 +16,7 @@
     </span>
   </div>
   <div class="alternate-prices">
-    <p>{{coin.priceSideValue + ' ' + coin.priceSideName}}
+    <p>{{coin.priceSideValue}} {{coin.priceSideName}}
       <span style="color: #ea3943; padding: 0px; border-radius: 8px;">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" style="height:12px;width:12px;"
           class="my-svg">
