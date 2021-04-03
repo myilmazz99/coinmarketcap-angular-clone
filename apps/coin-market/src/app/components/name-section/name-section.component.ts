@@ -7,8 +7,9 @@ import { Coin } from '../../models/coin';
   styleUrls: ['./name-section.component.scss']
 })
 export class NameSectionComponent implements OnInit {
-  coin: Coin = new Coin({name: 'Bitcoin', symbol: 'BTC'});
-  constructor() { }
+  coin: Coin = new Coin({name: 'Bitcoin', shortName: 'BTC', rank: 1, watchlists: 834727});
+  constructor() {
+   }
 
   ngOnInit(): void {
   }

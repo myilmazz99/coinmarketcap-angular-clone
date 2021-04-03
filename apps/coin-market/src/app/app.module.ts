@@ -18,35 +18,47 @@ import { CoinChartCalendarComponent } from './components/coin-chart/chart-range-
 import { ChartRangeSelectorComponent } from './components/coin-chart/chart-range-selector/chart-range-selector.component';
 import { OverviewComponent } from './components/overview/overview.component';
 
-import { TableComponent } from './components/table/table.component';
 import { SelectComponent } from './components/select/select.component';
 import { MarketsService } from './shared/services/markets.service';
 import { NameSectionComponent } from './components/name-section/name-section.component';
+import { PriceSectionComponent } from './components/price-section/price-section.component';
+import { StatsSectionComponent } from './components/stats-section/stats-section.component';
+import { BuyAddButtonSectionComponent } from './components/buy-add-button-section/buy-add-button-section.component';
+import { LinkSectionComponent } from './components/link-section/link-section.component';
+import { TableComponent } from './components/table/table.component';
+
 @NgModule({
-    declarations: [
-        AppComponent,
-        CoinChartComponent,
-        CoinStatisticsComponent,
-        CoinConverterComponent,
-        TrendingComponent,
-        ChartRangeSelectorComponent,
-        VoteCoinComponent,
-        CoinChartLegendComponent,
-        CoinChartCalendarComponent,
-        OverviewComponent,
-        TableComponent,
-        SelectComponent,
-        NameSectionComponent,
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MaterialModule,
-        HighchartsChartModule,
-        FormsModule,
-        HttpClientModule,
-    ],
-    providers: [CurrencyPipe, MarketsService],
-    bootstrap: [AppComponent],
+  declarations: [
+    AppComponent,
+    CoinChartComponent,
+    CoinStatisticsComponent,
+    CoinConverterComponent,
+    TrendingComponent,
+    ChartRangeSelectorComponent,
+    VoteCoinComponent,
+    CoinChartLegendComponent,
+    CoinChartCalendarComponent,
+    OverviewComponent,
+    TableComponent,
+    SelectComponent,
+    NameSectionComponent,
+    PriceSectionComponent,
+    StatsSectionComponent,
+    BuyAddButtonSectionComponent,
+    LinkSectionComponent,
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    HighchartsChartModule,
+    FormsModule,
+    HttpClientModule,
+  ],
+  providers: [
+    CurrencyPipe, 
+    MarketsService
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
