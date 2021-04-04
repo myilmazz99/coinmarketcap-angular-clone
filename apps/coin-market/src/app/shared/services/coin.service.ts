@@ -7,13 +7,14 @@ import {
   fakeTrendingCoinList,
 } from "../../../assets/data/coinData";
 import { VoteCoinData } from "../../models/voteCoinData.model";
+import { ChartData } from "../../models/chart-data";
 
 @Injectable({
   providedIn: "root",
 })
 export class CoinService {
   private coin = new BehaviorSubject<Coin>(null);
-  private coin$: Observable<Coin>;
+  public coin$: Observable<Coin>;
 
   private trendingCoins = new BehaviorSubject<Coin[]>(null);
   private trendingCoins$: Observable<Coin[]>;
@@ -21,12 +22,27 @@ export class CoinService {
   private coinVotes = new BehaviorSubject<VoteCoinData>(null);
   private coinVotes$: Observable<VoteCoinData>;
 
-  constructor() {}
+  private chartData: BehaviorSubject<ChartData> = new BehaviorSubject(null);
+  public chartData$: Observable<ChartData>;
 
-  getCoin() {
-    this.coin.next(fakeCoin);
+  /*
+  This service is used for state of active coin
+  */
+  constructor() {
     this.coin$ = this.coin.asObservable();
-    return this.coin$;
+    this.getCoin();
+
+    this.chartData$ = this.chartData.asObservable();
+    this.getChartData();
+  }
+
+  /*
+  This method sends a request to get active Coin Detail
+  Params(@coindID)
+  Response(Coin)
+  */
+  getCoin(): void {
+    this.coin.next(fakeCoin);
   }
 
   getTrendingCoins() {
@@ -41,5 +57,20 @@ export class CoinService {
     this.coinVotes$ = this.coinVotes.asObservable();
 
     return this.coinVotes$;
+  }
+
+  getChartData() {
+    let chartData = { usd: [], coin: [] };
+    for (var i = 500; i > 0; i--) {
+      var day = new Date().getDate();
+      chartData.usd.push([
+        new Date().setDate(day - i),
+        Math.floor(Math.random() * 100000 + 1),
+      ]);
+      chartData.coin.push([new Date().setDate(day - i), 1]);
+    }
+    this.chartData.next(chartData);
+    console.log(this.chartData);
+    
   }
 }

@@ -10,8 +10,11 @@ import { CoinService } from "../../shared/services/coin.service";
 })
 export class TrendingComponent {
   trendingCoins$: Observable<Coin[]>;
+  coins$: Observable<Coin>;
 
   constructor(private coinService: CoinService) {
     this.trendingCoins$ = coinService.getTrendingCoins();
+    this.coins$ = this.coinService.coin$;
+
   }
 }

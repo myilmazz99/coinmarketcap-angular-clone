@@ -26,6 +26,7 @@ import { StatsSectionComponent } from './components/stats-section/stats-section.
 import { BuyAddButtonSectionComponent } from './components/buy-add-button-section/buy-add-button-section.component';
 import { LinkSectionComponent } from './components/link-section/link-section.component';
 import { TableComponent } from './components/table/table.component';
+import { LineChartComponent } from './shared/components/line-chart/line-chart.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { TableComponent } from './components/table/table.component';
     StatsSectionComponent,
     BuyAddButtonSectionComponent,
     LinkSectionComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,

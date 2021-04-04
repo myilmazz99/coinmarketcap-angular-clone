@@ -14,7 +14,7 @@ export class CoinConverterComponent {
   usdAmount = 0;
 
   constructor(private coinService: CoinService) {
-    this.coin$ = coinService.getCoin();
+    this.coin$ = this.coinService.coin$;
   }
 
   onFocus(e: any, input: HTMLInputElement) {
