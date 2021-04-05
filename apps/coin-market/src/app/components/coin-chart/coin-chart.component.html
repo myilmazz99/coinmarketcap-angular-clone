@@ -24,14 +24,11 @@
         </ul>
         <chart-range-selector [chart]="chart"></chart-range-selector>
     </div>
-    <div *ngIf="chartData$ | async as chartData">
-        <coin-market-line-chart
-            *ngIf="chartData.usd && chartData.usd.length > 0"
-            constructorType="stockChart"
-            [chartData]="chartData"
-            [callback]="chartCallback"
-        >
-        </coin-market-line-chart>
-    </div>
+    <coin-market-line-chart
+        constructorType="stockChart"
+        [callback]="chartCallback"
+        [series]="series"
+    >
+    </coin-market-line-chart>
     <coin-chart-legend [legend]="legend" [chart]="chart"></coin-chart-legend>
 </div>
