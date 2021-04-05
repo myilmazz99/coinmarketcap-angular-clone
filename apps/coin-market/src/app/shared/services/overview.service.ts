@@ -12,7 +12,7 @@ import { ChartData } from '../../models/chart-data';
 @Injectable({
     providedIn: 'root',
 })
-export class CoinService {
+export class OverviewService {
     private coin = new BehaviorSubject<Coin>(null);
     public coin$: Observable<Coin>;
 
