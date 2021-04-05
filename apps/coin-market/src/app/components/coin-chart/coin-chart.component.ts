@@ -1,11 +1,11 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts/highstock';
-
 import IndicatorsCore from 'highcharts/indicators/indicators';
-import { Observable, Subscription } from 'rxjs';
-import { ChartData } from '../../models/chart-data';
+import { Subscription } from 'rxjs';
 import { OverviewService } from '../../shared/services/overview.service';
+import HC_exporting from 'highcharts/modules/exporting';
+HC_exporting(Highcharts);
 IndicatorsCore(Highcharts);
 
 @Component({
@@ -15,11 +15,6 @@ IndicatorsCore(Highcharts);
 })
 export class CoinChartComponent implements OnInit, OnDestroy {
     chart: Highcharts.Chart;
-    chartCallback: Highcharts.ChartCallbackFunction = (
-        chart: Highcharts.Chart
-    ) => {
-        this.chart = chart;
-    };
     series: Highcharts.SeriesOptionsType[] = [];
 
     //data
@@ -29,6 +24,10 @@ export class CoinChartComponent implements OnInit, OnDestroy {
     legend = ['USD', 'BTC'];
 
     chartDataSubscription: Subscription;
+
+    getChartInstance(chart: Highcharts.Chart) {
+        this.chart = chart;
+    }
 
     generateTooltipTemplate(
         val: number,

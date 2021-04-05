@@ -3,5 +3,5 @@
     [Highcharts]="highcharts"
     [options]="chartOptions"
     [constructorType]="constructorType"
-    [callbackFunction]="callback"
+    (chartInstance)="getChartInstance($event)"
 ></highcharts-chart>

@@ -26,8 +26,8 @@
     </div>
     <coin-market-line-chart
         constructorType="stockChart"
-        [callback]="chartCallback"
         [series]="series"
+        (chartInstanceEvent)="getChartInstance($event)"
     >
     </coin-market-line-chart>
     <coin-chart-legend [legend]="legend" [chart]="chart"></coin-chart-legend>

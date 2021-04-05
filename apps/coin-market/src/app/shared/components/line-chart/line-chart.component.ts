@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import * as Highcharts from 'highcharts/highstock';
 import IndicatorsCore from 'highcharts/indicators/indicators';
 import HC_exporting from 'highcharts/modules/exporting';
@@ -13,14 +13,17 @@ IndicatorsCore(Highcharts);
 export class LineChartComponent implements OnInit {
     highcharts: typeof Highcharts;
     @Input() constructorType: string;
-    @Input() callback: Highcharts.ChartCallbackFunction;
     @Input() series: Highcharts.SeriesOptionsType[];
+    @Output() chartInstanceEvent = new EventEmitter<Highcharts.Chart>();
 
     chartOptions: Highcharts.Options;
 
+    getChartInstance(chart: Highcharts.Chart) {
+        this.chartInstanceEvent.emit(chart);
+    }
+
     ngOnInit() {
         this.highcharts = Highcharts;
-
         this.chartOptions = {
             rangeSelector: {
                 inputEnabled: false,
