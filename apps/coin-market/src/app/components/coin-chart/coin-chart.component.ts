@@ -14,11 +14,11 @@ IndicatorsCore(Highcharts);
     templateUrl: './coin-chart.component.html',
 })
 export class CoinChartComponent {
-    Chart: Highcharts.Chart;
+    chart: Highcharts.Chart;
     chartCallback: Highcharts.ChartCallbackFunction = (
         chart: Highcharts.Chart
     ) => {
-        this.Chart = chart;
+        this.chart = chart;
     };
 
     //data
