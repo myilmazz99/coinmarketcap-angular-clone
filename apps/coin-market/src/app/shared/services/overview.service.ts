@@ -60,7 +60,7 @@ export class OverviewService {
     }
 
     getChartData(): void {
-        let chartData = { usd: [], coin: [] };
+        let chartData: ChartData;
         for (var i = 500; i > 0; i--) {
             var day = new Date().getDate();
             chartData.usd.push([
@@ -68,6 +68,10 @@ export class OverviewService {
                 Math.floor(Math.random() * 100000 + 1),
             ]);
             chartData.coin.push([new Date().setDate(day - i), 1]);
+            chartData.volume.push([
+                new Date().setDate(day - i),
+                Math.floor(Math.random() * 10000000 + 1),
+            ]);
         }
         this.chartData.next(chartData);
     }
