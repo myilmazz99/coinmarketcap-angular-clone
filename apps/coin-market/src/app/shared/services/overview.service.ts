@@ -60,7 +60,7 @@ export class OverviewService {
     }
 
     getChartData(): void {
-        let chartData: ChartData;
+        let chartData = new ChartData();
         for (var i = 500; i > 0; i--) {
             var day = new Date().getDate();
             chartData.usd.push([
