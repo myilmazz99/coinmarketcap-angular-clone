@@ -1,14 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    AfterViewInit,
+    Component,
+    DoCheck,
+    OnInit,
+    ViewChild,
+} from '@angular/core';
 import { MarketsService } from '../../shared/services/markets.service';
 import { MarketsDataSource } from '../../../assets/data/market-datasource';
-
+import { MatPaginator } from '@angular/material//paginator';
+import { tap } from 'rxjs/operators';
+import { Market } from '../../models/market';
 @Component({
     selector: 'coin-market-table',
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements OnInit {
-    // dataSource = new MarketDataSource2(this.marketService);
+export class TableComponent implements OnInit, AfterViewInit, DoCheck {
+    market: Market;
     dataSource: MarketsDataSource;
     displayedColumns = [
         'position',
@@ -21,43 +29,62 @@ export class TableComponent implements OnInit {
         'confidence',
         'updated',
     ];
-
+    @ViewChild(MatPaginator) paginator: MatPaginator;
     constructor(private marketsService: MarketsService) {}
+    // getData() {
+    //     this.marketsService.getMarkets().subscribe((data) => {
+    //         for (let i = 0; i < 20; i++) {
+    //             console.log(data[i]);
+    //         }
+    //     });
+    // }
+    //Confidence background'u gelen data'ya göre değiştir
+    setConfidenceBackgroundColor() {
+        var bg = Array.from(
+            document.getElementsByClassName(
+                'confidence'
+            ) as HTMLCollectionOf<HTMLElement>
+        );
+        bg.forEach((e) => {
+            switch (e.innerText) {
+                case 'Low':
+                    e.style.background = 'rgb(234, 57, 67)';
+                    e.style.border = '1px solid rgb(234, 57, 67)';
+                    break;
+                case 'Moderate':
+                    e.style.background = 'rgb(245, 163, 65)';
+                    e.style.border = '1px solid rgb(245, 163, 65)';
+                    break;
+                case 'High':
+                    e.style.background = 'rgb(22, 199, 132)';
+                    e.style.border = '1px solid rgb(22, 199, 132)';
+                    break;
+            }
+        });
+    }
 
     ngOnInit() {
         this.dataSource = new MarketsDataSource(this.marketsService);
+        this.dataSource.loadMarkets(this.market.pairId, '', 'asc', 0, 3);
+    }
+    ngAfterViewInit() {
+        this.paginator.page.pipe(tap(() => this.loadMarketsPage())).subscribe();
+    }
+    ngDoCheck() {
+        this.setConfidenceBackgroundColor();
+    }
+    loadMarketsPage() {
+        this.dataSource.loadMarkets(
+            this.market.pairId,
+            '',
+            'asc',
+            this.paginator.pageIndex,
+            this.paginator.pageSize
+        );
     }
 }
+
 //----------------------------------------------------------------------------------
-// import { Component, ViewChild, AfterViewInit, DoCheck } from '@angular/core';
-// import { MatSort } from '@angular/material/sort';
-// import { MatTableDataSource } from '@angular/material/table';
-// import { MatPaginator } from '@angular/material/paginator';
-// import { Pair } from '../../models/pair';
-// import { MarketsService } from 'apps/coin-market/src/app/shared/services/markets.service';
-// import { Observable } from 'rxjs';
-// import { Market } from 'apps/coin-market/src/app/models/market';
-// import { DataSource } from '@angular/cdk/collections';
-
-// @Component({
-//     selector: 'coin-market-table',
-//     templateUrl: './table.component.html',
-//     styleUrls: ['./table.component.scss'],
-// })
-// export class TableComponent implements AfterViewInit, DoCheck {
-//     @ViewChild(MatSort) sort: MatSort;
-
-//     @ViewChild(MatPaginator) paginator: MatPaginator;
-
-//     marketItems$: Observable<Market[]>;
-
-//     constructor(private marketService: MarketsService) {
-//         // this.marketItems$ = this.marketService.marketItems$;
-//     }
-
-//     public markets = this.marketService.getMarkets();
-//     dataSource = new MatTableDataSource(this.markets);
-
 //     selectedValue = 'All';
 
 //     pairs: Pair[] = [
@@ -75,18 +102,6 @@ export class TableComponent implements OnInit {
 //         { value: 11, viewValue: 'TRY' },
 //     ];
 
-//     displayedColumns: string[] = [
-//         'position',
-//         'source',
-//         'pairs',
-//         'price',
-//         'volume',
-//         'volumePercentage',
-//         'liquidity',
-//         'confidence',
-//         'updated',
-//     ];
-
 //     //Pair'leri seçilene göre filtrele
 //     filterPair(newItem: string) {
 //         if (newItem === 'All') {
@@ -94,31 +109,6 @@ export class TableComponent implements OnInit {
 //         } else {
 //             this.applyFilter('/' + newItem);
 //         }
-//     }
-
-//     //Confidence background'u gelen data'ya göre değiştir
-//     setConfidenceBackgroundColor() {
-//         var bg = Array.from(
-//             document.getElementsByClassName(
-//                 'confidence'
-//             ) as HTMLCollectionOf<HTMLElement>
-//         );
-//         bg.forEach((e) => {
-//             switch (e.innerText) {
-//                 case 'Low':
-//                     e.style.background = 'rgb(234, 57, 67)';
-//                     e.style.border = '1px solid rgb(234, 57, 67)';
-//                     break;
-//                 case 'Moderate':
-//                     e.style.background = 'rgb(245, 163, 65)';
-//                     e.style.border = '1px solid rgb(245, 163, 65)';
-//                     break;
-//                 case 'High':
-//                     e.style.background = 'rgb(22, 199, 132)';
-//                     e.style.border = '1px solid rgb(22, 199, 132)';
-//                     break;
-//             }
-//         });
 //     }
 
 //     ngAfterViewInit() {

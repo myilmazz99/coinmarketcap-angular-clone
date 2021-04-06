@@ -29,38 +29,35 @@ import { TableComponent } from './components/table/table.component';
 import { LineChartComponent } from './shared/components/line-chart/line-chart.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CoinChartComponent,
-    CoinStatisticsComponent,
-    CoinConverterComponent,
-    TrendingComponent,
-    ChartRangeSelectorComponent,
-    VoteCoinComponent,
-    CoinChartLegendComponent,
-    CoinChartCalendarComponent,
-    OverviewComponent,
-    TableComponent,
-    SelectComponent,
-    NameSectionComponent,
-    PriceSectionComponent,
-    StatsSectionComponent,
-    BuyAddButtonSectionComponent,
-    LinkSectionComponent,
-    LineChartComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    HighchartsChartModule,
-    FormsModule,
-    HttpClientModule,
-  ],
-  providers: [
-    CurrencyPipe, 
-    MarketsService
-  ],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        CoinChartComponent,
+        CoinStatisticsComponent,
+        CoinConverterComponent,
+        TrendingComponent,
+        ChartRangeSelectorComponent,
+        VoteCoinComponent,
+        CoinChartLegendComponent,
+        CoinChartCalendarComponent,
+        OverviewComponent,
+        TableComponent,
+        SelectComponent,
+        NameSectionComponent,
+        PriceSectionComponent,
+        StatsSectionComponent,
+        BuyAddButtonSectionComponent,
+        LinkSectionComponent,
+        LineChartComponent,
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        HighchartsChartModule,
+        FormsModule,
+        HttpClientModule,
+    ],
+    providers: [CurrencyPipe, MarketsService],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}
