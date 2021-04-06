@@ -1,5 +1,9 @@
 <div class="coin-chart">
-    <h3>Bitcoin Chart</h3>
+    <div class="coin-chart__header">
+        <h3>Bitcoin Chart</h3>
+        <chart-fullscreen-button [chart]="chart"></chart-fullscreen-button>
+        <chart-exports-button [chart]="chart"></chart-exports-button>
+    </div>
 
     <div class="coin-chart__options">
         <ul class="vertical-gray-list">
