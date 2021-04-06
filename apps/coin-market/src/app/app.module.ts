@@ -27,6 +27,8 @@ import { BuyAddButtonSectionComponent } from './components/buy-add-button-sectio
 import { LinkSectionComponent } from './components/link-section/link-section.component';
 import { TableComponent } from './components/table/table.component';
 import { LineChartComponent } from './shared/components/line-chart/line-chart.component';
+import { ChartFullscreenButtonComponent } from './components/coin-chart/chart-fullscreen-button/chart-fullscreen-button.component';
+import { ChartExportsButtonComponent } from './components/coin-chart/chart-exports-button/chart-exports-button.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { LineChartComponent } from './shared/components/line-chart/line-chart.co
     StatsSectionComponent,
     BuyAddButtonSectionComponent,
     LinkSectionComponent,
-    LineChartComponent
+    LineChartComponent,
+    ChartFullscreenButtonComponent,
+    ChartExportsButtonComponent
   ],
   imports: [
     BrowserModule,
