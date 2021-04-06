@@ -39,6 +39,7 @@ export class LineChartComponent implements OnInit {
       </div>`,
             },
             series: [...this.series],
+            exporting: { enabled: false },
         };
     }
 }
