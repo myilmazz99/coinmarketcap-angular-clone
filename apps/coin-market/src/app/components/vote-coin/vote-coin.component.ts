@@ -25,9 +25,9 @@ export class VoteCoinComponent implements OnInit, OnDestroy {
     ) {}
 
     ngOnInit(): void {
-        // this.coinSubscription = this.coinService
-        //   .getCoin()
-        //   .subscribe((x) => (this.coinName = x.name));
+        this.coinSubscription = this.overviewService.coin$.subscribe(
+            (s) => (this.coinName = s.name)
+        );
 
         this.votes$ = this.overviewService.coinVotes$;
 
