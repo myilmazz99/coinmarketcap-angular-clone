@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { VoteCoinComponent } from './components/vote-coin/vote-coin.component';
 import { CoinChartLegendComponent } from './components/coin-chart/coin-chart-legend/coin-chart-legend.component';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, DecimalPipe } from '@angular/common';
 import { CoinChartCalendarComponent } from './components/coin-chart/chart-range-selector/coin-chart-calendar/coin-chart-calendar.component';
 import { ChartRangeSelectorComponent } from './components/coin-chart/chart-range-selector/chart-range-selector.component';
 import { OverviewComponent } from './components/overview/overview.component';
@@ -31,40 +31,37 @@ import { ChartFullscreenButtonComponent } from './components/coin-chart/chart-fu
 import { ChartExportsButtonComponent } from './components/coin-chart/chart-exports-button/chart-exports-button.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CoinChartComponent,
-    CoinStatisticsComponent,
-    CoinConverterComponent,
-    TrendingComponent,
-    ChartRangeSelectorComponent,
-    VoteCoinComponent,
-    CoinChartLegendComponent,
-    CoinChartCalendarComponent,
-    OverviewComponent,
-    TableComponent,
-    SelectComponent,
-    NameSectionComponent,
-    PriceSectionComponent,
-    StatsSectionComponent,
-    BuyAddButtonSectionComponent,
-    LinkSectionComponent,
-    LineChartComponent,
-    ChartFullscreenButtonComponent,
-    ChartExportsButtonComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    HighchartsChartModule,
-    FormsModule,
-    HttpClientModule,
-  ],
-  providers: [
-    CurrencyPipe, 
-    MarketsService
-  ],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        CoinChartComponent,
+        CoinStatisticsComponent,
+        CoinConverterComponent,
+        TrendingComponent,
+        ChartRangeSelectorComponent,
+        VoteCoinComponent,
+        CoinChartLegendComponent,
+        CoinChartCalendarComponent,
+        OverviewComponent,
+        TableComponent,
+        SelectComponent,
+        NameSectionComponent,
+        PriceSectionComponent,
+        StatsSectionComponent,
+        BuyAddButtonSectionComponent,
+        LinkSectionComponent,
+        LineChartComponent,
+        ChartFullscreenButtonComponent,
+        ChartExportsButtonComponent,
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        HighchartsChartModule,
+        FormsModule,
+        HttpClientModule,
+    ],
+    providers: [CurrencyPipe, MarketsService, DecimalPipe],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}
