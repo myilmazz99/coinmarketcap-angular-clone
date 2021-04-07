@@ -10,6 +10,7 @@ import { MarketsDataSource } from '../../../assets/data/market-datasource';
 import { MatPaginator } from '@angular/material//paginator';
 import { tap } from 'rxjs/operators';
 import { Market } from '../../models/market';
+import { MatSort } from '@angular/material/sort';
 @Component({
     selector: 'coin-market-table',
     templateUrl: './table.component.html',
@@ -30,7 +31,12 @@ export class TableComponent implements OnInit, AfterViewInit, DoCheck {
         'updated',
     ];
     @ViewChild(MatPaginator) paginator: MatPaginator;
-    constructor(private marketsService: MarketsService) {}
+    @ViewChild(MatSort) sort: MatSort;
+    
+    dataLength = 0;
+    constructor(private marketsService: MarketsService) {
+        this.dataLength = marketsService.dataLength;
+    }
     // getData() {
     //     this.marketsService.getMarkets().subscribe((data) => {
     //         for (let i = 0; i < 20; i++) {
@@ -65,22 +71,25 @@ export class TableComponent implements OnInit, AfterViewInit, DoCheck {
 
     ngOnInit() {
         this.dataSource = new MarketsDataSource(this.marketsService);
-        this.dataSource.loadMarkets(this.market.pairId, '', 'asc', 0, 3);
+        this.dataSource.loadMarkets();
     }
     ngAfterViewInit() {
-        this.paginator.page.pipe(tap(() => this.loadMarketsPage())).subscribe();
+        this.paginator.page.pipe(tap(() => {
+            this.marketsService.pageNumber.next(this.paginator.pageIndex);
+            this.marketsService.pageSize.next(this.paginator.pageSize);
+            this.loadMarketsPage()
+        })).subscribe();
     }
     ngDoCheck() {
         this.setConfidenceBackgroundColor();
     }
     loadMarketsPage() {
-        this.dataSource.loadMarkets(
-            this.market.pairId,
-            '',
-            'asc',
-            this.paginator.pageIndex,
-            this.paginator.pageSize
-        );
+        this.dataSource.loadMarkets();
+    }
+
+    sortData(ev) {
+        this.marketsService.sortData(ev);
+
     }
 }
 
