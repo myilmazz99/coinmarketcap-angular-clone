@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { Coin } from '../../models/coin';
+import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
+import { Coin } from "../../models/coin";
+import { CoinStatistics } from "../../models/coin-statistics.model";
+import { CoinDetailsService } from "../../shared/services/coin-details.service";
 
 @Component({
-  selector: 'coin-market-stats-section',
-  templateUrl: './stats-section.component.html',
-  styleUrls: ['./stats-section.component.scss']
+  selector: "coin-market-stats-section",
+  templateUrl: "./stats-section.component.html",
+  styleUrls: ["./stats-section.component.scss"],
 })
 export class StatsSectionComponent implements OnInit {
+  coinStatistics$: Observable<CoinStatistics>;
 
-  coin: Coin = new Coin({shortName: 'BTC', marketCapPrice: 1028360948721, marketCapPercentage: 3.27, fullyMarketCapPrice: 1156036894571, fullyMarketCapPercentage: 3.28, volumePrice: 1028360948, volumePercentage: 8.27, volumeMarketCapNumber: 0.04989, circulatingSupplyNumber: 18666012, circulatingSupplyPercentage: 89, maxSupplyNumber: 21000000, totalSupplyNumber: 18666012});
-
-  constructor() { }
+  constructor(private coinDetailsService: CoinDetailsService) {}
 
   ngOnInit(): void {
+    this.coinStatistics$ = this.coinDetailsService.coinStatistics$;
   }
-
 }
