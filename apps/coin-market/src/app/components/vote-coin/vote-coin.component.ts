@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { Coin } from '../../models/coin';
 import { VoteCoin } from '../../models/voteCoin.model';
 import { VoteCoinData } from '../../models/voteCoinData.model';
 import { OverviewService } from '../../shared/services/overview.service';
@@ -40,7 +39,7 @@ export class VoteCoinComponent implements OnInit, OnDestroy {
         if (vote) {
             const voteObj: VoteCoin = JSON.parse(vote);
 
-            if (voteObj.expireDate < new Date().getMilliseconds())
+            if (voteObj.expireDate < new Date().getTime())
                 this.localStorageService.removeItem(`${this.coinName}_vote`);
             else {
                 this.didVote = true;
