@@ -6,26 +6,10 @@
     </div>
 
     <div class="coin-chart__options">
-        <ul class="vertical-gray-list">
-            <li
-                class="vertical-gray-list__item"
-                [class.vertical-gray-list__item--selected]="
-                    selected === 'Price'
-                "
-                (click)="switchData('Price')"
-            >
-                Price
-            </li>
-            <li
-                class="vertical-gray-list__item"
-                [class.vertical-gray-list__item--selected]="
-                    selected === 'MarketCap'
-                "
-                (click)="switchData('MarketCap')"
-            >
-                Market Cap
-            </li>
-        </ul>
+        <chart-data-tabs
+            [tabs]="tabs"
+            (handleDataTabs)="handleDataTabs($event)"
+        ></chart-data-tabs>
         <chart-range-selector [chart]="chart"></chart-range-selector>
     </div>
     <coin-market-line-chart

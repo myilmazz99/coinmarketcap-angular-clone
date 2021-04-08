@@ -19,12 +19,11 @@ export class CoinChartComponent implements OnInit, OnDestroy {
     series: Highcharts.SeriesOptionsType[] = [];
     chartData: ChartData;
     chartDataSubscription: Subscription;
-    //data
-    selected = 'Price';
-    legend = ['USD', 'BTC'];
 
-    switchData(val: string) {
-        this.selected = val;
+    legend = ['USD', 'BTC'];
+    tabs = ['Price', 'Market Cap'];
+
+    handleDataTabs(val: string) {
         const serie_usd = this.chart.series.find((s) => s.name === 'USD');
         const serie_coin = this.chart.series.find((s) => s.name === 'BTC');
 
@@ -34,7 +33,7 @@ export class CoinChartComponent implements OnInit, OnDestroy {
                 serie_usd.update({ type: 'line', data: this.chartData.usd });
                 break;
 
-            case 'marketcap':
+            case 'market cap':
                 serie_coin.update({
                     type: 'line',
                     data: this.chartData.marketCap.coin,
