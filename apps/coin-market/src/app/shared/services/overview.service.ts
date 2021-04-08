@@ -72,6 +72,14 @@ export class OverviewService {
                 new Date().setDate(day - i),
                 Math.floor(Math.random() * 10000000 + 1),
             ]);
+            chartData.marketCap.coin.push([
+                new Date().setDate(day - i),
+                Math.floor(Math.random() * 90000000 + 1),
+            ]);
+            chartData.marketCap.usd.push([
+                new Date().setDate(day - i),
+                Math.floor(Math.random() * 90000000000 + 1),
+            ]);
         }
         this.chartData.next(chartData);
     }
