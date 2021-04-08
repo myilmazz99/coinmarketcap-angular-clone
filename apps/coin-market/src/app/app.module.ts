@@ -29,6 +29,7 @@ import { TableComponent } from './components/table/table.component';
 import { LineChartComponent } from './shared/components/line-chart/line-chart.component';
 import { ChartFullscreenButtonComponent } from './components/coin-chart/chart-fullscreen-button/chart-fullscreen-button.component';
 import { ChartExportsButtonComponent } from './components/coin-chart/chart-exports-button/chart-exports-button.component';
+import { ChartDataTabsComponent } from './components/coin-chart/chart-data-tabs/chart-data-tabs.component';
 
 @NgModule({
     declarations: [
@@ -52,6 +53,7 @@ import { ChartExportsButtonComponent } from './components/coin-chart/chart-expor
         LineChartComponent,
         ChartFullscreenButtonComponent,
         ChartExportsButtonComponent,
+        ChartDataTabsComponent,
     ],
     imports: [
         BrowserModule,
