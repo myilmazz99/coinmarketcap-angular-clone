@@ -8,6 +8,7 @@ import { Market } from "apps/coin-market/src/app/models/market";
 @Injectable({
   providedIn: "root",
 })
+
 export class MarketsService {
   marketItems$: Observable<Market[]>;
   private marketItems: BehaviorSubject<Market[]>;

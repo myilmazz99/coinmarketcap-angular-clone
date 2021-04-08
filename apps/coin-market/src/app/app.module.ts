@@ -27,6 +27,7 @@ import { StatsSectionComponent } from './components/stats-section/stats-section.
 import { BuyAddButtonSectionComponent } from './components/buy-add-button-section/buy-add-button-section.component';
 import { LinkSectionComponent } from './components/link-section/link-section.component';
 import { MatIconModule } from '@angular/material/icon';
+import { CoinDetailsService } from "./shared/services/coin-details.service";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   providers: [
     CurrencyPipe, 
-    MarketsService
+    MarketsService,
+    CoinDetailsService
   ],
   bootstrap: [AppComponent],
 })
