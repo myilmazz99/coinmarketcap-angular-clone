@@ -5,6 +5,7 @@ import IndicatorsCore from 'highcharts/indicators/indicators';
 import { Subscription } from 'rxjs';
 import { OverviewService } from '../../shared/services/overview.service';
 import HC_exporting from 'highcharts/modules/exporting';
+import { ChartData } from '../../models/chart-data';
 HC_exporting(Highcharts);
 IndicatorsCore(Highcharts);
 
@@ -16,14 +17,37 @@ IndicatorsCore(Highcharts);
 export class CoinChartComponent implements OnInit, OnDestroy {
     chart: Highcharts.Chart;
     series: Highcharts.SeriesOptionsType[] = [];
-
+    chartData: ChartData;
+    chartDataSubscription: Subscription;
     //data
     selected = 'Price';
-
-    //legend
     legend = ['USD', 'BTC'];
 
-    chartDataSubscription: Subscription;
+    switchData(val: string) {
+        this.selected = val;
+        const serie_usd = this.chart.series.find((s) => s.name === 'USD');
+        const serie_coin = this.chart.series.find((s) => s.name === 'BTC');
+
+        switch (val.toLowerCase()) {
+            case 'price':
+                serie_coin.update({ type: 'line', data: this.chartData.coin });
+                serie_usd.update({ type: 'line', data: this.chartData.usd });
+                break;
+
+            case 'marketcap':
+                serie_coin.update({
+                    type: 'line',
+                    data: this.chartData.marketCap.coin,
+                });
+                serie_usd.update({
+                    type: 'line',
+                    data: this.chartData.marketCap.usd,
+                });
+                break;
+            default:
+                break;
+        }
+    }
 
     getChartInstance(chart: Highcharts.Chart) {
         this.chart = chart;
@@ -45,7 +69,7 @@ export class CoinChartComponent implements OnInit, OnDestroy {
           <div class="highcharts-tooltip__line__body">
           ${
               isCoin
-                  ? this.currencyPipe.transform(val, 'BTC', '', '1.2-6') +
+                  ? this.currencyPipe.transform(val, 'BTC', '', '1.0-6') +
                     ' BTC'
                   : this.currencyPipe.transform(val, 'USD', 'symbol', '1.0-6')
           }
@@ -68,13 +92,14 @@ export class CoinChartComponent implements OnInit, OnDestroy {
         };
         this.chartDataSubscription = this.overviewService.chartData$.subscribe(
             (data) => {
+                this.chartData = data;
                 this.series.push({
-                    id: 'usd',
                     name: 'USD',
                     color: 'rgb(22, 199, 132)',
                     type: 'line',
                     visible: true,
-                    data: [...data.usd],
+                    data: [...this.chartData.usd],
+                    yAxis: 0,
                     tooltip: {
                         pointFormatter: function () {
                             return _this.generateTooltipTemplate(
@@ -86,12 +111,12 @@ export class CoinChartComponent implements OnInit, OnDestroy {
                     ...commonSeriesOptions,
                 });
                 this.series.push({
-                    id: 'BTC',
                     name: 'BTC',
+                    yAxis: 1,
                     color: 'rgb(255, 187, 31)',
                     type: 'line',
+                    data: [...this.chartData.coin],
                     visible: false,
-                    data: [...data.coin],
                     tooltip: {
                         pointFormatter: function () {
                             return _this.generateTooltipTemplate(
@@ -104,15 +129,22 @@ export class CoinChartComponent implements OnInit, OnDestroy {
                     ...commonSeriesOptions,
                 });
                 this.series.push({
-                    id: 'vol',
                     name: 'Vol 24h',
                     type: 'column',
-                    visible: false,
                     data: [...data.volume],
+                    color: 'rgb(207, 214, 228)',
+                    yAxis: 2,
+                    groupPadding: 0,
+                    pointPadding: 0,
                     tooltip: {
                         pointFormatter: function () {
                             const value = this.y;
-                            return _this.generateTooltipTemplate(value);
+                            return _this.generateTooltipTemplate(
+                                value,
+                                this.color as string,
+                                false,
+                                'Vol 24h'
+                            );
                         },
                     },
                     ...commonSeriesOptions,
