@@ -1,14 +1,12 @@
 body {
   text-size-adjust: 100%;
   font-size: 15px;
-  //line-height: 1.5;
 }
 
 .container-cryptocurrencies-coins-bitcoin {
   display: flex;
   flex-direction: column;
   width: 100%;
-  //max-width: 1400px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -29,7 +27,6 @@ body {
       font-size: 12px;
       font-weight: 500;
       line-height: 18px;
-      //margin: 0px;
 
       &:hover {
         text-decoration: underline;
@@ -41,7 +38,6 @@ body {
       line-height: 100%;
       color: rgb(88, 102, 126);
       padding-right: 8px;
-      //position: absolute;
       top: 2px;
     }
 

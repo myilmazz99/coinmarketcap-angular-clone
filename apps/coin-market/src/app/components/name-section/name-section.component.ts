@@ -11,7 +11,7 @@ import { CoinDetailsService } from "../../shared/services/coin-details.service";
 })
 export class NameSectionComponent implements OnInit {
   coin$: Observable<Coin>;
-  //coinItemList:
+  
   constructor(private coinDetailsService: CoinDetailsService) {}
 
   ngOnInit(): void {

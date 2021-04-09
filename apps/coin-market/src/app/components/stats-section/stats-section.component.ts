@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import { Coin } from "../../models/coin";
 import { CoinStatistics } from "../../models/coin-statistics.model";
 import { CoinDetailsService } from "../../shared/services/coin-details.service";
 

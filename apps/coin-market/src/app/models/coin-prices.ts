@@ -1,6 +1,6 @@
 export class CoinPrices {
     name: string;
-    shortName: string; // todo daha uygun bir değişken adı bulalım
+    shortName: string;
     price: number;
     pricePercentage: number;
     priceStatus: number;

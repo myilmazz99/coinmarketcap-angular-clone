@@ -1,6 +1,6 @@
 export class Coin {
     name: string;
-    shortName: string; // todo daha uygun bir değişken adı bulalım
+    shortName: string;
     icon: string;
     price: number;
     rank: number;
