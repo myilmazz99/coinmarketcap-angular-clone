@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Coin } from '../../models/coin';
 import {
     fakeCoin,
+    fakeCoinStatistics,
     fakeCoinVotes,
     fakeTrendingCoinList,
 } from '../../../assets/data/coinData';
 import { VoteCoinData } from '../../models/voteCoinData.model';
 import { ChartData } from '../../models/chart-data';
+import { CoinStatistics } from '../../models/coin-statistics.model';
 
 @Injectable({
     providedIn: 'root',
@@ -25,6 +28,11 @@ export class OverviewService {
     private chartData: BehaviorSubject<ChartData> = new BehaviorSubject(null);
     public chartData$: Observable<ChartData>;
 
+    private coinStatistics: BehaviorSubject<CoinStatistics> = new BehaviorSubject(
+        null
+    );
+    public coinStatistics$: Observable<CoinStatistics>;
+
     /*
   This service is used for state of active coin
   */
@@ -40,6 +48,9 @@ export class OverviewService {
 
         this.trendingCoins$ = this.trendingCoins.asObservable();
         this.getTrendingCoins();
+
+        this.coinStatistics$ = this.coinStatistics.asObservable();
+        this.getCoinStatistics();
     }
 
     /*
@@ -82,5 +93,9 @@ export class OverviewService {
             ]);
         }
         this.chartData.next(chartData);
+    }
+
+    getCoinStatistics(): void {
+        this.coinStatistics.next(fakeCoinStatistics);
     }
 }
