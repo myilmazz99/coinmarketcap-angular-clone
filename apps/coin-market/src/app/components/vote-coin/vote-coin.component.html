@@ -29,8 +29,8 @@
 
 <ng-template #votedDesc>
   <span
-    >Your vote is for 24 hours. In order to update how you feel about Bitcoin,
-    come back tomorrow!
+    >Your vote is for 24 hours. In order to update how you feel about
+    {{ coinName }}, come back tomorrow!
   </span>
 </ng-template>
 
@@ -38,17 +38,17 @@
 <ng-template #badVote> 👎 Bad </ng-template>
 
 <ng-template #bar>
-  <div class="vote-coin__progress-bar">
-    <mat-progress-bar [color]="primary" mode="determinate" [value]="good">
+  <div class="vote-coin__progress-bar" *ngIf="votes$ | async as votes">
+    <mat-progress-bar [color]="primary" mode="determinate" [value]="votes.good">
     </mat-progress-bar>
     <div class="vote-coin__progress-bar__count">
       <div class="vote-coin__progress-bar__count--good">
-        {{ good }}% Good 👍
+        {{ votes.good }}% Good 👍
       </div>
     </div>
     <div class="vote-coin__progress-bar__count">
       <div class="vote-coin__progress-bar__count--bad">
-        {{ 100 - good }}% Bad 👎
+        {{ votes.bad }}% Bad 👎
       </div>
     </div>
   </div>

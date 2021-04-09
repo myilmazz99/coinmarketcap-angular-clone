@@ -1,4 +1,7 @@
 import { Component } from "@angular/core";
+import { Observable } from "rxjs";
+import { Coin } from "../../models/coin";
+import { CoinService } from "../../shared/services/coin.service";
 
 @Component({
   selector: "coin-converter",
@@ -6,21 +9,16 @@ import { Component } from "@angular/core";
   styleUrls: ["./coin-converter.component.scss"],
 })
 export class CoinConverterComponent {
+  coin$: Observable<Coin>;
   coinAmount = 0;
   usdAmount = 0;
-  exchangeRate = 52556.41;
-  coin: number;
-  usd: number;
 
-  constructor() {}
+  constructor(private coinService: CoinService) {
+    this.coin$ = this.coinService.coin$;
+  }
 
   onFocus(e: any, input: HTMLInputElement) {
     input.value = "";
     e.target.value = "";
-  }
-
-  onChange(input: HTMLInputElement) {
-    if (input.name === "coin") this.usd = this.coinAmount * this.exchangeRate;
-    else this.coin = this.usdAmount / this.exchangeRate;
   }
 }

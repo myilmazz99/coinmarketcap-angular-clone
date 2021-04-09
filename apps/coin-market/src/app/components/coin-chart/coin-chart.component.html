@@ -20,13 +20,14 @@
     </ul>
     <chart-range-selector [Chart]="Chart"></chart-range-selector>
   </div>
-  <highcharts-chart
-    class="coin-chart"
-    [Highcharts]="Highcharts"
-    [options]="chartOptions"
-    [constructorType]="constructorType"
-    [callbackFunction]="chartCallback"
-    style="width: 100%; height: 400px; display: block"
-  ></highcharts-chart>
+  <div *ngIf="(chartData$ | async) as chartData">
+    <coin-market-line-chart 
+      *ngIf="chartData.usd && chartData.usd.length>0" 
+      constructorType="stockChart" 
+      [chartData]="chartData"
+      [callback]="chartCallback">
+    </coin-market-line-chart>
+
+  </div>
   <coin-chart-legend [legend]="legend" [Chart]="Chart"></coin-chart-legend>
 </div>

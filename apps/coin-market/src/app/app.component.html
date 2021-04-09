@@ -7,7 +7,7 @@
     <span font-size="2,3" class="finally-span">Bitcoin</span>
   </div>
   <div class="container-inner">  
-      <coin-market-name-section class="_name-section"></coin-market-name-section>
+      <coin-market-name-section></coin-market-name-section>
       <coin-market-price-section class="_price-section"></coin-market-price-section>
       <coin-market-buy-add-button-section class="_button-section"></coin-market-buy-add-button-section>
       <coin-market-link-section class="_link-section"></coin-market-link-section>
@@ -16,10 +16,10 @@
 </div>
 
 <mat-tab-group>
-  <mat-tab label="Overview">
-    <coin-market-overview></coin-market-overview>
-  </mat-tab>
   <mat-tab label="Market">
     <coin-market-table></coin-market-table>
+  </mat-tab>
+  <mat-tab label="Overview">
+    <coin-market-overview></coin-market-overview>
   </mat-tab>
 </mat-tab-group>

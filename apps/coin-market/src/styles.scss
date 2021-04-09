@@ -1,6 +1,6 @@
-@import "./app/styles/variables";
-@import "./app/styles/overrides";
-@import "./app/styles/utilities";
+@import "./assets/styles/variables";
+@import "./assets/styles/overrides";
+@import "./assets/styles/utilities";
 
 * {
   box-sizing: border-box;
@@ -12,9 +12,18 @@
 
 body {
   margin: 0;
-  font-family: "Inter", sans-serif !important;
   overflow-x: hidden;
   font-size: 14px;
+  font-family: "Inter", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bolder;
 }
 
 ul {
@@ -25,6 +34,10 @@ strong {
   font-weight: bolder;
 }
 
+a {
+  color: currentColor;
+  text-decoration: none;
+}
 :root {
   --background-color: #f9fbfe;
   --color-tippy-arrow: #fff;
