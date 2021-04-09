@@ -1,4 +1,5 @@
 import { Coin } from '../../app/models/coin';
+import { CoinStatistics } from '../../app/models/coin-statistics.model';
 import { VoteCoinData } from '../../app/models/voteCoinData.model';
 
 export const fakeCoin = new Coin({
@@ -51,4 +52,35 @@ export const fakeCoinVotes: VoteCoinData = {
     coinId: 1,
     good: 82,
     bad: 18,
+};
+
+export const fakeCoinStatistics: CoinStatistics = {
+    priceChange: { value: 653.45, comparedToLastValue: 1.13 },
+    price_today_low: 57695.06,
+    price_today_high: 58937.05,
+    tradingVolume: { value: 48568674778.31, comparedToLastValue: -13.16 },
+    volumeMarketCap: 0.04442,
+    marketDominance: 54.95,
+    marketCap: { value: 1093359164333.68, comparedToLastValue: 0.69 },
+    dilutedMarketCap: { value: 1229276128246.84, comparedToLastValue: 0.68 },
+    yesterdayLow: 55879.08,
+    yesterdayHigh: 58338.74,
+    yesterdayOpen: 56099.91,
+    yesterdayClose: 58323.95,
+    yesterdayChange: 3.96,
+    yesterdayVolume: 53053855641.35,
+    price_7d_low: 55604.02,
+    price_7d_high: 60110.27,
+    price_30d_low: 50856.57,
+    price_30d_high: 61683.86,
+    price_90d_low: 28953.37,
+    price_90d_high: 61683.86,
+    price_52w_low: 6555.5,
+    price_52w_high: 61683.86,
+    allTimeHigh: { value: 61683.86, comparedToLastValue: 5.1 },
+    allTimeLow: { value: 65.53, comparedToLastValue: 89233.94 },
+    returnOfInvestment: 43171.97,
+    circulatingSupply: 18678100,
+    totalSupply: 18678100,
+    maxSupply: 21000000,
 };
