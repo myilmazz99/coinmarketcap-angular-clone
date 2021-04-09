@@ -1,10 +1,6 @@
 <div class="nameSection" *ngIf="coin$ | async as coin">
   <div class="nameHeader">
-    <img
-      src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png"
-      height="32"
-      width="32"
-    />
+    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png" height="32" width="32" />
     <h2>
       {{ coin.name }}
       <small>{{ coin.shortName }}</small>
@@ -17,10 +13,10 @@
     </span>
   </div>
   <div class="namePill-box">
-    <div class="namePill__3p namePill-rank">{{ "Rank #" }}{{ coin.rank }}</div>
+    <div class="namePill__3p namePill-rank">Rank #{{ coin.rank }}</div>
     <div class="namePill__3p">Coin</div>
     <div class="namePill__3p">
-      {{ "On" }} {{ coin.watchlists | number: "0.0-0" }} {{ "watchlists" }}
+      On {{ coin.watchlists | number: "0.0-0" }} watchlists
     </div>
   </div>
 </div>

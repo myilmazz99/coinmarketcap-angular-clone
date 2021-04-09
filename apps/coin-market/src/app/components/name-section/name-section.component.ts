@@ -7,7 +7,7 @@ import { CoinDetailsService } from "../../shared/services/coin-details.service";
   selector: "coin-market-name-section",
   templateUrl: "./name-section.component.html",
   styleUrls: ["./name-section.component.scss"],
-  providers: [CoinDetailsService],
+  providers: [ CoinDetailsService ],
 })
 export class NameSectionComponent implements OnInit {
   coin$: Observable<Coin>;
