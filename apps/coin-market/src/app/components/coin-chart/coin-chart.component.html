@@ -12,11 +12,10 @@
         ></chart-data-tabs>
         <chart-range-selector [chart]="chart"></chart-range-selector>
     </div>
-    <coin-market-line-chart
+    <ui-line-chart
         constructorType="stockChart"
         [series]="series"
         (chartInstanceEvent)="getChartInstance($event)"
-    >
-    </coin-market-line-chart>
+    ></ui-line-chart>
     <coin-chart-legend [legend]="legend" [chart]="chart"></coin-chart-legend>
 </div>

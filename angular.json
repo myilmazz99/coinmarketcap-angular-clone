@@ -1,150 +1,180 @@
 {
-  "version": 1,
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
-  "defaultProject": "coin-market",
-  "schematics": {
-    "@nrwl/angular": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      }
+    "version": 1,
+    "cli": {
+        "defaultCollection": "@nrwl/angular"
     },
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+    "defaultProject": "coin-market",
+    "schematics": {
+        "@nrwl/angular": {
+            "application": {
+                "linter": "eslint"
+            },
+            "library": {
+                "linter": "eslint"
+            },
+            "storybook-configuration": {
+                "linter": "eslint"
+            }
+        },
+        "@nrwl/angular:application": {
+            "style": "scss",
+            "linter": "eslint",
+            "unitTestRunner": "jest",
+            "e2eTestRunner": "cypress"
+        },
+        "@nrwl/angular:library": {
+            "style": "scss",
+            "linter": "eslint",
+            "unitTestRunner": "jest"
+        },
+        "@nrwl/angular:component": {
+            "style": "scss"
+        }
     },
-    "@nrwl/angular:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
-    }
-  },
-  "projects": {
-    "coin-market": {
-      "projectType": "application",
-      "root": "apps/coin-market",
-      "sourceRoot": "apps/coin-market/src",
-      "prefix": "coin-market",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/coin-market",
-            "index": "apps/coin-market/src/index.html",
-            "main": "apps/coin-market/src/main.ts",
-            "polyfills": "apps/coin-market/src/polyfills.ts",
-            "tsConfig": "apps/coin-market/tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "apps/coin-market/src/favicon.ico",
-              "apps/coin-market/src/assets"
-            ],
-            "styles": ["./node_modules/@angular/material/prebuilt-themes/indigo-pink.css", "apps/coin-market/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/coin-market/src/environments/environment.ts",
-                  "with": "apps/coin-market/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+    "projects": {
+        "coin-market": {
+            "projectType": "application",
+            "root": "apps/coin-market",
+            "sourceRoot": "apps/coin-market/src",
+            "prefix": "coin-market",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/apps/coin-market",
+                        "index": "apps/coin-market/src/index.html",
+                        "main": "apps/coin-market/src/main.ts",
+                        "polyfills": "apps/coin-market/src/polyfills.ts",
+                        "tsConfig": "apps/coin-market/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "apps/coin-market/src/favicon.ico",
+                            "apps/coin-market/src/assets"
+                        ],
+                        "styles": [
+                            "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                            "apps/coin-market/src/styles.scss"
+                        ],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/coin-market/src/environments/environment.ts",
+                                    "with": "apps/coin-market/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        }
+                    }
                 },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "coin-market:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "coin-market:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "coin-market:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/coin-market/src/**/*.ts",
+                            "apps/coin-market/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": ["coverage/apps/coin-market"],
+                    "options": {
+                        "jestConfig": "apps/coin-market/jest.config.js",
+                        "passWithNoTests": true
+                    }
                 }
-              ]
             }
-          }
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "coin-market:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "coin-market:build:production"
+        "coin-market-e2e": {
+            "root": "apps/coin-market-e2e",
+            "sourceRoot": "apps/coin-market-e2e/src",
+            "projectType": "application",
+            "architect": {
+                "e2e": {
+                    "builder": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "apps/coin-market-e2e/cypress.json",
+                        "tsConfig": "apps/coin-market-e2e/tsconfig.e2e.json",
+                        "devServerTarget": "coin-market:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "coin-market:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/coin-market-e2e/**/*.{js,ts}"
+                        ]
+                    }
+                }
             }
-          }
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "coin-market:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/coin-market/src/**/*.ts",
-              "apps/coin-market/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/coin-market"],
-          "options": {
-            "jestConfig": "apps/coin-market/jest.config.js",
-            "passWithNoTests": true
-          }
+        "ui": {
+            "projectType": "library",
+            "root": "libs/ui",
+            "sourceRoot": "libs/ui/src",
+            "prefix": "ui",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/ui/src/**/*.ts",
+                            "libs/ui/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/ui"],
+                    "options": {
+                        "jestConfig": "libs/ui/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
         }
-      }
-    },
-    "coin-market-e2e": {
-      "root": "apps/coin-market-e2e",
-      "sourceRoot": "apps/coin-market-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/coin-market-e2e/cypress.json",
-            "tsConfig": "apps/coin-market-e2e/tsconfig.e2e.json",
-            "devServerTarget": "coin-market:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "coin-market:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/coin-market-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
     }
-  }
 }

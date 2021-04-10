@@ -26,42 +26,20 @@ import { StatsSectionComponent } from './components/stats-section/stats-section.
 import { BuyAddButtonSectionComponent } from './components/buy-add-button-section/buy-add-button-section.component';
 import { LinkSectionComponent } from './components/link-section/link-section.component';
 import { TableComponent } from './components/table/table.component';
-import { LineChartComponent } from './shared/components/line-chart/line-chart.component';
 import { ChartFullscreenButtonComponent } from './components/coin-chart/chart-fullscreen-button/chart-fullscreen-button.component';
 import { ChartExportsButtonComponent } from './components/coin-chart/chart-exports-button/chart-exports-button.component';
 import { ChartDataTabsComponent } from './components/coin-chart/chart-data-tabs/chart-data-tabs.component';
 
+import { UiModule } from '@coin-market/ui';
+import { AppRoutingModule } from './app-routing.module';
 @NgModule({
     declarations: [
         AppComponent,
-        CoinChartComponent,
-        CoinStatisticsComponent,
-        CoinConverterComponent,
-        TrendingComponent,
-        ChartRangeSelectorComponent,
-        VoteCoinComponent,
-        CoinChartLegendComponent,
-        CoinChartCalendarComponent,
-        OverviewComponent,
-        TableComponent,
-        SelectComponent,
-        NameSectionComponent,
-        PriceSectionComponent,
-        StatsSectionComponent,
-        BuyAddButtonSectionComponent,
-        LinkSectionComponent,
-        LineChartComponent,
-        ChartFullscreenButtonComponent,
-        ChartExportsButtonComponent,
-        ChartDataTabsComponent,
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        MaterialModule,
-        HighchartsChartModule,
-        FormsModule,
-        HttpClientModule,
+        AppRoutingModule,
     ],
     providers: [CurrencyPipe, MarketsService, DecimalPipe],
     bootstrap: [AppComponent],
