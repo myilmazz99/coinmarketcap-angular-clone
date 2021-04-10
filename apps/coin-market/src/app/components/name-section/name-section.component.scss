@@ -6,7 +6,7 @@
   padding-bottom: 8px;
   //flex: 0 0 50%;
   //align-items: center;
-  //margin: 0px;
+  margin-top: 5px;
 
   .nameHeader {
     display: flex;
@@ -97,5 +97,19 @@
 @media (min-width: 1376px) {
   .nameSection {
     flex: 0 0 36%;
+  }
+}
+
+@media (min-width: 768px) {
+  .nameSection {
+    flex: 0 0 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nameSection {
+    padding-top: 8px;
+    padding-right: 24px;
+    padding-bottom: 8px;
   }
 }

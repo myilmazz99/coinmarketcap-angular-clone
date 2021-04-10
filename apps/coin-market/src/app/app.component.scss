@@ -61,7 +61,7 @@ body {
       "nameSection priceSection buyAddButtonSection"
       "linkSection statsSection statsSection ";
 
-    coin-market-name-section {
+    .nameSection {
       grid-area: nameSection;
     }
 
@@ -83,11 +83,39 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .container-inner {
+    /*
+    grid-template-columns: 1fr;
+    //grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+      "nameSection"
+      "priceSection"
+      "buyAddButtonSection"
+      "linkSection"
+      "statsSection";
     //display: flex;
     //flex-direction: column;
     //flex-wrap: wrap;
+    .nameSection {
+      grid-area: nameSection !important;
+    }
+
+    ._price-section {
+      grid-area: priceSection !important;
+    }
+
+    ._button-section {
+      grid-area: buyAddButtonSection !important;
+    }
+
+    ._link-section {
+      grid-area: linkSection !important;
+    }
+
+    ._stats-section {
+      grid-area: statsSection !important;
+    } */
   }
 }
 

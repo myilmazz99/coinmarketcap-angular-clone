@@ -141,3 +141,16 @@
   height: 14px;
   width: 14px;
 }
+
+@media (min-width: 1376px) and (max-width: 1460px) {
+  .price-section {
+    flex: 0 0 37%;
+  }
+}
+
+@media (min-width: 1376px){
+.price-section {
+    margin-top: 14px;
+    flex: 0 0 34%;
+}
+}
