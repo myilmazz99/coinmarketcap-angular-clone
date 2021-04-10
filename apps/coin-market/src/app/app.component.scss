@@ -55,6 +55,29 @@ body {
   }
 
   .container-inner {
+    display: flex;
+    flex-wrap: wrap;
+    /*
+    .nameSection,
+    ._link-section {
+      flex: 0 0 36%;
+    }
+
+    ._price-section {
+      flex: 0 0 37%;
+    }
+
+    ._stats-section {
+      //order: 5;
+      flex: 0 0 64%;
+    }
+
+    ._button-section {
+      flex: 0 0 27%;
+    } */
+    /*.nameSection {
+      min-width: 500px;
+    } */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
@@ -119,6 +142,13 @@ body {
   }
 }
 
+@media (min-width: 768px) {
+  .container-inner {
+    display: flex;
+    //flex-wrap: wrap;
+  }
+}
+
 @media (min-width: 1100px) {
   .container-inner {
     padding-right: 60px;
@@ -130,3 +160,107 @@ body {
     padding-left: 60px;
   }
 }
+
+/*
+@media only screen and (min-width: 1100px) {
+  .nameSection,
+  ._link-section {
+    // flex: 0 0 36% !important;
+  }
+}
+
+
+@media (min-width: 1376px) {
+  .nameSection,
+  ._link-section {
+    flex: 0 0 36% !important;
+  }
+} 
+
+@media (min-width: 768px) {
+  .nameSection,
+  ._link-section {
+    flex: 0 0 50% !important;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1460px) {
+  ._price-section {
+    flex: 0 0 37% !important;
+  }
+}
+
+@media (min-width: 1376px) {
+  ._price-section {
+    margin-top: 14px;
+    flex: 0 0 34% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  ._price-section {
+    flex: 0 0 50% !important;
+  }
+}
+
+@media (min-width: 1376px) {
+  ._stats-section {
+    //order: 5;
+    flex: 0 0 64% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  ._stats-section {
+    //order: 5;
+    flex: 0 0 100% !important;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 1376px) and (max-width: 1460px) {
+  ._button-section {
+    flex: 0 0 27% !important;
+  }
+}
+
+@media (min-width: 1376px) {
+  ._button-section {
+    //order: 3;
+    flex: 0 0 30% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  ._button-section {
+    //order: 4;
+    flex: 0 0 50% !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  ._link-section {
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1376px) {
+  ._link-section {
+    //order: 4;
+  }
+}
+
+@media (min-width: 768px) {
+  ._link-section {
+    //order: 3;
+  }
+}
+
+@media (min-width: 768px) {
+  .nameSection,
+  ._link-section {
+    flex: 0 0 50% !important;
+  }
+}
+
+*/
