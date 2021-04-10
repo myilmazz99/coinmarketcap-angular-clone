@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CoinStatistics } from '../../models/coin-statistics.model';
+import { CoinPriceStatistics } from '../../models/coin-price-statistics.model';
 import { OverviewService } from '../../shared/services/overview.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { OverviewService } from '../../shared/services/overview.service';
     styleUrls: ['./coin-statistics.component.scss'],
 })
 export class CoinStatisticsComponent implements OnInit {
-    coinStatistics$: Observable<CoinStatistics>;
+    coinStatistics$: Observable<CoinPriceStatistics>;
     expanded: boolean = false;
 
     constructor(private overviewService: OverviewService) {}

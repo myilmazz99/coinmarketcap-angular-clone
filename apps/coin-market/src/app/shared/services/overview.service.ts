@@ -10,7 +10,7 @@ import {
 } from '../../../assets/data/coinData';
 import { VoteCoinData } from '../../models/voteCoinData.model';
 import { ChartData } from '../../models/chart-data';
-import { CoinStatistics } from '../../models/coin-statistics.model';
+import { CoinPriceStatistics } from '../../models/coin-price-statistics.model';
 
 @Injectable({
     providedIn: 'root',
@@ -28,10 +28,10 @@ export class OverviewService {
     private chartData: BehaviorSubject<ChartData> = new BehaviorSubject(null);
     public chartData$: Observable<ChartData>;
 
-    private coinStatistics: BehaviorSubject<CoinStatistics> = new BehaviorSubject(
+    private coinStatistics: BehaviorSubject<CoinPriceStatistics> = new BehaviorSubject(
         null
     );
-    public coinStatistics$: Observable<CoinStatistics>;
+    public coinStatistics$: Observable<CoinPriceStatistics>;
 
     /*
   This service is used for state of active coin
