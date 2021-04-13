@@ -10,12 +10,12 @@ export class CoinPriceStatistics extends CoinStatistics {
     priceChange: PriceChange;
     price_today_low: number;
     price_today_high: number;
-    percent_market_dominance: number;
+    marketDominance: number;
     price_yesterday_low: number;
     price_yesterday_high: number;
     price_yesterday_open: number;
     price_yesterday_close: number;
-    percent_yesterday_change: number;
+    yesterdayChange: number;
     price_yesterday_volume: number;
     price_7d_low: number;
     price_7d_high: number;
