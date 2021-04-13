@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Coin } from '../../models/coin';
 import {
     fakeCoin,
@@ -71,14 +70,14 @@ export class OverviewService {
     }
 
     getChartData(): void {
-        let chartData = new ChartData();
-        for (var i = 500; i > 0; i--) {
-            var day = new Date().getDate();
-            chartData.usd.push([
+        const chartData = new ChartData();
+        for (let i = 500; i > 0; i--) {
+            const day = new Date().getDate();
+            chartData.price.usd.push([
                 new Date().setDate(day - i),
                 Math.floor(Math.random() * 100000 + 1),
             ]);
-            chartData.coin.push([new Date().setDate(day - i), 1]);
+            chartData.price.coin.push([new Date().setDate(day - i), 1]);
             chartData.volume.push([
                 new Date().setDate(day - i),
                 Math.floor(Math.random() * 10000000 + 1),

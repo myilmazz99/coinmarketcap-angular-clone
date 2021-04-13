@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { OverviewService } from '../../shared/services/overview.service';
 import HC_exporting from 'highcharts/modules/exporting';
 import { ChartData } from '../../models/chart-data';
+import { ChartDataTabs } from '../../models/chart-data-tabs.model';
 HC_exporting(Highcharts);
 IndicatorsCore(Highcharts);
 
@@ -19,33 +20,26 @@ export class CoinChartComponent implements OnInit, OnDestroy {
     series: Highcharts.SeriesOptionsType[] = [];
     chartData: ChartData;
     chartDataSubscription: Subscription;
-
     legend = ['USD', 'BTC'];
-    tabs = ['Price', 'Market Cap'];
+    tabs: ChartDataTabs[] = [
+        { text: 'Price', objProp: 'price' },
+        { text: 'Market Cap', objProp: 'marketCap' },
+    ];
+    selectedTab: string;
 
     handleDataTabs(val: string) {
+        this.selectedTab = val;
         const serie_usd = this.chart.series.find((s) => s.name === 'USD');
         const serie_coin = this.chart.series.find((s) => s.name === 'BTC');
 
-        switch (val.toLowerCase()) {
-            case 'price':
-                serie_coin.update({ type: 'line', data: this.chartData.coin });
-                serie_usd.update({ type: 'line', data: this.chartData.usd });
-                break;
-
-            case 'market cap':
-                serie_coin.update({
-                    type: 'line',
-                    data: this.chartData.marketCap.coin,
-                });
-                serie_usd.update({
-                    type: 'line',
-                    data: this.chartData.marketCap.usd,
-                });
-                break;
-            default:
-                break;
-        }
+        serie_coin.update({
+            type: 'line',
+            data: this.chartData[val].coin,
+        });
+        serie_usd.update({
+            type: 'line',
+            data: this.chartData[val].usd,
+        });
     }
 
     getChartInstance(chart: Highcharts.Chart) {
@@ -97,7 +91,7 @@ export class CoinChartComponent implements OnInit, OnDestroy {
                     color: 'rgb(22, 199, 132)',
                     type: 'line',
                     visible: true,
-                    data: [...this.chartData.usd],
+                    data: [...this.chartData.price.usd],
                     yAxis: 0,
                     tooltip: {
                         pointFormatter: function () {
@@ -114,7 +108,7 @@ export class CoinChartComponent implements OnInit, OnDestroy {
                     yAxis: 1,
                     color: 'rgb(255, 187, 31)',
                     type: 'line',
-                    data: [...this.chartData.coin],
+                    data: [...this.chartData.price.coin],
                     visible: false,
                     tooltip: {
                         pointFormatter: function () {

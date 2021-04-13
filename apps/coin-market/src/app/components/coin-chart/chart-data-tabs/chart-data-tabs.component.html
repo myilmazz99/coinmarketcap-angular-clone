@@ -2,9 +2,9 @@
     <li
         *ngFor="let t of tabs"
         class="vertical-gray-list__item"
-        [class.vertical-gray-list__item--selected]="selected === t"
-        (click)="handleClick(t)"
+        [class.vertical-gray-list__item--selected]="selected === t.objProp"
+        (click)="handleClick(t.objProp)"
     >
-        {{ t }}
+        {{ t.text }}
     </li>
 </ul>

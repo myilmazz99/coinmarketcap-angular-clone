@@ -1,13 +1,11 @@
 export class ChartData {
-    usd: any[];
-    coin: any[];
-    volume: any[];
+    price: { usd: any[]; coin: any[] };
     marketCap: { usd: any[]; coin: any[] };
+    volume: any[];
 
-    constructor(usd?, coin?, volume?, marketCap?) {
-        this.usd = usd || [];
-        this.coin = coin || [];
-        this.volume = volume || [];
+    constructor(price?, volume?, marketCap?) {
+        this.price = price || { usd: [], coin: [] };
         this.marketCap = marketCap || { usd: [], coin: [] };
+        this.volume = volume || [];
     }
 }

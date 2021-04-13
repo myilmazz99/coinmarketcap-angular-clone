@@ -5,6 +5,7 @@ import {
     Input,
     Output,
 } from '@angular/core';
+import { ChartDataTabs } from '../../../models/chart-data-tabs.model';
 
 @Component({
     selector: 'chart-data-tabs',
@@ -12,7 +13,7 @@ import {
     styleUrls: ['./chart-data-tabs.component.scss'],
 })
 export class ChartDataTabsComponent implements AfterViewInit {
-    @Input() tabs: string[];
+    @Input() tabs: ChartDataTabs[];
     @Output() handleDataTabs = new EventEmitter<string>();
     selected: string;
 
@@ -22,6 +23,6 @@ export class ChartDataTabsComponent implements AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        this.selected = this.tabs[0];
+        this.selected = this.tabs[0].objProp;
     }
 }
