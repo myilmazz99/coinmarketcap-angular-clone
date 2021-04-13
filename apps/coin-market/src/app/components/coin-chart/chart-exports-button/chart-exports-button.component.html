@@ -8,5 +8,6 @@
         <li *ngFor="let o of exportOptions" (click)="handleDownload(o.type)">
             {{ o.text }}
         </li>
+        <li (click)="handleXLSX()">Download XLSX</li>
     </ul>
 </mat-menu>
