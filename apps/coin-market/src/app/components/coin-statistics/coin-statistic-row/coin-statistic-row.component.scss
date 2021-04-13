@@ -1,0 +1,38 @@
+.coin-statistics__table__row__header {
+    color: var(--color-gray);
+    text-align: left;
+    display: flex;
+    align-items: center;
+
+    .badge-gray {
+        margin-left: 5px;
+    }
+
+    .mat-icon.mat-tooltip-trigger {
+        margin-left: 4px;
+    }
+}
+
+.coin-statistics__table__row__body {
+    font-weight: bold;
+    margin: 0;
+    text-align: right;
+
+    .comparison {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        &.comparison--small {
+            font-size: 11.6px;
+        }
+
+        &.comparison--up {
+            color: green;
+        }
+
+        &.comparison--down {
+            color: red;
+        }
+    }
+}

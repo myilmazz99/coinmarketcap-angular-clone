@@ -1,0 +1,39 @@
+<div class="coin-statistics__table__row__header">
+    {{ title }} <span *ngIf="dayTag" class="badge-gray">24h</span>
+    <span *ngIf="tooltip; then tooltipTemplate"></span>
+</div>
+<div class="coin-statistics__table__row__body">
+    <ng-container *ngIf="!isArray(); else values">
+        {{
+            isString()
+                ? value
+                : isCurrency
+                ? (value | currency: 'USD':'symbol':'1.0-2')
+                : (value | number: '1.0-6')
+        }}
+    </ng-container>
+
+    <div
+        class="comparison"
+        *ngIf="percentage as p"
+        [ngClass]="handleComparisonClass(p)"
+    >
+        <mat-icon *ngIf="p < 0; else expandLess">expand_more</mat-icon>
+        {{ p < 0 ? p * -1 : p }}%
+    </div>
+</div>
+
+<ng-template #expandLess>
+    <mat-icon>expand_less</mat-icon>
+</ng-template>
+
+<ng-template #values>
+    <ng-container *ngFor="let v of value; index as i">
+        {{ v | currency: 'USD':'symbol':'1.0-2' }}
+        {{ i === 0 ? '/' : '' }}
+    </ng-container>
+</ng-template>
+
+<ng-template #tooltipTemplate>
+    <mat-icon [matTooltip]="tooltip">help</mat-icon>
+</ng-template>

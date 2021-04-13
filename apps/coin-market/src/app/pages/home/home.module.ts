@@ -26,7 +26,7 @@ import { TableComponent } from '../../components/table/table.component';
 import { TrendingComponent } from '../../components/trending/trending.component';
 import { VoteCoinComponent } from '../../components/vote-coin/vote-coin.component';
 import { MaterialModule } from '../../shared/material.module';
-
+import { CoinStatisticRowComponent } from '../../components/coin-statistics/coin-statistic-row/coin-statistic-row.component';
 
 @NgModule({
     imports: [
@@ -38,9 +38,10 @@ import { MaterialModule } from '../../shared/material.module';
         HttpClientModule,
         UiModule,
     ],
-  declarations: [
-      HomeComponent,
-      CoinChartComponent,
+    declarations: [
+        HomeComponent,
+        CoinStatisticRowComponent,
+        CoinChartComponent,
         CoinStatisticsComponent,
         CoinConverterComponent,
         TrendingComponent,
@@ -60,6 +61,6 @@ import { MaterialModule } from '../../shared/material.module';
         ChartDataTabsComponent,
         TableComponent,
     ],
-  exports: [HomeComponent],
+    exports: [HomeComponent],
 })
-export class HomeModule { }
+export class HomeModule {}
