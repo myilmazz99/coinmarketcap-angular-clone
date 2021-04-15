@@ -57,55 +57,6 @@ body {
   .container-inner {
     display: flex;
     flex-wrap: wrap;
-    //flex: 0 0 100%;
-    /*
-    .nameSection,
-    ._link-section {
-      flex: 0 0 36%;
-    }
-
-    ._price-section {
-      flex: 0 0 37%;
-    }
-
-    ._stats-section {
-      //order: 5;
-      flex: 0 0 64%;
-    }
-
-    ._button-section {
-      flex: 0 0 27%;
-    } */
-    /*.nameSection {
-      min-width: 500px;
-    } */
-    //display: grid;
-    //grid-template-columns: repeat(3, 1fr);
-    //grid-template-columns: 100%;
-    //justify-content: left;
-    /*grid-template-areas:
-      "nameSection priceSection buyAddButtonSection"
-      "linkSection statsSection statsSection "; 
-
-    .nameSection {
-      grid-area: nameSection;
-    }
-
-    ._price-section {
-      grid-area: priceSection;
-    }
-
-    ._button-section {
-      grid-area: buyAddButtonSection;
-    }
-
-    ._link-section {
-      grid-area: linkSection;
-    }
-
-    ._stats-section {
-      grid-area: statsSection;
-    } */
 
     @media only screen and (min-width: 1200px) {
       .nameSection,
@@ -127,23 +78,16 @@ body {
       .nameSection {
         flex: 0 0 50%;
       }
-
       ._link-section {
-        //display: flex;
-        //flex-wrap: wrap;
         flex: 0 0 50%;
-        //margin-top: 30px;
         order: 3;
       }
-
       ._price-section {
         flex: 0 0 50%;
-        //justify-content: flex-end;
       }
       ._stats-section {
         flex: 0 0 100%;
         order: 5;
-        //margin-top: 10px;
       }
       ._button-section {
         order: 4;
@@ -165,67 +109,12 @@ body {
       }
       ._button-section {
         flex: 0 0 100%;
-        /*justify-content: flex-start;
-        button {
-          justify-content: flex-start;
-        }*/
       }
       ._stats-section {
         visibility: hidden;
         position: absolute;
       }
     }
-
-    @media (min-width: 1100px) {
-      //grid-template-columns: 36% 33% 31%; //repeat(12, 1fr);
-      //grid-column-end: 30% 70%;
-      ._stats-section {
-        // grid-template-columns: calc(100vw-30%);
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .container-inner {
-    /*
-    grid-template-columns: 1fr;
-    //grid-template-rows: repeat(5, 1fr);
-    grid-template-areas:
-      "nameSection"
-      "priceSection"
-      "buyAddButtonSection"
-      "linkSection"
-      "statsSection";
-    //display: flex;
-    //flex-direction: column;
-    //flex-wrap: wrap;
-    .nameSection {
-      grid-area: nameSection !important;
-    }
-
-    ._price-section {
-      grid-area: priceSection !important;
-    }
-
-    ._button-section {
-      grid-area: buyAddButtonSection !important;
-    }
-
-    ._link-section {
-      grid-area: linkSection !important;
-    }
-
-    ._stats-section {
-      grid-area: statsSection !important;
-    } */
-  }
-}
-
-@media (min-width: 768px) {
-  .container-inner {
-    display: flex;
-    //flex-wrap: wrap;
   }
 }
 
@@ -233,114 +122,8 @@ body {
   .container-inner {
     padding-right: 60px;
     padding-left: 60px;
-    //margin-right: auto;
-    //margin-left: auto;
   }
   .top-links-section {
     padding-left: 60px;
   }
 }
-
-/*
-@media only screen and (min-width: 1100px) {
-  .nameSection,
-  ._link-section {
-    // flex: 0 0 36% !important;
-  }
-}
-
-
-@media (min-width: 1376px) {
-  .nameSection,
-  ._link-section {
-    flex: 0 0 36% !important;
-  }
-} 
-
-@media (min-width: 768px) {
-  .nameSection,
-  ._link-section {
-    flex: 0 0 50% !important;
-  }
-}
-
-@media (min-width: 1100px) and (max-width: 1460px) {
-  ._price-section {
-    flex: 0 0 37% !important;
-  }
-}
-
-@media (min-width: 1376px) {
-  ._price-section {
-    margin-top: 14px;
-    flex: 0 0 34% !important;
-  }
-}
-
-@media (max-width: 768px) {
-  ._price-section {
-    flex: 0 0 50% !important;
-  }
-}
-
-@media (min-width: 1376px) {
-  ._stats-section {
-    //order: 5;
-    flex: 0 0 64% !important;
-  }
-}
-
-@media (max-width: 768px) {
-  ._stats-section {
-    //order: 5;
-    flex: 0 0 100% !important;
-    margin-bottom: 16px;
-  }
-}
-
-@media (min-width: 1376px) and (max-width: 1460px) {
-  ._button-section {
-    flex: 0 0 27% !important;
-  }
-}
-
-@media (min-width: 1376px) {
-  ._button-section {
-    //order: 3;
-    flex: 0 0 30% !important;
-  }
-}
-
-@media (min-width: 768px) {
-  ._button-section {
-    //order: 4;
-    flex: 0 0 50% !important;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  ._link-section {
-    padding-right: 24px;
-  }
-}
-
-@media (min-width: 1376px) {
-  ._link-section {
-    //order: 4;
-  }
-}
-
-@media (min-width: 768px) {
-  ._link-section {
-    //order: 3;
-  }
-}
-
-@media (min-width: 768px) {
-  .nameSection,
-  ._link-section {
-    flex: 0 0 50% !important;
-  }
-}
-
-*/
