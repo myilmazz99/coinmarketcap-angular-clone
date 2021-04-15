@@ -57,6 +57,7 @@ body {
   .container-inner {
     display: flex;
     flex-wrap: wrap;
+    //flex: 0 0 100%;
     /*
     .nameSection,
     ._link-section {
@@ -78,11 +79,13 @@ body {
     /*.nameSection {
       min-width: 500px;
     } */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
+    //display: grid;
+    //grid-template-columns: repeat(3, 1fr);
+    //grid-template-columns: 100%;
+    //justify-content: left;
+    /*grid-template-areas:
       "nameSection priceSection buyAddButtonSection"
-      "linkSection statsSection statsSection ";
+      "linkSection statsSection statsSection "; 
 
     .nameSection {
       grid-area: nameSection;
@@ -102,6 +105,83 @@ body {
 
     ._stats-section {
       grid-area: statsSection;
+    } */
+
+    @media only screen and (min-width: 1200px) {
+      .nameSection,
+      ._link-section {
+        flex: 0 0 36%;
+      }
+      ._price-section {
+        flex: 0 0 37%;
+      }
+      ._button-section {
+        flex: 0 0 27%;
+      }
+      ._stats-section {
+        flex: 0 0 64%;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1200px) {
+      .nameSection {
+        flex: 0 0 50%;
+      }
+
+      ._link-section {
+        //display: flex;
+        //flex-wrap: wrap;
+        flex: 0 0 50%;
+        //margin-top: 30px;
+        order: 3;
+      }
+
+      ._price-section {
+        flex: 0 0 50%;
+        //justify-content: flex-end;
+      }
+      ._stats-section {
+        flex: 0 0 100%;
+        order: 5;
+        //margin-top: 10px;
+      }
+      ._button-section {
+        order: 4;
+        margin-top: 20px;
+        flex: 0 0 50%;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .nameSection {
+        flex: 0 0 100%;
+      }
+
+      ._link-section {
+        flex: 0 0 100%;
+      }
+      ._price-section {
+        flex: 0 0 100%;
+      }
+      ._button-section {
+        flex: 0 0 100%;
+        /*justify-content: flex-start;
+        button {
+          justify-content: flex-start;
+        }*/
+      }
+      ._stats-section {
+        visibility: hidden;
+        position: absolute;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      //grid-template-columns: 36% 33% 31%; //repeat(12, 1fr);
+      //grid-column-end: 30% 70%;
+      ._stats-section {
+        // grid-template-columns: calc(100vw-30%);
+      }
     }
   }
 }
@@ -153,8 +233,8 @@ body {
   .container-inner {
     padding-right: 60px;
     padding-left: 60px;
-    margin-right: auto;
-    margin-left: auto;
+    //margin-right: auto;
+    //margin-left: auto;
   }
   .top-links-section {
     padding-left: 60px;

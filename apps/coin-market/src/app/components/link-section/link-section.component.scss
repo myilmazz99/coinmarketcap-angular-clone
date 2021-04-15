@@ -110,6 +110,53 @@
   height: 16px;
 }
 
+[data-tippy-root] {
+  max-width: calc(100vw - 10px);
+  pointer-events: auto !important;
+}
+
+.tippy-box {
+  position: relative;
+  background-color: #fff; //var(--control-background-color);
+  color: #000; //var(--text-color);
+  border-radius: 8px;
+  box-shadow: blue;
+  font-size: 12px;
+  line-height: 1.4;
+  //font-weight: 700;
+  outline: 0;
+  transition-property: transform, visibility, opacity;
+
+  .tippy-content {
+    position: relative;
+    padding: 10px 15px;
+    z-index: 1;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      li {
+        margin-bottom: 8px;
+        a {
+          display: flex;
+          flex-direction: row;
+
+          .external-link-icon {
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+  }
+  .tippy-arrow {
+    color: #fff; //var(--control-background-color);
+    bottom: 0;
+    width: 16px;
+    height: 16px;
+    color: yellow; //var(--color-tippy-arrow);
+  }
+}
+
 @media (min-width: 768px) {
   .link-section {
     padding-right: 24px;
