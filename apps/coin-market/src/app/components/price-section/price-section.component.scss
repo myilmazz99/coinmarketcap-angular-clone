@@ -1,6 +1,10 @@
 .price-section {
   //grid-area: priceSection;
   //background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
   margin: 0px;
 
   .price-heading {
@@ -140,17 +144,4 @@
   margin: 0px 0px 0px 4px;
   height: 14px;
   width: 14px;
-}
-
-@media (min-width: 1376px) and (max-width: 1460px) {
-  .price-section {
-    flex: 0 0 37%;
-  }
-}
-
-@media (min-width: 1376px){
-.price-section {
-    margin-top: 14px;
-    flex: 0 0 34%;
-}
 }
