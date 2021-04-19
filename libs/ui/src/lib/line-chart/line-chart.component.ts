@@ -1,84 +1,187 @@
-import { DecimalPipe } from '@angular/common';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { CurrencyPipe, DecimalPipe } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts/highstock';
 import IndicatorsCore from 'highcharts/indicators/indicators';
 import HC_exporting from 'highcharts/modules/exporting';
+import { ChartData, ChartDataTabs } from '@coin-market/data';
 HC_exporting(Highcharts);
 IndicatorsCore(Highcharts);
 
 @Component({
-  selector: 'ui-line-chart',
-  templateUrl: './line-chart.component.html',
-  styleUrls: ['./line-chart.component.scss']
+    selector: 'ui-line-chart',
+    templateUrl: './line-chart.component.html',
+    styleUrls: ['./line-chart.component.scss'],
 })
 export class LineChartComponent implements OnInit {
-  highcharts: typeof Highcharts;
-  @Input() constructorType: string;
-  @Input() series: Highcharts.SeriesOptionsType[];
-  @Output() chartInstanceEvent = new EventEmitter<Highcharts.Chart>();
+    highcharts: typeof Highcharts;
+    chart: Highcharts.Chart;
+    chartOptions: Highcharts.Options;
+    @Input() series: Highcharts.SeriesOptionsType[];
+    @Input() legend: string[];
+    @Input() tabs: ChartDataTabs[];
+    @Input() data: ChartData;
+    selectedTab: string;
+    isTrue = false;
 
-  chartOptions: Highcharts.Options;
+    constructor(
+        private decimalPipe: DecimalPipe,
+        private currencyPipe: CurrencyPipe
+    ) {}
 
-  constructor(private decimalPipe: DecimalPipe) {}
+    getSelectedTab(val: string) {
+        this.selectedTab = val;
+    }
 
-  getChartInstance(chart: Highcharts.Chart) {
-      this.chartInstanceEvent.emit(chart);
-  }
+    generateTooltipTemplate(
+        val: number,
+        headerColor: string = 'rgb(207, 214, 228)',
+        isCoin: boolean = false,
+        headerTitle: string = 'Price'
+    ) {
+        return `
+        <div class="highcharts-tooltip__line">
+          <div class="highcharts-tooltip__line__header">
+            <div class="highcharts-tooltip__line__header__color" style="background:${headerColor}">
+            </div>
+            ${headerTitle}${isCoin ? `(BTC)` : ''}: 
+          </div>
+          <div class="highcharts-tooltip__line__body">
+          ${
+              isCoin
+                  ? this.currencyPipe.transform(val, 'BTC', '', '1.0-6') +
+                    ' BTC'
+                  : this.currencyPipe.transform(val, 'USD', 'symbol', '1.0-6')
+          }
+          </div>
+        </div>`;
+    }
 
-  ngOnInit() {
-      this.highcharts = Highcharts;
-      const _this = this;
+    getChartInstance(chart: Highcharts.Chart) {
+        this.chart = chart;
+        this.isTrue = true;
+    }
 
-      this.chartOptions = {
-          rangeSelector: {
-              inputEnabled: false,
-              enabled: false,
-          },
-          tooltip: {
-              split: false,
-              shared: true,
-              useHTML: true,
-              headerFormat: `<div class="highcharts-tooltip__line">
+    ngOnInit() {
+        this.highcharts = Highcharts;
+        const _this = this;
+
+        const commonSeriesOptions = {
+            states: {
+                hover: { lineWidth: 2 },
+            },
+            label: { enabled: false },
+        };
+
+        this.chartOptions = {
+            rangeSelector: {
+                inputEnabled: false,
+                enabled: false,
+            },
+            tooltip: {
+                split: false,
+                shared: true,
+                useHTML: true,
+                headerFormat: `<div class="highcharts-tooltip__line">
       <div class="highcharts-tooltip__line__body">{point.key}
       </div>
     </div>`,
-          },
-          yAxis: [
-              {
-                  labels: {
-                      align: 'left',
-                      x: 0,
-                      formatter: function () {
-                          return (
-                              '$' + this.axis.defaultLabelFormatter.call(this)
-                          );
-                      },
-                  },
-                  opposite: false,
-                  height: '80%',
-              },
-              {
-                  labels: {
-                      align: 'right',
-                      x: 0,
-                      formatter: function () {
-                          var formattedValue = _this.decimalPipe.transform(
-                              this.value,
-                              '1.0-0'
-                          );
-                          return formattedValue + ' BTC';
-                      },
-                  },
-                  height: '80%',
-              },
-              {
-                  height: '20%',
-                  top: '80%',
-                  visible: false,
-              },
-          ],
-          series: [...this.series],
-          exporting: { enabled: false },
-      };
-  }
+            },
+            yAxis: [
+                {
+                    id: 'usd',
+                    labels: {
+                        align: 'left',
+                        x: 0,
+                        formatter: function () {
+                            return (
+                                '$' + this.axis.defaultLabelFormatter.call(this)
+                            );
+                        },
+                    },
+                    opposite: false,
+                    height: '80%',
+                },
+                {
+                    id: 'coin',
+                    labels: {
+                        align: 'right',
+                        x: 0,
+                        formatter: function () {
+                            var formattedValue = _this.decimalPipe.transform(
+                                this.value,
+                                '1.0-0'
+                            );
+                            return formattedValue + ' BTC';
+                        },
+                    },
+                    height: '80%',
+                },
+                {
+                    id: 'volume',
+                    height: '20%',
+                    top: '80%',
+                    visible: false,
+                },
+            ],
+            series: [
+                {
+                    name: 'USD',
+                    color: 'rgb(22, 199, 132)',
+                    type: 'line',
+                    visible: true,
+                    data: [...this.data.price.usd],
+                    yAxis: 'usd',
+                    tooltip: {
+                        pointFormatter: function () {
+                            return _this.generateTooltipTemplate(
+                                this.y,
+                                this.color as string
+                            );
+                        },
+                    },
+                    ...commonSeriesOptions,
+                },
+                {
+                    name: 'BTC',
+                    yAxis: 'coin',
+                    color: 'rgb(255, 187, 31)',
+                    type: 'line',
+                    data: [...this.data.price.coin],
+                    visible: false,
+                    tooltip: {
+                        pointFormatter: function () {
+                            return _this.generateTooltipTemplate(
+                                this.y,
+                                this.color as string,
+                                true
+                            );
+                        },
+                    },
+                    ...commonSeriesOptions,
+                },
+                {
+                    name: 'Vol 24h',
+                    type: 'column',
+                    data: [...this.data.volume],
+                    color: 'rgb(207, 214, 228)',
+                    yAxis: 'volume',
+                    groupPadding: 0,
+                    pointPadding: 0,
+                    tooltip: {
+                        pointFormatter: function () {
+                            const value = this.y;
+                            return _this.generateTooltipTemplate(
+                                value,
+                                this.color as string,
+                                false,
+                                'Vol 24h'
+                            );
+                        },
+                    },
+                    ...commonSeriesOptions,
+                },
+            ],
+            exporting: { enabled: false },
+        };
+    }
 }

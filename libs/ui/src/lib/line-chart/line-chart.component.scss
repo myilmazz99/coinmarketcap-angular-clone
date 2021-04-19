@@ -3,3 +3,21 @@
     height: 560px;
     display: block;
 }
+.coin-chart {
+    &__header {
+        display: flex;
+        align-items: center;
+
+        h3 {
+            flex-grow: 1;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__options {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
