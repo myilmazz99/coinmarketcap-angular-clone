@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { VoteCoin } from '../../models/voteCoin.model';
-import { VoteCoinData } from '../../models/voteCoinData.model';
-import { OverviewService } from '../../shared/services/overview.service';
-import { LocalStorageService } from '../../shared/services/local-storage.service';
+import { VoteCoin } from '../../../models/voteCoin.model';
+import { VoteCoinData } from '../../../models/voteCoinData.model';
+import { OverviewService } from '../../../shared/services/overview.service';
+import { LocalStorageService } from '../../../shared/services/local-storage.service';
 
 @Component({
     selector: 'vote-coin',

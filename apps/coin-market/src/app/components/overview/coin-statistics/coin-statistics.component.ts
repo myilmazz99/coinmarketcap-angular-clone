@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Coin } from '../../models/coin';
-import { CoinPriceStatistics } from '../../models/coin-price-statistics.model';
-import { OverviewService } from '../../shared/services/overview.service';
+import { Coin } from '../../../models/coin';
+import { CoinPriceStatistics } from '../../../models/coin-price-statistics.model';
+import { OverviewService } from '../../../shared/services/overview.service';
 
 @Component({
     selector: 'coin-statistics',

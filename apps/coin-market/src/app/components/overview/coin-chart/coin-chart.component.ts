@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { OverviewService } from '../../shared/services/overview.service';
+import { OverviewService } from '../../../shared/services/overview.service';
 import { ChartDataTabs, ChartData } from '@coin-market/data';
 
 @Component({

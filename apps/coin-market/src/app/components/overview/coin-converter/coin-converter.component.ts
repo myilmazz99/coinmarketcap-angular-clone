@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Coin } from '../../models/coin';
-import { OverviewService } from '../../shared/services/overview.service';
+import { Coin } from '../../../models/coin';
+import { OverviewService } from '../../../shared/services/overview.service';
 
 @Component({
     selector: 'coin-converter',
