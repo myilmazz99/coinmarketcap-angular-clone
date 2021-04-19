@@ -1,25 +1,5 @@
-<div class="coin-chart">
-    <div class="coin-chart__header">
-        <h3>Bitcoin Chart</h3>
-        <chart-fullscreen-button [chart]="chart"></chart-fullscreen-button>
-        <chart-exports-button
-            [chart]="chart"
-            [chartData]="chartData"
-            [selectedTab]="selectedTab"
-        ></chart-exports-button>
-    </div>
-
-    <div class="coin-chart__options">
-        <chart-data-tabs
-            [tabs]="tabs"
-            (handleDataTabs)="handleDataTabs($event)"
-        ></chart-data-tabs>
-        <chart-range-selector [chart]="chart"></chart-range-selector>
-    </div>
-    <ui-line-chart
-        constructorType="stockChart"
-        [series]="series"
-        (chartInstanceEvent)="getChartInstance($event)"
-    ></ui-line-chart>
-    <coin-chart-legend [legend]="legend" [chart]="chart"></coin-chart-legend>
-</div>
+<ui-line-chart
+    [tabs]="tabs"
+    [legend]="legend"
+    [data]="chartData$ | async"
+></ui-line-chart>
