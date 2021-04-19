@@ -4,7 +4,7 @@ import { Coin } from '../../../models/coin';
 import { OverviewService } from '../../../shared/services/overview.service';
 
 @Component({
-    selector: 'coin-converter',
+    selector: 'coin-market-coin-converter',
     templateUrl: './coin-converter.component.html',
     styleUrls: ['./coin-converter.component.scss'],
 })

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'coin-statistic-row',
+    selector: 'coin-market-coin-statistic-row',
     templateUrl: './coin-statistic-row.component.html',
     styleUrls: ['./coin-statistic-row.component.scss'],
 })

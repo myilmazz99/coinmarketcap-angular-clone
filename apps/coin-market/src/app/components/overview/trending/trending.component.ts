@@ -4,7 +4,7 @@ import { Coin } from '../../../models/coin';
 import { OverviewService } from '../../../shared/services/overview.service';
 
 @Component({
-    selector: 'trending',
+    selector: 'coin-market-trending',
     templateUrl: './trending.component.html',
     styleUrls: ['./trending.component.scss'],
 })

@@ -6,7 +6,7 @@ import { OverviewService } from '../../../shared/services/overview.service';
 import { LocalStorageService } from '../../../shared/services/local-storage.service';
 
 @Component({
-    selector: 'vote-coin',
+    selector: 'coin-market-vote-coin',
     templateUrl: './vote-coin.component.html',
     styleUrls: ['./vote-coin.component.scss'],
 })

@@ -4,7 +4,7 @@ import { OverviewService } from '../../../shared/services/overview.service';
 import { ChartDataTabs, ChartData } from '@coin-market/data';
 
 @Component({
-    selector: 'coin-chart',
+    selector: 'coin-market-coin-chart',
     styleUrls: ['./coin-chart.component.scss'],
     templateUrl: './coin-chart.component.html',
 })
