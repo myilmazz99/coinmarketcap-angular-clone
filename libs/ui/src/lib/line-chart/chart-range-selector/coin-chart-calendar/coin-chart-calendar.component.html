@@ -1,0 +1,29 @@
+<div (click)="$event.stopPropagation()" class="calendar-menu">
+  <mat-calendar
+    class="calendar-menu__calendar"
+    (selectedChange)="onChange($event)"
+    [maxDate]="maxDate"
+  ></mat-calendar>
+  <div class="calendar-menu__dates">
+    <p>Predefined dates</p>
+    <ul class="calendar-menu__dates__date-list">
+      <li
+        class="calendar-menu__dates__date-list__item"
+        *ngFor="let d of predefinedDates"
+        (click)="handlePredefinedDates(d)"
+      >
+        Last {{ d }} days
+      </li>
+    </ul>
+  </div>
+  <div class="calendar-menu__footer">
+    <button mat-button (click)="closeMenu()">Cancel</button>
+    <div class="calendar-menu__footer__selected-range">
+      <span>Selected: </span>
+      {{ calendar.range }} days
+    </div>
+    <button mat-flat-button color="primary" (click)="onConfirm()">
+      Confirm
+    </button>
+  </div>
+</div>

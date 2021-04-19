@@ -1,0 +1,44 @@
+.calendar-menu {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  column-gap: 30px;
+  justify-content: center;
+  padding: 15px 40px;
+  font-size: 12px;
+
+  &__dates {
+    p {
+      color: var(--color-gray);
+      margin-bottom: 10px;
+    }
+
+    &__date-list {
+      &__item {
+        padding: 6px 10px;
+        cursor: pointer;
+        white-space: nowrap;
+
+        &:hover {
+          background-color: var(--color-light-neutral-2);
+        }
+      }
+    }
+  }
+
+  &__footer {
+    width: 100%;
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__selected-range {
+      flex-grow: 1;
+      text-align: right;
+      margin-right: 10px;
+      span {
+        color: var(--color-gray);
+      }
+    }
+  }
+}

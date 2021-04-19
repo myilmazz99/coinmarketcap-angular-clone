@@ -1,0 +1,13 @@
+<button mat-button [matMenuTriggerFor]="exportsMenu">
+    <mat-icon>more_horiz</mat-icon>
+</button>
+
+<mat-menu #exportsMenu>
+    <ul class="exports-menu-list">
+        <li (click)="handlePrint()">Print Chart</li>
+        <li *ngFor="let o of exportOptions" (click)="handleDownload(o.type)">
+            {{ o.text }}
+        </li>
+        <li (click)="handleXLSX()">Download XLSX</li>
+    </ul>
+</mat-menu>

@@ -1,0 +1,24 @@
+<ul class="vertical-gray-list">
+    <li
+        class="vertical-gray-list__item"
+        [class.vertical-gray-list__item--selected]="selected === r"
+        *ngFor="let r of ranges"
+        (click)="setExtremes(r)"
+    >
+        {{ r }}
+    </li>
+    <li
+        class="vertical-gray-list__item other"
+        [matMenuTriggerFor]="calendarMenu"
+    >
+        <mat-icon>calendar_today</mat-icon>
+    </li>
+    <li class="vertical-gray-list__item other">LOG</li>
+</ul>
+
+<mat-menu #calendarMenu>
+    <coin-chart-calendar
+        [chart]="chart"
+        [trigger]="trigger"
+    ></coin-chart-calendar>
+</mat-menu>
