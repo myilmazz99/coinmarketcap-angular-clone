@@ -8,7 +8,7 @@ import {
     fakeTrendingCoinList,
 } from '../../../assets/data/coinData';
 import { VoteCoinData } from '../../models/voteCoinData.model';
-import { ChartData } from '../../models/chart-data';
+import { ChartData } from '@coin-market/data';
 import { CoinPriceStatistics } from '../../models/coin-price-statistics.model';
 
 @Injectable({
