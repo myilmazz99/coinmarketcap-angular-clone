@@ -23,6 +23,7 @@
             "tags": [],
             "implicitDependencies": ["coin-market"]
         },
-        "ui": { "tags": [] }
+        "ui": { "tags": [] },
+        "data": { "tags": [] }
     }
 }

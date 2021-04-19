@@ -15,7 +15,8 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@coin-market/ui": ["libs/ui/src/index.ts"]
+            "@coin-market/ui": ["libs/ui/src/index.ts"],
+            "@coin-market/data": ["libs/data/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
