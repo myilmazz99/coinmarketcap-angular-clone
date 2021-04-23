@@ -1,92 +1,100 @@
-/*ANGULAR MATERIAL*/
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 $custom-typography: mat-typography-config(
-    $font-family: 'Inter, sans-serif',
+  $font-family: "Inter, sans-serif",
+);
+
+@include mat-core($custom-typography);
+
+/*ANGULAR MATERIAL*/
+@import "~@angular/material/theming";
+
+$custom-typography: mat-typography-config(
+  $font-family: "Inter, sans-serif",
 );
 
 @include mat-core($custom-typography);
 
 .mat-icon {
-    width: auto !important;
-    height: auto !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    font-size: 16px;
+  width: auto !important;
+  height: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-size: 16px;
 }
 
 .vote-coin__progress-bar {
-    .mat-progress-bar {
-        height: 10px;
-        border-radius: 5px;
+  .mat-progress-bar {
+    height: 10px;
+    border-radius: 5px;
 
-        .mat-progress-bar-primary::after {
-            background-color: #16c784;
-        }
-
-        .mat-progress-bar-buffer {
-            background-color: #ea3943;
-        }
+    .mat-progress-bar-primary::after {
+      background-color: #16c784;
     }
+
+    .mat-progress-bar-buffer {
+      background-color: #ea3943;
+    }
+  }
 }
 
 /* HIGHCHARTS */
 .highcharts-credits {
-    display: none;
+  display: none;
 }
 
 .highcharts-navigator-outline {
-    stroke-width: 0;
+  stroke-width: 0;
 }
 
 .highcharts-scrollbar {
-    display: none;
+  display: none;
 }
 
 .highcharts-crosshair {
-    stroke: rgb(166, 176, 195);
-    stroke-dasharray: 4;
+  stroke: rgb(166, 176, 195);
+  stroke-dasharray: 4;
 }
 
 .highcharts-series-0 {
-    & path:last-child {
-        stroke: rgb(56, 97, 251);
-        stroke-width: 1px;
-    }
+  & path:last-child {
+    stroke: rgb(56, 97, 251);
+    stroke-width: 1px;
+  }
 }
 
 .highcharts-tooltip {
-    &__line {
-        display: flex;
+  &__line {
+    display: flex;
 
-        &__header {
-            display: flex;
-            align-items: center;
+    &__header {
+      display: flex;
+      align-items: center;
 
-            &__color {
-                width: 7px;
-                height: 7px;
-                border-radius: 50%;
-                margin-right: 5px;
-            }
-        }
-
-        &__body {
-            font-weight: bold;
-        }
+      &__color {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
     }
+
+    &__body {
+      font-weight: bold;
+    }
+  }
 }
 //Mat-menu
 
 .mat-menu-panel {
-    max-width: unset !important;
+  max-width: unset !important;
 }
 
 //Mat-Calendar
 
 .selected-date {
-    background-color: #3f51b5;
-    border-radius: 50%;
-    color: #fff;
+  background-color: #3f51b5;
+  border-radius: 50%;
+  color: #fff;
 }

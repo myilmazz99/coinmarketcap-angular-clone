@@ -1,30 +1,30 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
-    selector: 'coin-chart-legend',
-    templateUrl: './coin-chart-legend.component.html',
-    styleUrls: ['./coin-chart-legend.component.scss'],
+  selector: "coin-chart-legend",
+  templateUrl: "./coin-chart-legend.component.html",
+  styleUrls: ["./coin-chart-legend.component.scss"],
 })
 export class CoinChartLegendComponent {
-    @Input() legend = [];
-    @Input() chart: Highcharts.Chart;
+  @Input() legend = [];
+  @Input() Chart: Highcharts.Chart;
 
-    legendSwitch(e: any) {
-        const { name, checked } = e.target;
+  legendSwitch(e: any) {
+    const { name, checked } = e.target;
 
-        switch (name) {
-            case 'BTC':
-                var serie_btc = this.chart.series.find((s) => s.name === name);
-                if (checked) serie_btc?.show();
-                else serie_btc?.hide();
-                break;
-            case 'USD':
-                var serie_usd = this.chart.series.find((s) => s.name === name);
-                if (!checked) serie_usd.hide();
-                else serie_usd.show();
+    switch (name) {
+      case "BTC":
+        var serie_btc = this.Chart.series.find((s) => s.name === name);
+        if (checked) serie_btc?.show();
+        else serie_btc?.hide();
+        break;
+      case "USD":
+        var serie_usd = this.Chart.series.find((s) => s.name === name);
+        if (!checked) serie_usd.hide();
+        else serie_usd.show();
 
-            default:
-                break;
-        }
+      default:
+        break;
     }
+  }
 }

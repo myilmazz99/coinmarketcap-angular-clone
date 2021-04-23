@@ -1,18 +1,16 @@
+h3 {
+  margin: 25px 0;
+}
+
+.mat-checkbox {
+  margin-right: 10px;
+}
+
 .coin-chart {
-    &__header {
-        display: flex;
-        align-items: center;
-
-        h3 {
-            flex-grow: 1;
-            margin-bottom: 10px;
-        }
-    }
-
-    &__options {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-items: center;
-    }
+  &__options {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+  }
 }

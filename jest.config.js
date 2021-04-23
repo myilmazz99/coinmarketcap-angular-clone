@@ -1,3 +1,3 @@
 module.exports = {
-    projects: ['<rootDir>/apps/coin-market', '<rootDir>/libs/ui'],
+  projects: ['<rootDir>/apps/coin-market'],
 };
