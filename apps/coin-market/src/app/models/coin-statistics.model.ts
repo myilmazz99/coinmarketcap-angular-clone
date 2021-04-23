@@ -20,7 +20,8 @@ export class CoinStatistics {
         this.volumePercentage = item.volumePercentage || 0;
         this.volumeMarketCapNumber = item.volumeMarketCapNumber || 0;
         this.circulatingSupplyNumber = item.circulatingSupplyNumber || 0;
-        this.circulatingSupplyPercentage = item.circulatingSupplyPercentage || 0;
+        this.circulatingSupplyPercentage =
+            item.circulatingSupplyPercentage || 0;
         this.maxSupplyNumber = item.maxSupplyNumber || 0;
         this.totalSupplyNumber = item.totalSupplyNumber || 0;
     }

@@ -1,33 +1,21 @@
 <div class="coin-chart">
-  <h3>Bitcoin Chart</h3>
+    <div class="coin-chart__header">
+        <h3>Bitcoin Chart</h3>
+        <chart-fullscreen-button [chart]="chart"></chart-fullscreen-button>
+        <chart-exports-button [chart]="chart"></chart-exports-button>
+    </div>
 
-  <div class="coin-chart__options">
-    <ul class="vertical-gray-list">
-      <li
-        class="vertical-gray-list__item"
-        [class.vertical-gray-list__item--selected]="selected === 'Price'"
-        (click)="selected = 'Price'"
-      >
-        Price
-      </li>
-      <li
-        class="vertical-gray-list__item"
-        [class.vertical-gray-list__item--selected]="selected === 'MarketCap'"
-        (click)="selected = 'MarketCap'"
-      >
-        Market Cap
-      </li>
-    </ul>
-    <chart-range-selector [Chart]="Chart"></chart-range-selector>
-  </div>
-  <div *ngIf="(chartData$ | async) as chartData">
-    <coin-market-line-chart 
-      *ngIf="chartData.usd && chartData.usd.length>0" 
-      constructorType="stockChart" 
-      [chartData]="chartData"
-      [callback]="chartCallback">
-    </coin-market-line-chart>
-
-  </div>
-  <coin-chart-legend [legend]="legend" [Chart]="Chart"></coin-chart-legend>
+    <div class="coin-chart__options">
+        <chart-data-tabs
+            [tabs]="tabs"
+            (handleDataTabs)="handleDataTabs($event)"
+        ></chart-data-tabs>
+        <chart-range-selector [chart]="chart"></chart-range-selector>
+    </div>
+    <ui-line-chart
+        constructorType="stockChart"
+        [series]="series"
+        (chartInstanceEvent)="getChartInstance($event)"
+    ></ui-line-chart>
+    <coin-chart-legend [legend]="legend" [chart]="chart"></coin-chart-legend>
 </div>
