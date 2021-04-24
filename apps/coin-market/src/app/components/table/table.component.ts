@@ -2,7 +2,6 @@ import {
     AfterViewInit,
     Component,
     DoCheck,
-    Input,
     OnInit,
     ViewChild,
 } from '@angular/core';
@@ -36,8 +35,8 @@ export class TableComponent implements OnInit, AfterViewInit, DoCheck {
         'price',
         'volume',
         'volumePercentage',
-        'liquidity',
         'confidence',
+        'liquidity',
         'updated',
     ];
     selectedValue = 'All';
@@ -65,22 +64,19 @@ export class TableComponent implements OnInit, AfterViewInit, DoCheck {
     setConfidenceBackgroundColor() {
         let background = Array.from(
             document.getElementsByClassName(
-                'confidence'
+                'confidence-level'
             ) as HTMLCollectionOf<HTMLElement>
         );
         background.forEach((e) => {
             switch (e.innerText) {
                 case 'Low':
-                    e.style.background = 'rgb(234, 57, 67)';
-                    e.style.border = '1px solid rgb(234, 57, 67)';
+                    e.classList.add('low');
                     break;
                 case 'Moderate':
-                    e.style.background = 'rgb(245, 163, 65)';
-                    e.style.border = '1px solid rgb(245, 163, 65)';
+                    e.classList.add('moderate');
                     break;
                 case 'High':
-                    e.style.background = 'rgb(22, 199, 132)';
-                    e.style.border = '1px solid rgb(22, 199, 132)';
+                    e.classList.add('high');
                     break;
             }
         });

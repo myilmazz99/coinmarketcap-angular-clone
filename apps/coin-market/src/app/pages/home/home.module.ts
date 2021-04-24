@@ -26,7 +26,7 @@ import { TableComponent } from '../../components/table/table.component';
 import { TrendingComponent } from '../../components/trending/trending.component';
 import { VoteCoinComponent } from '../../components/vote-coin/vote-coin.component';
 import { MaterialModule } from '../../shared/material.module';
-
+import { AntModule } from '../../shared/ng-zorro-antd.module';
 
 @NgModule({
     imports: [
@@ -37,10 +37,11 @@ import { MaterialModule } from '../../shared/material.module';
         FormsModule,
         HttpClientModule,
         UiModule,
+        AntModule,
     ],
-  declarations: [
-      HomeComponent,
-      CoinChartComponent,
+    declarations: [
+        HomeComponent,
+        CoinChartComponent,
         CoinStatisticsComponent,
         CoinConverterComponent,
         TrendingComponent,
@@ -60,6 +61,6 @@ import { MaterialModule } from '../../shared/material.module';
         ChartDataTabsComponent,
         TableComponent,
     ],
-  exports: [HomeComponent],
+    exports: [HomeComponent],
 })
-export class HomeModule { }
+export class HomeModule {}

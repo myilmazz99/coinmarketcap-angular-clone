@@ -1,24 +1,29 @@
 :root {
-  --background-color: #f9fbfe;
-  --border-color: #eff2f5;
-  --bg-light-gray: rgb(248, 250, 253);
-  --color-gray: rgb(88, 102, 126);
-  --color-light-neutral-1: #f8fafd;
-  --color-light-neutral-2: #eff2f5;
-  --color-light-neutral-4: #a6b0c3;
-  --color-light-neutral-5: #808a9d;
-  --color-light-neutral-6: #58667e;
-  --color-light-neutral-7: #eff2f5;
-  --button-border-color: #cfd6e4;
+    --background-color: #f9fbfe;
+    --border-color: #eff2f5;
+    --bg-light-gray: rgb(248, 250, 253);
+    --color-gray: rgb(88, 102, 126);
+    --color-light-neutral-1: #f8fafd;
+    --color-light-neutral-2: #eff2f5;
+    --color-light-neutral-4: #a6b0c3;
+    --color-light-neutral-5: #808a9d;
+    --color-light-neutral-6: #58667e;
+    --color-light-neutral-7: #eff2f5;
+    --button-border-color: #cfd6e4;
 
-  --control-background-color: #fff;
-  --control-dropdown-background-color: #eff2f5;
-  --theme-color: #3861fb;
-  --theme-light-color: #cfd6e4;
-  --text-color-sub: #58667e;
-  --color-primary-black: #000;
-  --color-primary-white: #fff;
-  --color-primary-blue: #3861fb;
-  --up-color: #16c784;
-  --down-color: #ea3943;
+    --control-background-color: #fff;
+    --control-dropdown-background-color: #eff2f5;
+    --theme-color: #3861fb;
+    --theme-light-color: #cfd6e4;
+    --text-color-sub: #58667e;
+    --color-primary-black: #000;
+    --color-primary-white: #fff;
+    --color-primary-blue: #3861fb;
+    --up-color: #16c784;
+    --down-color: #ea3943;
+
+    --link-color: rgb(56, 97, 251);
+    --confidence-background-color-high: rgb(22, 199, 132);
+    --confidence-background-color-moderate: rgb(245, 163, 65);
+    --confidence-background-color-low: rgb(234, 57, 67);
 }

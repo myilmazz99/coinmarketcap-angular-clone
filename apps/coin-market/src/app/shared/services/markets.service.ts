@@ -1,8 +1,7 @@
-import { Injectable, ViewChild } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Market } from '../../models/market';
 import { marketsData } from 'apps/coin-market/src/assets/data/marketsData';
-import { MatPaginator } from '@angular/material/paginator';
 
 @Injectable()
 export class MarketsService {

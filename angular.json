@@ -52,6 +52,7 @@
                             "apps/coin-market/src/assets"
                         ],
                         "styles": [
+                            "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
                             "apps/coin-market/src/styles.scss"
                         ],
