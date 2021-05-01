@@ -55,7 +55,11 @@
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
                             "apps/coin-market/src/styles.scss"
                         ],
-                        "scripts": []
+                        "scripts": [],
+                        "allowedCommonJsDependencies": [
+                            "highcharts",
+                            "highcharts-angular"
+                        ]
                     },
                     "configurations": {
                         "production": {
