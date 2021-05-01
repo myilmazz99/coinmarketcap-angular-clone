@@ -18,9 +18,6 @@ export class OverviewService {
     private coin = new BehaviorSubject<Coin>(null);
     public coin$: Observable<Coin>;
 
-    private trendingCoins = new BehaviorSubject<Coin[]>(null);
-    public trendingCoins$: Observable<Coin[]>;
-
     private coinVotes = new BehaviorSubject<VoteCoinData>(null);
     public coinVotes$: Observable<VoteCoinData>;
 
@@ -45,9 +42,6 @@ export class OverviewService {
         this.coinVotes$ = this.coinVotes.asObservable();
         this.getCoinVotes();
 
-        this.trendingCoins$ = this.trendingCoins.asObservable();
-        this.getTrendingCoins();
-
         this.coinStatistics$ = this.coinStatistics.asObservable();
         this.getCoinStatistics();
     }
@@ -59,10 +53,6 @@ export class OverviewService {
   */
     getCoin(): void {
         this.coin.next(fakeCoin);
-    }
-
-    getTrendingCoins(): void {
-        this.trendingCoins.next(fakeTrendingCoinList);
     }
 
     getCoinVotes(): void {

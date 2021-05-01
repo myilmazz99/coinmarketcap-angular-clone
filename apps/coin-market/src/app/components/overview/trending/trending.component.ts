@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Coin } from '../../../models/coin';
-import { OverviewService } from '../../../shared/services/overview.service';
+import { TrendingListService } from '../../../shared/services/trending-list.service';
 
 @Component({
     selector: 'coin-market-trending',
@@ -11,7 +11,7 @@ import { OverviewService } from '../../../shared/services/overview.service';
 export class TrendingComponent {
     trendingCoins$: Observable<Coin[]>;
 
-    constructor(private overviewService: OverviewService) {
-        this.trendingCoins$ = overviewService.trendingCoins$;
+    constructor(private trendingListService: TrendingListService) {
+        this.trendingCoins$ = trendingListService.trendingCoins$;
     }
 }
