@@ -1,5 +1,11 @@
 import { CurrencyPipe, DecimalPipe } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    AfterViewInit,
+    ChangeDetectorRef,
+    Component,
+    Input,
+    OnInit,
+} from '@angular/core';
 import * as Highcharts from 'highcharts/highstock';
 import IndicatorsCore from 'highcharts/indicators/indicators';
 import HC_exporting from 'highcharts/modules/exporting';
@@ -12,7 +18,7 @@ IndicatorsCore(Highcharts);
     templateUrl: './line-chart.component.html',
     styleUrls: ['./line-chart.component.scss'],
 })
-export class LineChartComponent implements OnInit {
+export class LineChartComponent implements OnInit, AfterViewInit {
     highcharts: typeof Highcharts;
     chart: Highcharts.Chart;
     chartOptions: Highcharts.Options;
@@ -21,12 +27,16 @@ export class LineChartComponent implements OnInit {
     @Input() tabs: ChartDataTabs[];
     @Input() data: ChartData;
     selectedTab: string;
-    isTrue = false;
 
     constructor(
         private decimalPipe: DecimalPipe,
-        private currencyPipe: CurrencyPipe
+        private currencyPipe: CurrencyPipe,
+        private changeDetectorRef: ChangeDetectorRef
     ) {}
+
+    ngAfterViewInit(): void {
+        this.changeDetectorRef.detectChanges();
+    }
 
     getSelectedTab(val: string) {
         this.selectedTab = val;
@@ -58,7 +68,6 @@ export class LineChartComponent implements OnInit {
 
     getChartInstance(chart: Highcharts.Chart) {
         this.chart = chart;
-        this.isTrue = true;
     }
 
     ngOnInit() {
