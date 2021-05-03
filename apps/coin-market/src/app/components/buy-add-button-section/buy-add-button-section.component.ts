@@ -7,6 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuyAddButtonSectionComponent implements OnInit {
 
+  isDisplayBuy = false;
+  isDisplayCrypto = false;
+  isDisplayExchange = false;
+  isDisplayGaming = false;
+
+  buyDisplay(){
+    this.isDisplayBuy = !this.isDisplayBuy;
+  }
+
+  cryptoDisplay(){
+    this.isDisplayCrypto = !this.isDisplayCrypto;
+  }
+
+  exchangeDisplay(){
+    this.isDisplayExchange = !this.isDisplayExchange;
+  }
+
+  gamingDisplay(){
+    this.isDisplayGaming = !this.isDisplayGaming;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

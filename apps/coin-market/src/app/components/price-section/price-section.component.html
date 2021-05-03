@@ -48,7 +48,7 @@
       <span class="high-low-label">High:</span>
       <span class="high-low-value">{{coinPrice.priceHigh | currency: 'USD':'$':'0.2-2'}}</span>
     </div>
-    <div class="name-pill-base" display="inline-block">
+    <div (click)="isDisplayTime()" class="name-pill-base" display="inline-block">
       24h
       <span style="width: 92%;">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="12px" width="12px" viewBox="0 0 24 24"
@@ -58,6 +58,22 @@
           </path>
         </svg>
       </span>
+      <div *ngIf="isDisplay" style="pointer-events: none; z-index: 9999; position: absolute;">
+        <div class="tippy-box" tabindex="-1" data-theme="cmc" data-animation="fade" role="tooltip"
+          style="max-width: 350px; transition-duration: 300ms;" data-placement="bottom">
+          <div class="tippy-content" style="transition-duration: 300ms;">
+            <div>
+              <ul class="sliderList___37MQ0">
+                <li>24h Low / High</li>
+                <li>1m Low / High</li>
+                <li>1y Low / High</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tippy-arrow" style="position: absolute; left: 0px; transform: translate3d(97px, 0px, 0px);"></div>
+        </div>
+      </div>
     </div>
+
   </div>
 </div>

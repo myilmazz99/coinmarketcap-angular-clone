@@ -11,6 +11,11 @@ import { CoinDetailsService } from "../../shared/services/coin-details.service";
 export class PriceSectionComponent implements OnInit{
   
   coinPrice$: Observable<CoinPrices>;
+  isDisplay = false;
+
+  isDisplayTime(){
+    this.isDisplay = !this.isDisplay;
+  }
 
   constructor(private coinDetailsService: CoinDetailsService) {}
 
