@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
+import { Component, Input, ViewChild } from '@angular/core';
+import { MatCalendar } from '@angular/material/datepicker';
 import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
@@ -10,14 +10,24 @@ import { MatMenuTrigger } from '@angular/material/menu';
 export class CoinChartCalendarComponent {
     @Input() chart: Highcharts.Chart;
     @Input() trigger: MatMenuTrigger;
+    @ViewChild(MatCalendar) matCalendar;
 
     predefinedDates = [7, 30, 90, 180, 365];
     calendar = { start: 0, end: 0, range: 0 };
     maxDate = new Date();
 
-    onChange(e: any) {
-        var date = new Date(e).getTime();
-        var { start, end, range } = this.calendar;
+    isSelected = (event?: any) => {
+        const date = event?.getTime();
+        const { start, end } = this.calendar;
+
+        if (start === date || end === date) return 'selected';
+        if (start && end && start < date && date < end) return 'in-range';
+    };
+
+    select(event: Date) {
+        const date = event.getTime();
+        let { start, end, range } = this.calendar;
+
         if (start === 0) start = date;
         else if (end === 0 && date > start) {
             end = date;
@@ -26,9 +36,15 @@ export class CoinChartCalendarComponent {
             start = date;
             end = 0;
             range = 0;
+            this.resetSelections();
         }
-
         this.calendar = { start, end, range };
+
+        this.matCalendar.updateTodaysDate();
+    }
+
+    resetSelections() {
+        this.isSelected();
     }
 
     closeMenu() {
@@ -44,19 +60,5 @@ export class CoinChartCalendarComponent {
         this.closeMenu();
         const date = new Date().setHours(val * -24);
         this.chart.xAxis[0].setExtremes(date, new Date().getTime());
-    }
-
-    dateClass() {
-        return (date: Date): MatCalendarCellCssClasses => {
-            console.log(date);
-            if (
-                date.getTime() === this.calendar.start ||
-                date.getTime() === this.calendar.end
-            ) {
-                return 'selected-date';
-            } else {
-                return;
-            }
-        };
     }
 }
