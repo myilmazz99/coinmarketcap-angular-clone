@@ -1,13 +1,18 @@
-import { getGreeting } from '../support/app.po';
-
 describe('coin-market', () => {
-  beforeEach(() => cy.visit('/'));
+    beforeEach(() => cy.visit('/home'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
+    it('should vote good for coin', () => {
+        cy.clearLocalStorage();
+        cy.get('.vote-coin__button-group__button')
+            .contains('Good')
+            .click()
+            .should(() => {
+                const token = localStorage.getItem('Bitcoin_vote');
+                expect(token).to.not.undefined;
+                expect(JSON.parse(token)).keys('value', 'expireDate');
+                expect(JSON.parse(token).value).eq(1);
+            });
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to coin-market!');
-  });
+        cy.get('coin-market-vote-coin').contains('You voted');
+    });
 });
