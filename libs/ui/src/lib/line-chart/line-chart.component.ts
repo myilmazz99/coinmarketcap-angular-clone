@@ -107,6 +107,7 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                             );
                         },
                     },
+                    gridLineColor: 'var(--border-color)',
                     opposite: false,
                     height: '80%',
                 },
@@ -116,19 +117,21 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                         align: 'right',
                         x: 0,
                         formatter: function () {
-                            var formattedValue = _this.decimalPipe.transform(
+                            const formattedValue = _this.decimalPipe.transform(
                                 this.value,
                                 '1.0-0'
                             );
                             return formattedValue + ' BTC';
                         },
                     },
+                    gridLineColor: 'var(--border-color)',
                     height: '80%',
                 },
                 {
                     id: 'volume',
                     height: '20%',
                     top: '80%',
+                    gridLineColor: 'var(--border-color)',
                     visible: false,
                 },
             ],
