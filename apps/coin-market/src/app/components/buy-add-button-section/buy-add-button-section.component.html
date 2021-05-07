@@ -1,7 +1,8 @@
 <div class="buy-add-button-section">
   <div class="container-button">
     <div class="button-section">
-      <button>
+
+      <button mat-button [matMenuTriggerFor]="menuBuy">
         Buy
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="14px" width="14px" viewBox="0 0 24 24"
           class="my-svg">
@@ -10,7 +11,45 @@
           </path>
         </svg>
       </button>
-      <button>
+      <mat-menu #menuBuy="matMenu">
+        <div style="pointer-events: none; z-index: 9999;">
+          <div class="tippy-box" tabindex="-1" style="max-width: 350px; transition-duration: 300ms;">
+            <div class="tippy-content" style="transition-duration: 300ms;">
+              <div>
+                <div class="dropdown-container">
+                  <div display="flex" class="dropdown-inner"><img
+                      src="https://s2.coinmarketcap.com/static/cloud/img/binance_32x32_1.png"
+                      class="undefined lazy-load loaded" height="16" width="16">
+                    <p color="text" font-size="1" class="dropdown-p">BINANCE</p>
+                  </div>
+                  <img src="https://s2.coinmarketcap.com/static/cloud/img/binance_buy_480x176.png"
+                    class="big-img lazy-load loaded" width="100%">
+                  <h4 font-size="14px" font-weight="600" color="text" class="dropdown-h">Buy Crypto with Fees as
+                    Low
+                    as 0%</h4>
+                  <p class="dropdown-desc">Buy crypto with a bank transfer, credit or debit card, P2P exchange,
+                    and
+                    more. Not investment advice. All trading carries risk. Terms apply.</p>
+                  <a href="https://binance1.shortcm.li/cmcbuy" target="_blank" rel="nofollow sponsored noopener"
+                    class="dropdown-a"
+                    style="color: var(--color-primary-white); padding-top: 8px; padding-bottom: 8px; height: auto; min-height: 40px;">
+                    Fees as Low as 0%<div class="div-svg">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="16px" width="16px" viewBox="0 0 24 24"
+                        class="dropdown-svg">
+                        <path
+                          d="M12 11.9998L20 4M20 4H14.1817M20 4L19.9999 9.81802M9.81819 6.90946H5.77777C4.79594 6.90946 4 7.70537 4 8.68718V18.2223C4 19.2041 4.79594 20 5.77778 20H15.3131C16.295 20 17.0909 19.2041 17.0909 18.2223V14.182"
+                          stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="menuExchange">
         Exchange
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="14px" width="14px" viewBox="0 0 24 24"
           class="my-svg">
@@ -19,7 +58,40 @@
           </path>
         </svg>
       </button>
-      <button>
+      <mat-menu #menuExchange="matMenu">
+        <div style="pointer-events: none; z-index: 9999;">
+          <div class="tippy-box" tabindex="-1" style="max-width: 350px; transition-duration: 300ms;">
+            <div class="tippy-content" style="transition-duration: 300ms;">
+              <div>
+                <div class="dropdown-container">
+                  <div display="flex" class="dropdown-inner"><img
+                      src="https://s2.coinmarketcap.com/static/cloud/img/binance_32x32_1.png"
+                      class="undefined lazy-load loaded" height="16" width="16">
+                    <p color="text" font-size="1" class="dropdown-p">BINANCE</p>
+                  </div><img src="https://s2.coinmarketcap.com/static/cloud/img/binance_exchange_480x176.png"
+                    class="big-img lazy-load loaded" width="100%">
+                  <h4 font-size="14px" font-weight="600" color="text" class="dropdown-h">Lowest Trading Fees on
+                    300+
+                    Cryptocurrencies.</h4>
+                  <p class="dropdown-desc">Binance offers the lowest trading fees for 99% of users compared to
+                    leading global exchanges. Not investment advice. Trading carries risk. Terms apply</p>
+                  <a href="https://binance1.shortcm.li/cmcex" target="_blank" rel="nofollow sponsored noopener"
+                    class="dropdown-a"
+                    style="color: var(--color-primary-white); padding-top: 8px; padding-bottom: 8px; height: auto; min-height: 40px;">Lowest
+                    Trading Fees <div class="div-svg"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="16px"
+                        width="16px" viewBox="0 0 24 24" class="dropdown-svg">
+                        <path
+                          d="M12 11.9998L20 4M20 4H14.1817M20 4L19.9999 9.81802M9.81819 6.90946H5.77777C4.79594 6.90946 4 7.70537 4 8.68718V18.2223C4 19.2041 4.79594 20 5.77778 20H15.3131C16.295 20 17.0909 19.2041 17.0909 18.2223V14.182"
+                          stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                      </svg></div></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="menuGaming">
         Gaming
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="14px" width="14px" viewBox="0 0 24 24"
           class="my-svg">
@@ -28,7 +100,46 @@
           </path>
         </svg>
       </button>
-      <button>
+      <mat-menu #menuGaming="matMenu">
+        <div style="pointer-events: none; z-index: 9999;">
+          <div class=" tippy-box" tabindex="-1" style="max-width: 350px; transition-duration: 300ms;">
+            <div class="tippy-content" style="transition-duration: 300ms;">
+              <div>
+                <div class="dropdown-container">
+                  <div display="flex" class="dropdown-inner"><img
+                      src="https://s2.coinmarketcap.com/static/cloud/img/1xbit_32x32_1.png"
+                      class="undefined lazy-load loaded" height="16" width="16">
+                    <p color="text" font-size="1" class="dropdown-p">1xBIT</p>
+                  </div>
+                  <img src="https://s2.coinmarketcap.com/static/cloud/img/1xbit_480x176.png"
+                    class="big-img lazy-load loaded" width="100%">
+                  <h4 font-size="14px" font-weight="600" color="text" class="dropdown-h">Crypto Sportsbook &amp;
+                    Online Casino</h4>
+                  <p class="dropdown-desc">Don’t lose a chance to dive into 3000+ games, the highest ODDs for
+                    sports
+                    and eSports with full anonymity
+                  </p>
+                  <a href="https://mooony.xyz/click.php?kpp=cmkbutton" target="_blank" rel="nofollow sponsored noopener"
+                    class="dropdown-a"
+                    style="color: var(--color-primary-white); padding-top: 8px; padding-bottom: 8px; height: auto; min-height: 40px;">Get
+                    your 7 BTC here
+                    <div class="div-svg">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="16px" width="16px" viewBox="0 0 24 24"
+                        class="dropdown-svg">
+                        <path
+                          d="M12 11.9998L20 4M20 4H14.1817M20 4L19.9999 9.81802M9.81819 6.90946H5.77777C4.79594 6.90946 4 7.70537 4 8.68718V18.2223C4 19.2041 4.79594 20 5.77778 20H15.3131C16.295 20 17.0909 19.2041 17.0909 18.2223V14.182"
+                          stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="menuEarn">
         Earn Crypto
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="14px" width="14px" viewBox="0 0 24 24"
           class="my-svg">
@@ -37,7 +148,42 @@
           </path>
         </svg>
       </button>
+      <mat-menu #menuEarn="matMenu">
+        <div style="pointer-events: none; z-index: 9999;">
+          <div class="tippy-box" tabindex="-1" style="max-width: 350px; transition-duration: 300ms;">
+            <div class="tippy-content" style="transition-duration: 300ms;">
+              <div>
+                <div class="dropdown-container">
+                  <div display="flex" class="dropdown-inner"><img
+                      src="https://s2.coinmarketcap.com/static/cloud/img/cexio_32x32_1.png"
+                      class="undefined lazy-load loaded" height="16" width="16">
+                    <p color="text" font-size="1" class="dropdown-p">CEX.IO</p>
+                  </div><img src="https://s2.coinmarketcap.com/static/cloud/img/cexio_new_480x176.png"
+                    class="big-img lazy-load loaded" width="100%">
+                  <h4 font-size="14px" font-weight="600" color="text" class="dropdown-h">25% Staking reward for
+                    ZIL
+                  </h4>
+                  <p class="dropdown-desc"><span>Get a 25% annual staking reward on your ZIL holdings with<a
+                        target="_blank" href="https://cexio.page.link/coinmarketcap"> CEX.IO. </a>Till the end of March
+                      only. Reap your increased staking rewards before the offer ends.</span></p><a
+                    href="https://cexio.page.link/coinmarketcap" target="_blank" rel="nofollow sponsored noopener"
+                    class="dropdown-a"
+                    style="color: var(--color-primary-white); padding-top: 8px; padding-bottom: 8px; height: auto; min-height: 40px;">Earn
+                    25% with ZIL Staking <div class="sc-AxjAm cITTod"><svg xmlns="http://www.w3.org/2000/svg"
+                        fill="none" height="16px" width="16px" viewBox="0 0 24 24" class="div-svg">
+                        <path
+                          d="M12 11.9998L20 4M20 4H14.1817M20 4L19.9999 9.81802M9.81819 6.90946H5.77777C4.79594 6.90946 4 7.70537 4 8.68718V18.2223C4 19.2041 4.79594 20 5.77778 20H15.3131C16.295 20 17.0909 19.2041 17.0909 18.2223V14.182"
+                          stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                      </svg></div></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-menu>
     </div>
+
     <div class="sponsored-mark">
       <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px">
         <path

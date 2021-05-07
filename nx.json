@@ -1,21 +1,30 @@
 {
-    "implicitDependencies": {
-        "angular.json": "*",
-        "package.json": { "dependencies": "*", "devDependencies": "*" },
-        "tsconfig.base.json": "*",
-        "tslint.json": "*",
-        ".eslintrc.json": "*",
-        "nx.json": "*"
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
     },
-    "affected": { "defaultBase": "master" },
-    "npmScope": "coin-market",
-    "tasksRunnerOptions": {
-        "default": {
-            "runner": "@nrwl/workspace/tasks-runners/default",
-            "options": {
-                "cacheableOperations": ["build", "lint", "test", "e2e"]
-            }
-        }
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "coin-market",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "coin-market": {
+      "tags": []
     },
     "projects": {
         "coin-market": { "tags": [] },
@@ -26,4 +35,5 @@
         "ui": { "tags": [] },
         "data": { "tags": [] }
     }
+  }
 }

@@ -20,7 +20,18 @@
       margin: 0px;
       padding: 0px;
 
+      .link-tippy {
+        position: relative;
+        &:hover {
+          .tippy-box {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+
       li {
+        //position: relative;
         .button-link {
           text-decoration: none;
           background-color: var(--control-dropdown-background-color);
@@ -46,6 +57,9 @@
             background-color: var(--color-light-neutral-5);
             cursor: pointer;
             color: var(--color-primary-white);
+            .external-link-icon {
+              color: var(--color-primary-white);
+            }
           }
         }
       }
@@ -109,18 +123,90 @@
   color: var(--color-light-neutral-5);
   height: 16px;
 }
+/*
+[data-tippy-root] {
+  max-width: calc(100vw - 10px);
+  pointer-events: auto !important;
+}*/
 
-@media (min-width: 768px) {
-  .link-section {
-    padding-right: 24px;
-    //order: 3;
-    //flex: 0 0 50%;
+.tippy-box {
+  //background-color: var(--control-background-color);
+  //color: var(--text-color);
+  //position: relative;
+  position: absolute;
+  background-color: #fff; //var(--control-background-color);
+  color: #000; //var(--text-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow-normal);
+  font-size: 12px; //14px
+  line-height: 1.4;
+  //font-weight: 700;
+  outline: 0;
+  transition-property: transform, visibility, opacity;
+  visibility: hidden;
+  opacity: 0;
+  box-sizing: border-box;
+  transition: 250ms all;
+
+  .tippy-content {
+    //position: relative;
+    padding: 8px 9px; //5px 9px
+    z-index: 1;
+
+    ul {
+      //top: 5px;
+      //left: 0px;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      li {
+        :hover {
+          //display: block;
+          background-color: var(--color-light-neutral-1);
+          color: var(--color-primary-black);
+        }
+        //margin-bottom: 8px;
+        a {
+          display: flex;
+          flex-direction: row;
+
+          //color: var(--color-primary-black);
+          border-radius: 8px;
+          //display: block;
+          margin-bottom: 4px;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 18px;
+          padding: 7px;
+          align-items: center;
+
+          .external-link-icon {
+            padding-left: 5px;
+          }
+        }
+      }
+    }
   }
+  /* .tippy-arrow {
+    color: #fff; //var(--control-background-color);
+    bottom: 0;
+    width: 16px;
+    height: 16px;
+    //color: yellow; //var(--color-tippy-arrow);
+  } */
 }
 
-@media (min-width: 1376px) {
-  .linksSection {
-    order: 4;
-    flex: 0 0 36%;
-  }
+.tippy-community {
+  height: 80px;
+  width: 140px;
+  left: -10px;
+  //transform: translateY(80px);
+}
+
+.tippy-explorers {
+  //background-color: rgb(163, 223, 61);
+  height: 190px;
+  width: 230px;
+  left: -60px;
+  //transform: translateY(190px);
 }

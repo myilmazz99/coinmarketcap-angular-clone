@@ -1,15 +1,18 @@
 .price-section {
-  //grid-area: priceSection;
-  //background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
   margin: 0px;
+  @media (min-width: 768px) and (max-width: 1300px) {
+    text-align: right;
+  }
 
   .price-heading {
     color: var(--text-color-sub);
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
-    margin-bottom: 4px;
-    //text-align: right;
 
     small {
       color: var(--color-light-neutral-5);
@@ -19,9 +22,11 @@
   }
 
   .price-title {
+    @media (min-width: 768px) and (max-width: 1300px) {
+      justify-content: flex-end;
+    }
     margin: 0px;
     display: flex;
-    //justify-content: flex-end;
     align-items: center;
 
     .price-value {
@@ -37,7 +42,7 @@
     margin-bottom: 14px;
     display: flex;
     flex-direction: column;
-    //align-items: flex-end;
+
     p {
       margin: 0;
       margin-top: 4px;
@@ -48,6 +53,12 @@
       span {
         margin-right: 4px;
         margin-left: 12px;
+
+        .my-svg {
+          margin: 0px 0px 0px 4px;
+          height: 14px;
+          width: 14px;
+        }
       }
     }
   }
@@ -56,6 +67,10 @@
     margin: 14px 0 8px 0;
     display: flex;
     align-items: center;
+
+    @media (min-width: 768px) and (max-width: 1300px) {
+      justify-content: flex-end;
+    }
 
     .nowrap-low,
     .nowrap-high {
@@ -119,38 +134,49 @@
     .nowrap-high {
       margin: 0px 0px 0px 16px;
     }
+
+    .name-pill-base {
+      margin: 0px 0px 0px 8px;
+      cursor: pointer;
+      background-color: var(--color-light-neutral-2);
+      color: var(--color-light-neutral-6);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 18px;
+      white-space: nowrap;
+    }
   }
 }
 
-.name-pill-base {
-  margin: 0px 0px 0px 8px;
-  cursor: pointer;
+.tippy-box {
+  //position: relative;
+  background-color: var(--color-tippy-arrow);
+  box-shadow: var(--shadow-normal);
+  color: var(--color-text-1);
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  outline: 0;
+  transition-property: transform, visibility, opacity;
 
-  background-color: var(--color-light-neutral-2);
-  color: var(--color-light-neutral-6);
-  border-radius: 4px;
-  padding: 2px 6px;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 18px;
-  white-space: nowrap;
-}
-
-.my-svg {
-  margin: 0px 0px 0px 4px;
-  height: 14px;
-  width: 14px;
-}
-
-@media (min-width: 1376px) and (max-width: 1460px) {
-  .price-section {
-    flex: 0 0 37%;
+  .tippy-content {
+    //position: relative;
+    padding: 5px 9px;
+    z-index: 1;
   }
-}
 
-@media (min-width: 1376px){
-.price-section {
-    margin-top: 14px;
-    flex: 0 0 34%;
-}
+  .slider-list {
+    li {
+      cursor: pointer;
+      pointer-events: auto;
+      padding: 10px 10px 10px 8px;
+      font-weight: 600;
+
+      &:hover {
+        background-color: var(--color-light-neutral-1);
+      }
+    }
+  }
 }

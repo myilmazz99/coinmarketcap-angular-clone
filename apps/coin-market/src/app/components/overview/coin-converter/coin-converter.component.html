@@ -1,46 +1,46 @@
 <section class="coin-converter" *ngIf="coin$ | async as coin">
-    <div class="currency">
-        <div class="currency__details">
-            <figure>
-                <img [src]="coin.icon" alt="..." />
-            </figure>
-            <div class="currency__details__name">
-                <small>{{ coin.shortName }}</small>
-                <p>{{ coin.name }}</p>
-            </div>
-        </div>
-        <input
-            #coinInput
-            class="currency__input"
-            type="text"
-            name="coin"
-            [(ngModel)]="coinAmount"
-            [value]="usdAmount / coin.price | currency: 'USD':'':'1.0-6'"
-            (focus)="onFocus($event, usdInput)"
-        />
+  <div class="currency">
+    <div class="currency__details">
+      <figure>
+        <img [src]="coin.icon" alt="..." />
+      </figure>
+      <div class="currency__details__name">
+        <small>{{ coin.symbol }}</small>
+        <p>{{ coin.name }}</p>
+      </div>
     </div>
-    <div class="currency bg-light-gray">
-        <div class="currency__details">
-            <figure class="currency-logo">
-                <img
-                    src="https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/USD.svg"
-                    alt="..."
-                />
-            </figure>
-            <div class="currency__details__name">
-                <small>USD</small>
-                <p>United States Dollar</p>
-            </div>
-        </div>
-        <input
-            #usdInput
-            name="usd"
-            class="currency__input"
-            type="text"
-            placeholder="0"
-            [(ngModel)]="usdAmount"
-            [value]="coin.price * coinAmount | currency: 'USD':'':'1.0-6'"
-            (focus)="onFocus($event, coinInput)"
+    <input
+      #coinInput
+      class="currency__input"
+      type="text"
+      name="coin"
+      [(ngModel)]="coinAmount"
+      [value]="usdAmount / coin.price | currency: 'USD':'':'1.0-6'"
+      (focus)="onFocus($event, usdInput)"
+    />
+  </div>
+  <div class="currency bg-light-gray">
+    <div class="currency__details">
+      <figure class="currency-logo">
+        <img
+          src="https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/USD.svg"
+          alt="..."
         />
+      </figure>
+      <div class="currency__details__name">
+        <small>USD</small>
+        <p>United States Dollar</p>
+      </div>
     </div>
+    <input
+      #usdInput
+      name="usd"
+      class="currency__input"
+      type="text"
+      placeholder="0"
+      [(ngModel)]="usdAmount"
+      [value]="coin.price * coinAmount | currency: 'USD':'':'1.0-6'"
+      (focus)="onFocus($event, coinInput)"
+    />
+  </div>
 </section>

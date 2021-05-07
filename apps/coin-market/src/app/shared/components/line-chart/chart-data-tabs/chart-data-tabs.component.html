@@ -1,0 +1,12 @@
+<ul class="vertical-gray-list">
+    <li
+        *ngFor="let t of tabs"
+        class="vertical-gray-list__item"
+        [class.vertical-gray-list__item--selected]="
+            (selected | async) === t.objProp
+        "
+        (click)="handleClick(t.objProp)"
+    >
+        {{ t.text }}
+    </li>
+</ul>
