@@ -1,4 +1,5 @@
 class LocalStorageMock {
+    //comment
     private storage = {};
 
     clear() {
