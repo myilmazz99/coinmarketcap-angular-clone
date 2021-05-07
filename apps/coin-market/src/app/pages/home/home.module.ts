@@ -20,6 +20,7 @@ import { TrendingComponent } from '../../components/overview/trending/trending.c
 import { VoteCoinComponent } from '../../components/overview/vote-coin/vote-coin.component';
 import { MaterialModule } from '../../shared/material.module';
 import { CoinStatisticRowComponent } from '../../components/overview/coin-statistics/coin-statistic-row/coin-statistic-row.component';
+import { AntModule } from '../../shared/ng-zorro-antd.module';
 
 @NgModule({
     imports: [
@@ -29,6 +30,7 @@ import { CoinStatisticRowComponent } from '../../components/overview/coin-statis
         FormsModule,
         HttpClientModule,
         UiModule,
+        AntModule,
     ],
     declarations: [
         HomeComponent,

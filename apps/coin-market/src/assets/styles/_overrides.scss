@@ -153,3 +153,18 @@ $custom-typography: mat-typography-config(
         display: none;
     }
 }
+
+//Mat Select
+.mat-select-value {
+    max-width: unset !important;
+}
+
+// Mat Option
+.mat-option-text {
+    font-weight: bold;
+}
+
+//Mat Header
+.mat-sort-header-content {
+    font-weight: bold;
+}

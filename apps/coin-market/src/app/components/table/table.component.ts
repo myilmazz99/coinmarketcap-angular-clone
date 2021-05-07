@@ -11,6 +11,9 @@ import { MatPaginator } from '@angular/material//paginator';
 import { tap } from 'rxjs/operators';
 import { Market } from '../../models/market';
 import { MatSort } from '@angular/material/sort';
+import { Pair } from '../../models/pair';
+import { MatSelect } from '@angular/material/select';
+
 @Component({
     selector: 'coin-market-table',
     templateUrl: './table.component.html',
@@ -19,6 +22,12 @@ import { MatSort } from '@angular/material/sort';
 export class TableComponent implements OnInit, AfterViewInit, DoCheck {
     market: Market;
     dataSource: MarketsDataSource;
+    dataLength;
+
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort) sort: MatSort;
+    @ViewChild(MatSelect) select: MatSelect;
+
     displayedColumns = [
         'position',
         'source',
@@ -26,44 +35,48 @@ export class TableComponent implements OnInit, AfterViewInit, DoCheck {
         'price',
         'volume',
         'volumePercentage',
-        'liquidity',
         'confidence',
+        'liquidity',
         'updated',
     ];
-    @ViewChild(MatPaginator) paginator: MatPaginator;
-    @ViewChild(MatSort) sort: MatSort;
-    
-    dataLength = 0;
+    selectedValue = 'All';
+
+    pairs: Pair[] = [
+        { viewValue: 'All' },
+        { viewValue: 'USDT' },
+        { viewValue: 'BUSD' },
+        { viewValue: 'USD' },
+        { viewValue: 'BTC' },
+        { viewValue: 'JPY' },
+        { viewValue: 'KRW' },
+        { viewValue: 'EUR' },
+        { viewValue: 'USDC' },
+        { viewValue: 'UST' },
+        { viewValue: 'GBP' },
+        { viewValue: 'TRY' },
+    ];
+
     constructor(private marketsService: MarketsService) {
-        this.dataLength = marketsService.dataLength;
+        this.dataLength = marketsService.filterPair();
     }
-    // getData() {
-    //     this.marketsService.getMarkets().subscribe((data) => {
-    //         for (let i = 0; i < 20; i++) {
-    //             console.log(data[i]);
-    //         }
-    //     });
-    // }
+
     //Confidence background'u gelen data'ya göre değiştir
     setConfidenceBackgroundColor() {
-        var bg = Array.from(
+        let background = Array.from(
             document.getElementsByClassName(
-                'confidence'
+                'confidence-level'
             ) as HTMLCollectionOf<HTMLElement>
         );
-        bg.forEach((e) => {
+        background.forEach((e) => {
             switch (e.innerText) {
                 case 'Low':
-                    e.style.background = 'rgb(234, 57, 67)';
-                    e.style.border = '1px solid rgb(234, 57, 67)';
+                    e.classList.add('low');
                     break;
                 case 'Moderate':
-                    e.style.background = 'rgb(245, 163, 65)';
-                    e.style.border = '1px solid rgb(245, 163, 65)';
+                    e.classList.add('moderate');
                     break;
                 case 'High':
-                    e.style.background = 'rgb(22, 199, 132)';
-                    e.style.border = '1px solid rgb(22, 199, 132)';
+                    e.classList.add('high');
                     break;
             }
         });
@@ -73,63 +86,45 @@ export class TableComponent implements OnInit, AfterViewInit, DoCheck {
         this.dataSource = new MarketsDataSource(this.marketsService);
         this.dataSource.loadMarkets();
     }
+
     ngAfterViewInit() {
-        this.paginator.page.pipe(tap(() => {
-            this.marketsService.pageNumber.next(this.paginator.pageIndex);
-            this.marketsService.pageSize.next(this.paginator.pageSize);
-            this.loadMarketsPage()
-        })).subscribe();
+        this.paginator.page
+            .pipe(
+                tap(() => {
+                    this.marketsService.pageNumber.next(
+                        this.paginator.pageIndex
+                    );
+                    this.marketsService.pageSize.next(this.paginator.pageSize);
+
+                    this.loadMarketsPage();
+                })
+            )
+            .subscribe();
+        this.select.selectionChange
+            .pipe(
+                tap(() => {
+                    this.marketsService.selection.next(this.selectedValue);
+                    this.loadMarketsPage();
+                })
+            )
+            .subscribe();
+        this.sort.sortChange
+            .pipe(
+                tap(() => {
+                    this.marketsService.sortOrder.next(this.sort.direction);
+                    this.marketsService.sortEvent.next(this.sort.active);
+                    this.loadMarketsPage();
+                })
+            )
+            .subscribe();
     }
+
     ngDoCheck() {
         this.setConfidenceBackgroundColor();
+        this.dataLength = this.marketsService.filterPair().length;
     }
+
     loadMarketsPage() {
         this.dataSource.loadMarkets();
     }
-
-    sortData(ev) {
-        this.marketsService.sortData(ev);
-
-    }
 }
-
-//----------------------------------------------------------------------------------
-//     selectedValue = 'All';
-
-//     pairs: Pair[] = [
-//         { value: 0, viewValue: 'All' },
-//         { value: 1, viewValue: 'USDT' },
-//         { value: 2, viewValue: 'BUSD' },
-//         { value: 3, viewValue: 'USD' },
-//         { value: 4, viewValue: 'BTC' },
-//         { value: 5, viewValue: 'JPY' },
-//         { value: 6, viewValue: 'KRW' },
-//         { value: 7, viewValue: 'EUR' },
-//         { value: 8, viewValue: 'USDC' },
-//         { value: 9, viewValue: 'UST' },
-//         { value: 10, viewValue: 'GBP' },
-//         { value: 11, viewValue: 'TRY' },
-//     ];
-
-//     //Pair'leri seçilene göre filtrele
-//     filterPair(newItem: string) {
-//         if (newItem === 'All') {
-//             this.applyFilter('');
-//         } else {
-//             this.applyFilter('/' + newItem);
-//         }
-//     }
-
-//     ngAfterViewInit() {
-//         console.log('xx');
-//         this.dataSource.sort = this.sort;
-//         this.dataSource.paginator = this.paginator;
-//     }
-//     ngDoCheck() {
-//         this.setConfidenceBackgroundColor();
-//     }
-
-//     applyFilter(filterValue: string) {
-//         this.dataSource.filter = filterValue.trim().toLowerCase();
-//     }
-// }
