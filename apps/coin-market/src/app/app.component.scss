@@ -12,7 +12,7 @@ body {
   margin-right: auto;
   margin-left: auto;
   padding-top: 24px;
-  background-image: linear-gradient(to top, var(--color-primary-white), var(--color-light-neutral-1));
+  //background-image: linear-gradient(to top, var(--color-primary-white), var(--color-light-neutral-1));
   //border-bottom: 1px solid var(--border-color); // rgba(0, 0, 0, 0.12);
 
   .top-links-section {
@@ -58,7 +58,7 @@ body {
     display: flex;
     flex-wrap: wrap;
 
-    @media only screen and (min-width: 1200px) {
+    @media only screen and (min-width: 1300px) {
       .nameSection,
       ._link-section {
         flex: 0 0 36%;
@@ -74,7 +74,7 @@ body {
       }
     }
 
-    @media (min-width: 768px) and (max-width: 1200px) {
+    @media (min-width: 768px) and (max-width: 1300px) {
       .nameSection {
         flex: 0 0 50%;
       }
@@ -118,7 +118,7 @@ body {
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1300px) {
   .container-inner {
     padding-right: 60px;
     padding-left: 60px;

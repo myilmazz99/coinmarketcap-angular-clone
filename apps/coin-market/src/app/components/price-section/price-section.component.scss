@@ -1,12 +1,10 @@
 .price-section {
-  //grid-area: priceSection;
-  //background-color: var(--background-color);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
   margin: 0px;
-  @media (min-width: 768px) and (max-width: 1200px) {
+  @media (min-width: 768px) and (max-width: 1300px) {
     text-align: right;
   }
 
@@ -15,8 +13,6 @@
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
-    margin-bottom: 4px;
-    //text-align: right;
 
     small {
       color: var(--color-light-neutral-5);
@@ -26,12 +22,11 @@
   }
 
   .price-title {
-    @media (min-width: 768px) and (max-width: 1200px) {
+    @media (min-width: 768px) and (max-width: 1300px) {
       justify-content: flex-end;
     }
     margin: 0px;
     display: flex;
-    //justify-content: flex-end;
     align-items: center;
 
     .price-value {
@@ -47,7 +42,7 @@
     margin-bottom: 14px;
     display: flex;
     flex-direction: column;
-    //align-items: flex-end;
+
     p {
       margin: 0;
       margin-top: 4px;
@@ -58,6 +53,12 @@
       span {
         margin-right: 4px;
         margin-left: 12px;
+
+        .my-svg {
+          margin: 0px 0px 0px 4px;
+          height: 14px;
+          width: 14px;
+        }
       }
     }
   }
@@ -67,7 +68,7 @@
     display: flex;
     align-items: center;
 
-    @media (min-width: 768px) and (max-width: 1200px) {
+    @media (min-width: 768px) and (max-width: 1300px) {
       justify-content: flex-end;
     }
 
@@ -133,93 +134,49 @@
     .nowrap-high {
       margin: 0px 0px 0px 16px;
     }
+
+    .name-pill-base {
+      margin: 0px 0px 0px 8px;
+      cursor: pointer;
+      background-color: var(--color-light-neutral-2);
+      color: var(--color-light-neutral-6);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 18px;
+      white-space: nowrap;
+    }
   }
 }
 
-.name-pill-base {
-  margin: 0px 0px 0px 8px;
-  cursor: pointer;
-
-  background-color: var(--color-light-neutral-2);
-  color: var(--color-light-neutral-6);
-  border-radius: 4px;
-  padding: 2px 6px;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 18px;
-  white-space: nowrap;
-}
-
-.my-svg {
-  margin: 0px 0px 0px 4px;
-  height: 14px;
-  width: 14px;
-}
-
-.tippy-box[data-theme~="cmc"] {
-  background-color: var(--control-background-color);
-  color: var(--text-color);
-}
-
 .tippy-box {
-  border-radius: 8px;
-  top: 12px;
-  left: -90px;
-}
-
-.tippy-box {
-  position: relative;
+  //position: relative;
   background-color: var(--color-tippy-arrow);
   box-shadow: var(--shadow-normal);
   color: var(--color-text-1);
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 14px;
   line-height: 1.4;
   outline: 0;
   transition-property: transform, visibility, opacity;
-}
 
-.tippy-content {
-  position: relative;
-  padding: 5px 9px;
-  z-index: 1;
-  /*
-  ul {
+  .tippy-content {
+    //position: relative;
+    padding: 5px 9px;
+    z-index: 1;
+  }
+
+  .slider-list {
     li {
+      cursor: pointer;
+      pointer-events: auto;
+      padding: 10px 10px 10px 8px;
+      font-weight: 600;
+
       &:hover {
-        background-color: pink;
+        background-color: var(--color-light-neutral-1);
       }
     }
-  } */
-}
-
-.sliderList___37MQ0 li {
-  cursor: pointer;
-  padding: 10px 10px 10px 8px;
-  font-weight: 600;
-}
-
-.tippy-box[data-placement^="bottom"] > .tippy-arrow {
-  top: 0;
-}
-
-.tippy-arrow {
-  width: 16px;
-  height: 16px;
-  color: var(--color-tippy-arrow);
-}
-
-.tippy-arrow:before {
-  content: "";
-  position: absolute;
-  border-color: transparent;
-  border-style: solid;
-}
-
-.tippy-box[data-placement^="bottom"] > .tippy-arrow:before {
-  top: -7px;
-  left: 0;
-  border-width: 0 8px 8px;
-  border-bottom-color: initial;
-  transform-origin: center bottom;
+  }
 }

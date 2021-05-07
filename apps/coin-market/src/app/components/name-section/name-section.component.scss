@@ -123,7 +123,7 @@
   }
 }
 
-@media (min-width: 1376px) {
+@media (min-width: 1300px) {
   .nameSection {
     flex: 0 0 36%;
   }
@@ -153,7 +153,7 @@
   padding: 24px 32px;
   background: var(--control-background-color);
   border-radius: 16px;
-  //visibility: visible;
+  visibility: hidden;
   top: 20vh;
   left: 35vw;
   box-shadow: 1200px 1200px 1200px rgba(128, 138, 157, 0.12), 0px 8px 32px rgba(128, 138, 157, 0.24);

@@ -11,12 +11,6 @@ import { CoinDetailsService } from "../../shared/services/coin-details.service";
 })
 export class NameSectionComponent implements OnInit {
   coin$: Observable<Coin>;
-
-  isDisplay = false;
-
-  popupDisplay(){
-    this.isDisplay = !this.isDisplay;
-  }
   
   constructor(private coinDetailsService: CoinDetailsService) {}
 
