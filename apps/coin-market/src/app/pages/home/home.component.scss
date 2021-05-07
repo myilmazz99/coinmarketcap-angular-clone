@@ -1,104 +1,129 @@
+body {
+    text-size-adjust: 100%;
+    font-size: 15px;
+}
 
 .container-cryptocurrencies-coins-bitcoin {
     display: flex;
     flex-direction: column;
     width: 100%;
-    //max-width: 1400px;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
     padding-top: 24px;
-    //background-color: var(--background-color);
-    background-image: linear-gradient(to top, #fefeff, #f8fafd);
-  
+    //background-image: linear-gradient(to top, var(--color-primary-white), var(--color-light-neutral-1));
+    //border-bottom: 1px solid var(--border-color); // rgba(0, 0, 0, 0.12);
+
     .top-links-section {
-      display: flex;
-  
-      a {
-        color: rgb(88, 102, 126);
-        padding-right: 5px;
-        position: relative;
-        white-space: nowrap;
-        text-decoration: none;
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 18px;
-        //margin: 0px;
-  
-        &:hover {
-          text-decoration: underline;
+        display: flex;
+
+        a {
+            color: rgb(88, 102, 126);
+            padding-right: 5px;
+            position: relative;
+            white-space: nowrap;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
-      }
-  
-      .material-icons {
-        font-size: 18px;
-        line-height: 100%;
-        color: rgb(88, 102, 126);
-        padding-right: 8px;
-        //position: absolute;
-        top: 2px;
-      }
-  
-      .finally-span {
-        flex: 1 1 0%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        color: var(--color-primary-black);
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 18px;
-        margin: 0px;
-      }
+
+        .material-icons {
+            font-size: 18px;
+            line-height: 100%;
+            color: rgb(88, 102, 126);
+            padding-right: 8px;
+            top: 2px;
+        }
+
+        .finally-span {
+            flex: 1 1 0%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--color-primary-black);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+            margin: 0px;
+        }
     }
-  
+
     .container-inner {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-areas:
-        "nameSection priceSection buyAddButtonSection"
-        "linkSection statsSection statsSection ";
-  
-      coin-market-name-section {
-        grid-area: nameSection;
-      }
-  
-      ._price-section {
-        grid-area: priceSection;
-      }
-  
-      ._button-section {
-        grid-area: buyAddButtonSection;
-      }
-  
-      ._link-section {
-        grid-area: linkSection;
-      }
-  
-      ._stats-section {
-        grid-area: statsSection;
-      }
+        display: flex;
+        flex-wrap: wrap;
+
+        @media only screen and (min-width: 1300px) {
+            .nameSection,
+            ._link-section {
+                flex: 0 0 36%;
+            }
+            ._price-section {
+                flex: 0 0 37%;
+            }
+            ._button-section {
+                flex: 0 0 27%;
+            }
+            ._stats-section {
+                flex: 0 0 64%;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1300px) {
+            .nameSection {
+                flex: 0 0 50%;
+            }
+            ._link-section {
+                flex: 0 0 50%;
+                order: 3;
+            }
+            ._price-section {
+                flex: 0 0 50%;
+            }
+            ._stats-section {
+                flex: 0 0 100%;
+                order: 5;
+            }
+            ._button-section {
+                order: 4;
+                margin-top: 20px;
+                flex: 0 0 50%;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .nameSection {
+                flex: 0 0 100%;
+            }
+
+            ._link-section {
+                flex: 0 0 100%;
+            }
+            ._price-section {
+                flex: 0 0 100%;
+            }
+            ._button-section {
+                flex: 0 0 100%;
+            }
+            ._stats-section {
+                visibility: hidden;
+                position: absolute;
+            }
+        }
     }
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (min-width: 1300px) {
     .container-inner {
-      display: flex;
-      flex-direction: column;
-      //flex-wrap: wrap;
-    }
-  }
-  
-  @media (min-width: 1100px) {
-    .container-inner {
-      padding-right: 60px;
-      padding-left: 60px;
-      margin-right: auto;
-      margin-left: auto;
+        padding-right: 60px;
+        padding-left: 60px;
     }
     .top-links-section {
-      padding-left: 60px;
+        padding-left: 60px;
     }
-  }
-  
+}

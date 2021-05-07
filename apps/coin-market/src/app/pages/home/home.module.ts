@@ -48,6 +48,11 @@ import { AntModule } from '../../shared/ng-zorro-antd.module';
         LinkSectionComponent,
         OverviewComponent,
         TableComponent,
+        BuyAddButtonSectionComponent,
+        LinkSectionComponent,
+        NameSectionComponent,
+        PriceSectionComponent,
+        StatsSectionComponent,
     ],
     exports: [HomeComponent],
 })
