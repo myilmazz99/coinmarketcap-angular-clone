@@ -11,6 +11,12 @@ export class MarketsService {
     private screenItems = new BehaviorSubject<Market[]>([]);
     public screenItems$: Observable<Market[]>;
 
+    private filteredItems = new BehaviorSubject<Market[]>([]);
+    public filteredItems$: Observable<Market[]>;
+
+    private dataLength = new BehaviorSubject<number>(0);
+    public dataLength$: Observable<number>;
+
     sortOrder: BehaviorSubject<string> = new BehaviorSubject('asc');
     pageNumber: BehaviorSubject<number> = new BehaviorSubject(0);
     pageSize: BehaviorSubject<number> = new BehaviorSubject(5);
@@ -18,16 +24,23 @@ export class MarketsService {
     sortEvent: BehaviorSubject<any> = new BehaviorSubject('');
 
     constructor() {
-        this.marketItems.next(marketsData);
+        this.marketItems.next(
+            marketsData.map((e) => {
+                return new Market(e);
+            })
+        );
+        this.filteredItems.next(marketsData);
         this.marketItems$ = this.marketItems.asObservable();
         this.screenItems$ = this.screenItems.asObservable();
+        this.filteredItems$ = this.filteredItems.asObservable();
+        this.dataLength$ = this.dataLength.asObservable();
     }
 
     findMarkets(): void {
         let pageNumber = this.pageNumber.getValue();
         let pageSize = this.pageSize.getValue();
 
-        let res = [...this.marketItems.getValue()];
+        let res = [...this.filteredItems.getValue()];
 
         const initialPos = pageNumber * pageSize;
         res = res.slice(initialPos, initialPos + pageSize);
@@ -38,7 +51,7 @@ export class MarketsService {
     sortData() {
         let sortEvent = this.sortEvent.getValue();
         let sortOrder = this.sortOrder.getValue();
-        let arr = this.filterPair();
+        let arr = this.filteredItems.getValue();
 
         if (sortEvent === 'confidence') {
             // Spesific sorting algorithm for confidence column
@@ -91,32 +104,30 @@ export class MarketsService {
                 );
             }
         }
-        this.marketItems.next(arr);
+        this.filteredItems.next(arr);
         this.findMarkets();
     }
 
     filterPair() {
-        let arr2 = [];
-        let arr = [];
-        this.marketItems.next(marketsData);
+        let arrAll = [];
+        let arrFiltered = [];
 
         let selection = this.selection.getValue();
-        arr = this.marketItems.getValue();
+        arrAll = this.marketItems.getValue();
 
         if (selection === 'All') {
-            this.marketItems.next(arr);
-
+            this.filteredItems.next(arrAll);
+            this.dataLength.next(arrAll.length);
             this.findMarkets();
-            return arr;
         } else {
-            arr.find((e) => {
+            arrAll.find((e) => {
                 if (e.pairs.split('/')[1] === selection) {
-                    arr2.push(e);
+                    arrFiltered.push(e);
                 }
             });
-            this.marketItems.next(arr2);
+            this.filteredItems.next(arrFiltered);
+            this.dataLength.next(arrFiltered.length);
             this.findMarkets();
-            return arr2;
         }
     }
 }
