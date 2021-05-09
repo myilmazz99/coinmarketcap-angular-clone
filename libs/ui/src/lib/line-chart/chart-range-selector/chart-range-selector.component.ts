@@ -3,16 +3,20 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import * as Highcharts from 'highcharts/highstock';
 
 @Component({
-    selector: 'chart-range-selector',
+    selector: 'ui-chart-range-selector',
     templateUrl: './chart-range-selector.component.html',
     styleUrls: ['./chart-range-selector.component.scss'],
 })
 export class ChartRangeSelectorComponent {
+    @Input() chart: Highcharts.Chart;
+    @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+
     ranges = ['1D', '7D', '1M', '3M', '1Y', 'YTD', 'ALL'];
     selected = 'ALL';
 
-    @Input() chart: Highcharts.Chart;
-    @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+    setExtremesByCalendar(val: number[]) {
+        this.chart.xAxis[0].setExtremes(val[0], val[1]);
+    }
 
     setExtremes(val: string) {
         this.selected = val;

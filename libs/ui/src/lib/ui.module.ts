@@ -9,6 +9,7 @@ import { CoinChartCalendarComponent } from './line-chart/chart-range-selector/co
 import { CoinChartLegendComponent } from './line-chart/coin-chart-legend/coin-chart-legend.component';
 import { ChartDataTabsComponent } from './line-chart/chart-data-tabs/chart-data-tabs.component';
 import { ChartExportsButtonComponent } from './line-chart/chart-exports-button/chart-exports-button.component';
+import { PredefinedDatesComponent } from './line-chart/chart-range-selector/coin-chart-calendar/predefined-dates/predefined-dates.component';
 
 @NgModule({
     imports: [CommonModule, HighchartsChartModule, MaterialModule],
@@ -20,6 +21,7 @@ import { ChartExportsButtonComponent } from './line-chart/chart-exports-button/c
         CoinChartLegendComponent,
         ChartDataTabsComponent,
         ChartExportsButtonComponent,
+        PredefinedDatesComponent,
     ],
     exports: [LineChartComponent],
 })

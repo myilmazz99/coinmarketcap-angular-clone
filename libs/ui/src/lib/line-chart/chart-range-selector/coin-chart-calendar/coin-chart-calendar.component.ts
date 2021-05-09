@@ -1,22 +1,38 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import {
+    Component,
+    EventEmitter,
+    Input,
+    Output,
+    ViewChild,
+} from '@angular/core';
 import { MatCalendar } from '@angular/material/datepicker';
 import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
-    selector: 'coin-chart-calendar',
+    selector: 'ui-coin-chart-calendar',
     templateUrl: './coin-chart-calendar.component.html',
     styleUrls: ['./coin-chart-calendar.component.scss'],
 })
 export class CoinChartCalendarComponent {
-    @Input() chart: Highcharts.Chart;
     @Input() trigger: MatMenuTrigger;
-    @ViewChild(MatCalendar) matCalendar;
+    @Output() dateRangeEvent = new EventEmitter<number[]>(null);
+    @ViewChild(MatCalendar) matCalendar: MatCalendar<Date>;
 
-    predefinedDates = [7, 30, 90, 180, 365];
+    predefinedDates: number[] = [7, 30, 90, 180, 365]; //dates in days
+    dateRange: number[] = [];
     calendar = { start: 0, end: 0, range: 0 };
     maxDate = new Date();
 
-    isSelected = (event?: any) => {
+    setPredefinedDate(val: number) {
+        this.closeMenu();
+
+        const min = new Date().setHours(val * -24);
+        const max = new Date().getTime();
+
+        this.dateRangeEvent.emit([min, max]);
+    }
+
+    isSelected = (event?: Date) => {
         const date = event?.getTime();
         const { start, end } = this.calendar;
 
@@ -53,12 +69,6 @@ export class CoinChartCalendarComponent {
 
     onConfirm() {
         this.closeMenu();
-        this.chart.xAxis[0].setExtremes(this.calendar.start, this.calendar.end);
-    }
-
-    handlePredefinedDates(val: number) {
-        this.closeMenu();
-        const date = new Date().setHours(val * -24);
-        this.chart.xAxis[0].setExtremes(date, new Date().getTime());
+        this.dateRangeEvent.emit([this.calendar.start, this.calendar.end]);
     }
 }

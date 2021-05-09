@@ -1,0 +1,10 @@
+<p>Predefined dates</p>
+<ul class="predefined-dates-list">
+    <li
+        class="predefined-dates-list__item"
+        *ngFor="let d of predefinedDates"
+        (click)="onClick(d)"
+    >
+        Last {{ d }} days
+    </li>
+</ul>
