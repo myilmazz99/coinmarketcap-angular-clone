@@ -1,4 +1,14 @@
-.mat-checkbox {
-  margin-right: 10px;
-  margin-bottom: 10px;
+mat-checkbox.chart-legend__checkbox {
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    .mat-checkbox-frame {
+        border: 1px solid rgb(207, 214, 228) !important;
+        box-shadow: rgb(167 174 187 / 40%) 0px 2px 4px;
+        border-radius: 4px !important;
+    }
+
+    .mat-checkbox-background {
+        border-radius: 4px !important;
+    }
 }
