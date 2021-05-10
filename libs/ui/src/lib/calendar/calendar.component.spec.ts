@@ -24,7 +24,7 @@ class MatCalendarMockComponent {
     }
 }
 
-describe('CoinChartCalendarComponent', () => {
+describe('CalendarComponent', () => {
     let component: CalendarComponent;
     let fixture: ComponentFixture<CalendarComponent>;
     let dateRangeEventEmitSpy: jest.SpyInstance;
@@ -105,6 +105,7 @@ describe('CoinChartCalendarComponent', () => {
         it('should set date to calendar.end', () => {
             component.calendar = {
                 ...component.calendar,
+                end: 0,
                 start: new Date().setHours(-1),
             };
 

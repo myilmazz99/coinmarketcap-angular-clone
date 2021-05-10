@@ -17,7 +17,12 @@
             <span>Selected: </span>
             {{ calendar.range }} days
         </div>
-        <button mat-flat-button color="primary" (click)="onConfirm()">
+        <button
+            mat-flat-button
+            color="primary"
+            (click)="onConfirm()"
+            [disabled]="!calendar.end"
+        >
             Confirm
         </button>
     </div>

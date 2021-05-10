@@ -19,6 +19,6 @@
 <mat-menu #calendarMenu>
     <ui-calendar
         (dateRangeEvent)="setExtremesByCalendar($event)"
-        [trigger]="trigger"
+        (closeMenuEvent)="trigger.closeMenu()"
     ></ui-calendar>
 </mat-menu>
