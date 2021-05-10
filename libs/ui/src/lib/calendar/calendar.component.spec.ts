@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCalendar } from '@angular/material/datepicker';
 
-import { CoinChartCalendarComponent } from './coin-chart-calendar.component';
+import { CalendarComponent } from './calendar.component';
 
 @Component({ selector: 'ui-predefined-dates' })
 class PredefinedDatesMockComponent {
@@ -25,14 +25,14 @@ class MatCalendarMockComponent {
 }
 
 describe('CoinChartCalendarComponent', () => {
-    let component: CoinChartCalendarComponent;
-    let fixture: ComponentFixture<CoinChartCalendarComponent>;
+    let component: CalendarComponent;
+    let fixture: ComponentFixture<CalendarComponent>;
     let dateRangeEventEmitSpy: jest.SpyInstance;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [
-                CoinChartCalendarComponent,
+                CalendarComponent,
                 PredefinedDatesMockComponent,
                 MatCalendarMockComponent,
             ],
@@ -40,7 +40,7 @@ describe('CoinChartCalendarComponent', () => {
     });
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(CoinChartCalendarComponent);
+        fixture = TestBed.createComponent(CalendarComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

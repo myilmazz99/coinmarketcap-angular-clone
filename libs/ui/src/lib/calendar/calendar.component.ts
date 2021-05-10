@@ -9,11 +9,11 @@ import { MatCalendar } from '@angular/material/datepicker';
 import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
-    selector: 'ui-coin-chart-calendar',
-    templateUrl: './coin-chart-calendar.component.html',
-    styleUrls: ['./coin-chart-calendar.component.scss'],
+    selector: 'ui-calendar',
+    templateUrl: './calendar.component.html',
+    styleUrls: ['./calendar.component.scss'],
 })
-export class CoinChartCalendarComponent {
+export class CalendarComponent {
     @Input() trigger: MatMenuTrigger;
     @Output() dateRangeEvent = new EventEmitter<number[]>(null);
     @ViewChild(MatCalendar) matCalendar: MatCalendar<Date>;
