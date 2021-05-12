@@ -1,7 +1,7 @@
-// import { MarketDatasource } from './market-datasource';
+import { MarketsDataSource } from './market-datasource';
 
-// describe('MarketDatasource', () => {
-//   it('should create an instance', () => {
-//     expect(new MarketDatasource()).toBeTruthy();
-//   });
-// });
+describe('MarketDatasource', () => {
+    it('should create an instance', () => {
+        expect(MarketsDataSource).toBeTruthy();
+    });
+});

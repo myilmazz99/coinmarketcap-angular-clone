@@ -96,8 +96,4 @@ export class TableComponent implements OnInit, AfterViewInit {
     loadMarketsPage() {
         this.dataSource.loadMarkets();
     }
-
-    isNumber(val) {
-        return typeof val;
-    }
 }

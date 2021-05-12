@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Market } from '../../models/market';
 import { marketsData } from 'apps/coin-market/src/assets/data/marketsData';
+import { HttpClient } from '@angular/common/http';
+import { tap, map } from 'rxjs/operators';
 
 @Injectable()
 export class MarketsService {
@@ -23,17 +25,26 @@ export class MarketsService {
     selection: BehaviorSubject<any> = new BehaviorSubject('All');
     sortEvent: BehaviorSubject<any> = new BehaviorSubject('');
 
-    constructor() {
-        this.marketItems.next(
-            marketsData.map((e) => {
-                return new Market(e);
-            })
-        );
-        this.filteredItems.next(marketsData);
+    constructor(private http: HttpClient) {
+        this.getMarketItems();
         this.marketItems$ = this.marketItems.asObservable();
-        this.screenItems$ = this.screenItems.asObservable();
         this.filteredItems$ = this.filteredItems.asObservable();
+        this.screenItems$ = this.screenItems.asObservable();
         this.dataLength$ = this.dataLength.asObservable();
+    }
+
+    getMarketItems() {
+        return this.http
+            .get<Market[]>('assets/data/marketsData.json')
+            .subscribe((x) => {
+                const data = x.map((e) => {
+                    return new Market(e);
+                });
+                this.marketItems.next(data);
+                this.filteredItems.next(data);
+                this.findMarkets();
+                this.dataLength.next(data.length);
+            });
     }
 
     findMarkets(): void {
