@@ -21,6 +21,7 @@ import { VoteCoinComponent } from '../../components/overview/vote-coin/vote-coin
 import { MaterialModule } from '../../shared/material.module';
 import { CoinStatisticRowComponent } from '../../components/overview/coin-statistics/coin-statistic-row/coin-statistic-row.component';
 import { AntModule } from '../../shared/ng-zorro-antd.module';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @NgModule({
     imports: [
@@ -53,6 +54,7 @@ import { AntModule } from '../../shared/ng-zorro-antd.module';
         NameSectionComponent,
         PriceSectionComponent,
         StatsSectionComponent,
+        NavbarComponent,
     ],
     exports: [HomeComponent],
 })

@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 5px 15px;
+    margin: 0px auto;
+}
+.coin-market-cap {
+    width: 168px;
+    height: 28px;
+    position: relative;
+    background-image: url(https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_1.svg?_=faaacca);
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.navbar-items {
+    color: rgb(34, 37, 49);
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0px;
+    padding-left: 30px;
+
+    &:hover {
+        color: gray;
+        cursor: pointer;
+    }
+}
+.hr {
+    margin-top: 20px;
+    height: 1px;
+    background-color: rgb(239, 242, 245);
+}

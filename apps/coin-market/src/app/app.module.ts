@@ -30,5 +30,4 @@ registerLocaleData(tr);
     ],
     bootstrap: [AppComponent],
 })
-
 export class AppModule {}
