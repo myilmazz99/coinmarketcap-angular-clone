@@ -1,0 +1,50 @@
+.historical-data {
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    &__header {
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__datepicker {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px;
+            width: 150px;
+
+            &:hover {
+                background-color: var(--color-light-neutral-1);
+            }
+        }
+    }
+
+    & > p {
+        font-size: 105%;
+    }
+}
+
+.mat-table {
+    width: 100%;
+    box-shadow: none !important;
+
+    .mat-header-cell,
+    .mat-cell {
+        border-color: var(--border-color) !important;
+
+        &:not(:first-child) {
+            text-align: right;
+        }
+    }
+
+    .mat-header-cell {
+        color: black;
+        font-weight: bold;
+    }
+}
