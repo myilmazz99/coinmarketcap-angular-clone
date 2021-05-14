@@ -23,6 +23,6 @@ import { PredefinedDatesComponent } from './calendar/predefined-dates/predefined
         CalendarComponent,
         PredefinedDatesComponent,
     ],
-    exports: [LineChartComponent],
+    exports: [LineChartComponent, CalendarComponent],
 })
 export class UiModule {}
