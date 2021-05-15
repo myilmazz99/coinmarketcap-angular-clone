@@ -6,7 +6,7 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 import { MatCalendar } from '@angular/material/datepicker';
-import { DateRange } from '../models/date-range.model';
+import { DateRange } from '@coin-market/data';
 
 @Component({
     selector: 'ui-calendar',

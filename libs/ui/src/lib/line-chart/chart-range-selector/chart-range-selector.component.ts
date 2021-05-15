@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import * as Highcharts from 'highcharts/highstock';
-import { DateRange } from '../../models/date-range.model';
+import { DateRange } from '@coin-market/data';
 
 @Component({
     selector: 'ui-chart-range-selector',
