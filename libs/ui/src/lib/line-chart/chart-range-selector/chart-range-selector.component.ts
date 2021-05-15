@@ -30,48 +30,42 @@ export class ChartRangeSelectorComponent {
                 this.chart.xAxis[0].setExtremes(
                     now.setHours(-24),
                     new Date().getTime(),
-                    true,
-                    false
+                    true
                 );
                 break;
             case '7D':
                 this.chart.xAxis[0].setExtremes(
                     now.setHours(-7 * 24),
                     new Date().getTime(),
-                    true,
-                    false
+                    true
                 );
                 break;
             case '1M':
                 this.chart.xAxis[0].setExtremes(
                     now.setMonth(month - 1),
                     new Date().getTime(),
-                    true,
-                    false
+                    true
                 );
                 break;
             case '3M':
                 this.chart.xAxis[0].setExtremes(
                     now.setMonth(month - 3),
                     new Date().getTime(),
-                    true,
-                    false
+                    true
                 );
                 break;
             case '1Y':
                 this.chart.xAxis[0].setExtremes(
                     now.setFullYear(year - 1),
                     new Date().getTime(),
-                    true,
-                    false
+                    true
                 );
                 break;
             case 'YTD':
                 this.chart.xAxis[0].setExtremes(
                     new Date(year, 0, 1).getTime(),
                     undefined,
-                    true,
-                    false
+                    true
                 );
                 break;
 
