@@ -1,11 +1,6 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { MatCalendar } from '@angular/material/datepicker';
-
-interface SelectedDays {
-    start: number;
-    end: number;
-    range: number;
-}
+import { DateRange } from '../models/date-range.model';
 
 @Component({
     selector: 'ui-calendar',
@@ -13,20 +8,19 @@ interface SelectedDays {
     styleUrls: ['./calendar.component.scss'],
 })
 export class CalendarComponent {
-    @Output() dateRangeEvent = new EventEmitter<number[]>(null);
+    @Output() dateRangeEvent = new EventEmitter<DateRange>(null);
     @Output() closeMenuEvent = new EventEmitter(null);
     @ViewChild(MatCalendar) matCalendar: MatCalendar<Date>;
 
     predefinedDates: number[] = [7, 30, 90, 180, 365]; //dates in days
-    calendar: SelectedDays = { start: 0, end: 0, range: 0 };
+    calendar: DateRange = { start: 0, end: 0, range: 0 };
     maxDate = new Date();
 
     setPredefinedDate(val: number) {
-        const min = new Date().setHours(val * -24);
-        const max = new Date().getTime();
+        this.calendar.start = new Date().setHours(val * -24);
+        this.calendar.end = new Date().getTime();
 
-        this.closeMenu();
-        this.dateRangeEvent.emit([min, max]);
+        this.onConfirm();
     }
 
     //Mat-Calendar calls this function after selecting and sets returned string as class on proper element
@@ -67,6 +61,10 @@ export class CalendarComponent {
 
     onConfirm() {
         this.closeMenu();
-        this.dateRangeEvent.emit([this.calendar.start, this.calendar.end]);
+        this.emitChanges();
+    }
+
+    emitChanges() {
+        this.dateRangeEvent.emit(this.calendar);
     }
 }
