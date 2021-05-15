@@ -22,4 +22,19 @@
             }
         }
     }
+
+    //override mat-calendar's default styles
+    .mat-calendar-body-cell {
+        border-radius: 50%;
+        &.selected {
+            background-color: var(--color-primary-blue) !important;
+
+            .mat-calendar-body-cell-content {
+                color: #fff !important;
+            }
+        }
+        &.in-range {
+            background-color: var(--color-light-neutral-3) !important;
+        }
+    }
 }

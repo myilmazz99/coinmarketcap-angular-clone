@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import {
+    Component,
+    EventEmitter,
+    Output,
+    ViewChild,
+    ViewEncapsulation,
+} from '@angular/core';
 import { MatCalendar } from '@angular/material/datepicker';
 import { DateRange } from '../models/date-range.model';
 
@@ -6,6 +12,7 @@ import { DateRange } from '../models/date-range.model';
     selector: 'ui-calendar',
     templateUrl: './calendar.component.html',
     styleUrls: ['./calendar.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class CalendarComponent {
     @Output() dateRangeEvent = new EventEmitter<DateRange>(null);
