@@ -124,7 +124,6 @@
             top: -1px;
             right: -8px;
             width: 16px;
-            //color: var(--theme-light-color);
             margin: 0px;
           }
         }
@@ -151,7 +150,6 @@
 }
 
 .tippy-box {
-  //position: relative;
   background-color: var(--color-tippy-arrow);
   box-shadow: var(--shadow-normal);
   color: var(--color-text-1);
@@ -162,7 +160,6 @@
   transition-property: transform, visibility, opacity;
 
   .tippy-content {
-    //position: relative;
     padding: 5px 9px;
     z-index: 1;
   }

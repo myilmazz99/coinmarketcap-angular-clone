@@ -1,12 +1,9 @@
 .buy-add-button-section {
-  //grid-area: buyAddButtonSection;
-  //background-color: var(--background-color);
   margin: 0px;
 
   .container-button {
     position: relative;
     display: flex;
-    //flex-direction: column-reverse;
     flex-direction: column;
     padding-top: 16px;
     padding-bottom: 16px;
@@ -78,30 +75,9 @@ body {
   transition-property: transform, visibility, opacity;
 }
 
-/*
-.buy-dropdown {
-  //top: 55px;
-  //left: -180px;
-}
-
-.cryto-dropdown {
-  top: 55px;
-  right: -40px;
-}
-
-.exchange-dropdown {
-  top: 55px;
-  left: -20px;
-}
-
-.gaming-dropdown {
-  top: 55px;
-  left: 60px;
-} */
-
 .tippy-box {
-  background-color: white; //var(--control-background-color);
-  color: siyah; //var(--text-color);
+  background-color: var(--control-background-color);
+  color: var(--text-color);
 }
 
 .tippy-content {

@@ -1,15 +1,10 @@
 .nameSection {
-  //grid-area: nameSection;
-  //background-color: var(--background-color);
   padding-top: 8px;
   padding-right: 24px;
   padding-bottom: 8px;
-  //flex: 0 0 50%;
-  //align-items: center;
   margin-top: 5px;
 
   .nameHeader {
-    //position: relative;
     display: flex;
     margin: 0px 0px 16px;
     justify-content: flex-start;
@@ -45,7 +40,6 @@
     }
 
     .header-span .header-button {
-      //position: absolute;
       width: auto;
       padding: 0px 8px;
       border-radius: 8px;
@@ -145,10 +139,8 @@
 
 .login-page {
   max-height: 100vh;
-  //overflow-y: scroll;
   transition: height 0.3s ease-in-out;
   max-width: 100vw;
-  //position: relative;
   position: absolute;
   padding: 24px 32px;
   background: var(--control-background-color);

@@ -1,6 +1,4 @@
 .link-section {
-  //grid-area: linkSection;
-  //background-color: var(--background-color);
   padding-right: 24px;
   padding-top: 8px;
 
@@ -31,7 +29,6 @@
       }
 
       li {
-        //position: relative;
         .button-link {
           text-decoration: none;
           background-color: var(--control-dropdown-background-color);
@@ -97,7 +94,6 @@
         margin-right: 4px;
         background-color: var(--color-light-neutral-7);
         color: var(--color-light-neutral-6);
-        //border-left: 3px solid var(--bg-color);
         border-radius: 40px;
         padding: 2px 8px;
         font-size: 11px;
@@ -123,24 +119,15 @@
   color: var(--color-light-neutral-5);
   height: 16px;
 }
-/*
-[data-tippy-root] {
-  max-width: calc(100vw - 10px);
-  pointer-events: auto !important;
-}*/
 
 .tippy-box {
-  //background-color: var(--control-background-color);
-  //color: var(--text-color);
-  //position: relative;
   position: absolute;
-  background-color: #fff; //var(--control-background-color);
-  color: #000; //var(--text-color);
+  background-color: var(--control-background-color);
+  color: var(--text-color);
   border-radius: 8px;
   box-shadow: var(--shadow-normal);
-  font-size: 12px; //14px
+  font-size: 12px;
   line-height: 1.4;
-  //font-weight: 700;
   outline: 0;
   transition-property: transform, visibility, opacity;
   visibility: hidden;
@@ -149,30 +136,23 @@
   transition: 250ms all;
 
   .tippy-content {
-    //position: relative;
-    padding: 8px 9px; //5px 9px
+    padding: 8px 9px;
     z-index: 1;
 
     ul {
-      //top: 5px;
-      //left: 0px;
       position: absolute;
       display: flex;
       flex-direction: column;
       li {
         :hover {
-          //display: block;
           background-color: var(--color-light-neutral-1);
           color: var(--color-primary-black);
         }
-        //margin-bottom: 8px;
+
         a {
           display: flex;
           flex-direction: row;
-
-          //color: var(--color-primary-black);
           border-radius: 8px;
-          //display: block;
           margin-bottom: 4px;
           font-size: 12px;
           font-weight: 600;
@@ -187,26 +167,16 @@
       }
     }
   }
-  /* .tippy-arrow {
-    color: #fff; //var(--control-background-color);
-    bottom: 0;
-    width: 16px;
-    height: 16px;
-    //color: yellow; //var(--color-tippy-arrow);
-  } */
 }
 
 .tippy-community {
   height: 80px;
   width: 140px;
   left: -10px;
-  //transform: translateY(80px);
 }
 
 .tippy-explorers {
-  //background-color: rgb(163, 223, 61);
   height: 190px;
   width: 230px;
   left: -60px;
-  //transform: translateY(190px);
 }

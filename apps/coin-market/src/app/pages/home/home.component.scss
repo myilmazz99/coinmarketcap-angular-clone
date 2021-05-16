@@ -7,13 +7,8 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
     padding-top: 24px;
-    //background-image: linear-gradient(to top, var(--color-primary-white), var(--color-light-neutral-1));
-    //border-bottom: 1px solid var(--border-color); // rgba(0, 0, 0, 0.12);
+    background-image: linear-gradient(to top, var(--color-primary-white), var(--color-light-neutral-1));
 
     .top-links-section {
         display: flex;
@@ -115,15 +110,5 @@ body {
                 position: absolute;
             }
         }
-    }
-}
-
-@media (min-width: 1300px) {
-    .container-inner {
-        padding-right: 60px;
-        padding-left: 60px;
-    }
-    .top-links-section {
-        padding-left: 60px;
     }
 }
