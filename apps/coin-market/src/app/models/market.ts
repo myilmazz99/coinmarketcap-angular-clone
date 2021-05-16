@@ -1,30 +1,19 @@
-export class Market {
+export class MarketList {
     imageUrl: string;
-    source: string;
+    market_name: string;
     pairs: string;
     price: number;
     volume: number;
-    volumePercentage: number;
+    volume_percentage: number;
     liquidity: number;
-    confidence: string;
-    confidenceClass?: string;
-    updated: string;
 
     constructor(item: any) {
         this.imageUrl = item.imageUrl || null;
-        this.source = item.source || '';
+        this.market_name = item.market_name || '';
         this.pairs = item.pairs || '';
         this.price = item.price || '';
         this.volume = item.volume || '';
-        this.volumePercentage = item.volumePercentage || '';
+        this.volume_percentage = item.volume_percentage || '';
         this.liquidity = item.liquidity || '';
-        this.confidence = item.confidence || '';
-        this.confidenceClass =
-            item.confidence === 'Low'
-                ? 'low'
-                : item.confidence === 'Moderate'
-                ? 'moderate'
-                : 'high';
-        this.updated = item.updated || '';
     }
 }

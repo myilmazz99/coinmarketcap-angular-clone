@@ -324,9 +324,8 @@ export const marketsData: Market[] = [
         imageUrl: 'assets/img/Bitfinex.jpg',
         source: 'Bitfinex',
         pairs: 'BTC/USDT',
-
         price: 55126.33,
-        volume: 69813.961,
+        volume: 69813961,
         volumePercentage: 0.11,
         liquidity: 492,
         confidence: 'High',

@@ -1,0 +1,362 @@
+[
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "BTC/USDT",
+        "price": 54462.22,
+        "volume": 4018305861,
+        "volume_percentage": 6.33,
+        "liquidity": 888
+    },
+    {
+        "imageUrl": "assets/img/HuobiGlobal.jpg",
+        "market_name": "Huobi Global",
+        "pairs": "BTC/USDT",
+        "price": 54448.11,
+        "volume": 1611191824,
+        "volume_percentage": 2.54,
+        "liquidity": 925
+    },
+    {
+        "imageUrl": "assets/img/CoinbasePro.jpg",
+        "market_name": "Coinbase Pro",
+        "pairs": "BTC/USD",
+        "price": 54409.0,
+        "volume": 1295336827,
+        "volume_percentage": 2.04,
+        "liquidity": 735
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "BTC/BUSD",
+        "price": 54465.75,
+        "volume": 1043018886,
+        "volume_percentage": 1.64,
+        "liquidity": 846
+    },
+    {
+        "imageUrl": "assets/img/Bitfinex.jpg",
+        "market_name": "Bitfinex",
+        "pairs": "BTC/USD",
+        "price": 54348.0,
+        "volume": 565064806,
+        "volume_percentage": 0.89,
+        "liquidity": 726
+    },
+    {
+        "imageUrl": "assets/img/bitFlyer.png",
+        "market_name": "bitFlyer",
+        "pairs": "BTC/JPY",
+        "price": 54485.01,
+        "volume": 431168700,
+        "volume_percentage": 0.68,
+        "liquidity": 481
+    },
+    {
+        "imageUrl": "assets/img/Bitstamp.jpg",
+        "market_name": "Bitstamp",
+        "pairs": "BTC/USD",
+        "price": 54395.06,
+        "volume": 411005517,
+        "volume_percentage": 0.65,
+        "liquidity": 453
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "ETH/BTC",
+        "price": 54585.35,
+        "volume": 400202504,
+        "volume_percentage": 0.63,
+        "liquidity": 831
+    },
+    {
+        "imageUrl": "assets/img/Kraken.jpg",
+        "market_name": "Kraken",
+        "pairs": "BTC/USD",
+        "price": 54418.9,
+        "volume": 38442501,
+        "volume_percentage": 0.61,
+        "liquidity": 799
+    },
+    {
+        "imageUrl": "assets/img/FTX.png",
+        "market_name": "FTX",
+        "pairs": "BTC/USD",
+        "price": 54376.0,
+        "volume": 351624004,
+        "volume_percentage": 0.55,
+        "liquidity": 602
+    },
+    {
+        "imageUrl": "assets/img/Bithumb.png",
+        "market_name": "Bithumb",
+        "pairs": "BTC/KRW",
+        "price": 57216.13,
+        "volume": 323673664,
+        "volume_percentage": 0.51,
+        "liquidity": 505
+    },
+    {
+        "imageUrl": "assets/img/Kraken.jpg",
+        "market_name": "Kraken",
+        "pairs": "BTC/EUR",
+        "price": 54516.62,
+        "volume": 306007624,
+        "volume_percentage": 0.48,
+        "liquidity": 862
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "XRP/BTC",
+        "price": 54583.12,
+        "volume": 278532042,
+        "volume_percentage": 0.44,
+        "liquidity": 268
+    },
+    {
+        "imageUrl": "assets/img/Kucoin.png",
+        "market_name": "KuCoin",
+        "pairs": "BTC/USDT",
+        "price": 54447.68,
+        "volume": 270045284,
+        "volume_percentage": 0.43,
+        "liquidity": 884
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "BTC/EUR",
+        "price": 54543.47,
+        "volume": 228740881,
+        "volume_percentage": 0.36,
+        "liquidity": 661
+    },
+    {
+        "imageUrl": "assets/img/Liquid.png",
+        "market_name": "Liquid",
+        "pairs": "BTC/JPY",
+        "price": 54479.17,
+        "volume": 210098239,
+        "volume_percentage": 0.33,
+        "liquidity": 419
+    },
+    {
+        "imageUrl": "assets/img/Coincheck.png",
+        "market_name": "Coincheck",
+        "pairs": "BTC/JPY",
+        "price": 54538.19,
+        "volume": 18370074,
+        "volume_percentage": 0.29,
+        "liquidity": 461
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "BTC/BTC",
+        "price": 54583.12,
+        "volume": 165056921,
+        "volume_percentage": 0.26,
+        "liquidity": 606
+    },
+    {
+        "imageUrl": "assets/img/FTX.png",
+        "market_name": "FTX",
+        "pairs": "BTC/USDT",
+        "price": 54459.39,
+        "volume": 160662206,
+        "volume_percentage": 0.25,
+        "liquidity": 386
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "THETA/BTC",
+        "price": 55257.94,
+        "volume": 142348858,
+        "volume_percentage": 0.22,
+        "liquidity": 497
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "BTC/USDT",
+        "price": 54462.22,
+        "volume": 162032857,
+        "volume_percentage": 0.26,
+        "liquidity": 251
+    },
+    {
+        "imageUrl": "assets/img/CoinbasePro.jpg",
+        "market_name": "CoinbasePro",
+        "pairs": "BTC/EUR",
+        "price": 55138.61,
+        "volume": 148438661,
+        "volume_percentage": 0.24,
+        "liquidity": 526
+    },
+    {
+        "imageUrl": "assets/img/FTX.png",
+        "market_name": "FTX",
+        "pairs": "BTC/USDT",
+        "price": 55130.34,
+        "volume": 133064304,
+        "volume_percentage": 0.21,
+        "liquidity": 459
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "BTC/USD",
+        "price": 55111.65,
+        "volume": 132529283,
+        "volume_percentage": 0.21,
+        "liquidity": 510
+    },
+    {
+        "imageUrl": "assets/img/Bitfinex.jpg",
+        "market_name": "Bitfinex",
+        "pairs": "BTC/KRW",
+        "price": 57628.37,
+        "volume": 124270044,
+        "volume_percentage": 0.2,
+        "liquidity": 436
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "BTC/USDC",
+        "price": 55141.45,
+        "volume": 123714560,
+        "volume_percentage": 0.2,
+        "liquidity": 483
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "ONE/BTC",
+        "price": 55257.94,
+        "volume": 81676236,
+        "volume_percentage": 0.13,
+        "liquidity": 138
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "BTC/GBP",
+        "price": 55206.0,
+        "volume": 75398225,
+        "volume_percentage": 0.12,
+        "liquidity": 421
+    },
+    {
+        "imageUrl": "assets/img/CoinbasePro.jpg",
+        "market_name": "Coinbase Pro",
+        "pairs": "BTC/GBP",
+        "price": 55157.17,
+        "volume": 72327598,
+        "volume_percentage": 0.12,
+        "liquidity": 437
+    },
+    {
+        "imageUrl": "assets/img/Bitfinex.jpg",
+        "market_name": "Bitfinex",
+        "pairs": "BTC/USDT",
+        "price": 55126.33,
+        "volume": 69813961,
+        "volume_percentage": 0.11,
+        "liquidity": 492
+    },
+    {
+        "imageUrl": "assets/img/Bithumb.png",
+        "market_name": "Bithumb",
+        "pairs": "BTC/KRW",
+        "price": 57216.13,
+        "volume": 323673664,
+        "volume_percentage": 0.51,
+        "liquidity": 505
+    },
+    {
+        "imageUrl": "assets/img/Kraken.jpg",
+        "market_name": "Kraken",
+        "pairs": "BTC/EUR",
+        "price": 54516.62,
+        "volume": 306007624,
+        "volume_percentage": 0.48,
+        "liquidity": 862
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "XRP/BTC",
+        "price": 54583.12,
+        "volume": 278532042,
+        "volume_percentage": 0.44,
+        "liquidity": 268
+    },
+    {
+        "imageUrl": "assets/img/Kucoin.png",
+        "market_name": "KuCoin",
+        "pairs": "BTC/USDT",
+        "price": 54447.68,
+        "volume": 270045284,
+        "volume_percentage": 0.43,
+        "liquidity": 884
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "BTC/EUR",
+        "price": 54543.47,
+        "volume": 228740881,
+        "volume_percentage": 0.36,
+        "liquidity": 661
+    },
+    {
+        "imageUrl": "assets/img/Liquid.png",
+        "market_name": "Liquid",
+        "pairs": "BTC/JPY",
+        "price": 54479.17,
+        "volume": 210098239,
+        "volume_percentage": 0.33,
+        "liquidity": 419
+    },
+    {
+        "imageUrl": "assets/img/Coincheck.png",
+        "market_name": "Coincheck",
+        "pairs": "BTC/JPY",
+        "price": 54538.19,
+        "volume": 18370074,
+        "volume_percentage": 0.29,
+        "liquidity": 461
+    },
+    {
+        "imageUrl": "assets/img/Binance.png",
+        "market_name": "Binance",
+        "pairs": "BNB/BTC",
+        "price": 54583.12,
+        "volume": 165056921,
+        "volume_percentage": 0.26,
+        "liquidity": 606
+    },
+    {
+        "imageUrl": "assets/img/FTX.png",
+        "market_name": "FTX",
+        "pairs": "BTC/USDT",
+        "price": 54459.39,
+        "volume": 160662206,
+        "volume_percentage": 0.25,
+        "liquidity": 571
+    },
+    {
+        "imageUrl": "assets/img/CoinbasePro.jpg",
+        "market_name": "Coinbase Pro",
+        "pairs": "BTC/EUR",
+        "price": 54486.77,
+        "volume": 142348858,
+        "volume_percentage": 0.22,
+        "liquidity": 497
+    }
+]

@@ -11,10 +11,11 @@ import tr from '@angular/common/locales/tr';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MarketsService } from './shared/services/markets.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 registerLocaleData(tr);
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, NavbarComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -30,5 +31,4 @@ registerLocaleData(tr);
     ],
     bootstrap: [AppComponent],
 })
-
 export class AppModule {}
