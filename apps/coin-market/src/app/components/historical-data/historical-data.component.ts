@@ -1,5 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { DateRange } from '@coin-market/data';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HistoricalData } from '../../models/historical-data.model';
@@ -10,7 +11,7 @@ import { HistoricalDataService } from '../../shared/services/historical-data.ser
     templateUrl: './historical-data.component.html',
     styleUrls: ['./historical-data.component.scss'],
 })
-export class HistoricalDataComponent {
+export class HistoricalDataComponent implements OnInit {
     @ViewChild(MatMenuTrigger) menu: MatMenuTrigger;
     historicalData$: Observable<HistoricalData[]>;
     displayedColumns = [
@@ -23,17 +24,17 @@ export class HistoricalDataComponent {
         'marketCap',
     ];
 
-    constructor(private historicalDataService: HistoricalDataService) {
-        this.historicalData$ = historicalDataService.historicalData$.pipe(
-            map((data) => data.filter((d) => d.coinID === '1'))
-        );
+    constructor(private historicalDataService: HistoricalDataService) {}
+
+    ngOnInit(): void {
+        this.historicalData$ = this.historicalDataService.historicalData$;
     }
 
     loadMore() {
         this.historicalDataService.loadMore();
     }
 
-    filterByDate(dates: number[]) {
-        console.log(dates);
+    filterByDate(dates: DateRange) {
+        this.historicalDataService.filterByDate(dates);
     }
 }
