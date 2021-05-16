@@ -23,12 +23,12 @@
             </td>
         </ng-container>
 
-        <ng-container matColumnDef="source">
+        <ng-container matColumnDef="market_name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Source</th>
             <td mat-cell class="bold" *matCellDef="let market">
                 <div class="icon-source">
                     <img class="icon" [src]="market.imageUrl" />
-                    {{ market.source }}
+                    {{ market.market_name }}
                 </div>
             </td>
         </ng-container>
@@ -54,38 +54,16 @@
             </td>
         </ng-container>
 
-        <ng-container matColumnDef="volumePercentage">
+        <ng-container matColumnDef="volume_percentage">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Volume %</th>
             <td mat-cell *matCellDef="let market">
-                {{ market.volumePercentage }}%
-            </td>
-        </ng-container>
-
-        <ng-container matColumnDef="confidence">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                <span class="icon-confidence-liquidity"
-                    >Confidence<img
-                        class="icon"
-                        nz-popover
-                        [nzPopoverContent]="confidenceInfo"
-                        nzPopoverPlacement="bottom"
-                        src="assets/img/info.png"
-                    />
-                </span>
-            </th>
-            <td mat-cell *matCellDef="let market">
-                <span
-                    class="confidence-level"
-                    [ngClass]="market.confidenceClass"
-                >
-                    {{ market.confidence }}
-                </span>
+                {{ market.volume_percentage }}%
             </td>
         </ng-container>
 
         <ng-container matColumnDef="liquidity">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                <span class="icon-confidence-liquidity"
+                <span class="icon-liquidity"
                     >Liquidity
                     <img
                         class="icon"
@@ -97,11 +75,6 @@
                 </span>
             </th>
             <td mat-cell *matCellDef="let market">{{ market.liquidity }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="updated">
-            <th mat-header-cell *matHeaderCellDef>Updated</th>
-            <td mat-cell *matCellDef="let market">{{ market.updated }}</td>
         </ng-container>
 
         <tr
@@ -117,39 +90,6 @@
         [pageSizeOptions]="[5, 10, 25, 100]"
     ></mat-paginator>
 </div>
-
-<ng-template #confidenceInfo>
-    <div class="icon-info">
-        <div class="icon-info-header">
-            <p>Confidence Indicator</p>
-            <a href="_blank">Read More</a>
-        </div>
-        <p>
-            CoinMarketCap algorithmically compares the Reported Volume of
-            exchanges against our data model. The Confidence Indicator indicates
-            the level of confidence we have that the Reported Volume is
-            accurate.
-        </p>
-        <p>
-            Confidence Indicator reports a number from 0% to 100%, and are
-            categorized into bands:
-        </p>
-        <div class="icon-info-footer">
-            <div class="colors high">
-                <p>76-100%</p>
-                <p>High</p>
-            </div>
-            <div class="colors moderate">
-                <p>51-75%</p>
-                <p>Moderate</p>
-            </div>
-            <div class="colors low">
-                <p>0-50%</p>
-                <p>Low</p>
-            </div>
-        </div>
-    </div>
-</ng-template>
 
 <ng-template #liquidityInfo>
     <div class="icon-info">

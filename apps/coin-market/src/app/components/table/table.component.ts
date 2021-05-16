@@ -3,7 +3,6 @@ import { MarketsService } from '../../shared/services/markets.service';
 import { MarketsDataSource } from '../../../assets/data/market-datasource';
 import { MatPaginator } from '@angular/material//paginator';
 import { tap } from 'rxjs/operators';
-import { Market } from '../../models/market';
 import { MatSort } from '@angular/material/sort';
 import { Pair } from '../../models/pair';
 import { MatSelect } from '@angular/material/select';
@@ -15,7 +14,6 @@ import { Observable } from 'rxjs';
     styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit, AfterViewInit {
-    market: Market;
     dataSource: MarketsDataSource;
     dataLength: Observable<number>;
 
@@ -25,14 +23,12 @@ export class TableComponent implements OnInit, AfterViewInit {
 
     displayedColumns = [
         'position',
-        'source',
+        'market_name',
         'pairs',
         'price',
         'volume',
-        'volumePercentage',
-        'confidence',
+        'volume_percentage',
         'liquidity',
-        'updated',
     ];
     selectedValue = 'All';
 

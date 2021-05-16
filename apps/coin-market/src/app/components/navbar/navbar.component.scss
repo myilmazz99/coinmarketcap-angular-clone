@@ -4,7 +4,7 @@
     -webkit-box-align: center;
     align-items: center;
     padding: 5px 15px;
-    margin: 0px auto;
+    margin: 20px auto;
 }
 .coin-market-cap {
     width: 168px;
@@ -26,12 +26,11 @@
     padding-left: 30px;
 
     &:hover {
-        color: gray;
+        color: var(--link-color);
         cursor: pointer;
     }
 }
 .hr {
-    margin-top: 20px;
     height: 1px;
     background-color: rgb(239, 242, 245);
 }

@@ -1,29 +1,27 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Market } from '../../models/market';
-import { marketsData } from 'apps/coin-market/src/assets/data/marketsData';
+import { MarketList } from '../../models/market';
 import { HttpClient } from '@angular/common/http';
-import { tap, map } from 'rxjs/operators';
 
 @Injectable()
 export class MarketsService {
-    private marketItems = new BehaviorSubject<Market[]>([]);
-    public marketItems$: Observable<Market[]>;
+    private marketItems = new BehaviorSubject<MarketList[]>([]);
+    public marketItems$: Observable<MarketList[]>;
 
-    private screenItems = new BehaviorSubject<Market[]>([]);
-    public screenItems$: Observable<Market[]>;
+    private screenItems = new BehaviorSubject<MarketList[]>([]);
+    public screenItems$: Observable<MarketList[]>;
 
-    private filteredItems = new BehaviorSubject<Market[]>([]);
-    public filteredItems$: Observable<Market[]>;
+    private filteredItems = new BehaviorSubject<MarketList[]>([]);
+    public filteredItems$: Observable<MarketList[]>;
 
     private dataLength = new BehaviorSubject<number>(0);
     public dataLength$: Observable<number>;
 
-    sortOrder: BehaviorSubject<string> = new BehaviorSubject('asc');
+    sortOrder: BehaviorSubject<string> = new BehaviorSubject('');
     pageNumber: BehaviorSubject<number> = new BehaviorSubject(0);
     pageSize: BehaviorSubject<number> = new BehaviorSubject(5);
-    selection: BehaviorSubject<any> = new BehaviorSubject('All');
-    sortEvent: BehaviorSubject<any> = new BehaviorSubject('');
+    selection: BehaviorSubject<string> = new BehaviorSubject('All');
+    sortEvent: BehaviorSubject<string> = new BehaviorSubject('');
 
     constructor(private http: HttpClient) {
         this.getMarketItems();
@@ -35,10 +33,10 @@ export class MarketsService {
 
     getMarketItems() {
         return this.http
-            .get<Market[]>('assets/data/marketsData.json')
+            .get<MarketList[]>('assets/data/marketsData.json')
             .subscribe((x) => {
                 const data = x.map((e) => {
-                    return new Market(e);
+                    return new MarketList(e);
                 });
                 this.marketItems.next(data);
                 this.filteredItems.next(data);
@@ -63,34 +61,26 @@ export class MarketsService {
         let sortEvent = this.sortEvent.getValue();
         let sortOrder = this.sortOrder.getValue();
         let arr = this.filteredItems.getValue();
+        console.log(sortOrder);
+        console.log(sortEvent);
 
-        if (sortEvent === 'confidence') {
-            // Spesific sorting algorithm for confidence column
+        if (sortEvent === 'market_name') {
+            // Spesific(case insensitive) sorting algorithm for source column
             if (sortOrder === 'asc') {
                 arr.sort((a, b) =>
-                    (a[sortEvent] === 'High' && b[sortEvent] === 'Moderate') ||
-                    (a[sortEvent] === 'High' && b[sortEvent] === 'Low') ||
-                    (a[sortEvent] === 'Moderate' && b[sortEvent] === 'Low')
+                    a[sortEvent].toLowerCase() > b[sortEvent].toLowerCase()
                         ? 1
-                        : (a[sortEvent] === 'Low' &&
-                              b[sortEvent] === 'Moderate') ||
-                          (a[sortEvent] === 'Low' && b[sortEvent] === 'High') ||
-                          (a[sortEvent] === 'Moderate' &&
-                              b[sortEvent] === 'High')
+                        : b[sortEvent].toLowerCase() >
+                          a[sortEvent].toLowerCase()
                         ? -1
                         : 0
                 );
             } else {
                 arr.sort((a, b) =>
-                    (b[sortEvent] === 'High' && a[sortEvent] === 'Moderate') ||
-                    (b[sortEvent] === 'High' && a[sortEvent] === 'Low') ||
-                    (b[sortEvent] === 'Moderate' && a[sortEvent] === 'Low')
+                    b[sortEvent].toLowerCase() > a[sortEvent].toLowerCase()
                         ? 1
-                        : (b[sortEvent] === 'Low' &&
-                              a[sortEvent] === 'Moderate') ||
-                          (b[sortEvent] === 'Low' && a[sortEvent] === 'High') ||
-                          (b[sortEvent] === 'Moderate' &&
-                              a[sortEvent] === 'High')
+                        : a[sortEvent].toLowerCase() >
+                          b[sortEvent].toLowerCase()
                         ? -1
                         : 0
                 );

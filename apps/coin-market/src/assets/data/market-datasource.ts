@@ -1,12 +1,12 @@
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
-import { Market } from '../../app/models/market';
+import { MarketList } from '../../app/models/market';
 import { MarketsService } from '../../app/shared/services/markets.service';
 
-export class MarketsDataSource implements DataSource<Market> {
+export class MarketsDataSource implements DataSource<MarketList> {
     constructor(private marketService: MarketsService) {}
 
-    connect(): Observable<Market[]> {
+    connect(): Observable<MarketList[]> {
         return this.marketService.screenItems$;
     }
 
