@@ -15,12 +15,15 @@ export class ChartData {
         this.coinName = coinName;
 
         price.map((i) => {
-            this.price.usd.push([this.formatDate(i.dateTime), i.price]);
-            this.volume.push([this.formatDate(i.dateTime), i.vol_24h]);
+            this.price.usd.push([this.formatDate(i.date_time), i.price]);
+            this.volume.push([this.formatDate(i.date_time), i.vol_24h]);
         });
 
         marketcap.map((i) => {
-            this.marketCap.usd.push([this.formatDate(i.dateTime), i.marketCap]);
+            this.marketCap.usd.push([
+                this.formatDate(i.date_time),
+                i.marketCap,
+            ]);
         });
     }
 

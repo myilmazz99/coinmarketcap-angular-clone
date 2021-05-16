@@ -76,12 +76,12 @@ export class OverviewService {
         for (let i = 500; i > 0; i--) {
             const day = new Date().getDate();
             this.price.push({
-                dateTime: new Date(new Date().setDate(day - i)).toString(),
+                date_time: new Date(new Date().setDate(day - i)).toString(),
                 price: Math.floor(Math.random() * 100000 + 1),
                 vol_24h: Math.floor(Math.random() * 10000000 + 1),
             });
             this.marketcap.push({
-                dateTime: new Date(new Date().setDate(day - i)).toString(),
+                date_time: new Date(new Date().setDate(day - i)).toString(),
                 marketCap: Math.floor(Math.random() * 90000000000 + 1),
                 vol_24h: Math.floor(Math.random() * 10000000 + 1),
             });
