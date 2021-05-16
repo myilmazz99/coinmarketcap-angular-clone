@@ -2,9 +2,8 @@
     background-color: #ffff;
 }
 .root {
-    background-image: linear-gradient(
-        to top,
-        var(--color-primary-white),
-        var(--color-light-neutral-1)
+    background: linear-gradient(
+        rgb(248, 250, 253) 0%,
+        rgba(248, 250, 253, 0) 413px
     );
 }
