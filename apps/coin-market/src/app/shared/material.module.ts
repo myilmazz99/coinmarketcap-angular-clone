@@ -7,8 +7,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
@@ -26,8 +24,6 @@ const modules: any[] = [
     MatIconModule,
     MatCheckboxModule,
     MatProgressBarModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
     MatMenuModule,
     MatTableModule,
     MatSelectModule,

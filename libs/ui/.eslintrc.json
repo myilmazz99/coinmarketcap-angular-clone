@@ -22,7 +22,7 @@
                     "error",
                     {
                         "type": "element",
-                        "prefix": "coin-market",
+                        "prefix": "ui",
                         "style": "kebab-case"
                     }
                 ]

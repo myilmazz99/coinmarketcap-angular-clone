@@ -1,18 +1,23 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import * as Highcharts from 'highcharts/highstock';
+import { DateRange } from '@coin-market/data';
 
 @Component({
-    selector: 'chart-range-selector',
+    selector: 'ui-chart-range-selector',
     templateUrl: './chart-range-selector.component.html',
     styleUrls: ['./chart-range-selector.component.scss'],
 })
 export class ChartRangeSelectorComponent {
+    @Input() chart: Highcharts.Chart;
+    @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+
     ranges = ['1D', '7D', '1M', '3M', '1Y', 'YTD', 'ALL'];
     selected = 'ALL';
 
-    @Input() chart: Highcharts.Chart;
-    @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+    setExtremesByCalendar(val: DateRange) {
+        this.chart.xAxis[0].setExtremes(val.start, val.end);
+    }
 
     setExtremes(val: string) {
         this.selected = val;
@@ -25,48 +30,42 @@ export class ChartRangeSelectorComponent {
                 this.chart.xAxis[0].setExtremes(
                     now.setHours(-24),
                     new Date().getTime(),
-                    true,
-                    false
+                    true
                 );
                 break;
             case '7D':
                 this.chart.xAxis[0].setExtremes(
                     now.setHours(-7 * 24),
                     new Date().getTime(),
-                    true,
-                    false
+                    true
                 );
                 break;
             case '1M':
                 this.chart.xAxis[0].setExtremes(
                     now.setMonth(month - 1),
                     new Date().getTime(),
-                    true,
-                    false
+                    true
                 );
                 break;
             case '3M':
                 this.chart.xAxis[0].setExtremes(
                     now.setMonth(month - 3),
                     new Date().getTime(),
-                    true,
-                    false
+                    true
                 );
                 break;
             case '1Y':
                 this.chart.xAxis[0].setExtremes(
                     now.setFullYear(year - 1),
                     new Date().getTime(),
-                    true,
-                    false
+                    true
                 );
                 break;
             case 'YTD':
                 this.chart.xAxis[0].setExtremes(
                     new Date(year, 0, 1).getTime(),
                     undefined,
-                    true,
-                    false
+                    true
                 );
                 break;
 

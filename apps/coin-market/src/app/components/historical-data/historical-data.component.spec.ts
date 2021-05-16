@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CoinChartCalendarComponent } from './coin-chart-calendar.component';
+import { HistoricalDataComponent } from './historical-data.component';
 
-describe('CoinChartCalendarComponent', () => {
-  let component: CoinChartCalendarComponent;
-  let fixture: ComponentFixture<CoinChartCalendarComponent>;
+describe('HistoricalDataComponent', () => {
+  let component: HistoricalDataComponent;
+  let fixture: ComponentFixture<HistoricalDataComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CoinChartCalendarComponent ]
+      declarations: [ HistoricalDataComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CoinChartCalendarComponent);
+    fixture = TestBed.createComponent(HistoricalDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,18 @@
+:host {
+    p {
+        color: var(--color-gray);
+        margin-bottom: 10px;
+    }
+
+    .predefined-dates-list {
+        &__item {
+            padding: 6px 10px;
+            cursor: pointer;
+            white-space: nowrap;
+
+            &:hover {
+                background-color: var(--color-light-neutral-2);
+            }
+        }
+    }
+}

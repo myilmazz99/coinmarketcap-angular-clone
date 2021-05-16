@@ -5,6 +5,7 @@ import {
     Component,
     Input,
     OnInit,
+    ViewEncapsulation,
 } from '@angular/core';
 import * as Highcharts from 'highcharts/highstock';
 import IndicatorsCore from 'highcharts/indicators/indicators';
@@ -17,6 +18,7 @@ IndicatorsCore(Highcharts);
     selector: 'ui-line-chart',
     templateUrl: './line-chart.component.html',
     styleUrls: ['./line-chart.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class LineChartComponent implements OnInit, AfterViewInit {
     highcharts: typeof Highcharts;

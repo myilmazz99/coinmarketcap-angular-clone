@@ -57,3 +57,22 @@
         }
     }
 }
+
+.large-gray-button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+    width: 250px;
+    font-weight: bold;
+    background-color: var(--color-light-neutral-2);
+    margin: 20px auto;
+    border-radius: 8px;
+
+    &:hover {
+        background-color: var(--color-light-neutral-3);
+    }
+}

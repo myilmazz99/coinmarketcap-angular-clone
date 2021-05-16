@@ -1,175 +1,114 @@
-@import "~@angular/material/theming";
+@import '~@angular/material/theming';
 
 $custom-typography: mat-typography-config(
-  $font-family: "Inter, sans-serif",
+    $font-family: 'Inter, sans-serif',
 );
 
 @include mat-core($custom-typography);
 
 .mat-icon {
-  width: auto !important;
-  height: auto !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  font-size: 16px;
+    width: auto !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 16px;
 }
 
 .vote-coin__progress-bar {
-  .mat-progress-bar {
-    height: 10px;
-    border-radius: 5px;
+    .mat-progress-bar {
+        height: 10px;
+        border-radius: 5px;
 
-    .mat-progress-bar-primary::after {
-      background-color: #16c784;
+        .mat-progress-bar-primary::after {
+            background-color: #16c784;
+        }
+
+        .mat-progress-bar-buffer {
+            background-color: #ea3943;
+        }
     }
-
-    .mat-progress-bar-buffer {
-      background-color: #ea3943;
-    }
-  }
 }
 
-/* HIGHCHARTS */
-.highcharts-credits {
-  display: none;
-}
-
-.highcharts-navigator-outline {
-  stroke-width: 0;
-}
-
-.highcharts-scrollbar {
-  display: none;
-}
-
-.highcharts-crosshair {
-  stroke: rgb(166, 176, 195);
-  stroke-dasharray: 4;
-}
-
-.highcharts-series-0 {
-  & path:last-child {
-    stroke: rgb(56, 97, 251);
-    stroke-width: 1px;
-  }
-}
-
-.highcharts-tooltip {
-  &__line {
-    display: flex;
-
-    &__header {
-      display: flex;
-      align-items: center;
-
-      &__color {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        margin-right: 5px;
-      }
-    }
-
-    &__body {
-      font-weight: bold;
-    }
-  }
-}
 //Mat-menu
 
 .mat-menu-panel {
-  max-width: unset !important;
-}
-
-//Mat-Calendar
-
-.mat-calendar-body-cell {
-  border-radius: 50%;
-  &.selected {
-    background-color: var(--color-primary-blue) !important;
-  }
-  &.in-range {
-    background-color: var(--color-primary-blue) !important;
-    opacity: 0.5;
-  }
-
-  &.selected,
-  &.in-range {
-    .mat-calendar-body-cell-content {
-      color: #fff !important;
-    }
-  }
+    max-width: unset !important;
 }
 
 .overview-tabs {
-  mat-tab-header {
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-    border-color: var(--border-color);
-    padding: 12px 0;
-  }
+    mat-tab-header {
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-color: var(--border-color);
+        padding: 12px 0;
+    }
 
-  .mat-tab-label-container {
-    max-width: 1400px;
-    margin: 0 auto;
+    .mat-tab-label-container {
+        max-width: 1400px;
+        padding: 0 15px;
+        margin: 0 auto;
 
-    .mat-tab-label {
-      opacity: 1;
-      padding: 8px 12px;
-      margin-left: 6px;
-      border-radius: 8px;
-      color: #000;
-      min-width: unset;
-      height: auto;
+        .mat-tab-label {
+            opacity: 1;
+            padding: 8px 12px;
+            border-radius: 8px;
+            color: #000;
+            min-width: unset;
+            height: auto;
 
-      &.mat-tab-label-active {
-        background-color: var(--color-primary-blue);
-        color: #fff !important;
+            &:not(:first-child) {
+                margin-left: 6px;
+            }
 
-        &:hover {
-          background-color: var(--color-primary-blue);
+            &.mat-tab-label-active {
+                background-color: var(--color-primary-blue);
+                color: #fff !important;
+
+                &:hover {
+                    background-color: var(--color-primary-blue);
+                }
+            }
+
+            &:hover {
+                background-color: var(--color-light-neutral-1);
+            }
         }
-      }
 
-      &:hover {
-        background-color: var(--color-light-neutral-1);
-      }
+        .mat-tab-label-content {
+            color: currentColor;
+            font-weight: bolder;
+            opacity: 1;
+        }
     }
 
-    .mat-tab-label-content {
-      color: currentColor;
-      font-weight: bolder;
-      opacity: 1;
+    .mat-ripple-element {
+        display: none;
     }
-  }
 
-  .mat-ripple-element {
-    display: none;
-  }
-
-  mat-ink-bar {
-    display: none;
-  }
+    mat-ink-bar {
+        display: none;
+    }
 }
 
 //Mat Select
 .mat-select-value {
-  max-width: unset !important;
+    max-width: unset !important;
 }
 
 // Mat Option
 .mat-option-text {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 //Mat Header
 .mat-sort-header-content {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 //Mat Menu
 .mat-menu-content {
-  padding-top: 0 !important;
-  padding-bottom: 0px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0px !important;
+    font-weight: bold;
 }

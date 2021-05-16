@@ -17,8 +17,8 @@
 </ul>
 
 <mat-menu #calendarMenu>
-    <coin-chart-calendar
-        [chart]="chart"
-        [trigger]="trigger"
-    ></coin-chart-calendar>
+    <ui-calendar
+        (dateRangeEvent)="setExtremesByCalendar($event)"
+        (closeMenuEvent)="trigger.closeMenu()"
+    ></ui-calendar>
 </mat-menu>
