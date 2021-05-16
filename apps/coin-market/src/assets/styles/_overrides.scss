@@ -46,16 +46,20 @@ $custom-typography: mat-typography-config(
 
     .mat-tab-label-container {
         max-width: 1400px;
+        padding: 0 15px;
         margin: 0 auto;
 
         .mat-tab-label {
             opacity: 1;
             padding: 8px 12px;
-            margin-left: 6px;
             border-radius: 8px;
             color: #000;
             min-width: unset;
             height: auto;
+
+            &:not(:first-child) {
+                margin-left: 6px;
+            }
 
             &.mat-tab-label-active {
                 background-color: var(--color-primary-blue);
