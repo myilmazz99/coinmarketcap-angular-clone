@@ -4,6 +4,7 @@ import { VoteCoin } from '../../../models/voteCoin.model';
 import { VoteCoinData } from '../../../models/voteCoinData.model';
 import { OverviewService } from '../../../shared/services/overview.service';
 import { LocalStorageService } from '../../../shared/services/local-storage.service';
+import { isValid } from 'date-fns';
 
 @Component({
     selector: 'coin-market-vote-coin',
@@ -15,7 +16,6 @@ export class VoteCoinComponent implements OnInit, OnDestroy {
     coinName: string;
     votes$: Observable<VoteCoinData>;
 
-    didVote = false;
     voted: number;
 
     constructor(
@@ -29,7 +29,6 @@ export class VoteCoinComponent implements OnInit, OnDestroy {
         );
 
         this.votes$ = this.overviewService.coinVotes$;
-
         this.checkVote();
     }
 
@@ -39,25 +38,35 @@ export class VoteCoinComponent implements OnInit, OnDestroy {
         if (vote) {
             const voteObj: VoteCoin = JSON.parse(vote);
 
-            if (voteObj.expireDate < new Date().getTime())
+            if (
+                !this.isVoteValid(voteObj) ||
+                voteObj.expireDate < new Date().getTime()
+            )
                 this.localStorageService.removeItem(`${this.coinName}_vote`);
             else {
-                this.didVote = true;
                 this.voted = voteObj.value;
             }
         }
     }
 
     vote(value: number) {
-        this.didVote = true;
         this.voted = value;
 
         this.localStorageService.setItem(
             `${this.coinName}_vote`,
             JSON.stringify(new VoteCoin(value, new Date().setHours(24)))
         );
+    }
 
-        //todo post vote
+    isVoteValid(obj: VoteCoin): boolean {
+        const { value, expireDate } = obj;
+
+        if (typeof value !== 'number' || (value !== 1 && value !== -1))
+            return false;
+
+        if (!isValid(new Date(expireDate))) return false;
+
+        return true;
     }
 
     ngOnDestroy(): void {
