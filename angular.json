@@ -58,7 +58,8 @@
                         "scripts": [],
                         "allowedCommonJsDependencies": [
                             "highcharts",
-                            "highcharts-angular"
+                            "highcharts-angular",
+                            "date-fns"
                         ]
                     },
                     "configurations": {
