@@ -23,42 +23,7 @@ export class HistoricalDataService {
     //this will request another month of data, starting from oldest data shown on table
     loadMore() {
         const existingData = this.historicalData.getValue();
-        const dataToAdd: HistoricalData[] = [];
-
-        for (let i = 0; i < 5; i++) {
-            const oldest = this.oldestData;
-            dataToAdd.push(
-                new HistoricalData({
-                    coinID: '1',
-                    closing: {
-                        value: Math.floor(Math.random() * 90000),
-                        date_time: oldest.toISOString(),
-                    },
-                    opening: {
-                        value: Math.floor(Math.random() * 90000),
-                        date_time: oldest.toISOString(),
-                    },
-                    highest: {
-                        value: Math.floor(Math.random() * 90000),
-                        date_time: oldest.toISOString(),
-                    },
-                    lowest: {
-                        value: Math.floor(Math.random() * 90000),
-                        date_time: oldest.toISOString(),
-                    },
-                    volume: {
-                        value: Math.floor(Math.random() * 9000000),
-                        date_time: oldest.toISOString(),
-                    },
-                    marketCap: {
-                        value: Math.floor(Math.random() * 9000000),
-                        date_time: oldest.toISOString(),
-                    },
-                })
-            );
-
-            this.oldestData = new Date(oldest.setHours(-24));
-        }
+        const dataToAdd = this.generateDataForLoadMore();
 
         this.historicalData.next([...existingData, ...dataToAdd]);
     }
@@ -67,11 +32,15 @@ export class HistoricalDataService {
     getHistoricalData(date?: DateRange) {
         if (date) {
             //send request for dates provided
-            this.generateDataByDate(date); //will be replaced with http request
+            const data = this.generateDataByDate(date); //will be replaced with http request
+
+            this.historicalData.next(data);
             this.oldestData = new Date(date.start);
         } else {
             //send request for last 2 months
-            this.generateInitialData();
+            const data = this.generateInitialData();
+
+            this.historicalData.next(data);
             this.oldestData = new Date(new Date().setHours(-24 * 10));
         }
     }
@@ -132,8 +101,49 @@ export class HistoricalDataService {
             );
         }
 
-        this.historicalData.next(arr);
+        return arr;
     };
+
+    generateDataForLoadMore() {
+        const dataToAdd: HistoricalData[] = [];
+
+        for (let i = 0; i < 5; i++) {
+            const oldest = this.oldestData;
+            dataToAdd.push(
+                new HistoricalData({
+                    coinID: '1',
+                    closing: {
+                        value: Math.floor(Math.random() * 90000),
+                        date_time: oldest.toISOString(),
+                    },
+                    opening: {
+                        value: Math.floor(Math.random() * 90000),
+                        date_time: oldest.toISOString(),
+                    },
+                    highest: {
+                        value: Math.floor(Math.random() * 90000),
+                        date_time: oldest.toISOString(),
+                    },
+                    lowest: {
+                        value: Math.floor(Math.random() * 90000),
+                        date_time: oldest.toISOString(),
+                    },
+                    volume: {
+                        value: Math.floor(Math.random() * 9000000),
+                        date_time: oldest.toISOString(),
+                    },
+                    marketCap: {
+                        value: Math.floor(Math.random() * 9000000),
+                        date_time: oldest.toISOString(),
+                    },
+                })
+            );
+
+            this.oldestData = new Date(oldest.setHours(-24));
+        }
+
+        return dataToAdd;
+    }
 
     generateInitialData() {
         const data: HistoricalData[] = [];
@@ -171,6 +181,6 @@ export class HistoricalDataService {
             );
         }
 
-        this.historicalData.next(data);
+        return data;
     }
 }

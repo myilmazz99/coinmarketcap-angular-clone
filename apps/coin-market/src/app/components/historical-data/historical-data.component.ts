@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { DateRange } from '@coin-market/data';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { HistoricalData } from '../../models/historical-data.model';
 import { HistoricalDataService } from '../../shared/services/historical-data.service';
 
