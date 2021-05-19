@@ -12,6 +12,7 @@ export class CoinStatisticRowComponent implements OnInit {
     @Input() dayTag: boolean;
     @Input() percentage: number;
     @Input() tooltip: string;
+    @Input() dateTime: string;
     comparison: Comparison;
 
     ngOnInit(): void {

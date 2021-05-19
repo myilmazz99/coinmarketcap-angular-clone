@@ -1,5 +1,8 @@
 <div class="coin-statistics__table__row__header">
-    {{ title }} <span *ngIf="dayTag" class="badge-gray">24h</span>
+    <ng-container *ngIf="!dateTime; else titleWithDate">{{
+        title
+    }}</ng-container>
+    <span *ngIf="dayTag" class="badge-gray">24h</span>
     <span *ngIf="tooltip; then tooltipTemplate"></span>
 </div>
 <div class="coin-statistics__table__row__body">
@@ -15,6 +18,15 @@
 
     <ng-container *ngIf="percentage; then comparisonTemplate"></ng-container>
 </div>
+
+<ng-template #titleWithDate>
+    <div>
+        {{ title }}
+        <div class="coin-statistics__table__row__header__date">
+            {{ dateTime }}
+        </div>
+    </div>
+</ng-template>
 
 <ng-template #comparisonTemplate>
     <div class="comparison" [ngClass]="handleComparisonClass()">
