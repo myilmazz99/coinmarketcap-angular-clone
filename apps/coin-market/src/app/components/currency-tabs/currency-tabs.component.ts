@@ -20,7 +20,7 @@ export class CurrencyTabsComponent implements OnInit {
         for (const l of this.links) {
             if (
                 l.routerLink.length > 0 &&
-                this.router.url.match(l.routerLink)
+                this.router.url.match('/' + l.routerLink)
             ) {
                 this.selected = l.routerLink;
                 break;
