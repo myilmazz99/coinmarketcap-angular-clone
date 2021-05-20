@@ -39,10 +39,10 @@ describe('MarketsService', () => {
         },
         {
             imageUrl: 'assets/img/Kraken.jpg',
-            market_name: 'Kraken',
+            market_name: 'bitFlyer',
             pairs: 'BTC/EUR',
-            price: 54348.0,
-            volume: 565064806,
+            price: '54348.0',
+            volume: 'abc',
             volume_percentage: 0.89,
             liquidity: 726,
         },
@@ -65,9 +65,7 @@ describe('MarketsService', () => {
     afterEach(() => {
         httpMock.verify();
     });
-    it('should be created', () => {
-        expect(service).toBeTruthy();
-    });
+
     it('should get marketItems$ based on dummyMarkets', (done) => {
         service.marketItems$.pipe(skip(1)).subscribe((res) => {
             expect(res).toHaveLength(4);
@@ -123,7 +121,7 @@ describe('MarketsService', () => {
         });
 
         it('should sort items for source column in descending', (done) => {
-            service.sortEvent.next('price');
+            service.sortEvent.next('market_name');
             service.sortOrder.next('desc');
             service.filteredItems$.pipe(skip(2)).subscribe((res) => {
                 expect(res[0].market_name).toEqual('Liquid');
@@ -173,7 +171,7 @@ describe('MarketsService', () => {
                 service.selection.next('JPY');
                 service.filteredItems$.pipe(skip(2)).subscribe((res) => {
                     expect(res[0].market_name).toEqual('Liquid');
-                    expect(res).toHaveLength(2);
+                    expect(res).toHaveLength(1);
                     done();
                 });
                 const req = httpMock.expectOne('assets/data/marketsData.json');

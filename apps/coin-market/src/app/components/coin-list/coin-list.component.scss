@@ -1,0 +1,21 @@
+.container {
+    width: 100%;
+    max-width: 1400px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+table {
+    margin: auto;
+    font-size: 14px;
+    width: 100%;
+    box-shadow: none !important;
+
+    th {
+        color: var(--color-primary-black);
+        display: table-cell;
+        vertical-align: inherit;
+        font-weight: bold;
+    }
+}

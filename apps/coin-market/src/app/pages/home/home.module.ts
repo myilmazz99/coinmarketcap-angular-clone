@@ -22,6 +22,7 @@ import { MaterialModule } from '../../shared/material.module';
 import { CoinStatisticRowComponent } from '../../components/overview/coin-statistics/coin-statistic-row/coin-statistic-row.component';
 import { AntModule } from '../../shared/ng-zorro-antd.module';
 import { HistoricalDataComponent } from '../../components/historical-data/historical-data.component';
+import { CoinListComponent } from '../../components/coin-list/coin-list.component';
 
 @NgModule({
     imports: [
@@ -55,6 +56,7 @@ import { HistoricalDataComponent } from '../../components/historical-data/histor
         PriceSectionComponent,
         StatsSectionComponent,
         HistoricalDataComponent,
+        CoinListComponent,
     ],
     exports: [HomeComponent],
 })
