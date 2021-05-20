@@ -9,7 +9,7 @@ const routes: Routes = [
         pathMatch: 'full',
     },
     {
-        path: 'currencies/:name',
+        path: 'currencies/:coin_id',
         loadChildren: () =>
             import('./pages/currency/currency.module').then(
                 (m) => m.CurrencyModule
