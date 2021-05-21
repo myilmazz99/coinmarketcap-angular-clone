@@ -15,4 +15,8 @@
         grid-template-columns: 100%;
         row-gap: 15px;
     }
+
+    coin-market-table {
+        grid-column: 1/-1;
+    }
 }

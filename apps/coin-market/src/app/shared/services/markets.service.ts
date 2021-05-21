@@ -34,10 +34,7 @@ export class MarketsService {
     getMarketItems() {
         return this.http
             .get<MarketList[]>('assets/data/marketsData.json')
-            .subscribe((x) => {
-                const data = x.map((e) => {
-                    return new MarketList(e);
-                });
+            .subscribe((data) => {
                 this.marketItems.next(data);
                 this.filteredItems.next(data);
                 this.findMarkets();
@@ -61,8 +58,6 @@ export class MarketsService {
         let sortEvent = this.sortEvent.getValue();
         let sortOrder = this.sortOrder.getValue();
         let arr = this.filteredItems.getValue();
-        console.log(sortOrder);
-        console.log(sortEvent);
 
         if (sortEvent === 'market_name') {
             // Spesific(case insensitive) sorting algorithm for source column

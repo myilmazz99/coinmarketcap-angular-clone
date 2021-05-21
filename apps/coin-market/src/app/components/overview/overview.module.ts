@@ -10,9 +10,18 @@ import { UiModule } from '@coin-market/ui';
 import { CommonModule } from '@angular/common';
 import { OverviewRoutingModule } from './overview-routing.module';
 import { MaterialModule } from '../../shared/material.module';
+import { TableComponent } from '../table/table.component';
+import { AntModule } from '../../shared/ng-zorro-antd.module';
+import { MarketsModule } from '../table/markets.module';
 
 @NgModule({
-    imports: [UiModule, CommonModule, OverviewRoutingModule, MaterialModule],
+    imports: [
+        UiModule,
+        CommonModule,
+        OverviewRoutingModule,
+        MaterialModule,
+        MarketsModule,
+    ],
     declarations: [
         OverviewComponent,
         CoinStatisticRowComponent,

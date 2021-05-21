@@ -1,4 +1,5 @@
 export class MarketList {
+    market_id: string;
     imageUrl: string;
     market_name: string;
     pairs: string;
@@ -8,6 +9,7 @@ export class MarketList {
     liquidity: number;
 
     constructor(item: any) {
+        this.market_id = item.market_id || '';
         this.imageUrl = item.imageUrl || null;
         this.market_name = item.market_name || '';
         this.pairs = item.pairs || '';
