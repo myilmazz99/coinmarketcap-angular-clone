@@ -14,7 +14,7 @@
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
             <td style="font-weight: bold" mat-cell *matCellDef="let coin">
-                {{ coin.name }}
+                <a [routerLink]="'/currencies/' + coin.name">{{ coin.name }}</a>
             </td>
         </ng-container>
 
