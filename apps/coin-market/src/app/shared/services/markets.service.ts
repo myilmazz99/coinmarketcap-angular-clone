@@ -61,8 +61,6 @@ export class MarketsService {
         let sortEvent = this.sortEvent.getValue();
         let sortOrder = this.sortOrder.getValue();
         let arr = this.filteredItems.getValue();
-        console.log(sortOrder);
-        console.log(sortEvent);
 
         if (sortEvent === 'market_name') {
             // Spesific(case insensitive) sorting algorithm for source column
