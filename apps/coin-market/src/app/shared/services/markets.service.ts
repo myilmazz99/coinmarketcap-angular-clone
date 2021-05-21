@@ -34,10 +34,7 @@ export class MarketsService {
     getMarketItems() {
         return this.http
             .get<MarketList[]>('assets/data/marketsData.json')
-            .subscribe((x) => {
-                const data = x.map((e) => {
-                    return new MarketList(e);
-                });
+            .subscribe((data) => {
                 this.marketItems.next(data);
                 this.filteredItems.next(data);
                 this.findMarkets();

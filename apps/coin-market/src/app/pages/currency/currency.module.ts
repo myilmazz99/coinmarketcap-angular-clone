@@ -9,7 +9,7 @@ import { BuyAddButtonSectionComponent } from '../../components/buy-add-button-se
 import { LinkSectionComponent } from '../../components/link-section/link-section.component';
 import { NameSectionComponent } from '../../components/name-section/name-section.component';
 import { PriceSectionComponent } from '../../components/price-section/price-section.component';
-import { SelectComponent } from '../../components/select/select.component';
+
 import { StatsSectionComponent } from '../../components/stats-section/stats-section.component';
 import { CurrencyComponent } from './currency.component';
 import { CurrencyTabsComponent } from '../../components/currency-tabs/currency-tabs.component';
@@ -25,7 +25,6 @@ import { CurrencyTabsComponent } from '../../components/currency-tabs/currency-t
     ],
     declarations: [
         CurrencyComponent,
-        SelectComponent,
         NameSectionComponent,
         PriceSectionComponent,
         StatsSectionComponent,

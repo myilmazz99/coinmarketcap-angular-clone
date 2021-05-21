@@ -1,7 +1,7 @@
 <div class="container">
     <div class="elements-above-table">
         <h2>Bitcoin Markets</h2>
-        <div class="pair-select">
+        <div class="pair-select" *ngIf="showPairs">
             <p class="pair-text">Pair</p>
             <mat-select [(ngModel)]="selectedValue" name="pair">
                 <mat-option *ngFor="let pair of pairs" [value]="pair.viewValue">
@@ -12,14 +12,14 @@
     </div>
 
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-        <ng-container matColumnDef="position">
+        <ng-container matColumnDef="market_id">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
             <td
                 mat-cell
                 style="color: rgb(88, 102, 126)"
-                *matCellDef="let market; let i = index"
+                *matCellDef="let market"
             >
-                {{ i + 1 + myPaginator.pageIndex * myPaginator.pageSize }}
+                {{ market.market_id }}
             </td>
         </ng-container>
 
@@ -83,13 +83,15 @@
         ></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-    <mat-paginator
-        #myPaginator
-        [length]="dataLength | async"
-        [pageSize]="5"
-        [pageSizeOptions]="[5, 10, 25, 100]"
-    >
-    </mat-paginator>
+    <ng-container *ngIf="showPaginator"
+        ><mat-paginator
+            #myPaginator
+            [length]="dataLength | async"
+            [pageSize]="5"
+            [pageSizeOptions]="[5, 10, 25, 100]"
+        >
+        </mat-paginator
+    ></ng-container>
 </div>
 
 <ng-template #liquidityInfo>

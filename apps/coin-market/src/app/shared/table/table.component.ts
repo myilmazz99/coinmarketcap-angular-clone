@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {
+    AfterViewInit,
+    Component,
+    Input,
+    OnInit,
+    ViewChild,
+} from '@angular/core';
 import { MarketsService } from '../../shared/services/markets.service';
 import { MarketsDataSource } from '../../../assets/data/market-datasource';
 import { MatPaginator } from '@angular/material//paginator';
@@ -17,12 +23,14 @@ export class TableComponent implements OnInit, AfterViewInit {
     dataSource: MarketsDataSource;
     dataLength: Observable<number>;
 
+    @Input() showPaginator: boolean = true;
+    @Input() showPairs: boolean = true;
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatSelect) select: MatSelect;
 
     displayedColumns = [
-        'position',
+        'market_id',
         'market_name',
         'pairs',
         'price',
@@ -57,27 +65,34 @@ export class TableComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.paginator.page
-            .pipe(
-                tap(() => {
-                    this.marketsService.pageNumber.next(
-                        this.paginator.pageIndex
-                    );
-                    this.marketsService.pageSize.next(this.paginator.pageSize);
+        if (this.showPaginator === true) {
+            this.paginator.page
+                .pipe(
+                    tap(() => {
+                        this.marketsService.pageNumber.next(
+                            this.paginator.pageIndex
+                        );
+                        this.marketsService.pageSize.next(
+                            this.paginator.pageSize
+                        );
 
-                    this.loadMarketsPage();
-                })
-            )
-            .subscribe();
-        this.select.selectionChange
-            .pipe(
-                tap(() => {
-                    this.marketsService.selection.next(this.selectedValue);
-                    this.paginator.firstPage();
-                    this.loadMarketsPage();
-                })
-            )
-            .subscribe();
+                        this.loadMarketsPage();
+                    })
+                )
+                .subscribe();
+        }
+        if (this.showPairs === true) {
+            this.select.selectionChange
+                .pipe(
+                    tap(() => {
+                        this.marketsService.selection.next(this.selectedValue);
+                        this.paginator.firstPage();
+                        this.loadMarketsPage();
+                    })
+                )
+                .subscribe();
+        }
+
         this.sort.sortChange
             .pipe(
                 tap(() => {
