@@ -3,18 +3,28 @@ import { Routes, RouterModule } from '@angular/router'; // CLI imports router
 
 const routes: Routes = [
     {
-        path: 'home',
+        path: '',
         loadChildren: () =>
             import('./pages/home/home.module').then((m) => m.HomeModule),
+        pathMatch: 'full',
     },
     {
-        path: 'market',
+        path: 'currencies/:coin_id',
         loadChildren: () =>
-            import('./pages/market/market.module').then((m) => m.MarketModule),
+            import('./pages/currency/currency.module').then(
+                (m) => m.CurrencyModule
+            ),
+    },
+    {
+        path: 'gainers-losers',
+        loadChildren: () =>
+            import('./pages/gainers-losers/gainers-losers.module').then(
+                (m) => m.GainersLosersModule
+            ),
     },
     {
         path: '**',
-        redirectTo: '/home',
+        redirectTo: '/',
         pathMatch: 'full',
     },
 ]; // sets up routes constant where you define your routes

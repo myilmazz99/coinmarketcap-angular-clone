@@ -1,0 +1,13 @@
+<div class="currency-tabs">
+    <div class="currency-tabs__container container">
+        <a
+            class="currency-tabs__link"
+            *ngFor="let i of links"
+            [class.active]="selected === i.routerLink"
+            (click)="onClick(i.routerLink)"
+            [routerLink]="'./' + i.routerLink"
+        >
+            {{ i.text }}
+        </a>
+    </div>
+</div>

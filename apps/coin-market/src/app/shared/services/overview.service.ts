@@ -8,8 +8,8 @@ import {
 } from '../../../assets/data/coinData';
 import { VoteCoinData } from '../../models/voteCoinData.model';
 import { ChartData } from '@coin-market/data';
-import { CoinPriceStatistics } from '../../models/coin-price-statistics.model';
 import { OverviewPrice, OverviewMarketcap } from '@coin-market/data';
+import { OverviewPriceStatistics } from '../../models/overview-price-statistics.model';
 
 @Injectable({
     providedIn: 'root',
@@ -24,10 +24,10 @@ export class OverviewService {
     private coinVotes = new BehaviorSubject<VoteCoinData>(null);
     public coinVotes$: Observable<VoteCoinData>;
 
-    private coinStatistics: BehaviorSubject<CoinPriceStatistics> = new BehaviorSubject(
+    private coinStatistics: BehaviorSubject<OverviewPriceStatistics> = new BehaviorSubject(
         null
     );
-    public coinStatistics$: Observable<CoinPriceStatistics>;
+    public coinStatistics$: Observable<OverviewPriceStatistics>;
 
     private chartData: BehaviorSubject<ChartData> = new BehaviorSubject(null);
     public chartData$: Observable<ChartData>;
@@ -103,7 +103,9 @@ export class OverviewService {
     }
 
     getCoinStatistics(): void {
-        this.coinStatistics.next(fakeCoinStatistics);
+        this.coinStatistics.next(
+            new OverviewPriceStatistics(fakeCoinStatistics)
+        );
     }
 
     private mapChartData() {

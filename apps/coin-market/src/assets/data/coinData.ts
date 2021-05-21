@@ -1,6 +1,6 @@
 import { Coin } from '../../app/models/coin';
 import { VoteCoinData } from '../../app/models/voteCoinData.model';
-import { CoinPriceStatistics } from '../../app/models/coin-price-statistics.model';
+import { OverviewPriceStatistics } from '../../app/models/overview-price-statistics.model';
 
 export const fakeCoin = new Coin({
     name: 'Bitcoin',
@@ -54,37 +54,24 @@ export const fakeCoinVotes: VoteCoinData = {
     bad: 18,
 };
 
-export const fakeCoinStatistics: CoinPriceStatistics = {
-    priceChange: { value: 653.45, comparisonPercentage: 1.13 },
-    price_today_low: 57695.06,
-    price_today_high: 58937.05,
-    volumePrice: 48568674778.31,
-    volumePercentage: -13.16,
-    volumeMarketCapNumber: 0.04442,
-    marketDominance: 54.95,
-    marketCapPrice: 1093359164333.68,
-    marketCapPercentage: 0.69,
-    fullyMarketCapPrice: 1229276128246.84,
-    fullyMarketCapPercentage: 0.68,
-    price_yesterday_low: 55879.08,
-    price_yesterday_high: 58338.74,
-    price_yesterday_open: 56099.91,
-    price_yesterday_close: 58323.95,
-    yesterdayChange: 3.96,
-    price_yesterday_volume: 53053855641.35,
-    price_7d_low: 55604.02,
-    price_7d_high: 60110.27,
-    price_30d_low: 50856.57,
-    price_30d_high: 61683.86,
-    price_90d_low: 28953.37,
-    price_90d_high: 61683.86,
-    price_52w_low: 6555.5,
-    price_52w_high: 61683.86,
-    allTimeHigh: { value: 61683.86, comparisonPercentage: 5.1 },
-    allTimeLow: { value: 65.53, comparisonPercentage: 89233.94 },
-    percent_roi: 43171.97,
-    circulatingSupplyNumber: 18678100,
-    circulatingSupplyPercentage: 0,
-    totalSupplyNumber: 18678100,
-    maxSupplyNumber: 21000000,
+export const fakeCoinStatistics: OverviewPriceStatistics = {
+    price: 57695.06,
+    price_change_24h: 653.45,
+    price_low_high_24h: { low: 57695.06, high: 58937.05 },
+    trading_volume_24h: 48568674778.31,
+    market_dominance: 54.95,
+    market_cap: 1093359164333.68,
+    market_rank: 1,
+    fully_diluted_market_cap: 1229276128246.84,
+    price_low_high_yesterday: { low: 55879.08, high: 58338.74 },
+    price_open_close_yesterday: { open: 56099.91, close: 58323.95 },
+    price_change_percentage_yesterday: 3.96,
+    price_low_high_7d: { low: 55604.02, high: 60110.27 },
+    price_low_high_30d: { low: 50856.02, high: 61683.27 },
+    price_low_high_90d: { low: 28953.02, high: 61683.27 },
+    price_low_high_52w: { low: 6555.02, high: 61683.27 },
+    price_low_high_all: {
+        high: { date_time: new Date().toISOString(), high_price: 61683.86 },
+        low: { date_time: new Date().toISOString(), low_price: 65.53 },
+    },
 };

@@ -1,0 +1,36 @@
+.currency-tabs {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: var(--border-color);
+    padding: 12px 0;
+
+    &__container {
+        display: flex;
+    }
+
+    &__link {
+        font-weight: bold;
+        padding: 8px 12px;
+        border-radius: 8px;
+        color: #000;
+        min-width: unset;
+        height: auto;
+
+        &:not(:first-child) {
+            margin-left: 6px;
+        }
+
+        &.active {
+            background-color: var(--color-primary-blue);
+            color: #fff !important;
+
+            &:hover {
+                background-color: var(--color-primary-blue);
+            }
+        }
+
+        &:hover {
+            background-color: var(--color-light-neutral-1);
+        }
+    }
+}
