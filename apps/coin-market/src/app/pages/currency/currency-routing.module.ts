@@ -17,7 +17,7 @@ const routes: Routes = [
             {
                 path: 'markets',
                 loadChildren: () =>
-                    import('../../components/table/markets.module').then(
+                    import('../../shared/table/markets.module').then(
                         (m) => m.MarketsModule
                     ),
             },
