@@ -1,10 +1,10 @@
 <section class="coin-statistics" *ngIf="coinStatistics$ | async as s">
-    <h2>{{ (coin$ | async).name }} Price Statistics</h2>
+    <h2>{{ s.coin_id | uppercase }} Price Statistics</h2>
     <div class="coin-statistics__table">
         <div class="coin-statistics__table__caption">Bitcoin Price Today</div>
         <coin-market-coin-statistic-row
             title="Bitcoin Price"
-            [value]="(coin$ | async).price"
+            [value]="s.price"
             [isCurrency]="true"
         ></coin-market-coin-statistic-row>
         <coin-market-coin-statistic-row
