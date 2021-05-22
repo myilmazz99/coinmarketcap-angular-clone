@@ -13,6 +13,7 @@ import { HistoricalDataService } from '../../shared/services/historical-data.ser
 export class HistoricalDataComponent implements OnInit {
     @ViewChild(MatMenuTrigger) menu: MatMenuTrigger;
     historicalData$: Observable<HistoricalData[]>;
+    dateRange$: Observable<CalendarDateRange>;
     displayedColumns = [
         'date_time',
         'highest',
@@ -27,6 +28,7 @@ export class HistoricalDataComponent implements OnInit {
 
     ngOnInit(): void {
         this.historicalData$ = this.historicalDataService.historicalData$;
+        this.dateRange$ = this.historicalDataService.dateRange$;
     }
 
     loadMore() {

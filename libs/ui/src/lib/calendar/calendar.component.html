@@ -3,7 +3,7 @@
         class="calendar-menu__calendar"
         (selectedChange)="select($event)"
         [maxDate]="maxDate"
-        [selected]="selectedRange"
+        [selected]="selected"
     ></mat-calendar>
 
     <ui-predefined-dates
@@ -21,7 +21,7 @@
             mat-flat-button
             color="primary"
             (click)="onConfirm()"
-            [disabled]="!selectedRange.end"
+            [disabled]="!selected.end"
         >
             Confirm
         </button>
