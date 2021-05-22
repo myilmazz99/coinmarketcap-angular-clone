@@ -1,5 +1,9 @@
-export class DateRange {
+export class CalendarDateRange {
     start: Date;
     end: Date;
-    range?: number;
+
+    constructor(start?: Date, end?: Date) {
+        this.start = start || null;
+        this.end = end || null;
+    }
 }
