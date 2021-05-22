@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
-import * as Highcharts from 'highcharts/highstock';
 import { DateRange } from '@coin-market/data';
+import * as Highcharts from 'highcharts/highstock';
 
 @Component({
     selector: 'ui-chart-range-selector',
@@ -16,7 +16,7 @@ export class ChartRangeSelectorComponent {
     selected = 'ALL';
 
     setExtremesByCalendar(val: DateRange) {
-        this.chart.xAxis[0].setExtremes(val.start, val.end);
+        this.chart.xAxis[0].setExtremes(val.start.getTime(), val.end.getTime());
     }
 
     setExtremes(val: string) {

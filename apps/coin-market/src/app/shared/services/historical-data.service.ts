@@ -55,7 +55,7 @@ export class HistoricalDataService {
         const { start, end } = dates;
         const arr: HistoricalData[] = [];
 
-        const days = Math.floor((end - start) / 86400000);
+        const days = Math.floor((end.getTime() - start.getTime()) / 86400000);
 
         for (let i = 0; i < days; i++) {
             arr.push(

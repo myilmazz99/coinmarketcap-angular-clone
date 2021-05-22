@@ -1,5 +1,5 @@
 export class DateRange {
-    start: number;
-    end: number;
+    start: Date;
+    end: Date;
     range?: number;
 }
