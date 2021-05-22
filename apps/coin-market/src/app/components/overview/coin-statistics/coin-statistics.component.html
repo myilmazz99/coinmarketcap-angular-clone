@@ -95,29 +95,30 @@
                 title="All Time High"
                 [value]="s.price_low_high_all.high.high_price"
                 [isCurrency]="true"
-                [dateTime]="s.price_low_high_all.high.date_time_as_date_string"
+                [date]="s.price_low_high_all.high.date"
             ></coin-market-coin-statistic-row>
             <coin-market-coin-statistic-row
                 title="All Time Low"
                 [value]="s.price_low_high_all.low.low_price"
                 [isCurrency]="true"
-                [dateTime]="s.price_low_high_all.low.date_time_as_date_string"
+                [date]="s.price_low_high_all.low.date"
             ></coin-market-coin-statistic-row>
 
-            <!-- fetch from coin-detail.service -->
-            <!-- <div class="coin-statistics__table__caption">Bitcoin Supply</div>
+            <div class="coin-statistics__table__caption">Bitcoin Supply</div>
             <coin-market-coin-statistic-row
                 title="Circulating Supply"
-                [value]="(s.circulatingSupplyNumber | number) + ' BTC'"
+                [value]="
+                    (s.circulating_supply.circulating_supply | number) + ' BTC'
+                "
             ></coin-market-coin-statistic-row>
             <coin-market-coin-statistic-row
                 title="Total Supply"
-                [value]="(s.totalSupplyNumber | number) + ' BTC'"
+                [value]="(s.circulating_supply.total_supply | number) + ' BTC'"
             ></coin-market-coin-statistic-row>
             <coin-market-coin-statistic-row
                 title="Max Supply"
-                [value]="(s.maxSupplyNumber | number) + ' BTC'"
-            ></coin-market-coin-statistic-row> -->
+                [value]="(s.circulating_supply.max_supply | number) + ' BTC'"
+            ></coin-market-coin-statistic-row>
         </div>
     </ng-container>
 

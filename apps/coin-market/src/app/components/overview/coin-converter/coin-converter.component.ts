@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Coin } from '../../../models/coin';
+import { Coin } from '../../../models/coin.model';
 import { OverviewService } from '../../../shared/services/overview.service';
 
 @Component({

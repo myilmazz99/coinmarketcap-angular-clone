@@ -9,6 +9,7 @@ export class Coin {
     volume: ValuePercentage;
     circulating_supply: CoinSupplyNumbers;
     price_high_low: PriceHighLow;
+    icon: string;
 
     constructor(item?: any) {
         this.coin_id = item?.coin_id || '';
@@ -23,6 +24,7 @@ export class Coin {
             item?.circulating_supply
         );
         this.price_high_low = new PriceHighLow(item?.price_high_low);
+        this.icon = item.icon || '';
     }
 }
 

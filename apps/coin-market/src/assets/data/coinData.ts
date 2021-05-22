@@ -1,50 +1,56 @@
-import { Coin } from '../../app/models/coin';
+import { Coin } from '../../app/models/coin.model';
 import { VoteCoinData } from '../../app/models/voteCoinData.model';
 import { OverviewPriceStatistics } from '../../app/models/overview-price-statistics.model';
 
-export const fakeCoin = new Coin({
-    name: 'Bitcoin',
-    price: 52556.41,
+export const fakeCoin: Coin = {
+    coin_id: 'btc',
+    price: 56201.17,
+    coin_name: 'Bitcoin',
+    market_cap: { value: 1028360948721, change_percentage: 3.27 },
+    fully_diluted_market_cap: {
+        value: 1156036894571,
+        change_percentage: -3.54,
+    },
+    volume: { value: 1028360948, change_percentage: 0.88 },
+    circulating_supply: {
+        circulating_supply: 18666012,
+        max_supply: 21000000,
+        total_supply: 18666012,
+    },
+    price_high_low: { high: 58429.22, low: 55889.15, interval: '24h' },
     icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',
-    symbol: 'BTC',
-    rank: 1,
-});
+};
 
 export const fakeTrendingCoinList: Coin[] = [
     new Coin({
-        name: 'Bitcoin',
+        coin_name: 'Bitcoin',
         price: 52556.41,
         icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',
-        symbol: 'BTC',
-        rank: 1,
+        coin_id: 'BTC',
     }),
     new Coin({
-        name: 'SHD CASH',
+        coin_name: 'SHD CASH',
         price: 52556.41,
         icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/8740.png',
-        symbol: 'SHDC',
-        rank: 2743,
+        coin_id: 'SHDC',
     }),
     new Coin({
-        name: 'Alaya',
+        coin_name: 'Alaya',
         price: 52556.41,
         icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7814.png',
-        symbol: 'ATP',
-        rank: 1743,
+        coin_id: 'ATP',
     }),
     new Coin({
-        name: 'Bitcashpay',
+        coin_name: 'Bitcashpay',
         price: 52556.41,
         icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7867.png',
-        symbol: 'BCP',
-        rank: 108,
+        coin_id: 'BCP',
     }),
     new Coin({
-        name: 'RAMP',
+        coin_name: 'RAMP',
         price: 52556.41,
         icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7463.png',
-        symbol: 'RAMP',
-        rank: 227,
+        coin_id: 'RAMP',
     }),
 ];
 

@@ -1,3 +1,5 @@
+import { CoinSupplyNumbers } from './coin-supply-numbers.model';
+
 export class OverviewPriceStatistics {
     price: number;
     price_change_24h: number;
@@ -14,14 +16,15 @@ export class OverviewPriceStatistics {
     price_low_high_30d: PriceHighLow;
     price_low_high_90d: PriceHighLow;
     price_low_high_52w: PriceHighLow;
-    price_low_high_all: PriceAllTimeHighLow;
+    price_low_high_all: PriceAllTime;
 
+    coin_id?: string;
     circulating_supply?: CoinSupplyNumbers;
 
     constructor(item: any) {
         this.price = item.price || 0;
         this.price_change_24h = item.price_change_24h || 0;
-        this.price_low_high_24h = item.price_low_high_24h || new PriceHighLow();
+        this.price_low_high_24h = new PriceHighLow(item.price_low_high_24h);
         this.trading_volume_24h = item.trading_volume_24h || 0;
         this.market_dominance = item.market_dominance || 0;
         this.market_rank = item.market_rank || 0;
@@ -29,64 +32,60 @@ export class OverviewPriceStatistics {
         this.fully_diluted_market_cap = item.fully_diluted_market_cap || 0;
         this.price_change_percentage_yesterday =
             item.price_change_percentage_yesterday || 0;
-        this.price_low_high_yesterday =
-            item.price_low_high_yesterday || new PriceHighLow();
-        this.price_open_close_yesterday =
-            item.price_open_close_yesterday || new PriceOpenClose();
-        this.price_low_high_7d = item.price_low_high_7d || new PriceHighLow();
-        this.price_low_high_30d = item.price_low_high_30d || new PriceHighLow();
-        this.price_low_high_90d = item.price_low_high_90d || new PriceHighLow();
-        this.price_low_high_52w = item.price_low_high_52w || new PriceHighLow();
-        this.price_low_high_all = item.price_low_high_all
-            ? new PriceAllTimeHighLow(item.price_low_high_all)
-            : new PriceAllTimeHighLow();
+        this.price_low_high_yesterday = new PriceHighLow(
+            item.price_low_high_yesterday
+        );
+        this.price_open_close_yesterday = new PriceOpenClose(
+            item.price_open_close_yesterday
+        );
+        this.price_low_high_7d = new PriceHighLow(item.price_low_high_7d);
+        this.price_low_high_30d = new PriceHighLow(item.price_low_high_30d);
+        this.price_low_high_90d = new PriceHighLow(item.price_low_high_90d);
+        this.price_low_high_52w = new PriceHighLow(item.price_low_high_52w);
+        this.price_low_high_all = new PriceAllTime(item.price_low_high_all);
 
-        this.circulating_supply =
-            item.circulating_supply || new CoinSupplyNumbers();
+        this.coin_id = item.coin_id || '';
+        this.circulating_supply = new CoinSupplyNumbers(
+            item.circulating_supply
+        );
     }
 }
 
-class PriceAllTimeHighLow {
-    high: {
-        date_time: string;
-        high_price: number;
-        date_time_as_date_string?: string;
-    } = {
-        date_time: '',
-        high_price: 0,
-        date_time_as_date_string: '',
-    };
-    low: {
-        date_time: string;
-        low_price: number;
-        date_time_as_date_string?: string;
-    } = {
-        date_time: '',
-        low_price: 0,
-        date_time_as_date_string: '',
-    };
+class PriceAllTime {
+    high: PriceAllTimeHigh;
+    low: PriceAllTimeLow;
 
     constructor(item?: any) {
-        this.high = item.high && {
-            ...item.high,
-            date_time_as_date_string: new Date(
-                item?.high.date_time
-            ).toLocaleDateString('en-US', {
-                month: 'short',
-                day: '2-digit',
-                year: 'numeric',
-            }),
-        };
-        this.low = item.low && {
-            ...item.low,
-            date_time_as_date_string: new Date(
-                item?.low.date_time
-            ).toLocaleDateString('en-US', {
-                month: 'short',
-                day: '2-digit',
-                year: 'numeric',
-            }),
-        };
+        this.high = new PriceAllTimeHigh(item?.high);
+        this.low = new PriceAllTimeLow(item?.low);
+    }
+}
+
+class PriceAllTimeHigh {
+    date_time: string;
+    high_price: number;
+
+    date?: Date;
+
+    constructor(item?: any) {
+        this.date_time = item?.date_time || null;
+        this.high_price = item?.high_price || 0;
+
+        this.date = new Date(this.date_time);
+    }
+}
+
+class PriceAllTimeLow {
+    date_time: string;
+    low_price: number;
+
+    date?: Date;
+
+    constructor(item?: any) {
+        this.date_time = item?.date_time || null;
+        this.low_price = item?.low_price || 0;
+
+        this.date = new Date(this.date_time);
     }
 }
 
@@ -107,17 +106,5 @@ class PriceOpenClose {
     constructor(item?: any) {
         this.open = item?.open || 0;
         this.close = item?.close || 0;
-    }
-}
-
-class CoinSupplyNumbers {
-    max_supply: number;
-    circulating_supply: number;
-    total_supply: number;
-
-    constructor(item?: any) {
-        this.max_supply = item?.max_supply || 0;
-        this.circulating_supply = item?.circulating_supply || 0;
-        this.total_supply = item?.total_supply || 0;
     }
 }
