@@ -14,14 +14,18 @@
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
             <td style="font-weight: bold" mat-cell *matCellDef="let coin">
-                <a [routerLink]="'/currencies/' + coin.name">{{ coin.name }}</a>
+                <a [routerLink]="'/currencies/' + coin.coin_id">{{
+                    coin.name
+                }}</a>
             </td>
         </ng-container>
 
         <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef>Price</th>
             <td style="font-weight: bold" mat-cell *matCellDef="let coin">
-                {{ coin.price | currency: 'USD':'$':'0.2-2' }}
+                <a [routerLink]="'/currencies/' + coin.coin_id + '/markets'">{{
+                    coin.price | currency: 'USD':'$':'0.2-2'
+                }}</a>
             </td>
         </ng-container>
 
