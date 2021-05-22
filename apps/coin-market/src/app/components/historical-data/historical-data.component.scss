@@ -36,8 +36,6 @@
 
     .mat-header-cell,
     .mat-cell {
-        border-color: var(--border-color) !important;
-
         &:not(:first-child) {
             text-align: right;
         }
