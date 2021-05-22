@@ -66,6 +66,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         if (this.showPaginator === true) {
+            //  Paginate just for the table in the market tab
             this.paginator.page
                 .pipe(
                     tap(() => {
@@ -82,6 +83,7 @@ export class TableComponent implements OnInit, AfterViewInit {
                 .subscribe();
         }
         if (this.showPairs === true) {
+            // Filter just for the table in the market tab
             this.select.selectionChange
                 .pipe(
                     tap(() => {
@@ -92,16 +94,30 @@ export class TableComponent implements OnInit, AfterViewInit {
                 )
                 .subscribe();
         }
-
-        this.sort.sortChange
-            .pipe(
-                tap(() => {
-                    this.marketsService.sortOrder.next(this.sort.direction);
-                    this.marketsService.sortEvent.next(this.sort.active);
-                    this.loadMarketsPage();
-                })
-            )
-            .subscribe();
+        if (this.showPairs === true) {
+            // Call usual sort method for the table in the market tab
+            this.sort.sortChange
+                .pipe(
+                    tap(() => {
+                        this.marketsService.sortOrder.next(this.sort.direction);
+                        this.marketsService.sortEvent.next(this.sort.active);
+                        this.loadMarketsPage();
+                    })
+                )
+                .subscribe();
+        }
+        if (this.showPairs === false) {
+            // Call different sort method for the table in the "overview" tab
+            this.sort.sortChange
+                .pipe(
+                    tap(() => {
+                        this.marketsService.sortOrder.next(this.sort.direction);
+                        this.marketsService.sortEvent.next(this.sort.active);
+                        this.marketsService.sortScreenItems();
+                    })
+                )
+                .subscribe();
+        }
     }
 
     loadMarketsPage() {

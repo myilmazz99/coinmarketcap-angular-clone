@@ -79,26 +79,30 @@ p {
     }
 }
 
-.table-pairs {
-    color: var(--link-color);
-    font-weight: 500;
+.market-icon-name {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
     &:hover {
         cursor: pointer;
     }
 }
 
-.icon {
-    height: 18px;
-    width: 27px;
-    display: block;
-    padding-left: 5px;
-    padding-right: 5px;
+.market-icon {
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
 }
 
-.icon-source {
-    display: flex;
-    flex-direction: row;
+.market-name {
+    margin: 0px 0px 0px 5px;
+    line-height: 24px;
     font-weight: bold;
+}
+
+.table-pairs {
+    color: var(--link-color);
+    font-weight: 500;
     &:hover {
         cursor: pointer;
     }
@@ -108,6 +112,13 @@ p {
     display: flex;
     flex-direction: row;
     font-weight: bold;
+    align-items: center;
+}
+.icon-liquidity-info {
+    height: 15px;
+    width: 15x;
+    border-radius: 9px;
+    margin-left: 3px;
 }
 
 .icon-info {

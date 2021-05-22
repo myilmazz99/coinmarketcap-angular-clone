@@ -1,4 +1,6 @@
 export class CoinList {
+    coin_rank: string;
+    coin_icon: string;
     coin_id: string;
     name: string;
     price: number;

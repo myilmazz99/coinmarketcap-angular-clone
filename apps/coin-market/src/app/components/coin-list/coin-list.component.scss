@@ -19,3 +19,54 @@ table {
         font-weight: bold;
     }
 }
+.coin-icon-name-id {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .coin-icon {
+        height: 24px;
+        width: 24px;
+        border-radius: 12px;
+    }
+
+    .coin-name {
+        margin: 0px 0px 0px 5px;
+        line-height: 24px;
+        font-weight: bold;
+    }
+    .coin-id {
+        color: rgb(128, 138, 157);
+        margin: 0px 0px 0px 6px;
+        line-height: 24px;
+        font-size: 14px;
+    }
+}
+
+.arrow {
+    display: flex;
+    flex-direction: row;
+    .down {
+        color: red;
+        font-weight: bold;
+    }
+    .up {
+        color: green;
+        font-weight: bold;
+    }
+}
+
+tr:not(first-child):hover {
+    background-color: #f8fafd;
+}
+
+th:hover {
+    background-color: white !important;
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 34px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}

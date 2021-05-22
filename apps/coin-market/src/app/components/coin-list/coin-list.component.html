@@ -1,49 +1,79 @@
 <div class="container">
-    <table mat-table [dataSource]="coinItems$ | async" class="mat-elevation-z8">
-        <ng-container matColumnDef="coin_id">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+        <ng-container matColumnDef="coin_rank">
             <th mat-header-cell *matHeaderCellDef>#</th>
             <td
                 style="color: rgb(88, 102, 126)"
                 mat-cell
                 *matCellDef="let coin"
             >
-                {{ coin.coin_id }}
+                {{ coin.coin_rank }}
             </td>
         </ng-container>
 
         <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
             <td style="font-weight: bold" mat-cell *matCellDef="let coin">
-                <a [routerLink]="'/currencies/' + coin.name">{{ coin.name }}</a>
+                <div class="coin-icon-name-id">
+                    <img class="coin-icon" [src]="coin.coin_icon" />
+                    <a
+                        class="coin-name"
+                        [routerLink]="'/currencies/' + coin.name"
+                        >{{ coin.name }}</a
+                    >
+                    <p class="coin-id">{{ coin.coin_id }}</p>
+                </div>
             </td>
         </ng-container>
 
         <ng-container matColumnDef="price">
-            <th mat-header-cell *matHeaderCellDef>Price</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
             <td style="font-weight: bold" mat-cell *matCellDef="let coin">
                 {{ coin.price | currency: 'USD':'$':'0.2-2' }}
             </td>
         </ng-container>
 
         <ng-container matColumnDef="trend_24h">
-            <th mat-header-cell *matHeaderCellDef>24h %</th>
-            <td mat-cell *matCellDef="let coin">{{ coin.trend_24h }}%</td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>24h %</th>
+            <td mat-cell *matCellDef="let coin">
+                <div class="arrow" *ngIf="coin.trend_24h < 0">
+                    <mat-icon class="down">arrow_drop_down</mat-icon>
+                    <p class="down">{{ coin.trend_24h }}%</p>
+                </div>
+                <div class="arrow" *ngIf="coin.trend_24h > 0">
+                    <mat-icon class="up">arrow_drop_up</mat-icon>
+                    <p class="up">{{ coin.trend_24h }}%</p>
+                </div>
+            </td>
         </ng-container>
 
         <ng-container matColumnDef="trend_7d">
-            <th mat-header-cell *matHeaderCellDef>7d %</th>
-            <td mat-cell *matCellDef="let coin">{{ coin.trend_7d }}%</td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>7d %</th>
+            <td mat-cell *matCellDef="let coin">
+                <div class="arrow" *ngIf="coin.trend_7d < 0">
+                    <mat-icon class="down">arrow_drop_down</mat-icon>
+                    <p class="down">{{ coin.trend_7d }}%</p>
+                </div>
+                <div class="arrow" *ngIf="coin.trend_7d > 0">
+                    <mat-icon class="up">arrow_drop_up</mat-icon>
+                    <p class="up">{{ coin.trend_7d }}%</p>
+                </div>
+            </td>
         </ng-container>
 
         <ng-container matColumnDef="market_cap">
-            <th mat-header-cell *matHeaderCellDef>Market Cap</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Market Cap
+            </th>
             <td mat-cell *matCellDef="let coin">
                 {{ coin.market_cap | currency: 'USD':'$':'4.0-2' }}
             </td>
         </ng-container>
 
         <ng-container matColumnDef="circulating_supply">
-            <th mat-header-cell *matHeaderCellDef>Circulating Supply</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Circulating Supply
+            </th>
             <td mat-cell *matCellDef="let coin">
                 {{ coin.circulating_supply | currency: 'USD':'$':'4.0-2' }}
             </td>

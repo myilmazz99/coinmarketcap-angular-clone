@@ -14,6 +14,6 @@ export class MarketsDataSource implements DataSource<MarketList> {
     loadMarkets() {
         this.marketService.findMarkets();
         this.marketService.filterPair();
-        this.marketService.sortData();
+        this.marketService.sortFilteredItems();
     }
 }

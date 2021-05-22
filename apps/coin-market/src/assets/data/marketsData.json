@@ -1,7 +1,7 @@
 [
     {
         "market_id": "1",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "BTC/USDT",
         "price": 54462.22,
@@ -11,7 +11,7 @@
     },
     {
         "market_id": "2",
-        "imageUrl": "assets/img/HuobiGlobal.jpg",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/102.png",
         "market_name": "Huobi Global",
         "pairs": "BTC/USDT",
         "price": 54448.11,
@@ -21,8 +21,8 @@
     },
     {
         "market_id": "3",
-        "imageUrl": "assets/img/CoinbasePro.jpg",
-        "market_name": "Coinbase Pro",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/89.png",
+        "market_name": "Coinbase Exchange",
         "pairs": "BTC/USD",
         "price": 54409.0,
         "volume": 1295336827,
@@ -31,7 +31,7 @@
     },
     {
         "market_id": "4",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "BTC/BUSD",
         "price": 54465.75,
@@ -41,7 +41,7 @@
     },
     {
         "market_id": "5",
-        "imageUrl": "assets/img/Bitfinex.jpg",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/37.png",
         "market_name": "Bitfinex",
         "pairs": "BTC/USD",
         "price": 54348.0,
@@ -51,7 +51,7 @@
     },
     {
         "market_id": "6",
-        "imageUrl": "assets/img/bitFlyer.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/139.png",
         "market_name": "bitFlyer",
         "pairs": "BTC/JPY",
         "price": 54485.01,
@@ -61,7 +61,7 @@
     },
     {
         "market_id": "7",
-        "imageUrl": "assets/img/Bitstamp.jpg",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/70.png",
         "market_name": "Bitstamp",
         "pairs": "BTC/USD",
         "price": 54395.06,
@@ -71,7 +71,7 @@
     },
     {
         "market_id": "8",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "ETH/BTC",
         "price": 54585.35,
@@ -81,7 +81,7 @@
     },
     {
         "market_id": "9",
-        "imageUrl": "assets/img/Kraken.jpg",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/24.png",
         "market_name": "Kraken",
         "pairs": "BTC/USD",
         "price": 54418.9,
@@ -91,7 +91,7 @@
     },
     {
         "market_id": "10",
-        "imageUrl": "assets/img/FTX.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/524.png",
         "market_name": "FTX",
         "pairs": "BTC/USD",
         "price": 54376.0,
@@ -101,7 +101,7 @@
     },
     {
         "market_id": "11",
-        "imageUrl": "assets/img/Bithumb.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/200.png",
         "market_name": "Bithumb",
         "pairs": "BTC/KRW",
         "price": 57216.13,
@@ -111,7 +111,7 @@
     },
     {
         "market_id": "12",
-        "imageUrl": "assets/img/Kraken.jpg",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/24.png",
         "market_name": "Kraken",
         "pairs": "BTC/EUR",
         "price": 54516.62,
@@ -121,7 +121,7 @@
     },
     {
         "market_id": "13",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "XRP/BTC",
         "price": 54583.12,
@@ -131,7 +131,7 @@
     },
     {
         "market_id": "14",
-        "imageUrl": "assets/img/Kucoin.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/311.png",
         "market_name": "KuCoin",
         "pairs": "BTC/USDT",
         "price": 54447.68,
@@ -141,7 +141,7 @@
     },
     {
         "market_id": "15",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "BTC/EUR",
         "price": 54543.47,
@@ -151,7 +151,7 @@
     },
     {
         "market_id": "16",
-        "imageUrl": "assets/img/Liquid.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/112.png",
         "market_name": "Liquid",
         "pairs": "BTC/JPY",
         "price": 54479.17,
@@ -161,7 +161,7 @@
     },
     {
         "market_id": "17",
-        "imageUrl": "assets/img/Coincheck.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/106.png",
         "market_name": "Coincheck",
         "pairs": "BTC/JPY",
         "price": 54538.19,
@@ -171,7 +171,7 @@
     },
     {
         "market_id": "18",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "BTC/BTC",
         "price": 54583.12,
@@ -181,7 +181,7 @@
     },
     {
         "market_id": "19",
-        "imageUrl": "assets/img/FTX.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/524.png",
         "market_name": "FTX",
         "pairs": "BTC/USDT",
         "price": 54459.39,
@@ -191,7 +191,7 @@
     },
     {
         "market_id": "20",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "THETA/BTC",
         "price": 55257.94,
@@ -201,7 +201,7 @@
     },
     {
         "market_id": "21",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "BTC/USDT",
         "price": 54462.22,
@@ -211,8 +211,8 @@
     },
     {
         "market_id": "22",
-        "imageUrl": "assets/img/CoinbasePro.jpg",
-        "market_name": "CoinbasePro",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/89.png",
+        "market_name": "Coinbase Exchange",
         "pairs": "BTC/EUR",
         "price": 55138.61,
         "volume": 148438661,
@@ -221,7 +221,7 @@
     },
     {
         "market_id": "23",
-        "imageUrl": "assets/img/FTX.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/524.png",
         "market_name": "FTX",
         "pairs": "BTC/USDT",
         "price": 55130.34,
@@ -231,7 +231,7 @@
     },
     {
         "market_id": "24",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "BTC/USD",
         "price": 55111.65,
@@ -241,7 +241,7 @@
     },
     {
         "market_id": "25",
-        "imageUrl": "assets/img/Bitfinex.jpg",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/37.png",
         "market_name": "Bitfinex",
         "pairs": "BTC/KRW",
         "price": 57628.37,
@@ -251,7 +251,7 @@
     },
     {
         "market_id": "26",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "BTC/USDC",
         "price": 55141.45,
@@ -261,7 +261,7 @@
     },
     {
         "market_id": "27",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "ONE/BTC",
         "price": 55257.94,
@@ -271,7 +271,7 @@
     },
     {
         "market_id": "28",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "BTC/GBP",
         "price": 55206.0,
@@ -281,7 +281,7 @@
     },
     {
         "market_id": "29",
-        "imageUrl": "assets/img/CoinbasePro.jpg",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/89.png",
         "market_name": "Coinbase Pro",
         "pairs": "BTC/GBP",
         "price": 55157.17,
@@ -291,7 +291,7 @@
     },
     {
         "market_id": "30",
-        "imageUrl": "assets/img/Bitfinex.jpg",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/37.png",
         "market_name": "Bitfinex",
         "pairs": "BTC/USDT",
         "price": 55126.33,
@@ -301,7 +301,7 @@
     },
     {
         "market_id": "31",
-        "imageUrl": "assets/img/Bithumb.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/200.png",
         "market_name": "Bithumb",
         "pairs": "BTC/KRW",
         "price": 57216.13,
@@ -311,7 +311,7 @@
     },
     {
         "market_id": "32",
-        "imageUrl": "assets/img/Kraken.jpg",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/24.png",
         "market_name": "Kraken",
         "pairs": "BTC/EUR",
         "price": 54516.62,
@@ -321,7 +321,7 @@
     },
     {
         "market_id": "33",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "XRP/BTC",
         "price": 54583.12,
@@ -331,7 +331,7 @@
     },
     {
         "market_id": "34",
-        "imageUrl": "assets/img/Kucoin.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/311.png",
         "market_name": "KuCoin",
         "pairs": "BTC/USDT",
         "price": 54447.68,
@@ -341,7 +341,7 @@
     },
     {
         "market_id": "35",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "BTC/EUR",
         "price": 54543.47,
@@ -351,7 +351,7 @@
     },
     {
         "market_id": "36",
-        "imageUrl": "assets/img/Liquid.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/112.png",
         "market_name": "Liquid",
         "pairs": "BTC/JPY",
         "price": 54479.17,
@@ -361,7 +361,7 @@
     },
     {
         "market_id": "37",
-        "imageUrl": "assets/img/Coincheck.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/106.png",
         "market_name": "Coincheck",
         "pairs": "BTC/JPY",
         "price": 54538.19,
@@ -371,7 +371,7 @@
     },
     {
         "market_id": "38",
-        "imageUrl": "assets/img/Binance.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
         "market_name": "Binance",
         "pairs": "BNB/BTC",
         "price": 54583.12,
@@ -381,7 +381,7 @@
     },
     {
         "market_id": "39",
-        "imageUrl": "assets/img/FTX.png",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/524.png",
         "market_name": "FTX",
         "pairs": "BTC/USDT",
         "price": 54459.39,
@@ -391,7 +391,7 @@
     },
     {
         "market_id": "40",
-        "imageUrl": "assets/img/CoinbasePro.jpg",
+        "market_icon": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/89.png",
         "market_name": "Coinbase Pro",
         "pairs": "BTC/EUR",
         "price": 54486.77,

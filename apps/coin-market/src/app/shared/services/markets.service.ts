@@ -34,7 +34,10 @@ export class MarketsService {
     getMarketItems() {
         return this.http
             .get<MarketList[]>('assets/data/marketsData.json')
-            .subscribe((data) => {
+            .subscribe((x) => {
+                const data = x.map((e) => {
+                    return new MarketList(e);
+                });
                 this.marketItems.next(data);
                 this.filteredItems.next(data);
                 this.findMarkets();
@@ -54,10 +57,24 @@ export class MarketsService {
         this.screenItems.next(res);
     }
 
-    sortData() {
+    sortFilteredItems() {
+        // Sort the filtered items, if the items are not filtered sort all the items
+        let arr = this.filteredItems.getValue();
+        arr = this.sortData(arr);
+        this.filteredItems.next(arr);
+        this.findMarkets();
+    }
+
+    sortScreenItems() {
+        // Sort only items in the current page (Necessary for the table in the "overview" tab)
+        let arr = this.screenItems.getValue();
+        arr = this.sortData(arr);
+        this.screenItems.next(arr);
+    }
+
+    sortData(arr) {
         let sortEvent = this.sortEvent.getValue();
         let sortOrder = this.sortOrder.getValue();
-        let arr = this.filteredItems.getValue();
 
         if (sortEvent === 'market_name') {
             // Spesific(case insensitive) sorting algorithm for source column
@@ -100,8 +117,7 @@ export class MarketsService {
                 );
             }
         }
-        this.filteredItems.next(arr);
-        this.findMarkets();
+        return arr;
     }
 
     filterPair() {
