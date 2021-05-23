@@ -28,7 +28,7 @@ export class LineChartComponent implements OnInit, AfterViewInit {
     @Input() legend: string[];
     @Input() tabs: ChartDataTabs[];
     @Input() data: ChartData;
-    selectedTab: string;
+    selectedTab: ChartDataTabs;
 
     constructor(
         private decimalPipe: DecimalPipe,
@@ -40,7 +40,7 @@ export class LineChartComponent implements OnInit, AfterViewInit {
         this.changeDetectorRef.detectChanges();
     }
 
-    getSelectedTab(val: string) {
+    getSelectedTab(val: ChartDataTabs) {
         this.selectedTab = val;
     }
 
