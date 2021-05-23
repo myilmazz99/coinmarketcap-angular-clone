@@ -109,7 +109,7 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                             );
                         },
                     },
-                    gridLineColor: 'var(--border-color)',
+                    gridLineColor: '#eff2f5',
                     opposite: false,
                     height: '80%',
                 },
@@ -126,14 +126,14 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                             return formattedValue + ' BTC';
                         },
                     },
-                    gridLineColor: 'var(--border-color)',
+                    gridLineColor: '#eff2f5',
                     height: '80%',
                 },
                 {
                     id: 'volume',
                     height: '20%',
                     top: '80%',
-                    gridLineColor: 'var(--border-color)',
+                    gridLineColor: '#eff2f5',
                     visible: false,
                 },
             ],
@@ -195,7 +195,9 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                     ...commonSeriesOptions,
                 },
             ],
-            exporting: { enabled: false },
+            exporting: {
+                enabled: false,
+            },
         };
     }
 }
