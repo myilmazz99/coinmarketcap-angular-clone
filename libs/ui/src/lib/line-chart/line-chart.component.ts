@@ -84,6 +84,9 @@ export class LineChartComponent implements OnInit, AfterViewInit {
         };
 
         this.chartOptions = {
+            navigator: {
+                maskFill: 'rgba(155, 175, 253, 0.5)',
+            },
             rangeSelector: {
                 inputEnabled: false,
                 enabled: false,
@@ -198,6 +201,7 @@ export class LineChartComponent implements OnInit, AfterViewInit {
             exporting: {
                 enabled: false,
             },
+            plotOptions: { column: { states: { hover: { enabled: false } } } },
         };
     }
 }
