@@ -1,4 +1,4 @@
-<div class="container">
+<div class="home-coin-list container">
     <h1>Today's Cryptocurrency Prices by Market Cap</h1>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
         <ng-container matColumnDef="coin_rank">
@@ -89,22 +89,26 @@
                     <mat-icon class="dots">more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
-                    <a [routerLink]="'/currencies/' + coin.name"
+                    <a [routerLink]="'/currencies/' + coin.coin_id"
                         ><button mat-menu-item class="dropdown-item">
                             View Charts
                         </button></a
                     >
-                    <a [routerLink]="'/currencies/' + coin.name + '/markets'">
+                    <a
+                        [routerLink]="
+                            '/currencies/' + coin.coin_id + '/markets'
+                        "
+                    >
                         <button mat-menu-item class="dropdown-item">
                             View Markets
                         </button></a
                     >
                     <a
                         [routerLink]="
-                            '/currencies/' + coin.name + '/historical-data'
+                            '/currencies/' + coin.coin_id + '/historical-data'
                         "
                         ><button mat-menu-item class="dropdown-item">
-                            View Histroical Data
+                            View Historical Data
                         </button></a
                     >
                 </mat-menu>

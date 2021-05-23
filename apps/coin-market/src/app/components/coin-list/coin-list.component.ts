@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {
+    AfterViewInit,
+    Component,
+    OnInit,
+    ViewChild,
+    ViewEncapsulation,
+} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { CoinListDatasource } from 'apps/coin-market/src/assets/data/datasource/coin-list-datasource';
@@ -10,6 +16,7 @@ import { CoinListService } from '../../shared/services/coin-list.service';
     selector: 'coin-market-coin-list',
     templateUrl: './coin-list.component.html',
     styleUrls: ['./coin-list.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class CoinListComponent implements OnInit, AfterViewInit {
     dataSource: CoinListDatasource;
