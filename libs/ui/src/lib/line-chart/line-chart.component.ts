@@ -99,6 +99,14 @@ export class LineChartComponent implements OnInit, AfterViewInit {
       <div class="highcharts-tooltip__line__body">{point.key}
       </div>
     </div>`,
+                borderColor: 'transparent',
+                shadow: {
+                    offsetX: 2,
+                    offsetY: 2,
+                    opacity: 0.05,
+                    color: '#000',
+                    width: 5,
+                },
             },
             yAxis: [
                 {
