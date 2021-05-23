@@ -25,6 +25,11 @@
         }
     }
 
+    &__results {
+        font-size: 85%;
+        color: var(--color-light-neutral-6);
+    }
+
     & > p {
         font-size: 105%;
     }
