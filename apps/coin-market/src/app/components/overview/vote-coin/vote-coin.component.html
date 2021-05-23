@@ -2,7 +2,7 @@
     <div class="vote-coin__text">
         <p class="vote-coin__text__question">
             <strong *ngIf="!voted; else votedTitle"
-                >How do you feel about Bitcoin today?</strong
+                >How do you feel about {{ coinName }} today?</strong
             >
         </p>
         <p class="vote-coin__text__briefing">

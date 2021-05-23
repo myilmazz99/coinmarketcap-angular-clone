@@ -10,8 +10,8 @@ import { OverviewService } from '../../../shared/services/overview.service';
 })
 export class CoinConverterComponent {
     coin$: Observable<Coin>;
-    coinAmount = 0;
-    usdAmount = 0;
+    coinAmount: number;
+    usdAmount: number;
 
     constructor(private overviewService: OverviewService) {
         this.coin$ = this.overviewService.coin$;

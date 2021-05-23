@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { OverviewRoutingModule } from './overview-routing.module';
 import { MaterialModule } from '../../shared/material.module';
 import { MarketsModule } from '../../shared/table/markets.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import { MarketsModule } from '../../shared/table/markets.module';
         OverviewRoutingModule,
         MaterialModule,
         MarketsModule,
+        FormsModule,
     ],
     declarations: [
         OverviewComponent,
