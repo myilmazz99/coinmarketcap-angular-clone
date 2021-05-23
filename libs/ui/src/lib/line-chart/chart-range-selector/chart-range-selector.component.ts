@@ -19,8 +19,12 @@ export class ChartRangeSelectorComponent {
         this.chart.xAxis[0].setExtremes(val.start.getTime(), val.end.getTime());
     }
 
-    setExtremes(val: string) {
+    setSelected(val: string) {
         this.selected = val;
+    }
+
+    setExtremes(val: string) {
+        this.setSelected(val);
         const now = new Date();
         const month = now.getMonth();
         const year = now.getFullYear();
