@@ -2,7 +2,7 @@ import { CoinList } from '../../app/models/coin-list.model';
 
 export const coinListData: CoinList[] = [
     {
-        coin_rank: '1',
+        coin_rank: 1,
         coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',
         coin_id: 'BTC',
         name: 'Bitcoin',
@@ -13,7 +13,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 18713050,
     },
     {
-        coin_rank: '2',
+        coin_rank: 2,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
         coin_id: 'ETH',
@@ -25,7 +25,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 115925121,
     },
     {
-        coin_rank: '3',
+        coin_rank: 3,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
         coin_id: 'BNB',
@@ -37,7 +37,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 153432897,
     },
     {
-        coin_rank: '4',
+        coin_rank: 4,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/2010.png',
         coin_id: 'ADA',
@@ -49,7 +49,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 31948309441,
     },
     {
-        coin_rank: '5',
+        coin_rank: 5,
         coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/74.png',
         coin_id: 'DOGE',
         name: 'Dogecoin',
@@ -60,7 +60,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 129652801779,
     },
     {
-        coin_rank: '6',
+        coin_rank: 6,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/825.png',
         coin_id: 'USDT',
@@ -72,7 +72,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 58174298199,
     },
     {
-        coin_rank: '7',
+        coin_rank: 7,
         coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/52.png',
         coin_id: 'XRP',
         name: 'XRP',
@@ -83,7 +83,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 35108326973,
     },
     {
-        coin_rank: '8',
+        coin_rank: 8,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/6636.png',
         coin_id: 'DOT',
@@ -95,7 +95,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 938838911,
     },
     {
-        coin_rank: '9',
+        coin_rank: 9,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/8916.png',
         coin_id: 'ICP',
@@ -107,7 +107,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 123949678,
     },
     {
-        coin_rank: '10',
+        coin_rank: 10,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/1831.png',
         coin_id: 'BHC',
@@ -119,7 +119,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 5229380689,
     },
     {
-        coin_rank: '11',
+        coin_rank: 11,
         coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/2.png',
         coin_id: 'LTC',
         name: 'Litecoin',
@@ -130,7 +130,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 66752415,
     },
     {
-        coin_rank: '12',
+        coin_rank: 12,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/7083.png',
         coin_id: 'UNI',
@@ -142,7 +142,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 559616278,
     },
     {
-        coin_rank: '13',
+        coin_rank: 13,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/1975.png',
         coin_id: 'LINK',
@@ -154,7 +154,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 426509554,
     },
     {
-        coin_rank: '14',
+        coin_rank: 14,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/512.png',
         coin_id: 'XLM',
@@ -166,7 +166,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 23136887514,
     },
     {
-        coin_rank: '15',
+        coin_rank: 15,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png',
         coin_id: 'USDC',
@@ -178,7 +178,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 14380157844,
     },
     {
-        coin_rank: '16',
+        coin_rank: 16,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png',
         coin_id: 'SOL',
@@ -190,7 +190,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 272637428,
     },
     {
-        coin_rank: '17',
+        coin_rank: 17,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png',
         coin_id: 'MATIC',
@@ -202,7 +202,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 6145590937,
     },
     {
-        coin_rank: '18',
+        coin_rank: 18,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/3077.png',
         coin_id: 'VET',
@@ -214,7 +214,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 64315576989,
     },
     {
-        coin_rank: '19',
+        coin_rank: 19,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/1321.png',
         coin_id: 'ETC',
@@ -226,7 +226,7 @@ export const coinListData: CoinList[] = [
         circulating_supply: 116313299,
     },
     {
-        coin_rank: '20',
+        coin_rank: 20,
         coin_icon:
             'https://s2.coinmarketcap.com/static/img/coins/64x64/2416.png',
         coin_id: 'THETA',

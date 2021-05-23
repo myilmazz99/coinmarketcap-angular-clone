@@ -6,6 +6,10 @@
     margin-right: auto;
     margin-left: auto;
 }
+h1 {
+    font-size: 24px;
+    line-height: 34px;
+}
 table {
     margin: auto;
     font-size: 14px;
@@ -56,12 +60,8 @@ table {
     }
 }
 
-tr:not(first-child):hover {
+tr:hover {
     background-color: #f8fafd;
-}
-
-th:hover {
-    background-color: white !important;
 }
 
 h1 {
@@ -69,4 +69,32 @@ h1 {
     line-height: 34px;
     padding-top: 24px;
     padding-bottom: 24px;
+}
+
+.menu {
+    background-color: #ffff;
+
+    &:hover {
+        background-color: #f8fafd !important;
+        border-radius: 50%;
+    }
+}
+.dots {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: normal;
+    &:hover {
+        background-color: #f8fafd !important;
+    }
+}
+
+.dropdown-item {
+    line-height: 24px;
+    width: auto;
+    height: 40px;
+    font-size: 14px;
+    padding: 0px 12px;
+    outline: 0px;
+    font-weight: bold;
+    padding: 0px 12px;
 }

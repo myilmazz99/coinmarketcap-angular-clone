@@ -10,17 +10,40 @@ export class CoinListService {
     private coinItems = new BehaviorSubject<CoinList[]>([]);
     public coinItems$: Observable<CoinList[]>;
 
-    public pageSize: BehaviorSubject<number> = new BehaviorSubject(5);
+    private screenItems = new BehaviorSubject<CoinList[]>([]);
+    public screenItems$: Observable<CoinList[]>;
+
+    private dataLength = new BehaviorSubject<number>(0);
+    public dataLength$: Observable<number>;
+
+    public pageSize: BehaviorSubject<number> = new BehaviorSubject(10);
     public pageNumber: BehaviorSubject<number> = new BehaviorSubject(0);
     public sortEvent: BehaviorSubject<string> = new BehaviorSubject('');
     public sortOrder: BehaviorSubject<string> = new BehaviorSubject('asc');
 
     constructor() {
         this.coinItems.next(coinListData);
+        this.paginateCoins();
+        this.coinItems.subscribe((x) => {
+            this.dataLength.next(x.length);
+        });
+
         this.coinItems$ = this.coinItems.asObservable();
+        this.screenItems$ = this.screenItems.asObservable();
+        this.dataLength$ = this.dataLength.asObservable();
     }
 
-    paginateCoins() {}
+    paginateCoins() {
+        let pageNumber = this.pageNumber.getValue();
+        let pageSize = this.pageSize.getValue();
+
+        let res = [...this.coinItems.getValue()];
+
+        const initialPos = pageNumber * pageSize;
+        res = res.slice(initialPos, initialPos + pageSize);
+
+        this.screenItems.next(res);
+    }
 
     sortCoins() {
         let arr = this.coinItems.getValue();
@@ -45,5 +68,6 @@ export class CoinListService {
             );
         }
         this.coinItems.next(arr);
+        this.paginateCoins();
     }
 }

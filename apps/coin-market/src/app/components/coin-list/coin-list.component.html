@@ -1,7 +1,8 @@
 <div class="container">
+    <h1>Today's Cryptocurrency Prices by Market Cap</h1>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
         <ng-container matColumnDef="coin_rank">
-            <th mat-header-cell *matHeaderCellDef>#</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
             <td
                 style="color: rgb(88, 102, 126)"
                 mat-cell
@@ -38,7 +39,7 @@
             <td mat-cell *matCellDef="let coin">
                 <div class="arrow" *ngIf="coin.trend_24h < 0">
                     <mat-icon class="down">arrow_drop_down</mat-icon>
-                    <p class="down">{{ coin.trend_24h }}%</p>
+                    <p class="down">{{ coin.trend_24h | minus }}%</p>
                 </div>
                 <div class="arrow" *ngIf="coin.trend_24h > 0">
                     <mat-icon class="up">arrow_drop_up</mat-icon>
@@ -52,7 +53,7 @@
             <td mat-cell *matCellDef="let coin">
                 <div class="arrow" *ngIf="coin.trend_7d < 0">
                     <mat-icon class="down">arrow_drop_down</mat-icon>
-                    <p class="down">{{ coin.trend_7d }}%</p>
+                    <p class="down">{{ coin.trend_7d | minus }}%</p>
                 </div>
                 <div class="arrow" *ngIf="coin.trend_7d > 0">
                     <mat-icon class="up">arrow_drop_up</mat-icon>
@@ -75,11 +76,50 @@
                 Circulating Supply
             </th>
             <td mat-cell *matCellDef="let coin">
-                {{ coin.circulating_supply | currency: 'USD':'$':'4.0-2' }}
+                {{ coin.circulating_supply | currency: '':'':'4.0-2' }}
+                {{ coin.coin_id }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="more_vert">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let coin">
+                <button mat-button [matMenuTriggerFor]="menu" class="menu">
+                    <mat-icon class="dots">more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <a [routerLink]="'/currencies/' + coin.name"
+                        ><button mat-menu-item class="dropdown-item">
+                            View Charts
+                        </button></a
+                    >
+                    <a [routerLink]="'/currencies/' + coin.name + '/markets'">
+                        <button mat-menu-item class="dropdown-item">
+                            View Markets
+                        </button></a
+                    >
+                    <a
+                        [routerLink]="
+                            '/currencies/' + coin.name + '/historical-data'
+                        "
+                        ><button mat-menu-item class="dropdown-item">
+                            View Histroical Data
+                        </button></a
+                    >
+                </mat-menu>
             </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+    <mat-paginator
+        #myPaginator
+        [length]="dataLength$ | async"
+        [pageSize]="10"
+        [pageSizeOptions]="[10, 25, 50, 100]"
+    >
+    </mat-paginator>
 </div>

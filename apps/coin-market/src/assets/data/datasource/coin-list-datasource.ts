@@ -7,7 +7,12 @@ export class CoinListDatasource implements DataSource<CoinList> {
     constructor(public coinListService: CoinListService) {}
 
     connect(): Observable<CoinList[]> {
-        return this.coinListService.coinItems$;
+        return this.coinListService.screenItems$;
     }
     disconnect() {}
+
+    loadCoins() {
+        this.coinListService.paginateCoins();
+        this.coinListService.sortCoins();
+    }
 }

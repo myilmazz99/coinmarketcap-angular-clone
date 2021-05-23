@@ -21,7 +21,7 @@ import { Observable } from 'rxjs';
 })
 export class TableComponent implements OnInit, AfterViewInit {
     dataSource: MarketsDataSource;
-    dataLength: Observable<number>;
+    dataLength$: Observable<number>;
 
     @Input() showPaginator: boolean = true;
     @Input() showPairs: boolean = true;
@@ -56,7 +56,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     ];
 
     constructor(private marketsService: MarketsService) {
-        this.dataLength = marketsService.dataLength$;
+        this.dataLength$ = marketsService.dataLength$;
     }
 
     ngOnInit() {

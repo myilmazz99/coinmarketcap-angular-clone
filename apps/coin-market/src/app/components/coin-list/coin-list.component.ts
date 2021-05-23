@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { CoinListDatasource } from 'apps/coin-market/src/assets/data/datasource/coin-list-datasource';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { CoinList } from '../../models/coin-list.model';
 import { CoinListService } from '../../shared/services/coin-list.service';
 
 @Component({
@@ -12,9 +12,10 @@ import { CoinListService } from '../../shared/services/coin-list.service';
     styleUrls: ['./coin-list.component.scss'],
 })
 export class CoinListComponent implements OnInit, AfterViewInit {
-    coinItems$: Observable<CoinList[]>;
     dataSource: CoinListDatasource;
+    dataLength$: Observable<number>;
     @ViewChild(MatSort) sort: MatSort;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
 
     displayedColumns = [
         'coin_rank',
@@ -24,12 +25,16 @@ export class CoinListComponent implements OnInit, AfterViewInit {
         'trend_7d',
         'market_cap',
         'circulating_supply',
+        'more_vert',
     ];
 
-    constructor(private coinListService: CoinListService) {}
+    constructor(private coinListService: CoinListService) {
+        this.dataLength$ = coinListService.dataLength$;
+    }
 
     ngOnInit(): void {
         this.dataSource = new CoinListDatasource(this.coinListService);
+        this.dataSource.loadCoins();
     }
 
     ngAfterViewInit() {
@@ -38,7 +43,20 @@ export class CoinListComponent implements OnInit, AfterViewInit {
                 tap(() => {
                     this.coinListService.sortEvent.next(this.sort.active);
                     this.coinListService.sortOrder.next(this.sort.direction);
-                    this.coinListService.sortCoins();
+                    this.dataSource.loadCoins();
+                })
+            )
+            .subscribe();
+
+        this.paginator.page
+            .pipe(
+                tap(() => {
+                    this.coinListService.pageNumber.next(
+                        this.paginator.pageIndex
+                    );
+                    this.coinListService.pageSize.next(this.paginator.pageSize);
+
+                    this.dataSource.loadCoins();
                 })
             )
             .subscribe();

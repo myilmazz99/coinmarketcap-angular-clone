@@ -86,7 +86,7 @@
     <ng-container *ngIf="showPaginator"
         ><mat-paginator
             #myPaginator
-            [length]="dataLength | async"
+            [length]="dataLength$ | async"
             [pageSize]="5"
             [pageSizeOptions]="[5, 10, 25, 100]"
         >
