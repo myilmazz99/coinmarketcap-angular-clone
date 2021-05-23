@@ -10,7 +10,7 @@ import * as exceljs from 'exceljs';
 export class ChartExportsButtonComponent {
     @Input() chart: Highcharts.Chart;
     @Input() chartData: ChartData;
-    @Input() selectedTab: string;
+    @Input() selectedTab = 'price';
     exportOptions = [
         { text: 'Download PNG Image', type: 'image/png' },
         { text: 'Download JPEG Image', type: 'image/jpeg' },
@@ -68,9 +68,15 @@ export class ChartExportsButtonComponent {
             if (date <= max && date >= min)
                 data.push({
                     date: new Date(date),
-                    usd: this.chartData[this.selectedTab || 'price'].usd[i][1],
-                    btc: this.chartData[this.selectedTab || 'price'].coin[i][1],
-                    volume: this.chartData.volume[i][1],
+                    usd: this.chartData[this.selectedTab].usd[i]
+                        ? this.chartData[this.selectedTab].usd[i][1]
+                        : null,
+                    btc: this.chartData[this.selectedTab].coin[i]
+                        ? this.chartData[this.selectedTab].coin[i][1]
+                        : null,
+                    volume: this.chartData.volume[i]
+                        ? this.chartData.volume[i][1]
+                        : null,
                 });
         }
 
