@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Coin } from '../../models/coin';
+import { Coin } from '../../models/coin.model';
 import {
     fakeCoin,
     fakeCoinStatistics,
@@ -103,15 +103,21 @@ export class OverviewService {
     }
 
     getCoinStatistics(): void {
+        const { coin_id, circulating_supply } = this.coin.getValue();
         this.coinStatistics.next(
-            new OverviewPriceStatistics(fakeCoinStatistics)
+            new OverviewPriceStatistics({
+                ...fakeCoinStatistics,
+                coin_id,
+                circulating_supply,
+            })
         );
     }
 
     private mapChartData() {
         const price = this.overviewPrice.getValue();
         const marketcap = this.overviewMarketcap.getValue();
+        const coin = this.coin.getValue();
 
-        this.chartData.next(new ChartData('Bitcoin', price, marketcap));
+        this.chartData.next(new ChartData(coin.coin_name, price, marketcap));
     }
 }

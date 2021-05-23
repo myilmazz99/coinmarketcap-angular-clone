@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Coin } from '../../../models/coin';
+import { Coin } from '../../../models/coin.model';
 import { OverviewService } from '../../../shared/services/overview.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { OverviewService } from '../../../shared/services/overview.service';
 })
 export class CoinConverterComponent {
     coin$: Observable<Coin>;
-    coinAmount = 0;
-    usdAmount = 0;
+    coinAmount: number;
+    usdAmount: number;
 
     constructor(private overviewService: OverviewService) {
         this.coin$ = this.overviewService.coin$;

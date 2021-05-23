@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { fakeTrendingCoinList } from 'apps/coin-market/src/assets/data/coinData';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Coin } from '../../models/coin';
+import { Coin } from '../../models/coin.model';
 
 @Injectable({
     providedIn: 'root',

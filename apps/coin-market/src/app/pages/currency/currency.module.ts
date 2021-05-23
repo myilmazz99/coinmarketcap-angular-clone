@@ -13,6 +13,7 @@ import { PriceSectionComponent } from '../../components/price-section/price-sect
 import { StatsSectionComponent } from '../../components/stats-section/stats-section.component';
 import { CurrencyComponent } from './currency.component';
 import { CurrencyTabsComponent } from '../../components/currency-tabs/currency-tabs.component';
+import { LoadingBarComponent } from '../../components/loading-bar/loading-bar.component';
 
 @NgModule({
     imports: [
@@ -31,6 +32,7 @@ import { CurrencyTabsComponent } from '../../components/currency-tabs/currency-t
         BuyAddButtonSectionComponent,
         LinkSectionComponent,
         CurrencyTabsComponent,
+        LoadingBarComponent,
     ],
     exports: [CurrencyComponent],
 })

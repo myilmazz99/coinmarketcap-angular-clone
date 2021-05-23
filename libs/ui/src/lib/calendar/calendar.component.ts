@@ -1,65 +1,64 @@
 import {
     Component,
     EventEmitter,
+    Input,
+    OnChanges,
     Output,
+    SimpleChanges,
     ViewChild,
-    ViewEncapsulation,
 } from '@angular/core';
-import { MatCalendar } from '@angular/material/datepicker';
-import { DateRange } from '@coin-market/data';
+import { MatCalendar, DateRange } from '@angular/material/datepicker';
+import { CalendarDateRange } from '@coin-market/data';
 
 @Component({
     selector: 'ui-calendar',
     templateUrl: './calendar.component.html',
     styleUrls: ['./calendar.component.scss'],
-    encapsulation: ViewEncapsulation.None,
 })
-export class CalendarComponent {
-    @Output() dateRangeEvent = new EventEmitter<DateRange>(null);
+export class CalendarComponent implements OnChanges {
+    @Input() selectedRange: CalendarDateRange = new CalendarDateRange();
+    @Output() dateRangeEvent = new EventEmitter<CalendarDateRange>(null);
     @Output() closeMenuEvent = new EventEmitter(null);
     @ViewChild(MatCalendar) matCalendar: MatCalendar<Date>;
+    selected: DateRange<Date> = new DateRange(null, null);
 
     predefinedDates: number[] = [7, 30, 90, 180, 365]; //dates in days
-    calendar: DateRange = { start: 0, end: 0, range: 0 };
     maxDate = new Date();
+    range = 0;
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes.selectedRange.currentValue) {
+            const { start, end } = changes.selectedRange.currentValue;
+            this.selected = new DateRange(start, end);
+        }
+    }
 
     setPredefinedDate(val: number) {
-        this.calendar.start = new Date().setHours(val * -24);
-        this.calendar.end = new Date().getTime();
+        this.selected = new DateRange(
+            new Date(new Date().setHours(val * -24)),
+            new Date()
+        );
 
         this.onConfirm();
     }
 
-    //Mat-Calendar calls this function after selecting and sets returned string as class on proper element
-    isSelected = (event?: Date) => {
-        const date = event?.getTime();
-        const { start, end } = this.calendar;
-
-        if (start === date || end === date) return 'selected';
-        if (start && end && start < date && date < end) return 'in-range';
-    };
-
     select(event: Date) {
-        const date = event.getTime();
-        let { start, end, range } = this.calendar;
+        const { start, end } = this.selected;
 
-        if (start === 0) start = date;
-        else if (end === 0 && date > start) {
-            end = date;
-            range = Math.floor((end - start) / 86400000); //sets range between dates in days
+        if (start && end) this.selected = new DateRange(null, null);
+
+        if (!start) {
+            this.selected = new DateRange(event, null);
+        } else if (!end && event > start) {
+            this.selected = new DateRange(this.selected.start, event);
+            this.range = Math.floor(
+                (this.selected.end.getTime() - this.selected.start.getTime()) /
+                    86400000
+            ); //sets range between dates in days
         } else {
-            start = date;
-            end = 0;
-            range = 0;
-            this.resetSelections();
+            this.range = 0;
+            this.selected = new DateRange(event, null);
         }
-        this.calendar = { start, end, range };
-
-        this.matCalendar.updateTodaysDate();
-    }
-
-    resetSelections() {
-        this.isSelected();
     }
 
     closeMenu() {
@@ -72,6 +71,8 @@ export class CalendarComponent {
     }
 
     emitChanges() {
-        this.dateRangeEvent.emit(this.calendar);
+        this.dateRangeEvent.emit(
+            new CalendarDateRange(this.selected.start, this.selected.end)
+        );
     }
 }

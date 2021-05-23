@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
     selector: 'coin-market-currency-tabs',
@@ -17,6 +17,14 @@ export class CurrencyTabsComponent implements OnInit {
     constructor(private router: Router) {}
 
     ngOnInit(): void {
+        this.matchRoute();
+
+        this.router.events.subscribe((e) => {
+            if (e instanceof NavigationEnd) this.matchRoute();
+        });
+    }
+
+    matchRoute() {
         for (const l of this.links) {
             if (
                 l.routerLink.length > 0 &&

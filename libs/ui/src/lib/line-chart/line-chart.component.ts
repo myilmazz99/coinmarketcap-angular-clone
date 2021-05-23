@@ -28,7 +28,7 @@ export class LineChartComponent implements OnInit, AfterViewInit {
     @Input() legend: string[];
     @Input() tabs: ChartDataTabs[];
     @Input() data: ChartData;
-    selectedTab: string;
+    selectedTab: ChartDataTabs;
 
     constructor(
         private decimalPipe: DecimalPipe,
@@ -40,7 +40,7 @@ export class LineChartComponent implements OnInit, AfterViewInit {
         this.changeDetectorRef.detectChanges();
     }
 
-    getSelectedTab(val: string) {
+    getSelectedTab(val: ChartDataTabs) {
         this.selectedTab = val;
     }
 
@@ -84,6 +84,9 @@ export class LineChartComponent implements OnInit, AfterViewInit {
         };
 
         this.chartOptions = {
+            navigator: {
+                maskFill: 'rgba(155, 175, 253, 0.5)',
+            },
             rangeSelector: {
                 inputEnabled: false,
                 enabled: false,
@@ -96,6 +99,14 @@ export class LineChartComponent implements OnInit, AfterViewInit {
       <div class="highcharts-tooltip__line__body">{point.key}
       </div>
     </div>`,
+                borderColor: 'transparent',
+                shadow: {
+                    offsetX: 2,
+                    offsetY: 2,
+                    opacity: 0.05,
+                    color: '#000',
+                    width: 5,
+                },
             },
             yAxis: [
                 {
@@ -109,7 +120,7 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                             );
                         },
                     },
-                    gridLineColor: 'var(--border-color)',
+                    gridLineColor: '#eff2f5',
                     opposite: false,
                     height: '80%',
                 },
@@ -126,14 +137,14 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                             return formattedValue + ' BTC';
                         },
                     },
-                    gridLineColor: 'var(--border-color)',
+                    gridLineColor: '#eff2f5',
                     height: '80%',
                 },
                 {
                     id: 'volume',
                     height: '20%',
                     top: '80%',
-                    gridLineColor: 'var(--border-color)',
+                    gridLineColor: '#eff2f5',
                     visible: false,
                 },
             ],
@@ -195,7 +206,10 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                     ...commonSeriesOptions,
                 },
             ],
-            exporting: { enabled: false },
+            exporting: {
+                enabled: false,
+            },
+            plotOptions: { column: { states: { hover: { enabled: false } } } },
         };
     }
 }

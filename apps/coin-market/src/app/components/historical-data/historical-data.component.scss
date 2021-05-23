@@ -25,6 +25,11 @@
         }
     }
 
+    &__results {
+        font-size: 85%;
+        color: var(--color-light-neutral-6);
+    }
+
     & > p {
         font-size: 105%;
     }
@@ -36,8 +41,6 @@
 
     .mat-header-cell,
     .mat-cell {
-        border-color: var(--border-color) !important;
-
         &:not(:first-child) {
             text-align: right;
         }

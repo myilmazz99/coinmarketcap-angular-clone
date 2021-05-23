@@ -16,24 +16,24 @@ export class ChartDataTabsComponent implements AfterViewInit {
     @Input() tabs: ChartDataTabs[];
     @Input() chart: Highcharts.Chart;
     @Input() data: ChartData;
-    @Output() selected = new EventEmitter<string>();
+    @Output() selected = new EventEmitter<ChartDataTabs>();
 
-    handleClick(val: string) {
+    handleClick(val: ChartDataTabs) {
         this.selected.emit(val);
         const serie_usd = this.chart.series.find((s) => s.name === 'USD');
         const serie_coin = this.chart.series.find((s) => s.name === 'BTC');
 
         serie_coin.update({
             type: 'line',
-            data: this.data[val].coin,
+            data: this.data[val.objProp].coin,
         });
         serie_usd.update({
             type: 'line',
-            data: this.data[val].usd,
+            data: this.data[val.objProp].usd,
         });
     }
 
     ngAfterViewInit(): void {
-        this.selected.emit(this.tabs[0].objProp);
+        this.selected.emit(this.tabs[0]);
     }
 }

@@ -19,7 +19,7 @@
                     <img class="coin-icon" [src]="coin.coin_icon" />
                     <a
                         class="coin-name"
-                        [routerLink]="'/currencies/' + coin.name"
+                        [routerLink]="'/currencies/' + coin.coin_id"
                         >{{ coin.name }}</a
                     >
                     <p class="coin-id">{{ coin.coin_id }}</p>
@@ -30,7 +30,9 @@
         <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
             <td style="font-weight: bold" mat-cell *matCellDef="let coin">
-                {{ coin.price | currency: 'USD':'$':'0.2-2' }}
+                <a [routerLink]="'/currencies/' + coin.coin_id + '/markets'">{{
+                    coin.price | currency: 'USD':'$':'0.2-2'
+                }}</a>
             </td>
         </ng-container>
 

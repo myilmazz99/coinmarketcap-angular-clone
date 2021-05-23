@@ -1,7 +1,5 @@
 <div class="coin-statistics__table__row__header">
-    <ng-container *ngIf="!dateTime; else titleWithDate">{{
-        title
-    }}</ng-container>
+    <ng-container *ngIf="!date; else titleWithDate">{{ title }}</ng-container>
     <span *ngIf="dayTag" class="badge-gray">24h</span>
     <span *ngIf="tooltip; then tooltipTemplate"></span>
 </div>
@@ -23,7 +21,7 @@
     <div>
         {{ title }}
         <div class="coin-statistics__table__row__header__date">
-            {{ dateTime }}
+            {{ date | date }}
         </div>
     </div>
 </ng-template>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DateRange } from '@coin-market/data';
+import { CalendarDateRange } from '@coin-market/data';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HistoricalData } from '../../models/historical-data.model';
 
@@ -12,12 +12,16 @@ export class HistoricalDataService {
     > = new BehaviorSubject<HistoricalData[]>([]);
     public historicalData$: Observable<HistoricalData[]>;
 
-    //keeps record of oldest data present on table
-    private oldestData: Date;
+    private dateRange: BehaviorSubject<CalendarDateRange> = new BehaviorSubject<CalendarDateRange>(
+        new CalendarDateRange()
+    );
+    public dateRange$: Observable<CalendarDateRange>;
 
     constructor() {
         this.getHistoricalData();
         this.historicalData$ = this.historicalData.asObservable();
+
+        this.dateRange$ = this.dateRange.asObservable();
     }
 
     //this will request another month of data, starting from oldest data shown on table
@@ -29,33 +33,38 @@ export class HistoricalDataService {
     }
 
     //this will request last 2 months of data or the date range if provided
-    getHistoricalData(date?: DateRange) {
+    getHistoricalData(date?: CalendarDateRange) {
         if (date) {
             //send request for dates provided
             const data = this.generateDataByDate(date); //will be replaced with http request
 
             this.historicalData.next(data);
-            this.oldestData = new Date(date.start);
+            this.dateRange.next(date);
         } else {
             //send request for last 2 months
             const data = this.generateInitialData();
 
             this.historicalData.next(data);
-            this.oldestData = new Date(new Date().setHours(-24 * 10));
+            this.dateRange.next(
+                new CalendarDateRange(
+                    new Date(new Date().setHours(-24 * 10)),
+                    new Date()
+                )
+            );
         }
     }
 
     //updates date with values passed
-    filterByDate(dates: DateRange) {
+    filterByDate(dates: CalendarDateRange) {
         this.getHistoricalData(dates);
     }
 
     //generates fake data with dates provided
-    generateDataByDate = (dates: DateRange) => {
+    generateDataByDate = (dates: CalendarDateRange) => {
         const { start, end } = dates;
         const arr: HistoricalData[] = [];
 
-        const days = Math.floor((end - start) / 86400000);
+        const days = Math.floor((end.getTime() - start.getTime()) / 86400000);
 
         for (let i = 0; i < days; i++) {
             arr.push(
@@ -106,9 +115,10 @@ export class HistoricalDataService {
 
     generateDataForLoadMore() {
         const dataToAdd: HistoricalData[] = [];
+        let { start } = this.dateRange.getValue();
 
         for (let i = 0; i < 5; i++) {
-            const oldest = this.oldestData;
+            const oldest = start;
             dataToAdd.push(
                 new HistoricalData({
                     coinID: '1',
@@ -139,8 +149,10 @@ export class HistoricalDataService {
                 })
             );
 
-            this.oldestData = new Date(oldest.setHours(-24));
+            start = new Date(oldest.setHours(-24));
         }
+
+        this.dateRange.next({ ...this.dateRange.getValue(), start });
 
         return dataToAdd;
     }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { DateRange } from '@coin-market/data';
+import { CalendarDateRange } from '@coin-market/data';
 import { Observable } from 'rxjs';
 import { HistoricalData } from '../../models/historical-data.model';
 import { HistoricalDataService } from '../../shared/services/historical-data.service';
@@ -13,6 +13,7 @@ import { HistoricalDataService } from '../../shared/services/historical-data.ser
 export class HistoricalDataComponent implements OnInit {
     @ViewChild(MatMenuTrigger) menu: MatMenuTrigger;
     historicalData$: Observable<HistoricalData[]>;
+    dateRange$: Observable<CalendarDateRange>;
     displayedColumns = [
         'date_time',
         'highest',
@@ -27,13 +28,14 @@ export class HistoricalDataComponent implements OnInit {
 
     ngOnInit(): void {
         this.historicalData$ = this.historicalDataService.historicalData$;
+        this.dateRange$ = this.historicalDataService.dateRange$;
     }
 
     loadMore() {
         this.historicalDataService.loadMore();
     }
 
-    filterByDate(dates: DateRange) {
+    filterByDate(dates: CalendarDateRange) {
         this.historicalDataService.filterByDate(dates);
     }
 }
