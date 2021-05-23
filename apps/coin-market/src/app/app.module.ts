@@ -11,10 +11,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MarketsService } from './shared/services/markets.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 registerLocaleData(tr);
 @NgModule({
-    declarations: [AppComponent, NavbarComponent],
+    declarations: [AppComponent, NavbarComponent, FooterComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
