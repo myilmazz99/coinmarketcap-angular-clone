@@ -35,6 +35,12 @@ $custom-typography: mat-typography-config(
 .mat-menu-panel {
     max-width: unset !important;
 }
+.mat-menu-item {
+    font-weight: bold !important;
+    &:hover {
+        background-color: #f8fafd !important;
+    }
+}
 
 //Mat Select
 .mat-select-value {

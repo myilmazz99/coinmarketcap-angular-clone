@@ -6,6 +6,7 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSelect } from '@angular/material/select';
 import { MatSort } from '@angular/material/sort';
 import { CoinListDatasource } from 'apps/coin-market/src/assets/data/datasource/coin-list-datasource';
 import { Observable } from 'rxjs';
@@ -23,6 +24,7 @@ export class CoinListComponent implements OnInit, AfterViewInit {
     dataLength$: Observable<number>;
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSelect) select: MatSelect;
 
     displayedColumns = [
         'coin_rank',
@@ -34,6 +36,9 @@ export class CoinListComponent implements OnInit, AfterViewInit {
         'circulating_supply',
         'more_vert',
     ];
+    selectedValue = 20;
+
+    rows = [{ value: 10 }, { value: 15 }, { value: 20 }];
 
     constructor(private coinListService: CoinListService) {
         this.dataLength$ = coinListService.dataLength$;
@@ -67,5 +72,15 @@ export class CoinListComponent implements OnInit, AfterViewInit {
                 })
             )
             .subscribe();
+
+        this.select.selectionChange
+            .pipe(
+                tap(() => {
+                    this.coinListService.pageSize.next(this.selectedValue);
+                    this.dataSource.loadCoins();
+                })
+            )
+            .subscribe();
+        this.paginator._intl.itemsPerPageLabel = 'Show Rows';
     }
 }

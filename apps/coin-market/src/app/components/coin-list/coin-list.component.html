@@ -1,5 +1,15 @@
 <div class="home-coin-list container">
-    <h1>Today's Cryptocurrency Prices by Market Cap</h1>
+    <div class="elements-above-table">
+        <h1>Today's Cryptocurrency Prices by Market Cap</h1>
+        <div class="rows">
+            <p class="row-text">Show Rows</p>
+            <mat-select [(ngModel)]="selectedValue" name="row">
+                <mat-option *ngFor="let row of rows" [value]="row.value">
+                    {{ row.value }}
+                </mat-option>
+            </mat-select>
+        </div>
+    </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
         <ng-container matColumnDef="coin_rank">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>

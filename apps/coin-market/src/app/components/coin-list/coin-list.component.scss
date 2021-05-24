@@ -78,18 +78,42 @@
         font-weight: normal;
     }
 
-    .dropdown-item {
-        line-height: 24px;
-        width: auto;
-        height: 40px;
-        font-size: 14px;
-        padding: 0px 12px;
-        outline: 0px;
-        font-weight: bold;
-        padding: 0px 12px;
-    }
-
     .mat-button-focus-overlay {
         opacity: 0 !important;
+    }
+
+    .rows {
+        box-sizing: border-box;
+        margin: 0px;
+        display: flex;
+        flex-direction: row;
+        -webkit-box-align: center;
+        align-items: center;
+        float: right;
+
+        .row-text {
+            line-height: 1.5;
+            margin: 0px 6px 0px 0px;
+            color: rgb(88, 102, 126);
+            font-size: 12px;
+        }
+
+        .mat-select {
+            box-sizing: border-box;
+            margin: 0px;
+            display: inline-flex;
+            flex-direction: row;
+            -webkit-box-align: center;
+            align-items: center;
+            background: rgb(239, 242, 245);
+            border-radius: 8px;
+            outline: 0px;
+            font-weight: 600;
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+            padding: 5px 8px;
+            font-size: 12px;
+            line-height: 22px;
+        }
     }
 }

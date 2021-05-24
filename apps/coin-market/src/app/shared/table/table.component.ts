@@ -118,6 +118,7 @@ export class TableComponent implements OnInit, AfterViewInit {
                 )
                 .subscribe();
         }
+        this.paginator._intl.itemsPerPageLabel = 'Show Rows';
     }
 
     loadMarketsPage() {
