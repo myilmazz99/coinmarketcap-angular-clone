@@ -13,6 +13,7 @@ const routes: Routes = [
                     import('../../components/overview/overview.module').then(
                         (m) => m.OverviewModule
                     ),
+                pathMatch: 'full',
             },
             {
                 path: 'markets',
