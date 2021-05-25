@@ -1,0 +1,13 @@
+#gainers-losers {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    ag-grid-angular {
+        flex-basis: 48%;
+
+        .ag-row {
+            width: 100%;
+        }
+    }
+}

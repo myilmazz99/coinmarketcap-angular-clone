@@ -1,4 +1,4 @@
-.home-coin-list {
+.home-gainers-losers-table {
     .container {
         width: 100%;
         max-width: 1400px;
@@ -22,29 +22,6 @@
             display: table-cell;
             vertical-align: inherit;
             font-weight: bold;
-        }
-    }
-    .coin-icon-name-id {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        .coin-icon {
-            height: 24px;
-            width: 24px;
-            border-radius: 12px;
-        }
-
-        .coin-name {
-            margin: 0px 0px 0px 5px;
-            line-height: 24px;
-            font-weight: bold;
-        }
-        .coin-id {
-            color: rgb(128, 138, 157);
-            margin: 0px 0px 0px 6px;
-            line-height: 24px;
-            font-size: 14px;
         }
     }
 
