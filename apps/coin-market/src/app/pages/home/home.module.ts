@@ -5,9 +5,10 @@ import { MaterialModule } from '../../shared/material.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { MinusPipe } from '../../shared/pipes/minus.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-    imports: [HomeRoutingModule, CommonModule, MaterialModule],
+    imports: [HomeRoutingModule, CommonModule, MaterialModule, FormsModule],
     declarations: [HomeComponent, CoinListComponent, MinusPipe],
     exports: [HomeComponent],
 })

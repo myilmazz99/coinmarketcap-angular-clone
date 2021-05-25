@@ -81,6 +81,7 @@ export class TableComponent implements OnInit, AfterViewInit {
                     })
                 )
                 .subscribe();
+            this.paginator._intl.itemsPerPageLabel = 'Show Rows';
         }
         if (this.showPairs === true) {
             // Filter just for the table in the market tab
