@@ -1,5 +1,6 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { GridOptions } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import { GainersLosers } from '../../models/gainers-losers';
 import { GainersLosersService } from '../../shared/services/gainers-losers.service';
@@ -13,21 +14,25 @@ import { GainersLosersService } from '../../shared/services/gainers-losers.servi
 export class GainersLosersComponent implements OnInit {
     gainers$: Observable<GainersLosers[]>;
     losers$: Observable<GainersLosers[]>;
-    gridOptions = {
+    gridOptions: GridOptions = {
         alignedGrids: [],
         defaultColDef: {
             sortable: true,
+            resizable: true,
         },
+        rowStyle: { background: '#fff' },
     };
 
     columnDefs = [
         {
             headerName: '#',
             field: 'rank',
+            flex: 2,
         },
         {
             headerName: 'Name',
             field: 'coin_name',
+            flex: 5,
 
             cellRenderer: function (params) {
                 const { coin_name, coin_id, coin_icon } = params.data;
@@ -43,6 +48,7 @@ export class GainersLosersComponent implements OnInit {
         {
             headerName: 'Price',
             field: 'price',
+            flex: 5,
 
             cellRenderer: (params) => {
                 const price = this.currencyPipe.transform(
