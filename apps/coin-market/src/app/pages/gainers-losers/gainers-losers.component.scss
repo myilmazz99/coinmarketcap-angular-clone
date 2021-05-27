@@ -3,6 +3,13 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
+    .ag-theme-material {
+        font-family: inherit;
+    }
+    .rank-gray {
+        color: rgb(88, 102, 126);
+    }
+
     ag-grid-angular {
         flex-basis: 48%;
 
@@ -12,6 +19,23 @@
 
         .ag-row-hover {
             background-color: #f8fafd !important;
+        }
+
+        .ag-root-wrapper {
+            border: none;
+        }
+
+        .ag-header {
+            .ag-header-cell-text {
+                font-weight: bolder;
+                color: #000;
+            }
+        }
+
+        .ag-header,
+        .ag-row {
+            border-color: var(--border-color);
+            background-color: #fff;
         }
     }
 }

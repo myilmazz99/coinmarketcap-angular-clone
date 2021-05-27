@@ -5,28 +5,28 @@
             "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/6735.png",
             "coin_name": "Nexalt",
             "coin_id": "XLT",
-            "price": 3.49
+            "price": 0.1726
         },
         {
             "rank": 2,
             "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9893.png",
             "coin_name": "Twerk Finance",
             "coin_id": "TWERK",
-            "price": 0.00000001
+            "price": 0.0000000368
         },
         {
             "rank": 3,
             "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9941.png",
             "coin_name": "Chihuahua",
             "coin_id": "HUA",
-            "price": 0.0000000378
+            "price": 968.04
         },
         {
             "rank": 4,
             "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9949.png",
             "coin_name": "Baby Shark",
             "coin_id": "SHARK",
-            "price": 0.00000001
+            "price": 5.04
         }
     ],
     "losers": [

@@ -18,15 +18,14 @@ export class GainersLosersComponent implements OnInit {
         alignedGrids: [],
         defaultColDef: {
             sortable: true,
-            resizable: true,
         },
-        rowStyle: { background: '#fff' },
     };
 
     columnDefs = [
         {
             headerName: '#',
             field: 'rank',
+            cellClass: 'rank-gray',
             flex: 2,
         },
         {
@@ -55,7 +54,7 @@ export class GainersLosersComponent implements OnInit {
                     params.data.price,
                     'USD',
                     'symbol',
-                    '4.0-6'
+                    '1.0-10'
                 );
                 return `${price}`;
             },
