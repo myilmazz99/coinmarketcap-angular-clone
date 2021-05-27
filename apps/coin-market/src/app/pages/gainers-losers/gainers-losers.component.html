@@ -1,17 +1,26 @@
 <section id="gainers-losers" class="home-gainers-losers-table container">
-    <ag-grid-angular
-        class="ag-theme-alpine"
-        [rowData]="gainers$ | async"
-        [columnDefs]="columnDefs"
-        domLayout="autoHeight"
-        [gridOptions]="gridOptions"
-    >
-    </ag-grid-angular>
-    <ag-grid-angular
-        class="ag-theme-alpine"
-        [rowData]="losers$ | async"
-        [columnDefs]="columnDefs"
-        domLayout="autoHeight"
-    >
-    </ag-grid-angular>
+    <h1>Top Crypto Gainers And Losers Today</h1>
+    <div class="tables">
+        <div class="table">
+            <h2>Top Gainers</h2>
+            <ag-grid-angular
+                class="ag-theme-alpine"
+                [rowData]="gainers$ | async"
+                [columnDefs]="columnDefs"
+                domLayout="autoHeight"
+                [gridOptions]="gridOptions"
+            >
+            </ag-grid-angular>
+        </div>
+        <div class="table">
+            <h2>Top Losers</h2>
+            <ag-grid-angular
+                class="ag-theme-alpine"
+                [rowData]="losers$ | async"
+                [columnDefs]="columnDefs"
+                domLayout="autoHeight"
+            >
+            </ag-grid-angular>
+        </div>
+    </div>
 </section>

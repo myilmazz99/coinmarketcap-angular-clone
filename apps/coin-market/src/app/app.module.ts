@@ -12,16 +12,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { MarketsService } from './shared/services/markets.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
+import { MaterialModule } from './shared/material.module';
 
 registerLocaleData(tr);
 @NgModule({
-    declarations: [AppComponent, NavbarComponent, FooterComponent],
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        FooterComponent,
+        ScrollTopComponent,
+    ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,
         FormsModule,
         HttpClientModule,
+        MaterialModule,
     ],
     providers: [
         CurrencyPipe,
