@@ -4,7 +4,7 @@
         <div class="table">
             <h2>Top Gainers</h2>
             <ag-grid-angular
-                class="ag-theme-alpine"
+                class="ag-theme-material"
                 [rowData]="gainers$ | async"
                 [columnDefs]="columnDefs"
                 domLayout="autoHeight"
@@ -15,10 +15,11 @@
         <div class="table">
             <h2>Top Losers</h2>
             <ag-grid-angular
-                class="ag-theme-alpine"
+                class="ag-theme-material"
                 [rowData]="losers$ | async"
                 [columnDefs]="columnDefs"
                 domLayout="autoHeight"
+                [gridOptions]="gridOptions"
             >
             </ag-grid-angular>
         </div>

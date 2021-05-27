@@ -3,7 +3,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { MarketList } from '../../models/market';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class MarketsService {
     private marketItems = new BehaviorSubject<MarketList[]>([]);
     public marketItems$: Observable<MarketList[]>;
@@ -19,7 +21,7 @@ export class MarketsService {
 
     sortOrder: BehaviorSubject<string> = new BehaviorSubject('');
     pageNumber: BehaviorSubject<number> = new BehaviorSubject(0);
-    pageSize: BehaviorSubject<number> = new BehaviorSubject(5);
+    pageSize: BehaviorSubject<number> = new BehaviorSubject(20);
     selection: BehaviorSubject<string> = new BehaviorSubject('All');
     sortEvent: BehaviorSubject<string> = new BehaviorSubject('');
 
@@ -57,22 +59,8 @@ export class MarketsService {
         this.screenItems.next(res);
     }
 
-    sortFilteredItems() {
-        // Sort the filtered items, if the items are not filtered sort all the items
+    sortData() {
         let arr = this.filteredItems.getValue();
-        arr = this.sortData(arr);
-        this.filteredItems.next(arr);
-        this.findMarkets();
-    }
-
-    sortScreenItems() {
-        // Sort only items in the current page (Necessary for the table in the "overview" tab)
-        let arr = this.screenItems.getValue();
-        arr = this.sortData(arr);
-        this.screenItems.next(arr);
-    }
-
-    sortData(arr) {
         let sortEvent = this.sortEvent.getValue();
         let sortOrder = this.sortOrder.getValue();
 
@@ -117,7 +105,9 @@ export class MarketsService {
                 );
             }
         }
-        return arr;
+
+        this.filteredItems.next(arr);
+        this.findMarkets();
     }
 
     filterPair() {
@@ -128,7 +118,7 @@ export class MarketsService {
         arrAll = this.marketItems.getValue();
 
         if (selection === 'All') {
-            this.filteredItems.next(arrAll);
+            this.filteredItems.next([...arrAll]);
             this.dataLength.next(arrAll.length);
             this.findMarkets();
         } else {
@@ -137,7 +127,7 @@ export class MarketsService {
                     arrFiltered.push(e);
                 }
             });
-            this.filteredItems.next(arrFiltered);
+            this.filteredItems.next([...arrFiltered]);
             this.dataLength.next(arrFiltered.length);
             this.findMarkets();
         }
