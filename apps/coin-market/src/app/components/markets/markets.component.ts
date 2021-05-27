@@ -72,7 +72,6 @@ export class MarketsComponent implements OnInit, AfterViewInit {
     }
 
     onSelectChange(val: string) {
-        console.log(val);
         this.selectedValue = val;
     }
 }
