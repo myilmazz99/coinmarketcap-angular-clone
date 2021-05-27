@@ -14,6 +14,7 @@ import { StatsSectionComponent } from '../../components/stats-section/stats-sect
 import { CurrencyComponent } from './currency.component';
 import { CurrencyTabsComponent } from '../../components/currency-tabs/currency-tabs.component';
 import { LoadingBarComponent } from '../../components/loading-bar/loading-bar.component';
+import { TableComponent } from '../../shared/table/table.component';
 
 @NgModule({
     imports: [
