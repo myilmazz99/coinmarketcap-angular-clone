@@ -1,6 +1,6 @@
 describe('vote-coin', () => {
     beforeEach(() => {
-        cy.visit('/');
+        cy.visit('/currencies/btc');
     });
 
     it('should display you voted text', () => {

@@ -1,0 +1,31 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: blue;
+    }
+}
+.show-scrollTop {
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
+
+.keyboard-up {
+    display: inline-flex !important;
+    width: 40px !important;
+    height: 34px !important;
+    -webkit-box-pack: center !important;
+    justify-content: center !important;
+    -webkit-box-align: center !important;
+    align-items: center !important;
+    background: rgba(23, 24, 27, 0.85) !important;
+    color: rgb(255, 255, 255) !important;
+
+    user-select: none !important;
+    cursor: pointer !important;
+    visibility: visible !important;
+    font-weight: bold;
+}

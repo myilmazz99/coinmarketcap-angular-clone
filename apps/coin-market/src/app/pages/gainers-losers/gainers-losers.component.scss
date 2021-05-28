@@ -1,13 +1,63 @@
 #gainers-losers {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: column;
+
+    .ag-theme-material {
+        font-family: inherit;
+    }
+    .rank-gray {
+        color: rgb(88, 102, 126);
+    }
+
+    h1 {
+        font-size: 24px;
+        line-height: 34px;
+        padding-top: 36px;
+        padding-bottom: 36px;
+    }
+
+    .tables {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .table {
+            flex-basis: 48%;
+            h2 {
+                display: block;
+                font-size: 18px;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                font-weight: 700;
+            }
+        }
+    }
 
     ag-grid-angular {
-        flex-basis: 48%;
-
         .ag-row {
             width: 100%;
+        }
+
+        .ag-row-hover {
+            background-color: #f8fafd !important;
+        }
+
+        .ag-root-wrapper {
+            border: none;
+        }
+
+        .ag-header {
+            .ag-header-cell-text {
+                font-weight: bolder;
+                color: #000;
+            }
+        }
+
+        .ag-header,
+        .ag-row {
+            border-color: var(--border-color);
+            background-color: #fff;
         }
     }
 }

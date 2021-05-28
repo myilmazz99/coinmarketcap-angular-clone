@@ -10,8 +10,8 @@ import { UiModule } from '@coin-market/ui';
 import { CommonModule } from '@angular/common';
 import { OverviewRoutingModule } from './overview-routing.module';
 import { MaterialModule } from '../../shared/material.module';
-import { MarketsModule } from '../../shared/table/markets.module';
 import { FormsModule } from '@angular/forms';
+import { TableModule } from '../../shared/table/table.module';
 
 @NgModule({
     imports: [
@@ -19,8 +19,8 @@ import { FormsModule } from '@angular/forms';
         CommonModule,
         OverviewRoutingModule,
         MaterialModule,
-        MarketsModule,
         FormsModule,
+        TableModule,
     ],
     declarations: [
         OverviewComponent,

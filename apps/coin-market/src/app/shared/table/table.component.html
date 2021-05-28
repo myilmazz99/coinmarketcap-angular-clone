@@ -3,7 +3,11 @@
         <h2>Bitcoin Markets</h2>
         <div class="pair-select" *ngIf="showPairs">
             <p class="pair-text">Pair</p>
-            <mat-select [(ngModel)]="selectedValue" name="pair">
+            <mat-select
+                [(ngModel)]="selectedValue"
+                (ngModelChange)="onSelectChange($event)"
+                name="pair"
+            >
                 <mat-option *ngFor="let pair of pairs" [value]="pair.viewValue">
                     {{ pair.viewValue }}
                 </mat-option>
@@ -43,7 +47,7 @@
         <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
             <td mat-cell style="font-weight: bold" *matCellDef="let market">
-                {{ market.price | currency: 'USD':'$':'0.2-2' }}
+                {{ market.price | currency: 'USD':'$':'1.2-2' }}
             </td>
         </ng-container>
 
@@ -86,9 +90,9 @@
     <ng-container *ngIf="showPaginator"
         ><mat-paginator
             #myPaginator
-            [length]="dataLength$ | async"
-            [pageSize]="5"
-            [pageSizeOptions]="[5, 10, 25, 100]"
+            [length]="dataLength"
+            [pageSize]="20"
+            [pageSizeOptions]="[20, 40, 50, 100]"
         >
         </mat-paginator
     ></ng-container>
