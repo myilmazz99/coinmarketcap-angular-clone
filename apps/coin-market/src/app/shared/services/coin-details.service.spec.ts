@@ -14,3 +14,4 @@ describe('CoinDetailsService', () => {
     expect(service).toBeTruthy();
   });
 });
+
