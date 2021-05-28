@@ -3,29 +3,29 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 
     .footer-inner {
         &__navigation {
-            padding: 20px 0;
+            padding: 2rem 0;
             display: flex;
             justify-content: flex-end;
 
             &__list {
                 &:not(:last-child) {
-                    margin-right: 60px;
+                    margin-right: 6rem;
                 }
 
                 h6 {
-                    font-size: 17px;
-                    margin-bottom: 15px;
+                    font-size: 1.7rem;
+                    margin-bottom: 1.5rem;
                 }
 
                 li {
                     cursor: pointer;
-                    margin-bottom: 10px;
-                    font-size: 15px;
+                    margin-bottom: 1rem;
+                    font-size: 1.5rem;
 
                     a:hover {
                         color: var(--color-primary-blue);

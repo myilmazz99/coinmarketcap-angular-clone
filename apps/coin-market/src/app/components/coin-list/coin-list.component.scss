@@ -1,16 +1,7 @@
 .home-gainers-losers-table {
-    .container {
-        width: 100%;
-        max-width: 1400px;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
     table {
         margin: auto;
-        font-size: 14px;
+        font-size: 1.4rem;
         width: 100%;
         box-shadow: none !important;
 
@@ -40,15 +31,15 @@
     }
 
     h1 {
-        font-size: 24px;
-        line-height: 34px;
-        padding-top: 36px;
-        padding-bottom: 36px;
+        font-size: 2.4rem;
+        line-height: 3.4rem;
+        padding-top: 3.6rem;
+        padding-bottom: 3.6rem;
     }
 
     .dots {
-        font-size: 24px;
-        line-height: 24px;
+        font-size: 2.4rem;
+        line-height: 2.4rem;
         font-weight: normal;
     }
 
@@ -58,7 +49,7 @@
 
     .rows {
         box-sizing: border-box;
-        margin: 0px;
+        margin: 0rem;
         display: flex;
         flex-direction: row;
         -webkit-box-align: center;
@@ -67,15 +58,15 @@
 
         .row-text {
             line-height: 1.5;
-            margin: 0px 6px 0px 0px;
+            margin: 0rem 0.6rem 0rem 0rem;
             color: rgb(88, 102, 126);
-            font-size: 12px;
+            font-size: 1.2rem;
         }
 
         .mat-select {
             box-sizing: border-box;
             width: auto !important;
-            margin: 0px;
+            margin: 0rem;
             display: inline-flex;
             flex-direction: row;
             -webkit-box-align: center;
@@ -86,9 +77,9 @@
             font-weight: 600;
             cursor: pointer;
             color: rgb(0, 0, 0);
-            padding: 5px 8px;
-            font-size: 12px;
-            line-height: 22px;
+            padding: 0.5rem 0.8rem;
+            font-size: 1.2rem;
+            line-height: 2.2rem;
         }
     }
 }

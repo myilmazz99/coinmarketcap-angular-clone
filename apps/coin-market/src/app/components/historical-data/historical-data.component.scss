@@ -1,9 +1,9 @@
 .historical-data {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
 
     &__header {
-        margin-bottom: 25px;
+        margin-bottom: 2.5rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -16,7 +16,7 @@
             background-color: transparent;
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            padding: 12px;
+            padding: 1.2rem;
             width: 150px;
 
             &:hover {

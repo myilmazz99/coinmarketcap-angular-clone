@@ -12,12 +12,12 @@ $custom-typography: mat-typography-config(
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    font-size: 16px;
+    font-size: 1.6rem;
 }
 
 .vote-coin__progress-bar {
     .mat-progress-bar {
-        height: 10px;
+        height: 1rem;
         border-radius: 5px;
 
         .mat-progress-bar-primary::after {
@@ -60,7 +60,7 @@ $custom-typography: mat-typography-config(
 //Mat Menu
 .mat-menu-content {
     padding-top: 0 !important;
-    padding-bottom: 0px !important;
+    padding-bottom: 0rem !important;
     font-weight: bold;
 }
 

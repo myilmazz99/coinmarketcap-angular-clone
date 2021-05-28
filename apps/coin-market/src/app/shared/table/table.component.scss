@@ -1,81 +1,73 @@
 p {
     display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    margin-inline-start: 0rem;
+    margin-inline-end: 0rem;
 }
-.container {
-    width: 100%;
-    max-width: 1400px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
 
-    .elements-above-table {
+.elements-above-table {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    h2 {
+        margin: 0rem;
+        font-weight: 700;
+        font-size: 2.4rem;
+        line-height: 3.4rem;
+        color: rgb(34, 37, 49);
+    }
+
+    .pair-select {
+        box-sizing: border-box;
+        margin: 0rem;
         display: flex;
+        flex-direction: row;
         -webkit-box-align: center;
         align-items: center;
-        -webkit-box-pack: justify;
-        justify-content: space-between;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
 
-        h2 {
-            margin: 0px;
-            font-weight: 700;
-            font-size: 24px;
-            line-height: 34px;
-            color: rgb(34, 37, 49);
+        .pair-text {
+            line-height: 1.5;
+            margin: 0rem 0.8rem 0rem 0rem;
+            color: var(--color-gray);
+            font-weight: 500;
+            font-size: 1.2rem;
         }
 
-        .pair-select {
+        mat-select {
             box-sizing: border-box;
             margin: 0px;
-            display: flex;
+            display: inline-flex;
             flex-direction: row;
-            -webkit-box-align: center;
             align-items: center;
-
-            .pair-text {
-                line-height: 1.5;
-                margin: 0px 8px 0px 0px;
-                color: var(--color-gray);
-                font-weight: 500;
-                font-size: 12px;
-            }
-
-            mat-select {
-                box-sizing: border-box;
-                margin: 0px;
-                display: inline-flex;
-                flex-direction: row;
-                align-items: center;
-                background: rgb(239, 242, 245);
-                border-radius: 8px;
-                outline: 0px;
-                font-weight: 900;
-                cursor: pointer;
-                color: var(--color-primary-black);
-                padding: 5px 8px;
-                font-size: 12px;
-                line-height: 22px;
-            }
+            background: rgb(239, 242, 245);
+            border-radius: 0.8rem;
+            outline: 0rem;
+            font-weight: 900;
+            cursor: pointer;
+            color: var(--color-primary-black);
+            padding: 0.5rem 0.8rem;
+            font-size: 1.2rem;
+            line-height: 2.2rem;
         }
     }
-    table {
-        margin: auto;
-        font-size: 14px;
-        width: 100%;
-        box-shadow: none !important;
+}
+table {
+    margin: auto;
+    font-size: 1.4rem;
+    width: 100%;
+    box-shadow: none !important;
 
-        th {
-            color: var(--color-primary-black);
-            display: table-cell;
-            vertical-align: inherit;
-            font-weight: bold;
-        }
+    th {
+        color: var(--color-primary-black);
+        display: table-cell;
+        vertical-align: inherit;
+        font-weight: bold;
     }
 }
 
@@ -89,14 +81,14 @@ p {
 }
 
 .market-icon {
-    height: 24px;
-    width: 24px;
-    border-radius: 12px;
+    height: 2.4rem;
+    width: 2.4rem;
+    border-radius: 1.2rem;
 }
 
 .market-name {
-    margin: 0px 0px 0px 5px;
-    line-height: 24px;
+    margin: 0rem 0rem 0rem 0.5rem;
+    line-height: 2.4rem;
     font-weight: bold;
 }
 
@@ -115,18 +107,18 @@ p {
     align-items: center;
 }
 .icon-liquidity-info {
-    height: 15px;
-    width: 15x;
-    border-radius: 9px;
-    margin-left: 3px;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 0.9rem;
+    margin-left: 0.3rem;
 }
 
 .icon-info {
     box-sizing: border-box;
-    padding: 12px;
+    padding: 1.2rem;
     font-weight: 600;
-    font-size: 12px;
-    width: 300px;
+    font-size: 1.2rem;
+    width: 30rem;
     text-align: left;
 
     .icon-info-header {
@@ -141,27 +133,27 @@ p {
             line-height: 1.5;
             margin: 0px;
             color: rgb(34, 37, 49);
-            font-size: 12px;
+            font-size: 1.2rem;
             font-weight: bold;
         }
 
         a {
-            font-size: 12;
+            font-size: 1.2rem;
             color: var(--link-color);
         }
     }
 
     p {
         line-height: 1.5;
-        margin: 8px 0px 0px;
+        margin: 0.8rem 0rem 0rem;
         color: var(--color-gray);
-        font-size: 12px;
+        font-size: 1.2rem;
     }
 }
 
 @media screen and (min-width: 768px) {
     h1 {
-        font-size: 24px;
-        line-height: 34px;
+        font-size: 2.4rem;
+        line-height: 3.4rem;
     }
 }
