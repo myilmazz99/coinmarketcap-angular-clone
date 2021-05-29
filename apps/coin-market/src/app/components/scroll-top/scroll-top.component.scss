@@ -4,20 +4,23 @@
     right: 1.5rem;
     opacity: 0;
     transition: all 0.2s ease-in-out;
-    &:hover {
-        background-color: blue;
-    }
-
-    button {
-        border: none;
-    }
 }
 .show-scrollTop {
     opacity: 1;
     transition: all 0.2s ease-in-out;
 }
 
+button {
+    background: rgba(23, 24, 27, 0.85);
+    border: none;
+    border-radius: 50%;
+    &:hover {
+        background-color: rgb(16, 112, 224);
+    }
+}
+
 .keyboard-up {
+    border-radius: 50%;
     display: inline-flex !important;
     width: 4rem !important;
     height: 3.4rem !important;
@@ -25,10 +28,13 @@
     justify-content: center !important;
     -webkit-box-align: center !important;
     align-items: center !important;
-    background: rgba(23, 24, 27, 0.85) !important;
+    background: rgba(23, 24, 27, 0.85);
     color: rgb(255, 255, 255) !important;
     user-select: none !important;
     cursor: pointer !important;
     visibility: visible !important;
     font-weight: bold;
+    &:hover {
+        background-color: rgb(16, 112, 224);
+    }
 }

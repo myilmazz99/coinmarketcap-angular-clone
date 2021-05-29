@@ -27,9 +27,233 @@
             "coin_name": "Baby Shark",
             "coin_id": "SHARK",
             "price": 5.04
+        },
+        {
+            "rank": 1,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/6735.png",
+            "coin_name": "Nexalt",
+            "coin_id": "XLT",
+            "price": 0.1726
+        },
+        {
+            "rank": 2,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9893.png",
+            "coin_name": "Twerk Finance",
+            "coin_id": "TWERK",
+            "price": 0.0000000368
+        },
+        {
+            "rank": 3,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9941.png",
+            "coin_name": "Chihuahua",
+            "coin_id": "HUA",
+            "price": 968.04
+        },
+        {
+            "rank": 4,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9949.png",
+            "coin_name": "Baby Shark",
+            "coin_id": "SHARK",
+            "price": 5.04
+        },
+        {
+            "rank": 1,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/6735.png",
+            "coin_name": "Nexalt",
+            "coin_id": "XLT",
+            "price": 0.1726
+        },
+        {
+            "rank": 2,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9893.png",
+            "coin_name": "Twerk Finance",
+            "coin_id": "TWERK",
+            "price": 0.0000000368
+        },
+        {
+            "rank": 3,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9941.png",
+            "coin_name": "Chihuahua",
+            "coin_id": "HUA",
+            "price": 968.04
+        },
+        {
+            "rank": 4,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9949.png",
+            "coin_name": "Baby Shark",
+            "coin_id": "SHARK",
+            "price": 5.04
+        },
+        {
+            "rank": 1,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/6735.png",
+            "coin_name": "Nexalt",
+            "coin_id": "XLT",
+            "price": 0.1726
+        },
+        {
+            "rank": 2,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9893.png",
+            "coin_name": "Twerk Finance",
+            "coin_id": "TWERK",
+            "price": 0.0000000368
+        },
+        {
+            "rank": 3,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9941.png",
+            "coin_name": "Chihuahua",
+            "coin_id": "HUA",
+            "price": 968.04
+        },
+        {
+            "rank": 4,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9949.png",
+            "coin_name": "Baby Shark",
+            "coin_id": "SHARK",
+            "price": 5.04
+        },
+        {
+            "rank": 1,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/6735.png",
+            "coin_name": "Nexalt",
+            "coin_id": "XLT",
+            "price": 0.1726
+        },
+        {
+            "rank": 2,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9893.png",
+            "coin_name": "Twerk Finance",
+            "coin_id": "TWERK",
+            "price": 0.0000000368
+        },
+        {
+            "rank": 3,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9941.png",
+            "coin_name": "Chihuahua",
+            "coin_id": "HUA",
+            "price": 968.04
+        },
+        {
+            "rank": 4,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9949.png",
+            "coin_name": "Baby Shark",
+            "coin_id": "SHARK",
+            "price": 5.04
         }
     ],
     "losers": [
+        {
+            "rank": 1,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9652.png",
+            "coin_name": "SAFEPLUTO69",
+            "coin_id": "SAFEPLUTO",
+            "price": 0.00000001
+        },
+        {
+            "rank": 2,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/6867.png",
+            "coin_name": "STABLE ASSET",
+            "coin_id": "STA",
+            "price": 0.52
+        },
+        {
+            "rank": 3,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/7453.png",
+            "coin_name": "YFIDOWN",
+            "coin_id": "YFIDOWN",
+            "price": 0.00002504
+        },
+        {
+            "rank": 4,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/8854.png",
+            "coin_name": "FXT Token",
+            "coin_id": "FXT",
+            "price": 0.01776
+        },
+        {
+            "rank": 1,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9652.png",
+            "coin_name": "SAFEPLUTO69",
+            "coin_id": "SAFEPLUTO",
+            "price": 0.00000001
+        },
+        {
+            "rank": 2,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/6867.png",
+            "coin_name": "STABLE ASSET",
+            "coin_id": "STA",
+            "price": 0.52
+        },
+        {
+            "rank": 3,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/7453.png",
+            "coin_name": "YFIDOWN",
+            "coin_id": "YFIDOWN",
+            "price": 0.00002504
+        },
+        {
+            "rank": 4,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/8854.png",
+            "coin_name": "FXT Token",
+            "coin_id": "FXT",
+            "price": 0.01776
+        },
+        {
+            "rank": 1,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9652.png",
+            "coin_name": "SAFEPLUTO69",
+            "coin_id": "SAFEPLUTO",
+            "price": 0.00000001
+        },
+        {
+            "rank": 2,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/6867.png",
+            "coin_name": "STABLE ASSET",
+            "coin_id": "STA",
+            "price": 0.52
+        },
+        {
+            "rank": 3,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/7453.png",
+            "coin_name": "YFIDOWN",
+            "coin_id": "YFIDOWN",
+            "price": 0.00002504
+        },
+        {
+            "rank": 4,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/8854.png",
+            "coin_name": "FXT Token",
+            "coin_id": "FXT",
+            "price": 0.01776
+        },
+        {
+            "rank": 1,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9652.png",
+            "coin_name": "SAFEPLUTO69",
+            "coin_id": "SAFEPLUTO",
+            "price": 0.00000001
+        },
+        {
+            "rank": 2,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/6867.png",
+            "coin_name": "STABLE ASSET",
+            "coin_id": "STA",
+            "price": 0.52
+        },
+        {
+            "rank": 3,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/7453.png",
+            "coin_name": "YFIDOWN",
+            "coin_id": "YFIDOWN",
+            "price": 0.00002504
+        },
+        {
+            "rank": 4,
+            "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/8854.png",
+            "coin_name": "FXT Token",
+            "coin_id": "FXT",
+            "price": 0.01776
+        },
         {
             "rank": 1,
             "coin_icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/9652.png",
