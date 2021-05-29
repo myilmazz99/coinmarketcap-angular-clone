@@ -1,6 +1,6 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { GridOptions } from 'ag-grid-community';
+import { ColDef, GridOptions } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import { GainersLosers } from '../../models/gainers-losers';
 import { GainersLosersService } from '../../shared/services/gainers-losers.service';
@@ -18,24 +18,26 @@ export class GainersLosersComponent implements OnInit {
         alignedGrids: [],
         defaultColDef: {
             sortable: true,
+            lockPinned: true,
         },
     };
 
-    columnDefs = [
+    columnDefs: ColDef[] = [
         {
             headerName: '#',
             field: 'rank',
             cellClass: 'rank-gray',
+            maxWidth: 60,
             flex: 2,
         },
         {
             headerName: 'Name',
             field: 'coin_name',
+            minWidth: 290,
             flex: 5,
-
             cellRenderer: function (params) {
                 const { coin_name, coin_id, coin_icon } = params.data;
-                let newLink = `
+                const newLink = `
                 <div class="coin-icon-name-id">
                     <img class="coin-icon" src="${coin_icon}" alt="..."/>
                     <div class="coin-name" >${coin_name}</div>
@@ -47,6 +49,7 @@ export class GainersLosersComponent implements OnInit {
         {
             headerName: 'Price',
             field: 'price',
+            minWidth: 290,
             flex: 5,
 
             cellRenderer: (params) => {

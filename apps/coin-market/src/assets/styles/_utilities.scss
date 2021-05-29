@@ -73,3 +73,8 @@
         background-color: var(--color-light-neutral-3);
     }
 }
+
+.table-responsive {
+    overflow: auto;
+    width: 100%;
+}

@@ -4,11 +4,12 @@ import {
     OnInit,
     ViewChild,
     ViewEncapsulation,
+    AfterViewChecked,
 } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSelect } from '@angular/material/select';
 import { MatSort } from '@angular/material/sort';
-import { CoinListDatasource } from 'apps/coin-market/src/assets/data/datasource/coin-list-datasource';
+import { CoinListDatasource } from '../../../assets/data/datasource/coin-list-datasource';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { CoinListService } from '../../shared/services/coin-list.service';
@@ -19,12 +20,15 @@ import { CoinListService } from '../../shared/services/coin-list.service';
     styleUrls: ['./coin-list.component.scss'],
     encapsulation: ViewEncapsulation.None,
 })
-export class CoinListComponent implements OnInit, AfterViewInit {
-    dataSource: CoinListDatasource;
-    dataLength$: Observable<number>;
+export class CoinListComponent
+    implements OnInit, AfterViewInit, AfterViewChecked {
+    @ViewChild('coinListTable') matTable: any;
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSelect) select: MatSelect;
+
+    dataSource: CoinListDatasource;
+    dataLength$: Observable<number>;
 
     displayedColumns = [
         'coin_rank',
@@ -85,5 +89,9 @@ export class CoinListComponent implements OnInit, AfterViewInit {
                 })
             )
             .subscribe();
+    }
+
+    ngAfterViewChecked() {
+        this.matTable.updateStickyColumnStyles();
     }
 }

@@ -1,4 +1,5 @@
 import {
+    AfterViewChecked,
     AfterViewInit,
     Component,
     EventEmitter,
@@ -10,13 +11,15 @@ import { MatPaginator } from '@angular/material//paginator';
 import { MatSort } from '@angular/material/sort';
 import { Pair } from '../../models/pair';
 import { MatSelect } from '@angular/material/select';
+import { MatTable } from '@angular/material/table';
 
 @Component({
     selector: 'coin-market-table',
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.scss'],
 })
-export class TableComponent {
+export class TableComponent implements AfterViewChecked {
+    @ViewChild('marketsTable') matTable: any;
     @Input() showPaginator = true;
     @Input() showPairs = true;
     @Input() dataSource: any;
@@ -54,5 +57,9 @@ export class TableComponent {
 
     onSelectChange(val: string) {
         this.selectedEvent.emit(val);
+    }
+
+    ngAfterViewChecked() {
+        this.matTable.updateStickyColumnStyles();
     }
 }

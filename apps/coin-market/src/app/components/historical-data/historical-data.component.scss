@@ -39,13 +39,18 @@
 .mat-table {
     width: 100%;
     box-shadow: none !important;
-    background: transparent !important;
+    background: var(--theme-background) !important;
 
     .mat-header-cell,
     .mat-cell {
+        background-color: var();
         &:not(:first-child) {
             text-align: right;
         }
+    }
+
+    .mat-column-date_time {
+        white-space: nowrap;
     }
 
     .mat-header-cell {

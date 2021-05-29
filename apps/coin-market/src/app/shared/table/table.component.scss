@@ -65,6 +65,7 @@ table {
 .market-icon-name {
     display: flex;
     flex-direction: row;
+    align-items: center;
     font-weight: bold;
     &:hover {
         cursor: pointer;
@@ -75,6 +76,7 @@ table {
     height: 2.4rem;
     width: 2.4rem;
     border-radius: 1.2rem;
+    margin-right: 0.5rem;
 }
 
 .market-name {
