@@ -92,7 +92,7 @@
                 border-left: none;
                 margin-left: 0rem;
                 margin-right: 0.4rem;
-                background-color: var(--color-light-neutral-7);
+                background-color: var(--color-light-neutral-2);
                 color: var(--color-light-neutral-6);
                 border-radius: 4rem;
                 padding: 0.2rem 0.8rem;
@@ -104,12 +104,12 @@
 
             .view-all {
                 display: initial;
-                color: var(--color-primary-blue);
+                color: #6188ff;
                 cursor: pointer;
                 font-size: 1.1rem;
                 font-weight: 500;
                 line-height: 1.8rem;
-                background-color: #f0f6ff;
+                background-color: var(--theme-light-blue-color);
             }
         }
     }

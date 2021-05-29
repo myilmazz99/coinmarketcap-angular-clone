@@ -26,6 +26,10 @@
         display: none;
     }
 
+    .highcharts-background {
+        fill: var(--theme-background);
+    }
+
     .highcharts-navigator-outline {
         stroke-width: 0;
     }
@@ -43,6 +47,12 @@
         & path:last-child {
             stroke-width: 1px;
         }
+    }
+
+    .highcharts-navigator-mask-inside {
+        fill: rgb(56, 97, 251);
+        fill-opacity: 0.25;
+        //dm rgb(97, 136, 255)
     }
 
     .highcharts-tooltip {

@@ -14,6 +14,7 @@ import { StatsSectionComponent } from '../../components/details-section/stats-se
 import { CurrencyComponent } from './currency.component';
 import { CurrencyTabsComponent } from '../../components/currency-tabs/currency-tabs.component';
 import { LoadingBarComponent } from '../../components/loading-bar/loading-bar.component';
+import { DetailsSectionComponent } from '../../components/details-section/details-section.component';
 
 @NgModule({
     imports: [
@@ -33,6 +34,7 @@ import { LoadingBarComponent } from '../../components/loading-bar/loading-bar.co
         LinkSectionComponent,
         CurrencyTabsComponent,
         LoadingBarComponent,
+        DetailsSectionComponent,
     ],
     exports: [CurrencyComponent],
 })

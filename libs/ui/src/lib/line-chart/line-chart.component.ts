@@ -84,9 +84,6 @@ export class LineChartComponent implements OnInit, AfterViewInit {
         };
 
         this.chartOptions = {
-            navigator: {
-                maskFill: 'rgba(155, 175, 253, 0.5)',
-            },
             rangeSelector: {
                 inputEnabled: false,
                 enabled: false,
@@ -120,7 +117,7 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                             );
                         },
                     },
-                    gridLineColor: '#eff2f5',
+                    gridLineColor: 'var(--color-light-neutral-2)',
                     opposite: false,
                     height: '80%',
                 },
@@ -188,7 +185,7 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                     name: 'Vol 24h',
                     type: 'column',
                     data: [...this.data.volume],
-                    color: 'rgb(207, 214, 228)',
+                    color: 'var(--chart-column-color)',
                     yAxis: 'volume',
                     groupPadding: 0,
                     pointPadding: 0,
@@ -209,7 +206,9 @@ export class LineChartComponent implements OnInit, AfterViewInit {
             exporting: {
                 enabled: false,
             },
-            plotOptions: { column: { states: { hover: { enabled: false } } } },
+            plotOptions: {
+                column: { states: { hover: { enabled: false } } },
+            },
         };
     }
 }

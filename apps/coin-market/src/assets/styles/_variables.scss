@@ -12,9 +12,9 @@
     --color-light-neutral-7: #eff2f5;
     --button-border-color: #cfd6e4;
 
+    --theme-light-blue-color: #f0f6ff;
     --control-background-color: #fff;
     --control-dropdown-background-color: #eff2f5;
-    --theme-color: #3861fb;
     --theme-light-color: #cfd6e4;
     --text-color-sub: #58667e;
     --color-primary-black: #000;
@@ -23,13 +23,25 @@
     --up-color: #16c784;
     --down-color: #ea3943;
     --color-tippy-arrow: #fff;
+    --table-row-hover-background-color: #f8fafd;
     --box-shadow: 0px 1px 2px rgba(128, 138, 157, 0.12),
         0px 8px 32px rgba(128, 138, 157, 0.24);
     --shadow-normal: 0px 1px 2px rgba(128, 138, 157, 0.12),
         0px 8px 32px rgba(128, 138, 157, 0.24);
 
     --link-color: rgb(56, 97, 251);
-    --confidence-background-color-high: rgb(22, 199, 132);
-    --confidence-background-color-moderate: rgb(245, 163, 65);
-    --confidence-background-color-low: rgb(234, 57, 67);
+
+    --theme-border-color: #eff2f5;
+    --theme-background: #fff;
+    --theme-color: #000;
+    --theme-section-background: #f8fafd;
+    --theme-linear-gradient: linear-gradient(
+        rgb(248, 250, 253) 0%,
+        rgba(248, 250, 253, 0) 413px
+    );
+
+    --logo-src: url(/assets/img/logo/coinmarketcap_large_black.svg);
+
+    --chart-column-color: #cfd6e4;
+    --nav-border: #eff2f5;
 }

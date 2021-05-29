@@ -1,5 +1,5 @@
 .coin-statistics__table__row__header {
-    color: var(--color-gray);
+    color: var(--color-light-neutral-6);
     text-align: left;
     display: flex;
     align-items: center;
@@ -33,11 +33,11 @@
         }
 
         &.comparison--up {
-            color: green;
+            color: var(--up-color);
         }
 
         &.comparison--down {
-            color: red;
+            color: var(--down-color);
         }
     }
 }

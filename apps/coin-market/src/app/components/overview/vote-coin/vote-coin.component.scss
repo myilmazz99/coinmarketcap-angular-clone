@@ -1,5 +1,5 @@
 .vote-coin {
-    background-color: var(--color-light-neutral-1);
+    background-color: var(--theme-section-background);
     border-radius: 16px;
     padding: 1.8rem 2.4rem;
     display: flex;
@@ -14,7 +14,7 @@
         }
 
         &__briefing {
-            color: var(--color-gray);
+            color: var(--color-light-neutral-6);
             margin: 0.8rem 0;
         }
     }
@@ -30,13 +30,14 @@
             border: 1px solid var(--button-border-color);
             cursor: pointer;
             font-size: inherit;
+            color: inherit;
 
             &:first-child {
                 margin-right: 0.8rem;
             }
 
             &:hover {
-                background-color: rgb(245, 247, 248);
+                background-color: var(--control-background-color);
             }
         }
     }
@@ -53,7 +54,7 @@
                 top: 0;
                 transform: translateY(80%);
                 font-size: 1.2rem;
-                color: var(--color-gray);
+                color: var(--color-light-neutral-6);
             }
 
             &--good {

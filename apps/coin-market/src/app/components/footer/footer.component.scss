@@ -7,6 +7,13 @@ footer {
     padding-bottom: 6rem;
 
     .footer-inner {
+        &__logo {
+            background-image: var(--logo-src);
+            min-width: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
         &__navigation {
             padding: 2rem 0;
             display: flex;
@@ -42,10 +49,6 @@ footer {
                 padding: 0;
             }
         }
-    }
-
-    img {
-        max-width: 200px;
     }
 
     p,

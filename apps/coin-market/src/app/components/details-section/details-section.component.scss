@@ -1,0 +1,108 @@
+.container-cryptocurrencies-coins-bitcoin {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 2.4rem;
+
+    .top-links-section {
+        display: flex;
+
+        a {
+            color: var(--color-light-neutral-6);
+            padding-right: 0.5rem;
+            position: relative;
+            white-space: nowrap;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.8rem;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .material-icons {
+            font-size: 1.8rem;
+            line-height: 100%;
+            color: rgb(88, 102, 126);
+            padding-right: 0.8rem;
+            top: 0.2rem;
+        }
+
+        .finally-span {
+            flex: 1 1 0%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--color-primary-black);
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.8rem;
+            margin: 0rem;
+        }
+    }
+
+    .container-inner {
+        display: flex;
+        flex-wrap: wrap;
+
+        @media only screen and (min-width: 1300px) {
+            .nameSection,
+            ._link-section {
+                flex: 0 0 36%;
+            }
+            ._price-section {
+                flex: 0 0 37%;
+            }
+            ._button-section {
+                flex: 0 0 27%;
+            }
+            ._stats-section {
+                flex: 0 0 64%;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1300px) {
+            .nameSection {
+                flex: 0 0 50%;
+            }
+            ._link-section {
+                flex: 0 0 50%;
+                order: 3;
+            }
+            ._price-section {
+                flex: 0 0 50%;
+            }
+            ._stats-section {
+                flex: 0 0 100%;
+                order: 5;
+            }
+            ._button-section {
+                order: 4;
+                margin-top: 20px;
+                flex: 0 0 50%;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .nameSection {
+                flex: 0 0 100%;
+            }
+
+            ._link-section {
+                flex: 0 0 100%;
+            }
+            ._price-section {
+                flex: 0 0 100%;
+            }
+            ._button-section {
+                flex: 0 0 100%;
+            }
+            ._stats-section {
+                visibility: hidden;
+                position: absolute;
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 .trending {
     &__list {
         li:not(:last-child) {
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--theme-border-color);
         }
 
         &__item {
@@ -32,7 +32,7 @@
                 }
 
                 &__desc {
-                    color: var(--color-gray);
+                    color: var(--color-light-neutral-6);
                     font-weight: 500;
                 }
 
@@ -60,7 +60,7 @@
                         display: flex;
                         align-items: center;
                         font-size: 1.1rem;
-                        color: var(--color-gray);
+                        color: var(--color-light-neutral-6);
 
                         img {
                             margin-right: 0.5rem;
@@ -75,7 +75,7 @@
             }
 
             &__name--shorten {
-                color: var(--color-gray);
+                color: var(--color-light-neutral-6);
                 font-weight: 500;
                 font-size: 1.1rem;
                 flex-grow: 1;

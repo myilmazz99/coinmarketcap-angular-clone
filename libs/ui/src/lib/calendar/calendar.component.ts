@@ -6,6 +6,7 @@ import {
     Output,
     SimpleChanges,
     ViewChild,
+    ViewEncapsulation,
 } from '@angular/core';
 import { MatCalendar, DateRange } from '@angular/material/datepicker';
 import { CalendarDateRange } from '@coin-market/data';
@@ -14,6 +15,7 @@ import { CalendarDateRange } from '@coin-market/data';
     selector: 'ui-calendar',
     templateUrl: './calendar.component.html',
     styleUrls: ['./calendar.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class CalendarComponent implements OnChanges {
     @Input() selectedRange: CalendarDateRange = new CalendarDateRange();

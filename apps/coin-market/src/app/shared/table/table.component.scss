@@ -20,7 +20,7 @@ p {
         font-weight: 700;
         font-size: 2.4rem;
         line-height: 3.4rem;
-        color: rgb(34, 37, 49);
+        color: var(--theme-color);
     }
 
     .pair-select {
@@ -34,26 +34,9 @@ p {
         .pair-text {
             line-height: 1.5;
             margin: 0rem 0.8rem 0rem 0rem;
-            color: var(--color-gray);
+            color: var(--text-color-sub);
             font-weight: 500;
             font-size: 1.2rem;
-        }
-
-        mat-select {
-            box-sizing: border-box;
-            margin: 0px;
-            display: inline-flex;
-            flex-direction: row;
-            align-items: center;
-            background: rgb(239, 242, 245);
-            border-radius: 0.8rem;
-            outline: 0rem;
-            font-weight: 900;
-            cursor: pointer;
-            color: var(--color-primary-black);
-            padding: 0.5rem 0.8rem;
-            font-size: 1.2rem;
-            line-height: 2.2rem;
         }
     }
 }
@@ -62,12 +45,20 @@ table {
     font-size: 1.4rem;
     width: 100%;
     box-shadow: none !important;
+    background: var(--theme-background) !important;
 
     th {
-        color: var(--color-primary-black);
+        color: var(--theme-color);
         display: table-cell;
         vertical-align: inherit;
         font-weight: bold;
+    }
+    tr:hover {
+        background-color: var(--table-row-hover-background-color);
+    }
+
+    .mat-cell {
+        color: var(--theme-color);
     }
 }
 
@@ -93,7 +84,7 @@ table {
 }
 
 .table-pairs {
-    color: var(--link-color);
+    color: var(--link-color) !important;
     font-weight: 500;
     &:hover {
         cursor: pointer;

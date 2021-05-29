@@ -23,7 +23,7 @@
             display: flex;
             align-items: center;
             font-weight: 700;
-            color: rgb(34, 37, 49);
+            color: var(--color-primary-black);
 
             small {
                 word-break: initial;
@@ -46,7 +46,7 @@
             -webkit-box-align: center;
             align-items: center;
             background: transparent;
-            border: 1px solid rgb(207, 214, 228);
+            border: 1px solid var(--color-light-neutral-2);
             display: inline-flex;
             color: var(--color-primary-black);
             cursor: pointer;
@@ -112,7 +112,7 @@
 
         .namePill-rank {
             background-color: var(--color-light-neutral-5);
-            color: var(--color-primary-white);
+            color: #fff;
         }
     }
 }
