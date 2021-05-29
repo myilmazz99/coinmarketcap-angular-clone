@@ -5,16 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../../shared/material.module';
 import { AntModule } from '../../shared/ng-zorro-antd.module';
 import { CurrencyRoutingModule } from './currency-routing.module';
-import { BuyAddButtonSectionComponent } from '../../components/buy-add-button-section/buy-add-button-section.component';
-import { LinkSectionComponent } from '../../components/link-section/link-section.component';
-import { NameSectionComponent } from '../../components/name-section/name-section.component';
-import { PriceSectionComponent } from '../../components/price-section/price-section.component';
+import { BuyAddButtonSectionComponent } from '../../components/details-section/buy-add-button-section/buy-add-button-section.component';
+import { LinkSectionComponent } from '../../components/details-section/link-section/link-section.component';
+import { NameSectionComponent } from '../../components/details-section/name-section/name-section.component';
+import { PriceSectionComponent } from '../../components/details-section/price-section/price-section.component';
 
-import { StatsSectionComponent } from '../../components/stats-section/stats-section.component';
+import { StatsSectionComponent } from '../../components/details-section/stats-section/stats-section.component';
 import { CurrencyComponent } from './currency.component';
 import { CurrencyTabsComponent } from '../../components/currency-tabs/currency-tabs.component';
 import { LoadingBarComponent } from '../../components/loading-bar/loading-bar.component';
-import { TableComponent } from '../../shared/table/table.component';
+import { DetailsSectionComponent } from '../../components/details-section/details-section.component';
 
 @NgModule({
     imports: [
@@ -34,6 +34,7 @@ import { TableComponent } from '../../shared/table/table.component';
         LinkSectionComponent,
         CurrencyTabsComponent,
         LoadingBarComponent,
+        DetailsSectionComponent,
     ],
     exports: [CurrencyComponent],
 })

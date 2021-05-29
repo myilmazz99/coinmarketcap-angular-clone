@@ -1,0 +1,296 @@
+.nameSection {
+    padding-top: 0.8rem;
+    padding-right: 2.4rem;
+    padding-bottom: 0.8rem;
+    margin-top: 0.5rem;
+
+    .nameHeader {
+        display: flex;
+        margin: 0rem 0rem 1.6rem;
+        justify-content: flex-start;
+        align-items: center;
+        word-break: break-word;
+
+        img {
+            margin-right: 1.2rem;
+        }
+
+        h2 {
+            font-size: 3.2rem;
+            line-height: 4.2rem;
+            margin-right: 0.8rem;
+            margin-bottom: 0rem;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            color: var(--color-primary-black);
+
+            small {
+                word-break: initial;
+                background-color: var(--color-light-neutral-2);
+                color: var(--color-light-neutral-6);
+                border-radius: 4px;
+                padding: 0.2rem 0.6rem;
+                font-size: 1.2rem;
+                font-weight: 600;
+                line-height: 1.8rem;
+                margin-left: 1.2rem;
+                margin-right: 0.6rem;
+            }
+        }
+
+        .header-span .header-button {
+            width: auto;
+            padding: 0rem 0.8rem;
+            border-radius: 8px;
+            -webkit-box-align: center;
+            align-items: center;
+            background: transparent;
+            border: 1px solid var(--color-light-neutral-2);
+            display: inline-flex;
+            color: var(--color-primary-black);
+            cursor: pointer;
+            -webkit-box-pack: center;
+            justify-content: center;
+            outline: 0px;
+            font-weight: 600;
+            width: auto;
+            height: 3.2rem;
+            font-size: 1.2rem;
+            padding: 0rem 1.6rem;
+            line-height: 1.8rem;
+
+            .material-icons {
+                font-size: 1.8rem;
+                line-height: 100%;
+                color: var(--color-light-neutral-4);
+
+                &:hover {
+                    color: #f6b882;
+                }
+            }
+        }
+
+        .header-span {
+            position: relative;
+            .tippy-header {
+                position: absolute;
+                visibility: hidden;
+                opacity: 0;
+                background-color: black;
+                color: #fff;
+                font-size: 1.2rem;
+                padding: 0.5rem;
+                border-radius: 10px;
+                width: 13.6rem;
+                top: -32px;
+                left: -50px;
+            }
+            &:hover {
+                .tippy-header {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .namePill-box {
+        display: flex;
+
+        .namePill__3p {
+            margin-right: 0.8rem;
+            background-color: var(--color-light-neutral-2);
+            color: var(--color-light-neutral-6);
+            border-radius: 4px;
+            padding: 0.2rem 0.6rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.8rem;
+            white-space: nowrap;
+        }
+
+        .namePill-rank {
+            background-color: var(--color-light-neutral-5);
+            color: #fff;
+        }
+    }
+}
+
+@media (min-width: 1300px) {
+    .nameSection {
+        flex: 0 0 36%;
+    }
+}
+
+@media (min-width: 768px) {
+    .nameSection {
+        flex: 0 0 50%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .nameSection {
+        padding-top: 0.8rem;
+        padding-right: 2.4rem;
+        padding-bottom: 0.8rem;
+    }
+}
+
+.login-page {
+    max-height: 100vh;
+    transition: height 0.3s ease-in-out;
+    max-width: 100vw;
+    position: absolute;
+    padding: 2.4rem 3.2rem;
+    background: var(--control-background-color);
+    border-radius: 16px;
+    visibility: hidden;
+    top: 20vh;
+    left: 35vw;
+    box-shadow: 1200px 1200px 1200px rgba(128, 138, 157, 0.12),
+        0px 8px 32px rgba(128, 138, 157, 0.24);
+
+    .titleWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        svg {
+            color: #a6b0c3;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 0rem;
+        }
+    }
+
+    .popup-content {
+        padding: 0.8rem 0rem;
+
+        .login {
+            font-size: 2.4rem;
+            line-height: 3.4rem;
+            font-weight: 700;
+            color: var(--color-primary-black);
+        }
+        .qua {
+            font-size: 1.4rem;
+            margin-top: 0.4rem;
+            margin-bottom: 2.4rem;
+            color: var(--color-neutral-6);
+
+            .create-account {
+                cursor: pointer;
+                color: var(--color-primary-blue);
+            }
+        }
+
+        .email-adress {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 14px;
+            .label {
+                display: flex;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 0.4rem;
+            }
+
+            .input-email {
+                background-color: rgb(255, 255, 255);
+                border: 1px solid rgb(207, 214, 228);
+                border-radius: 8px;
+                box-sizing: border-box;
+                color: rgb(0, 0, 0);
+                max-width: 100%;
+                outline: 0px;
+                padding: 0px 1.6rem;
+                width: 100%;
+                font-size: 1.4rem;
+                height: 4.8rem;
+                line-height: 2.1rem;
+            }
+        }
+
+        .password-box {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0rem;
+
+            .label {
+                display: flex;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 0.4rem;
+                .label-pwd {
+                    color: var(--color-neutral-5);
+                    cursor: pointer;
+                }
+            }
+            .input-password {
+                position: relative;
+                .input-pwd {
+                    background-color: rgb(255, 255, 255);
+                    border: 1px solid rgb(207, 214, 228);
+                    border-radius: 8px;
+                    box-sizing: border-box;
+                    color: rgb(0, 0, 0);
+                    max-width: 100%;
+                    outline: 0px;
+                    padding: 0px 1.6rem;
+                    width: 100%;
+                    font-size: 1.4rem;
+                    height: 4.8rem;
+                    line-height: 2.1rem;
+                }
+
+                span {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 15px;
+                    right: 12px;
+                    svg {
+                        fill: var(--info-icon-color);
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        margin: 0rem;
+                    }
+                }
+            }
+        }
+
+        .login-button {
+            margin-top: 2.4rem;
+
+            .login-btn:disabled {
+                background: rgb(239, 242, 245);
+                color: rgb(0, 0, 0);
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+            .login-btn {
+                -webkit-box-align: center;
+                align-items: center;
+                border: 0px;
+                border-radius: 8px;
+                display: inline-flex;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+                -webkit-box-pack: center;
+                justify-content: center;
+                outline: 0px;
+                font-weight: 600;
+                width: 100%;
+                height: 4.8rem;
+                font-size: 1.4rem;
+                padding: 0rem 2.4rem;
+                line-height: 2.4rem;
+            }
+        }
+    }
+}

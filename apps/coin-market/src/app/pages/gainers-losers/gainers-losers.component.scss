@@ -6,14 +6,14 @@
         font-family: inherit;
     }
     .rank-gray {
-        color: rgb(88, 102, 126);
+        color: var(--text-color-sub);
     }
 
     h1 {
-        font-size: 24px;
-        line-height: 34px;
-        padding-top: 36px;
-        padding-bottom: 36px;
+        font-size: 2.4rem;
+        line-height: 3.4rem;
+        padding-top: 3.6rem;
+        padding-bottom: 3.6rem;
     }
 
     .tables {
@@ -24,11 +24,11 @@
             flex-basis: 48%;
             h2 {
                 display: block;
-                font-size: 18px;
-                margin-block-start: 1em;
-                margin-block-end: 1em;
-                margin-inline-start: 0px;
-                margin-inline-end: 0px;
+                font-size: 1.8rem;
+                margin-block-start: 1rem;
+                margin-block-end: 1rem;
+                margin-inline-start: 0rem;
+                margin-inline-end: 0rem;
                 font-weight: 700;
             }
         }
@@ -40,7 +40,7 @@
         }
 
         .ag-row-hover {
-            background-color: #f8fafd !important;
+            background: var(--theme-background) !important;
         }
 
         .ag-root-wrapper {
@@ -50,14 +50,34 @@
         .ag-header {
             .ag-header-cell-text {
                 font-weight: bolder;
-                color: #000;
+                color: var(--theme-color);
             }
         }
 
         .ag-header,
         .ag-row {
             border-color: var(--border-color);
-            background-color: #fff;
+            background: var(--theme-background) !important;
+            color: var(--theme-color);
+
+            &:hover {
+                background-color: var(--theme-section-background) !important;
+            }
+        }
+
+        .ag-theme-material {
+            background: var(--theme-background) !important;
+        }
+        .ag-root-wrapper {
+            background: var(--theme-background) !important;
+        }
+
+        .ag-header-cell:hover {
+            background: none;
+        }
+
+        .ag-header-icon {
+            color: var(--theme-color);
         }
     }
 }

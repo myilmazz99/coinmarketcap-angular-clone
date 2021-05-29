@@ -1,82 +1,85 @@
 .trending {
-  &__list {
-    li:not(:last-child) {
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    &__item {
-      display: flex;
-      align-items: center;
-      padding: 12px 0 12px 8px;
-
-      &:hover {
-        background-color: var(--color-light-neutral-2);
-      }
-
-      &__logo {
-        width: 24px;
-        height: 24px;
-        object-fit: contain;
-      }
-
-      &__sponsored {
-        flex-grow: 1;
-        margin-left: 10px;
-        display: flex;
-        align-items: center;
-        & > div:first-child {
-          flex-grow: 1;
-        }
-        &__title {
-          font-weight: bold;
+    &__list {
+        li:not(:last-child) {
+            border-bottom: 1px solid var(--theme-border-color);
         }
 
-        &__desc {
-          color: var(--color-gray);
-          font-weight: 500;
-        }
-
-        &__footer {
-          a {
-            display: block;
-            text-align: center;
-            background-color: rgb(56, 97, 251);
-            padding: 8px 16px;
-            color: #fff;
-            font-size: 12px;
-            text-decoration: none;
-            border-radius: 10px;
-
-            &:hover {
-              background-color: darken($color: rgb(56, 97, 251), $amount: 5);
-            }
-          }
-
-          small {
-            margin-top: 5px;
+        &__item {
             display: flex;
             align-items: center;
-            font-size: 11px;
-            color: var(--color-gray);
+            padding: 1.2rem 0 1.2rem 0.8rem;
 
-            img {
-              margin-right: 5px;
+            &:hover {
+                background-color: var(--color-light-neutral-2);
             }
-          }
+
+            &__logo {
+                width: 2.4rem;
+                height: 2.4rem;
+                object-fit: contain;
+            }
+
+            &__sponsored {
+                flex-grow: 1;
+                margin-left: 1rem;
+                display: flex;
+                align-items: center;
+                & > div:first-child {
+                    flex-grow: 1;
+                }
+                &__title {
+                    font-weight: bold;
+                }
+
+                &__desc {
+                    color: var(--color-light-neutral-6);
+                    font-weight: 500;
+                }
+
+                &__footer {
+                    a {
+                        display: block;
+                        text-align: center;
+                        background-color: rgb(56, 97, 251);
+                        padding: 0.8rem 1.6rem;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        text-decoration: none;
+                        border-radius: 10px;
+
+                        &:hover {
+                            background-color: darken(
+                                $color: rgb(56, 97, 251),
+                                $amount: 5
+                            );
+                        }
+                    }
+
+                    small {
+                        margin-top: 0.5rem;
+                        display: flex;
+                        align-items: center;
+                        font-size: 1.1rem;
+                        color: var(--color-light-neutral-6);
+
+                        img {
+                            margin-right: 0.5rem;
+                        }
+                    }
+                }
+            }
+
+            &__name--full {
+                font-weight: bold;
+                margin: 0 0.5rem 0 1rem;
+            }
+
+            &__name--shorten {
+                color: var(--color-light-neutral-6);
+                font-weight: 500;
+                font-size: 1.1rem;
+                flex-grow: 1;
+            }
         }
-      }
-
-      &__name--full {
-        font-weight: bold;
-        margin: 0 5px 0 10px;
-      }
-
-      &__name--shorten {
-        color: var(--color-gray);
-        font-weight: 500;
-        font-size: 11px;
-        flex-grow: 1;
-      }
     }
-  }
 }

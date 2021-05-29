@@ -1,10 +1,10 @@
 .mat-button {
     min-width: 20px;
     border-radius: 50%;
-    padding: 10px;
+    padding: 1rem;
 }
 
 mat-icon {
-    font-size: 24px;
-    color: rgb(88, 102, 126);
+    font-size: 2.4rem;
+    color: var(--color-light-neutral-6);
 }

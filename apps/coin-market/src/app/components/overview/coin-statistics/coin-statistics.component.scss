@@ -1,18 +1,18 @@
 .coin-statistics {
-    background-color: var(--bg-light-gray);
-    padding: 24px;
+    background-color: var(--color-light-neutral-1);
+    padding: 2.4rem;
     border-radius: 16px;
 
     &__table {
         width: 100%;
 
         &__caption {
-            margin-top: 25px;
-            padding-bottom: 10px;
+            margin-top: 2.5rem;
+            padding-bottom: 1rem;
             display: block;
-            font-size: 12px;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--color-gray);
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--theme-border-color);
+            color: var(--color-light-neutral-5);
             text-align: left;
         }
 
@@ -20,17 +20,13 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 18px 0;
+            padding: 1.8rem 0;
             &:not(:last-child) {
-                border-bottom: 1px solid var(--border-color);
+                border-bottom: 1px solid var(--theme-border-color);
             }
         }
     }
     button {
         width: 100%;
-        text-align: center;
-        background-color: rgb(239, 242, 245);
-        padding-top: 4px;
-        padding-bottom: 4px;
     }
 }

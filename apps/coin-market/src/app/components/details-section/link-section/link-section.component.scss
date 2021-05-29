@@ -1,0 +1,182 @@
+.link-section {
+    padding-right: 24px;
+    padding-top: 8px;
+
+    .container-first,
+    .container-second {
+        border-bottom: none;
+        margin-top: 0rem;
+        padding-bottom: 0.8rem;
+        display: block;
+    }
+
+    .container-first {
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+            margin: 0rem;
+            padding: 0rem;
+
+            .link-tippy {
+                position: relative;
+                &:hover {
+                    .tippy-box {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            li {
+                .button-link {
+                    text-decoration: none;
+                    background-color: var(--control-dropdown-background-color);
+                    color: var(--color-primary-black);
+                    border: none;
+                    outline: none;
+                    border-radius: 8px;
+                    padding: 0.4rem 0.8rem;
+                    margin: 0 0.4rem 0.4rem 0;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    line-height: 1.8rem;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .button-name {
+                    margin: 0 0.6rem;
+                }
+
+                &:hover {
+                    .button-link {
+                        background-color: var(--color-light-neutral-5);
+                        cursor: pointer;
+                        color: var(--color-primary-white);
+                        .external-link-icon {
+                            color: var(--color-primary-white);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .container-second {
+        .heading {
+            color: var(--color-light-neutral-6);
+            font-size: 1.1rem;
+            line-height: 1.8rem;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        .link-content {
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+            margin: 0rem;
+            padding: 0rem;
+
+            li a {
+                text-decoration: none;
+            }
+
+            .tag-badge {
+                border-left: none;
+                margin-left: 0rem;
+                margin-right: 0.4rem;
+                background-color: var(--color-light-neutral-2);
+                color: var(--color-light-neutral-6);
+                border-radius: 4rem;
+                padding: 0.2rem 0.8rem;
+                font-size: 1.1rem;
+                font-weight: 600;
+                line-height: 1.8rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .view-all {
+                display: initial;
+                color: #6188ff;
+                cursor: pointer;
+                font-size: 1.1rem;
+                font-weight: 500;
+                line-height: 1.8rem;
+                background-color: var(--theme-light-blue-color);
+            }
+        }
+    }
+}
+
+.external-link-icon {
+    color: var(--color-light-neutral-5);
+    height: 1.6rem;
+}
+
+.tippy-box {
+    position: absolute;
+    background-color: var(--control-background-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-normal);
+    font-size: 1.2rem;
+    line-height: 1.4;
+    outline: 0;
+    transition-property: transform, visibility, opacity;
+    visibility: hidden;
+    opacity: 0;
+    box-sizing: border-box;
+    transition: 250ms all;
+
+    .tippy-content {
+        padding: 0.8rem 0.9rem;
+        z-index: 1;
+
+        ul {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            li {
+                :hover {
+                    background-color: var(--color-light-neutral-1);
+                    color: var(--color-primary-black);
+                }
+
+                a {
+                    display: flex;
+                    flex-direction: row;
+                    border-radius: 8px;
+                    margin-bottom: 0.4rem;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    line-height: 1.8rem;
+                    padding: 0.7rem;
+                    align-items: center;
+
+                    .external-link-icon {
+                        padding-left: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tippy-community {
+    height: 8rem;
+    width: 14rem;
+    left: -1rem;
+}
+
+.tippy-explorers {
+    height: 19rem;
+    width: 23rem;
+    left: -6rem;
+}

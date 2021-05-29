@@ -2,7 +2,7 @@
     border-top: 1px solid;
     border-bottom: 1px solid;
     border-color: var(--border-color);
-    padding: 12px 0;
+    padding: 1.2rem 0;
 
     &__container {
         display: flex;
@@ -10,14 +10,14 @@
 
     &__link {
         font-weight: bold;
-        padding: 8px 12px;
+        padding: 0.8rem 1.2rem;
         border-radius: 8px;
-        color: #000;
+        color: var(--theme-color);
         min-width: unset;
         height: auto;
 
         &:not(:first-child) {
-            margin-left: 6px;
+            margin-left: 0.6rem;
         }
 
         &.active {

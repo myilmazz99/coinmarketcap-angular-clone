@@ -1,59 +1,60 @@
 .coin-converter {
-  border: 2px solid var(--border-color);
-  padding: 0;
-  box-shadow: none;
-  border-radius: 16px;
+    border: 2px solid var(--theme-border-color);
+    padding: 0;
+    box-shadow: none;
+    border-radius: 16px;
 
-  .currency {
-    padding: 24px;
-    display: flex;
+    .currency {
+        padding: 2.4rem;
+        display: flex;
 
-    &:last-child {
-      background-color: var(--bg-light-gray);
-      border-bottom-left-radius: inherit;
-      border-bottom-right-radius: inherit;
-    }
-
-    &__details {
-      display: flex;
-      align-items: center;
-
-      &__name {
-        p {
-          margin: 0;
-          font-weight: bold;
-          white-space: nowrap;
+        &:last-child {
+            background-color: var(--color-light-neutral-1);
+            border-bottom-left-radius: inherit;
+            border-bottom-right-radius: inherit;
         }
-        small {
-          color: var(--color-gray);
+
+        &__details {
+            display: flex;
+            align-items: center;
+
+            &__name {
+                p {
+                    margin: 0;
+                    font-weight: bold;
+                    white-space: nowrap;
+                }
+                small {
+                    color: var(--color-light-neutral-6);
+                }
+            }
+
+            figure {
+                margin: 0 1.2rem;
+
+                img {
+                    width: 3.2rem;
+                }
+            }
         }
-      }
 
-      figure {
-        margin: 0 12px;
+        &__input {
+            font-size: 1.8rem;
+            font-family: inherit;
+            flex-grow: 1;
+            border: none;
+            font-weight: bolder;
+            text-align: right;
+            background-color: transparent;
+            width: 100%;
+            color: inherit;
 
-        img {
-          width: 32px;
+            &:focus {
+                outline: none;
+            }
+            &::placeholder {
+                color: var(--color-light-neutral-4);
+            }
         }
-      }
     }
-
-    &__input {
-      font-size: 18px;
-      font-family: inherit;
-      flex-grow: 1;
-      border: none;
-      font-weight: bolder;
-      text-align: right;
-      background-color: transparent;
-      width: 100%;
-
-      &:focus {
-        outline: none;
-      }
-      &::placeholder {
-        color: rgb(207, 214, 228);
-      }
-    }
-  }
 }

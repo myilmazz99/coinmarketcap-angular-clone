@@ -1,0 +1,139 @@
+<div class="price-section" *ngIf="coinPrice$ | async as coinPrice">
+    <h1 class="price-heading">
+        {{ coinPrice.name }} Price
+        <small>({{ coinPrice.shortName }})</small>
+    </h1>
+    <div class="price-title">
+        <div class="price-value">
+            {{ coinPrice.price | currency: 'USD':'$':'0.2-2' }}
+        </div>
+        <span
+            style="
+                background-color: var(--up-color);
+                color: #fff;
+                padding: 5px 8px;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 600;
+            "
+            class="price-span"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                height="12px"
+                width="12px"
+                viewBox="5 0 20 16"
+                style="margin: 0"
+            >
+                <path
+                    d="M18.0566 16H5.94336C5.10459 16 4.68455 14.9782 5.27763 14.3806L11.3343 8.27783C11.7019 7.90739 12.2981 7.90739 12.6657 8.27783L18.7223 14.3806C19.3155 14.9782 18.8954 16 18.0566 16Z"
+                ></path></svg
+            >{{ coinPrice.priceStatus }}%
+        </span>
+    </div>
+    <div class="alternate-prices">
+        <p>
+            {{ coinPrice.priceSideValue }} {{ coinPrice.priceSideName }}
+            <span
+                style="
+                    color: var(--down-color);
+                    padding: 0px;
+                    border-radius: 8px;
+                "
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    style="height: 12px; width: 12px"
+                    class="my-svg"
+                >
+                    <path
+                        d="M18.0566 8H5.94336C5.10459 8 4.68455 9.02183 5.27763 9.61943L11.3343 15.7222C11.7019 16.0926 12.2981 16.0926 12.6657 15.7222L18.7223 9.61943C19.3155 9.02183 18.8954 8 18.0566 8Z"
+                    ></path>
+                </svg>
+                {{ coinPrice.pricePercentage }}%</span
+            >
+        </p>
+    </div>
+    <div class="slider-section">
+        <div class="nowrap-low">
+            <span class="high-low-label">Low:</span>
+            <span class="high-low-value">{{
+                coinPrice.priceLow | currency: 'USD':'$':'0.2-2'
+            }}</span>
+        </div>
+        <div class="slider-pill">
+            <span style="width: 100%" class="slider-full">
+                <span style="width: 92%">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        height="24px"
+                        width="24px"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            d="M18.0566 16H5.94336C5.10459 16 4.68455 14.9782 5.27763 14.3806L11.3343 8.27783C11.7019 7.90739 12.2981 7.90739 12.6657 8.27783L18.7223 14.3806C19.3155 14.9782 18.8954 16 18.0566 16Z"
+                        ></path>
+                    </svg>
+                </span>
+            </span>
+        </div>
+        <div class="nowrap-high">
+            <span class="high-low-label">High:</span>
+            <span class="high-low-value">{{
+                coinPrice.priceHigh | currency: 'USD':'$':'0.2-2'
+            }}</span>
+        </div>
+        <button
+            mat-button
+            [matMenuTriggerFor]="menuTime"
+            class="name-pill-base"
+        >
+            24h
+            <span style="width: 92%">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    height="12px"
+                    width="12px"
+                    viewBox="0 0 24 24"
+                    style="height: 10px; margin-left: -2px"
+                >
+                    <path
+                        d="M 6 9 L 12 15 L 18 9"
+                        stroke="currentcolor"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    ></path>
+                </svg>
+            </span>
+        </button>
+        <mat-menu #menuTime="matMenu">
+            <div style="pointer-events: none; z-index: 9999">
+                <div
+                    class="tippy-box"
+                    tabindex="-1"
+                    style="max-width: 350px; transition-duration: 300ms"
+                >
+                    <div
+                        class="tippy-content"
+                        style="transition-duration: 300ms"
+                    >
+                        <div>
+                            <ul class="slider-list">
+                                <li>24h Low / High</li>
+                                <li>1m Low / High</li>
+                                <li>1y Low / High</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-menu>
+    </div>
+</div>

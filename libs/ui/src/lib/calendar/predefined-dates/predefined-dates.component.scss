@@ -1,12 +1,12 @@
 :host {
     p {
-        color: var(--color-gray);
-        margin-bottom: 10px;
+        color: var(--color-light-neutral-6);
+        margin-bottom: 1rem;
     }
 
     .predefined-dates-list {
         &__item {
-            padding: 6px 10px;
+            padding: 0.6rem 1rem;
             cursor: pointer;
             white-space: nowrap;
 

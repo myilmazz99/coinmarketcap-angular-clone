@@ -1,9 +1,9 @@
 .historical-data {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
 
     &__header {
-        margin-bottom: 25px;
+        margin-bottom: 2.5rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -16,8 +16,9 @@
             background-color: transparent;
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            padding: 12px;
+            padding: 1.2rem;
             width: 150px;
+            color: inherit;
 
             &:hover {
                 background-color: var(--color-light-neutral-1);
@@ -38,6 +39,7 @@
 .mat-table {
     width: 100%;
     box-shadow: none !important;
+    background: transparent !important;
 
     .mat-header-cell,
     .mat-cell {
@@ -47,7 +49,11 @@
     }
 
     .mat-header-cell {
-        color: black;
+        color: var(--theme-color);
         font-weight: bold;
+    }
+
+    .mat-cell {
+        color: var(--theme-color);
     }
 }

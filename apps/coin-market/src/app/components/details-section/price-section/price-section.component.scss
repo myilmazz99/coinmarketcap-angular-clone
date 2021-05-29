@@ -1,0 +1,180 @@
+.price-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    margin: 0px;
+    @media (min-width: 768px) and (max-width: 1300px) {
+        text-align: right;
+    }
+
+    .price-heading {
+        color: var(--text-color-sub);
+        font-size: 1.2rem;
+        font-weight: 500;
+        line-height: 1.8rem;
+
+        small {
+            color: var(--color-light-neutral-5);
+            font-weight: inherit;
+            font-size: inherit;
+        }
+    }
+
+    .price-title {
+        @media (min-width: 768px) and (max-width: 1300px) {
+            justify-content: flex-end;
+        }
+        margin: 0rem;
+        display: flex;
+        align-items: center;
+
+        .price-value {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 4.2rem;
+            margin-right: 1.6rem;
+        }
+    }
+
+    .alternate-prices {
+        margin-top: 0.6rem;
+        margin-bottom: 1.4rem;
+        display: flex;
+        flex-direction: column;
+
+        p {
+            margin: 0;
+            margin-top: 0.4rem;
+            line-height: 1;
+            font-size: 1.4rem;
+            color: var(--color-light-neutral-5);
+
+            span {
+                margin-right: 0.4rem;
+                margin-left: 1.2rem;
+
+                .my-svg {
+                    margin: 0rem 0rem 0rem 0.4rem;
+                    height: 1.4rem;
+                    width: 1.4rem;
+                }
+            }
+        }
+    }
+
+    .slider-section {
+        margin: 1rem 0rem 0.8rem 0rem;
+        display: flex;
+        align-items: center;
+
+        @media (min-width: 768px) and (max-width: 1300px) {
+            justify-content: flex-end;
+        }
+
+        .nowrap-low,
+        .nowrap-high {
+            margin: 0rem 1.6rem 0rem 0rem;
+            white-space: nowrap;
+
+            .high-low-label {
+                color: var(--color-light-neutral-6);
+                font-size: 1.2rem;
+                font-weight: 400;
+                line-height: 1.8rem;
+            }
+
+            .high-low-value {
+                color: var(--color-primary-black);
+                font-size: 1.2rem;
+                font-weight: 600;
+                line-height: 2.2rem;
+            }
+        }
+
+        .slider-pill {
+            margin: 0rem;
+            width: 100%;
+            max-width: 170px;
+
+            .slider-full {
+                height: 0.6rem;
+                display: inline-block;
+                position: relative;
+                background-color: var(--control-dropdown-background-color);
+                border-radius: 4px;
+                line-height: 5;
+
+                span {
+                    display: inherit;
+                    background-color: var(--color-light-neutral-4);
+                    height: 100%;
+                    position: absolute;
+                    left: 0rem;
+                    top: 0rem;
+                    border-top-left-radius: inherit;
+                    border-bottom-left-radius: inherit;
+                    color: var(--theme-light-color);
+                    border-top-right-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                    transition: width 3s ease-in-out 0s;
+
+                    svg {
+                        position: absolute;
+                        top: -0.1rem;
+                        right: -0.8rem;
+                        width: 1.6rem;
+                        margin: 0rem;
+                        color: var(--color-light-neutral-4);
+                    }
+                }
+            }
+        }
+
+        .nowrap-high {
+            margin: 0rem 0rem 0rem 1.6rem;
+        }
+
+        .name-pill-base {
+            margin: 0rem 0rem 0rem 0.8rem;
+            cursor: pointer;
+            background-color: var(--color-light-neutral-2);
+            color: var(--color-light-neutral-6);
+            border-radius: 4px;
+            padding: 0.2rem 0.6rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.8rem;
+            white-space: nowrap;
+        }
+    }
+}
+
+.tippy-box {
+    background-color: var(--color-tippy-arrow);
+    box-shadow: var(--shadow-normal);
+    color: var(--color-text-1);
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    outline: 0;
+    transition-property: transform, visibility, opacity;
+
+    .tippy-content {
+        padding: 0.5rem 0.9rem;
+        z-index: 1;
+    }
+
+    .slider-list {
+        li {
+            cursor: pointer;
+            pointer-events: auto;
+            padding: 1rem 1rem 1rem 0.8rem;
+            font-weight: 600;
+
+            &:hover {
+                background-color: var(--color-light-neutral-1);
+            }
+        }
+    }
+}

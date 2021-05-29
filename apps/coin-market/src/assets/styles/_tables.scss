@@ -6,21 +6,21 @@
         height: 100%;
 
         .coin-icon {
-            height: 24px;
-            width: 24px;
+            height: 2.4rem;
+            width: 2.4rem;
             border-radius: 12px;
         }
 
         .coin-name {
-            margin: 0px 0px 0px 5px;
-            line-height: 24px;
+            margin: 0rem 0rem 0rem 0.5rem;
+            line-height: 2.4rem;
             font-weight: bold;
         }
         .coin-id {
             color: rgb(128, 138, 157);
-            margin: 0px 0px 0px 6px;
-            line-height: 24px;
-            font-size: 14px;
+            margin: 0rem 0rem 0rem 0.6rem;
+            line-height: 2.4rem;
+            font-size: 1.4rem;
         }
     }
 }

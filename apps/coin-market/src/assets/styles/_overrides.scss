@@ -12,20 +12,20 @@ $custom-typography: mat-typography-config(
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    font-size: 16px;
+    font-size: 1.6rem;
 }
 
 .vote-coin__progress-bar {
     .mat-progress-bar {
-        height: 10px;
+        height: 1rem;
         border-radius: 5px;
 
         .mat-progress-bar-primary::after {
-            background-color: #16c784;
+            background-color: var(--up-color);
         }
 
         .mat-progress-bar-buffer {
-            background-color: #ea3943;
+            background-color: var(--down-color);
         }
     }
 }
@@ -43,13 +43,44 @@ $custom-typography: mat-typography-config(
 }
 
 //Mat Select
+.mat-select {
+    background: var(--control-dropdown-background-color) !important;
+    color: var(--theme-color) !important;
+    box-sizing: border-box;
+    width: auto !important;
+    margin: 0rem;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    outline: 0px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 0.8rem;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+}
+
 .mat-select-value {
     max-width: unset !important;
+    color: var(--theme-color) !important;
+}
+
+.mat-select-panel {
+    background: var(--color-tippy-arrow) !important;
+}
+
+.mat-select-arrow {
+    color: var(--theme-color) !important;
 }
 
 // Mat Option
 .mat-option-text {
     font-weight: bold;
+}
+
+.mat-option {
+    color: var(--theme-color) !important;
 }
 
 //Mat Header
@@ -60,12 +91,36 @@ $custom-typography: mat-typography-config(
 //Mat Menu
 .mat-menu-content {
     padding-top: 0 !important;
-    padding-bottom: 0px !important;
+    padding-bottom: 0rem !important;
     font-weight: bold;
+}
+.mat-menu-panel {
+    background-color: var(--color-tippy-arrow) !important;
+}
+.mat-menu-item {
+    color: var(--theme-color);
+
+    &:hover {
+        background-color: var(--theme-section-background) !important;
+    }
 }
 
 //Mat Table
 .mat-header-cell,
 .mat-cell {
     border-color: var(--border-color) !important;
+}
+
+// Mat Paginator
+.mat-paginator {
+    background: transparent !important;
+    color: var(--theme-color) !important;
+}
+
+.mat-form-field-appearance-legacy {
+    color: var(--theme-color) !important;
+    background: transparent !important;
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+    background: var(--color-tippy-arrow) !important;
 }
