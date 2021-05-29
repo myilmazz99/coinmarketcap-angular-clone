@@ -16,7 +16,7 @@ export class CoinListService {
     private dataLength = new BehaviorSubject<number>(0);
     public dataLength$: Observable<number>;
 
-    public pageSize: BehaviorSubject<number> = new BehaviorSubject(10);
+    public pageSize: BehaviorSubject<number> = new BehaviorSubject(20);
     public pageNumber: BehaviorSubject<number> = new BehaviorSubject(0);
     public sortEvent: BehaviorSubject<string> = new BehaviorSubject('');
     public sortOrder: BehaviorSubject<string> = new BehaviorSubject('asc');

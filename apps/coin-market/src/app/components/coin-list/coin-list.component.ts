@@ -38,7 +38,7 @@ export class CoinListComponent implements OnInit, AfterViewInit {
     ];
     selectedValue = 20;
 
-    rows = [{ value: 10 }, { value: 15 }, { value: 20 }];
+    rows = [{ value: 20 }, { value: 40 }, { value: 60 }];
 
     constructor(private coinListService: CoinListService) {
         this.dataLength$ = coinListService.dataLength$;
@@ -67,20 +67,23 @@ export class CoinListComponent implements OnInit, AfterViewInit {
                         this.paginator.pageIndex
                     );
                     this.coinListService.pageSize.next(this.paginator.pageSize);
-
+                    this.selectedValue = this.paginator.pageSize;
                     this.dataSource.loadCoins();
                 })
             )
             .subscribe();
+
+        this.paginator._intl.itemsPerPageLabel = 'Show Rows';
 
         this.select.selectionChange
             .pipe(
                 tap(() => {
                     this.coinListService.pageSize.next(this.selectedValue);
                     this.dataSource.loadCoins();
+                    this.paginator.pageSize = this.selectedValue;
+                    this.paginator.firstPage();
                 })
             )
             .subscribe();
-        this.paginator._intl.itemsPerPageLabel = 'Show Rows';
     }
 }
