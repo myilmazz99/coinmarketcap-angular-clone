@@ -6,7 +6,7 @@
     padding: 2.4rem 1.5rem;
 }
 .coin-market-cap {
-    width: 16.8rem;
+    min-width: 16.8rem;
     height: 2.8rem;
     position: relative;
     color: var(--theme-color);
@@ -31,30 +31,7 @@
     }
 }
 
-.dark-mode {
-    -webkit-box-align: center;
-    align-items: center;
-    background-color: transparent;
-    border-radius: 5px;
-    border: none;
-    color: var(--theme-color);
-    cursor: pointer;
-    display: inline-flex;
-    font-size: 12px;
-    line-height: 12px;
-    margin: 0px;
-    padding: 5px;
-    vertical-align: baseline;
-    white-space: nowrap;
-    height: 27px;
-    width: 22px;
-    margin-left: auto;
-
-    .dark-mode-moon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: normal !important;
-        transform: rotate(-45deg);
-    }
+coin-market-switch-theme-btn {
+    flex-grow: 1;
+    text-align: right;
 }
