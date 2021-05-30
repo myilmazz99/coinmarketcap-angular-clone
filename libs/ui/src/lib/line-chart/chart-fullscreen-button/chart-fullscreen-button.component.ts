@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'chart-fullscreen-button',
+    selector: 'ui-chart-fullscreen-button',
     templateUrl: './chart-fullscreen-button.component.html',
     styleUrls: ['./chart-fullscreen-button.component.scss'],
 })

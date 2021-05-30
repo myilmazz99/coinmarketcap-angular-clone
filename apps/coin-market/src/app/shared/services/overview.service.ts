@@ -7,7 +7,12 @@ import {
     fakeCoinVotes,
 } from '../../../assets/data/coinData';
 import { VoteCoinData } from '../../models/voteCoinData.model';
-import { ChartData } from '@coin-market/data';
+import {
+    CalendarDateRange,
+    ChartData,
+    ChartDataTab,
+    ChartDateRange,
+} from '@coin-market/data';
 import { OverviewPrice, OverviewMarketcap } from '@coin-market/data';
 import { OverviewPriceStatistics } from '../../models/overview-price-statistics.model';
 
@@ -31,6 +36,20 @@ export class OverviewService {
 
     private chartData: BehaviorSubject<ChartData> = new BehaviorSubject(null);
     public chartData$: Observable<ChartData>;
+
+    private _selectedTab = new BehaviorSubject<ChartDataTab>(
+        new ChartDataTab()
+    );
+    private _selectedRange = new BehaviorSubject<ChartDateRange>(
+        new ChartDateRange()
+    );
+    private _selectedCalendarRange = new BehaviorSubject<CalendarDateRange>(
+        new CalendarDateRange()
+    );
+
+    public selectedTab$: Observable<ChartDataTab>;
+    public selectedRange$: Observable<ChartDateRange>;
+    public selectedCalendarRange$: Observable<CalendarDateRange>;
 
     //holds fake data, delete after http implementation
     price: OverviewPrice[] = [];
@@ -57,6 +76,22 @@ export class OverviewService {
 
         this.coinStatistics$ = this.coinStatistics.asObservable();
         this.getCoinStatistics();
+
+        this.selectedTab$ = this._selectedTab.asObservable();
+        this.selectedRange$ = this._selectedRange.asObservable();
+        this.selectedCalendarRange$ = this._selectedCalendarRange.asObservable();
+    }
+
+    set selectedTab(val: ChartDataTab) {
+        this._selectedTab.next(val);
+    }
+
+    set selectedRange(val: ChartDateRange) {
+        this._selectedRange.next(val);
+    }
+
+    set selectedCalendarRange(val: CalendarDateRange) {
+        this._selectedCalendarRange.next(val);
     }
 
     /*

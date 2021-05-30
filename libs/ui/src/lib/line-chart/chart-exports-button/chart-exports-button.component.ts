@@ -1,16 +1,16 @@
 import { Component, Input } from '@angular/core';
-import { ChartData, ChartDataTabs } from '@coin-market/data';
+import { ChartData, ChartDataTab } from '@coin-market/data';
 import * as exceljs from 'exceljs';
 
 @Component({
-    selector: 'chart-exports-button',
+    selector: 'ui-chart-exports-button',
     templateUrl: './chart-exports-button.component.html',
     styleUrls: ['./chart-exports-button.component.scss'],
 })
 export class ChartExportsButtonComponent {
     @Input() chart: Highcharts.Chart;
     @Input() chartData: ChartData;
-    @Input() selectedTab: ChartDataTabs;
+    @Input() selectedTab: ChartDataTab;
     exportOptions = [
         { text: 'Download PNG Image', type: 'image/png' },
         { text: 'Download JPEG Image', type: 'image/jpeg' },
@@ -68,11 +68,11 @@ export class ChartExportsButtonComponent {
             if (date <= max && date >= min)
                 data.push({
                     date: new Date(date),
-                    usd: this.chartData[this.selectedTab.objProp].usd[i]
-                        ? this.chartData[this.selectedTab.objProp].usd[i][1]
+                    usd: this.chartData[this.selectedTab.textJson].usd[i]
+                        ? this.chartData[this.selectedTab.textJson].usd[i][1]
                         : null,
-                    btc: this.chartData[this.selectedTab.objProp].coin[i]
-                        ? this.chartData[this.selectedTab.objProp].coin[i][1]
+                    btc: this.chartData[this.selectedTab.textJson].coin[i]
+                        ? this.chartData[this.selectedTab.textJson].coin[i][1]
                         : null,
                     volume: this.chartData.volume[i]
                         ? this.chartData.volume[i][1]

@@ -2,14 +2,14 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
-    selector: 'coin-chart-legend',
+    selector: 'ui-coin-chart-legend',
     templateUrl: './coin-chart-legend.component.html',
     styleUrls: ['./coin-chart-legend.component.scss'],
     encapsulation: ViewEncapsulation.None,
 })
 export class CoinChartLegendComponent {
-    @Input() legend: string[] = [];
     @Input() chart: Highcharts.Chart;
+    legend: string[] = ['USD', 'BTC'];
 
     legendSwitch(e: any) {
         const { name, checked } = e.target;

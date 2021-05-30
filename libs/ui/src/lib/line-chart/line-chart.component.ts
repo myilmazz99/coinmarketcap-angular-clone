@@ -3,14 +3,21 @@ import {
     AfterViewInit,
     ChangeDetectorRef,
     Component,
+    EventEmitter,
     Input,
     OnInit,
+    Output,
     ViewEncapsulation,
 } from '@angular/core';
 import * as Highcharts from 'highcharts/highstock';
 import IndicatorsCore from 'highcharts/indicators/indicators';
 import HC_exporting from 'highcharts/modules/exporting';
-import { ChartData, ChartDataTabs } from '@coin-market/data';
+import {
+    CalendarDateRange,
+    ChartData,
+    ChartDataTab,
+    ChartDateRange,
+} from '@coin-market/data';
 HC_exporting(Highcharts);
 IndicatorsCore(Highcharts);
 
@@ -21,14 +28,22 @@ IndicatorsCore(Highcharts);
     encapsulation: ViewEncapsulation.None,
 })
 export class LineChartComponent implements OnInit, AfterViewInit {
+    @Input() data: ChartData;
+
+    @Input() selectedTab: ChartDataTab;
+    @Output() selectTabChange = new EventEmitter<ChartDataTab>(null);
+
+    @Input() selectedRange: ChartDateRange;
+    @Output() selectedRangeChange = new EventEmitter<ChartDateRange>(null);
+
+    @Input() selectedCalendarRange: CalendarDateRange;
+    @Output() selectedCalendarRangeChange = new EventEmitter<CalendarDateRange>(
+        null
+    );
+
     highcharts: typeof Highcharts;
     chart: Highcharts.Chart;
     chartOptions: Highcharts.Options;
-    @Input() series: Highcharts.SeriesOptionsType[];
-    @Input() legend: string[];
-    @Input() tabs: ChartDataTabs[];
-    @Input() data: ChartData;
-    selectedTab: ChartDataTabs;
 
     constructor(
         private decimalPipe: DecimalPipe,
@@ -36,12 +51,16 @@ export class LineChartComponent implements OnInit, AfterViewInit {
         private changeDetectorRef: ChangeDetectorRef
     ) {}
 
-    ngAfterViewInit(): void {
-        this.changeDetectorRef.detectChanges();
+    onDataTabChange(val: ChartDataTab) {
+        this.selectTabChange.emit(val);
     }
 
-    getSelectedTab(val: ChartDataTabs) {
-        this.selectedTab = val;
+    onRangeChange(val: ChartDateRange) {
+        this.selectedRangeChange.emit(val);
+    }
+
+    onCalendarDateChange(val: CalendarDateRange) {
+        this.selectedCalendarRangeChange.emit(val);
     }
 
     generateTooltipTemplate(
@@ -210,5 +229,9 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                 column: { states: { hover: { enabled: false } } },
             },
         };
+    }
+
+    ngAfterViewInit(): void {
+        this.changeDetectorRef.detectChanges();
     }
 }

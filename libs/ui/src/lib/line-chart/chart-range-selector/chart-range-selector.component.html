@@ -1,18 +1,18 @@
 <ul class="vertical-gray-list">
     <li
         class="vertical-gray-list__item"
-        [class.vertical-gray-list__item--selected]="selected === r"
+        [class.vertical-gray-list__item--selected]="selected.value === r.value"
         *ngFor="let r of ranges"
-        (click)="setExtremes(r)"
+        (click)="setExtremes(r.dateRange); setSelected(r)"
     >
-        {{ r }}
+        {{ r.value }}
     </li>
     <li
         class="vertical-gray-list__item other"
         [matMenuTriggerFor]="calendarMenu"
-        [class.vertical-gray-list__item--selected]="selected === 'CAL'"
-        (click)="setSelected('CAL')"
     >
+        <!-- [class.vertical-gray-list__item--selected]="selected === 'CAL'"
+    (click)="setSelected('CAL')" -->
         <mat-icon>calendar_today</mat-icon>
     </li>
     <li class="vertical-gray-list__item other">LOG</li>
@@ -20,7 +20,8 @@
 
 <mat-menu #calendarMenu>
     <ui-calendar
-        (dateRangeEvent)="setExtremesByCalendar($event)"
+        (dateRangeEvent)="setExtremes($event)"
         (closeMenuEvent)="trigger.closeMenu()"
+        [selectedRange]="dateRange"
     ></ui-calendar>
 </mat-menu>

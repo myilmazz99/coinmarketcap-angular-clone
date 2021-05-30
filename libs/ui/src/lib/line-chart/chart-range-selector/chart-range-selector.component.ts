@@ -1,7 +1,14 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import {
+    Component,
+    EventEmitter,
+    Input,
+    Output,
+    ViewChild,
+} from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { CalendarDateRange } from '@coin-market/data';
+import { CalendarDateRange, ChartDateRange } from '@coin-market/data';
 import * as Highcharts from 'highcharts/highstock';
+import { subDays, subMonths, subYears, startOfYear } from 'date-fns';
 
 @Component({
     selector: 'ui-chart-range-selector',
@@ -9,73 +16,76 @@ import * as Highcharts from 'highcharts/highstock';
     styleUrls: ['./chart-range-selector.component.scss'],
 })
 export class ChartRangeSelectorComponent {
-    @Input() chart: Highcharts.Chart;
     @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-    ranges = ['1D', '7D', '1M', '3M', '1Y', 'YTD', 'ALL'];
-    selected = 'ALL';
+    @Input() chart: Highcharts.Chart;
+    @Input() dateRange = new CalendarDateRange();
+    @Output() dateRangeChange = new EventEmitter<CalendarDateRange>(null);
 
-    setExtremesByCalendar(val: CalendarDateRange) {
-        this.chart.xAxis[0].setExtremes(val.start.getTime(), val.end.getTime());
-    }
+    @Input() selected: ChartDateRange;
+    @Output() selectedChange = new EventEmitter<ChartDateRange>(null);
 
-    setSelected(val: string) {
+    ranges: ChartDateRange[] = [
+        {
+            value: '1D',
+            dateRange: new CalendarDateRange(
+                subDays(new Date(), 1),
+                new Date()
+            ),
+        },
+        {
+            value: '7D',
+            dateRange: new CalendarDateRange(
+                subDays(new Date(), 7),
+                new Date()
+            ),
+        },
+        {
+            value: '1M',
+            dateRange: new CalendarDateRange(
+                subMonths(new Date(), 1),
+                new Date()
+            ),
+        },
+        {
+            value: '3M',
+            dateRange: new CalendarDateRange(
+                subMonths(new Date(), 3),
+                new Date()
+            ),
+        },
+        {
+            value: '1Y',
+            dateRange: new CalendarDateRange(
+                subYears(new Date(), 1),
+                new Date()
+            ),
+        },
+        {
+            value: 'YTD',
+            dateRange: new CalendarDateRange(
+                startOfYear(new Date()),
+                new Date()
+            ),
+        },
+        {
+            value: 'ALL',
+            dateRange: new CalendarDateRange(null, new Date()),
+        },
+    ];
+
+    setSelected(val: ChartDateRange) {
         this.selected = val;
+        this.selectedChange.emit(val);
     }
 
-    setExtremes(val: string) {
-        this.setSelected(val);
-        const now = new Date();
-        const month = now.getMonth();
-        const year = now.getFullYear();
+    setExtremes(range: CalendarDateRange) {
+        this.dateRange = range;
+        this.dateRangeChange.emit(range);
 
-        switch (val) {
-            case '1D':
-                this.chart.xAxis[0].setExtremes(
-                    now.setHours(-24),
-                    new Date().getTime(),
-                    true
-                );
-                break;
-            case '7D':
-                this.chart.xAxis[0].setExtremes(
-                    now.setHours(-7 * 24),
-                    new Date().getTime(),
-                    true
-                );
-                break;
-            case '1M':
-                this.chart.xAxis[0].setExtremes(
-                    now.setMonth(month - 1),
-                    new Date().getTime(),
-                    true
-                );
-                break;
-            case '3M':
-                this.chart.xAxis[0].setExtremes(
-                    now.setMonth(month - 3),
-                    new Date().getTime(),
-                    true
-                );
-                break;
-            case '1Y':
-                this.chart.xAxis[0].setExtremes(
-                    now.setFullYear(year - 1),
-                    new Date().getTime(),
-                    true
-                );
-                break;
-            case 'YTD':
-                this.chart.xAxis[0].setExtremes(
-                    new Date(year, 0, 1).getTime(),
-                    undefined,
-                    true
-                );
-                break;
-
-            default:
-                this.chart.xAxis[0].setExtremes();
-                break;
-        }
+        this.chart.xAxis[0].setExtremes(
+            range.start?.getTime(),
+            range.end?.getTime()
+        );
     }
 }

@@ -5,35 +5,37 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import { ChartDataTabs, ChartData } from '@coin-market/data';
+import { ChartDataTab, ChartData } from '@coin-market/data';
 
 @Component({
-    selector: 'chart-data-tabs',
+    selector: 'ui-chart-data-tabs',
     templateUrl: './chart-data-tabs.component.html',
     styleUrls: ['./chart-data-tabs.component.scss'],
 })
-export class ChartDataTabsComponent implements AfterViewInit {
-    @Input() tabs: ChartDataTabs[];
+export class ChartDataTabsComponent {
     @Input() chart: Highcharts.Chart;
     @Input() data: ChartData;
-    @Output() selected = new EventEmitter<ChartDataTabs>();
 
-    handleClick(val: ChartDataTabs) {
-        this.selected.emit(val);
+    @Input() selected: ChartDataTab;
+    @Output() selectedChange = new EventEmitter<ChartDataTab>();
+
+    tabs: ChartDataTab[] = [
+        { text: 'Price', textJson: 'price' },
+        { text: 'Market Cap', textJson: 'marketCap' },
+    ];
+
+    handleClick(val: ChartDataTab) {
+        this.selectedChange.emit(val);
         const serie_usd = this.chart.series.find((s) => s.name === 'USD');
         const serie_coin = this.chart.series.find((s) => s.name === 'BTC');
 
         serie_coin.update({
             type: 'line',
-            data: this.data[val.objProp].coin,
+            data: this.data[val.textJson].coin,
         });
         serie_usd.update({
             type: 'line',
-            data: this.data[val.objProp].usd,
+            data: this.data[val.textJson].usd,
         });
-    }
-
-    ngAfterViewInit(): void {
-        this.selected.emit(this.tabs[0]);
     }
 }
