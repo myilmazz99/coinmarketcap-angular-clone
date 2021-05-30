@@ -12,6 +12,7 @@ import { OverviewRoutingModule } from './overview-routing.module';
 import { MaterialModule } from '../../shared/material.module';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from '../../shared/table/table.module';
+import { InfoParagraphComponent } from './info-paragraph/info-paragraph.component';
 
 @NgModule({
     imports: [
@@ -30,6 +31,7 @@ import { TableModule } from '../../shared/table/table.module';
         CoinConverterComponent,
         TrendingComponent,
         VoteCoinComponent,
+        InfoParagraphComponent,
     ],
     exports: [OverviewComponent],
 })

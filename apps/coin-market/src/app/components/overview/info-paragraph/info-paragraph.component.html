@@ -1,0 +1,56 @@
+<ng-container *ngIf="data$ | async as d">
+    <section class="info-paragraph">
+        <div
+            class="info-paragraph__inner"
+            [ngStyle]="{ 'max-height': expanded ? 'unset' : '320px' }"
+            [class.expanded]="expanded"
+        >
+            <h2>{{ (d.coin_id | uppercase) + ' Price Live Data' }}</h2>
+            <p>
+                The live <strong>Bitcoin price today</strong> is
+                {{ d.price | currency: 'USD':'symbol':'1.0-6' }} USD with a
+                24-hour trading volume of
+                {{ d.volume.value | currency: 'USD':'symbol':'1.0-6' }} USD.
+                Bitcoin is down {{ d.price_change_percentage_yesterday }}% in
+                the last 24 hours. The current CoinMarketCap ranking is #{{
+                    d.market_rank
+                }}, with a live market cap of
+                {{ d.market_cap.value | currency: 'USD':'symbol':'1.0-6' }} USD.
+                It has a circulating supply of
+                {{ d.circulating_supply.circulating_supply | number }} BTC coins
+                and a max. supply of
+                {{ d.circulating_supply.max_supply | number }} BTC coins.
+            </p>
+            <h3>Crypto Wallets</h3>
+            <p>
+                The most popular wallets for cryptocurrency include both hot and
+                cold wallets. Cryptocurrency wallets vary from hot wallets and
+                cold wallets. Hot wallets are able to be connected to the web,
+                while cold wallets are used for keeping large amounts of coins
+                outside of the internet. Some of the top crypto cold wallets are
+                Trezor, Ledger and CoolBitX. Some of the top crypto hot wallets
+                include Exodus, Electrum and Mycelium.
+            </p>
+
+            <h3>What Is the Lightning Network?</h3>
+            <p>
+                The Lightning Network is an off-chain, layered payment protocol
+                that operates bidirectional payment channels which allows
+                instantaneous transfer with instant reconciliation. It enables
+                private, high volume and trustless transactions between any two
+                parties. The Lightning Network scales transaction capacity
+                without incurring the costs associated with transactions and
+                interventions on the underlying blockchain.
+            </p>
+        </div>
+        <button (click)="expanded = !expanded">
+            <span *ngIf="!expanded; else expandedBtn"
+                >Read more <mat-icon>expand_more</mat-icon></span
+            >
+        </button>
+    </section>
+</ng-container>
+
+<ng-template #expandedBtn>
+    <span>Read less <mat-icon>expand_less</mat-icon></span>
+</ng-template>

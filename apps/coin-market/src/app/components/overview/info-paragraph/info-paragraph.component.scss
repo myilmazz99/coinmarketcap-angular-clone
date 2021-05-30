@@ -1,0 +1,52 @@
+.info-paragraph {
+    margin: 2rem 0;
+
+    &__inner {
+        max-height: 320px;
+        overflow-y: hidden;
+        position: relative;
+
+        &:not(.expanded)::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 14rem;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0),
+                var(--bg-color)
+            );
+        }
+    }
+
+    button {
+        cursor: pointer;
+        font-size: 1.5rem;
+        font-family: inherit;
+        border: none;
+        background-color: transparent;
+
+        span {
+            display: flex;
+            align-items: center;
+            color: var(--color-primary-blue);
+            font-weight: bold;
+
+            mat-icon {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+p {
+    font-size: 1.6rem;
+    padding: 2rem 0;
+}
+
+p,
+h3 {
+    color: var(--color-light-neutral-6);
+}
