@@ -7,9 +7,13 @@ footer {
     padding-bottom: 6rem;
 
     .footer-inner {
+        display: flex;
+        flex-direction: column;
+
         &__logo {
             background-image: var(--logo-src);
-            min-width: 200px;
+            width: 20rem;
+            min-height: 5rem;
             background-size: contain;
             background-repeat: no-repeat;
         }
@@ -42,7 +46,7 @@ footer {
         }
 
         @media (min-width: 576px) {
-            display: flex;
+            flex-direction: row;
             justify-content: space-between;
 
             &__navigation {
