@@ -1,0 +1,13 @@
+<section #bar class="coin-detail-bar">
+    <div class="container" *ngIf="coin$ | async as c">
+        <img class="coin-detail-bar__icon" [src]="c.icon" alt="..." />
+        <div class="coin-detail-bar__name">
+            {{ c.coin_name }} <span>{{ c.coin_id | uppercase }}</span>
+        </div>
+        <div class="coin-detail-bar__price">
+            <span class="coin-detail-bar__price__title">Price:</span>
+            {{ c.price | currency: 'USD':'symbol':'1.0-6' }}
+            <span class="coin-detail-bar__price__state"></span>
+        </div>
+    </div>
+</section>

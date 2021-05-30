@@ -15,6 +15,7 @@ import { CurrencyComponent } from './currency.component';
 import { CurrencyTabsComponent } from '../../components/currency-tabs/currency-tabs.component';
 import { LoadingBarComponent } from '../../components/loading-bar/loading-bar.component';
 import { DetailsSectionComponent } from '../../components/details-section/details-section.component';
+import { CoinDetailBarComponent } from '../../components/coin-detail-bar/coin-detail-bar.component';
 
 @NgModule({
     imports: [
@@ -35,6 +36,7 @@ import { DetailsSectionComponent } from '../../components/details-section/detail
         CurrencyTabsComponent,
         LoadingBarComponent,
         DetailsSectionComponent,
+        CoinDetailBarComponent,
     ],
     exports: [CurrencyComponent],
 })
