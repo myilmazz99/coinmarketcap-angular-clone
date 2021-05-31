@@ -1,9 +1,74 @@
+.navbar {
+    background-color: var(--theme-background);
+    border-bottom: 1px solid var(--nav-border);
+}
+
+.expand-nav-btn {
+    font-size: 2.4rem;
+    cursor: pointer;
+
+    &:first-child {
+        flex-grow: 1;
+    }
+}
+
+@media (min-width: 567px) {
+    .navbar-items {
+        display: block !important;
+    }
+
+    .expand-nav-btn {
+        display: none !important;
+    }
+
+    .expand-menu {
+        display: none;
+    }
+
+    coin-market-switch-theme-btn {
+        display: block !important;
+    }
+}
+
+.expand-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--theme-background);
+    z-index: 999999;
+    transform: translateX(100%);
+    transition: transform 0.6s;
+
+    .navbar-items {
+        display: block !important;
+    }
+
+    coin-market-switch-theme-btn {
+        display: block !important;
+    }
+
+    &.expanded {
+        transform: translateX(0);
+    }
+
+    .container {
+        flex-direction: column;
+    }
+}
+
 .container {
     display: flex;
     flex-direction: row;
     -webkit-box-align: center;
     align-items: center;
     padding: 2.4rem 1.5rem;
+
+    & > .expand-nav-btn {
+        flex-grow: 1;
+        justify-content: flex-end !important;
+    }
 }
 .coin-market-cap {
     min-width: 16.8rem;
@@ -18,6 +83,7 @@
 }
 
 .navbar-items {
+    display: none;
     color: var(--theme-color);
     line-height: 2rem;
     font-size: 1.4rem;
@@ -33,5 +99,6 @@
 
 coin-market-switch-theme-btn {
     flex-grow: 1;
+    display: none;
     text-align: right;
 }

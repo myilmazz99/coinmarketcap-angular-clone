@@ -1,6 +1,23 @@
-<div class="container">
-    <div class="coin-market-cap"></div>
-    <a class="navbar-items" routerLink="">Cryptocurrencies</a>
-    <a class="navbar-items" routerLink="/gainers-losers">Gainers & Losers</a>
-    <coin-market-switch-theme-btn></coin-market-switch-theme-btn>
-</div>
+<nav class="navbar">
+    <div class="container">
+        <div class="coin-market-cap"></div>
+        <a class="navbar-items" routerLink="">Cryptocurrencies</a>
+        <a class="navbar-items" routerLink="/gainers-losers"
+            >Gainers & Losers</a
+        >
+        <coin-market-switch-theme-btn></coin-market-switch-theme-btn>
+        <mat-icon class="expand-nav-btn" (click)="hamburgerToggle()"
+            >menu</mat-icon
+        >
+    </div>
+    <div #expandMenu class="expand-menu" (click)="hamburgerToggle()">
+        <div class="container">
+            <mat-icon class="expand-nav-btn">close</mat-icon>
+            <a class="navbar-items" routerLink="">Cryptocurrencies</a>
+            <a class="navbar-items" routerLink="/gainers-losers"
+                >Gainers & Losers</a
+            >
+            <coin-market-switch-theme-btn></coin-market-switch-theme-btn>
+        </div>
+    </div>
+</nav>
