@@ -18,12 +18,16 @@ import { subDays, subMonths, subYears, startOfYear } from 'date-fns';
 export class ChartRangeSelectorComponent {
     @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-    @Input() chart: Highcharts.Chart;
-    @Input() dateRange = new CalendarDateRange();
-    @Output() dateRangeChange = new EventEmitter<CalendarDateRange>(null);
-
     @Input() selected: ChartDateRange;
     @Output() selectedChange = new EventEmitter<ChartDateRange>(null);
+
+    private _chart: Highcharts.Chart;
+    @Input() set chart(val: Highcharts.Chart) {
+        if (val) {
+            this._chart = val;
+            this.setExtremes(this.selected.dateRange);
+        }
+    }
 
     ranges: ChartDateRange[] = [
         {
@@ -77,13 +81,16 @@ export class ChartRangeSelectorComponent {
     setSelected(val: ChartDateRange) {
         this.selected = val;
         this.selectedChange.emit(val);
+
+        this.setExtremes(val.dateRange);
+    }
+
+    setCalendarDateRange(val: CalendarDateRange) {
+        this.setSelected(new ChartDateRange({ value: 'CAL', dateRange: val }));
     }
 
     setExtremes(range: CalendarDateRange) {
-        this.dateRange = range;
-        this.dateRangeChange.emit(range);
-
-        this.chart.xAxis[0].setExtremes(
+        this._chart?.xAxis[0].setExtremes(
             range.start?.getTime(),
             range.end?.getTime()
         );

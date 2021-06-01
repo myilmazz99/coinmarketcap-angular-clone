@@ -12,12 +12,7 @@ import {
 import * as Highcharts from 'highcharts/highstock';
 import IndicatorsCore from 'highcharts/indicators/indicators';
 import HC_exporting from 'highcharts/modules/exporting';
-import {
-    CalendarDateRange,
-    ChartData,
-    ChartDataTab,
-    ChartDateRange,
-} from '@coin-market/data';
+import { ChartData, ChartDataTab, ChartDateRange } from '@coin-market/data';
 HC_exporting(Highcharts);
 IndicatorsCore(Highcharts);
 
@@ -36,11 +31,6 @@ export class LineChartComponent implements OnInit, AfterViewInit {
     @Input() selectedRange: ChartDateRange;
     @Output() selectedRangeChange = new EventEmitter<ChartDateRange>(null);
 
-    @Input() selectedCalendarRange: CalendarDateRange;
-    @Output() selectedCalendarRangeChange = new EventEmitter<CalendarDateRange>(
-        null
-    );
-
     highcharts: typeof Highcharts;
     chart: Highcharts.Chart;
     chartOptions: Highcharts.Options;
@@ -57,10 +47,6 @@ export class LineChartComponent implements OnInit, AfterViewInit {
 
     onRangeChange(val: ChartDateRange) {
         this.selectedRangeChange.emit(val);
-    }
-
-    onCalendarDateChange(val: CalendarDateRange) {
-        this.selectedCalendarRangeChange.emit(val);
     }
 
     generateTooltipTemplate(

@@ -43,13 +43,9 @@ export class OverviewService {
     private _selectedRange = new BehaviorSubject<ChartDateRange>(
         new ChartDateRange()
     );
-    private _selectedCalendarRange = new BehaviorSubject<CalendarDateRange>(
-        new CalendarDateRange()
-    );
 
     public selectedTab$: Observable<ChartDataTab>;
     public selectedRange$: Observable<ChartDateRange>;
-    public selectedCalendarRange$: Observable<CalendarDateRange>;
 
     //holds fake data, delete after http implementation
     price: OverviewPrice[] = [];
@@ -79,7 +75,6 @@ export class OverviewService {
 
         this.selectedTab$ = this._selectedTab.asObservable();
         this.selectedRange$ = this._selectedRange.asObservable();
-        this.selectedCalendarRange$ = this._selectedCalendarRange.asObservable();
     }
 
     set selectedTab(val: ChartDataTab) {
@@ -88,10 +83,6 @@ export class OverviewService {
 
     set selectedRange(val: ChartDateRange) {
         this._selectedRange.next(val);
-    }
-
-    set selectedCalendarRange(val: CalendarDateRange) {
-        this._selectedCalendarRange.next(val);
     }
 
     /*

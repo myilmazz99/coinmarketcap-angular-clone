@@ -1,7 +1,7 @@
 import { CalendarDateRange } from '../ui-calendar/date-range.model';
 
 export class ChartDateRange {
-    value: '1D' | '7D' | '1M' | '3M' | '1Y' | 'ALL' | 'YTD';
+    value: '1D' | '7D' | '1M' | '3M' | '1Y' | 'ALL' | 'YTD' | 'CAL';
     dateRange: CalendarDateRange;
 
     constructor(item?: any) {

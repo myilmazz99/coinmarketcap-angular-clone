@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OverviewService } from '../../../shared/services/overview.service';
-import {
-    ChartDataTab,
-    ChartData,
-    CalendarDateRange,
-    ChartDateRange,
-} from '@coin-market/data';
+import { ChartDataTab, ChartData, ChartDateRange } from '@coin-market/data';
 
 @Component({
     selector: 'coin-market-coin-chart',
@@ -17,7 +12,6 @@ export class CoinChartComponent implements OnInit {
     chartData$: Observable<ChartData>;
     selectedTab$: Observable<ChartDataTab>;
     selectedRange$: Observable<ChartDateRange>;
-    selectedCalendarRange$: Observable<CalendarDateRange>;
 
     constructor(private overviewService: OverviewService) {}
 
@@ -25,7 +19,6 @@ export class CoinChartComponent implements OnInit {
         this.chartData$ = this.overviewService.chartData$;
         this.selectedTab$ = this.overviewService.selectedTab$;
         this.selectedRange$ = this.overviewService.selectedRange$;
-        this.selectedCalendarRange$ = this.overviewService.selectedCalendarRange$;
     }
 
     selectTabChange(val: any) {
@@ -34,9 +27,5 @@ export class CoinChartComponent implements OnInit {
 
     selectedRangeChange(val: any) {
         this.overviewService.selectedRange = val;
-    }
-
-    selectedCalendarRangeChange(val: any) {
-        this.overviewService.selectedCalendarRange = val;
     }
 }
