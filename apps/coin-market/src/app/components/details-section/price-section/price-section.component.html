@@ -1,11 +1,11 @@
-<div class="price-section" *ngIf="coinPrice$ | async as coinPrice">
+<div class="price-section">
     <h1 class="price-heading">
-        {{ coinPrice.name }} Price
-        <small>({{ coinPrice.shortName }})</small>
+        {{ coin.coin_name }} Price
+        <small>({{ coin.coin_id | uppercase }})</small>
     </h1>
     <div class="price-title">
         <div class="price-value">
-            {{ coinPrice.price | currency: 'USD':'$':'0.2-2' }}
+            {{ coin.price | currency: 'USD':'$':'0.2-2' }}
         </div>
         <span
             style="
@@ -29,10 +29,10 @@
                 <path
                     d="M18.0566 16H5.94336C5.10459 16 4.68455 14.9782 5.27763 14.3806L11.3343 8.27783C11.7019 7.90739 12.2981 7.90739 12.6657 8.27783L18.7223 14.3806C19.3155 14.9782 18.8954 16 18.0566 16Z"
                 ></path></svg
-            >{{ coinPrice.priceStatus }}%
+            >3.27%
         </span>
     </div>
-    <div class="alternate-prices">
+    <!-- <div class="alternate-prices">
         <p>
             {{ coinPrice.priceSideValue }} {{ coinPrice.priceSideName }}
             <span
@@ -56,12 +56,12 @@
                 {{ coinPrice.pricePercentage }}%</span
             >
         </p>
-    </div>
+    </div> -->
     <div class="slider-section">
         <div class="nowrap-low">
             <span class="high-low-label">Low:</span>
             <span class="high-low-value">{{
-                coinPrice.priceLow | currency: 'USD':'$':'0.2-2'
+                coin.price_high_low.low | currency: 'USD':'$':'0.2-2'
             }}</span>
         </div>
         <div class="slider-pill">
@@ -84,7 +84,7 @@
         <div class="nowrap-high">
             <span class="high-low-label">High:</span>
             <span class="high-low-value">{{
-                coinPrice.priceHigh | currency: 'USD':'$':'0.2-2'
+                coin.price_high_low.high | currency: 'USD':'$':'0.2-2'
             }}</span>
         </div>
         <button
@@ -92,7 +92,7 @@
             [matMenuTriggerFor]="menuTime"
             class="name-pill-base"
         >
-            24h
+            {{ coin.price_high_low.interval }}
             <span style="width: 92%">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

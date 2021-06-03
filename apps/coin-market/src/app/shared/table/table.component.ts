@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 import { MatPaginator } from '@angular/material//paginator';
 import { MatSort } from '@angular/material/sort';
-import { Pair } from '../../models/pair';
 import { MatSelect } from '@angular/material/select';
 import { MatTable } from '@angular/material/table';
 
@@ -40,7 +39,7 @@ export class TableComponent implements AfterViewChecked {
     ];
     selectedValue = 'All';
 
-    pairs: Pair[] = [
+    pairs = [
         { viewValue: 'All' },
         { viewValue: 'USDT' },
         { viewValue: 'BUSD' },

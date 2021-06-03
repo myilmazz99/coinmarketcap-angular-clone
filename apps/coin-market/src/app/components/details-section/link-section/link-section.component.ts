@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Coin } from '../../../models/coin.model';
 
 @Component({
-  selector: 'coin-market-link-section',
-  templateUrl: './link-section.component.html',
-  styleUrls: ['./link-section.component.scss']
+    selector: 'coin-market-link-section',
+    templateUrl: './link-section.component.html',
+    styleUrls: ['./link-section.component.scss'],
 })
-export class LinkSectionComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class LinkSectionComponent {
+    @Input() coin: Coin;
 }

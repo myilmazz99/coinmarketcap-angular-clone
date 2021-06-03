@@ -1,36 +1,20 @@
-import { Coin } from '../../app/models/coin';
-import { CoinStatistics } from '../../app/models/coin-statistics.model';
-import { CoinPrices } from '../../app/models/coin-prices';
+import { Coin } from '../../app/models/coin.model';
 
-export const fakeCoin: Coin = new Coin({
-    name: 'Bitcoin',
-    shortName: 'BTC',
-    rank: 1,
-    watchlists: 834727,
-});
-
-export const fakeCoinStatistics: CoinStatistics = {
-    marketCapPrice: 1028360948721,
-    marketCapPercentage: 3.27,
-    fullyMarketCapPrice: 1156036894571,
-    fullyMarketCapPercentage: 3.28,
-    volumePrice: 1028360948,
-    volumePercentage: 8.27,
-    volumeMarketCapNumber: 0.04989,
-    circulatingSupplyNumber: 18666012,
-    circulatingSupplyPercentage: 89,
-    maxSupplyNumber: 21000000,
-    totalSupplyNumber: 18666012,
-};
-
-export const fakeCoinPrice: CoinPrices = {
-    name: 'Bitcoin',
-    shortName: 'BTC',
-    price: 59959.44,
-    pricePercentage: 1.24,
-    priceStatus: 2.16,
-    priceSideValue: 33.49,
-    priceSideName: 'ETH',
-    priceLow: 50870.59,
-    priceHigh: 55210.15,
+export const fakeCoin: Coin = {
+    coin_id: 'btc',
+    price: 56201.17,
+    coin_name: 'Bitcoin',
+    market_cap: { value: 1028360948721, change_percentage: 3.27 },
+    fully_diluted_market_cap: {
+        value: 1156036894571,
+        change_percentage: -3.54,
+    },
+    volume: { value: 1028360948, change_percentage: 0.88 },
+    circulating_supply: {
+        circulating_supply: 18666012,
+        max_supply: 21000000,
+        total_supply: 18666012,
+    },
+    price_high_low: { high: 58429.22, low: 55889.15, interval: '24h' },
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',
 };
