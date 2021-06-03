@@ -9,7 +9,7 @@ export const coinListData: CoinList[] = [
         price: 43495.85,
         trend_24h: 3.29,
         trend_7d: 22.72,
-        market_cap: 811361887199,
+        market_cap: 811361887199, 
         circulating_supply: 18713050,
     },
     {

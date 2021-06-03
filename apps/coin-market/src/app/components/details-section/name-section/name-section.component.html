@@ -2,8 +2,8 @@
   <div class="nameHeader">
     <img src="assets/img/Bitcoin.png" height="32" width="32" />
     <h2>
-      {{ coin.name }}
-      <small>{{ coin.shortName }}</small>
+      {{ coin.coin_name }}
+      <small>{{ coin.coin_id }}</small>
     </h2>
 
     <span class="header-span">
@@ -52,7 +52,7 @@
     </div>
   </div>
   <div class="namePill-box">
-    <div class="namePill__3p namePill-rank">Rank #{{ coin.rank }}</div>
+    <div class="namePill__3p namePill-rank">Rank #{{ coin.coin_rank }}</div>
     <div class="namePill__3p">Coin</div>
     <div class="namePill__3p">
       On {{ coin.watchlists | number: "0.0-0" }} watchlists
