@@ -1,4 +1,4 @@
-<div (click)="$event.stopPropagation()" class="calendar-menu">
+<div (click)="$event.stopPropagation()" #calendarMenu class="calendar-menu">
     <mat-calendar
         class="calendar-menu__calendar"
         (selectedChange)="select($event)"

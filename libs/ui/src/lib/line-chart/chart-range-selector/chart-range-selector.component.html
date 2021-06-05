@@ -19,6 +19,7 @@
 
 <mat-menu #calendarMenu>
     <ui-calendar
+        darkSelector="dark-theme"
         (dateRangeEvent)="setCalendarDateRange($event)"
         (closeMenuEvent)="trigger.closeMenu()"
         [selectedRange]="selected.dateRange"
