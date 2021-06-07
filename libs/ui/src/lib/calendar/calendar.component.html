@@ -1,4 +1,4 @@
-<div (click)="$event.stopPropagation()" class="calendar-menu">
+<div (click)="$event.stopPropagation()" #calendarMenu class="calendar-menu">
     <mat-calendar
         class="calendar-menu__calendar"
         (selectedChange)="select($event)"
@@ -22,7 +22,7 @@
             mat-flat-button
             color="primary"
             (click)="onConfirm()"
-            [disabled]="!selected.end"
+            [disabled]="!selected?.end"
         >
             Confirm
         </button>

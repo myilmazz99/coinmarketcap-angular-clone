@@ -1,8 +1,11 @@
 import {
+    AfterViewInit,
     Component,
+    ElementRef,
     EventEmitter,
     Input,
     OnChanges,
+    OnDestroy,
     Output,
     SimpleChanges,
     ViewChild,
@@ -17,16 +20,50 @@ import { CalendarDateRange } from '@coin-market/data';
     styleUrls: ['./calendar.component.scss'],
     encapsulation: ViewEncapsulation.None,
 })
-export class CalendarComponent implements OnChanges {
+export class CalendarComponent implements OnChanges, AfterViewInit, OnDestroy {
+    /**
+     * applies dark-mode if passed value is a class of body tag
+     */
+    @Input() darkSelector: string;
+
+    /**
+     * Array of days
+     */
+    @Input() predefinedDates: number[] = [7, 30, 90, 180, 365];
     @Input() selectedRange: CalendarDateRange = new CalendarDateRange();
     @Output() dateRangeEvent = new EventEmitter<CalendarDateRange>(null);
     @Output() closeMenuEvent = new EventEmitter(null);
     @ViewChild(MatCalendar) matCalendar: MatCalendar<Date>;
+    @ViewChild('calendarMenu') calendarMenu: ElementRef;
     selected: DateRange<Date> = new DateRange(null, null);
+    mutationObserver: MutationObserver;
 
-    predefinedDates: number[] = [7, 30, 90, 180, 365]; //dates in days
     maxDate = new Date();
     range = 0;
+
+    ngAfterViewInit(): void {
+        if (this.darkSelector) this.activateMutationObserverForDarkMode();
+    }
+
+    activateMutationObserverForDarkMode() {
+        const element = this.calendarMenu?.nativeElement;
+
+        if (element) {
+            this.mutationObserver = new MutationObserver((list) => {
+                const isDarkMode = (list[0].target as any).classList.contains(
+                    this.darkSelector
+                );
+
+                if (isDarkMode) {
+                    element.classList.add('dark-mode');
+                } else {
+                    element.classList.remove('dark-mode');
+                }
+            });
+
+            this.mutationObserver.observe(document.body, { attributes: true });
+        }
+    }
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.selectedRange.currentValue) {
@@ -76,5 +113,9 @@ export class CalendarComponent implements OnChanges {
         this.dateRangeEvent.emit(
             new CalendarDateRange(this.selected.start, this.selected.end)
         );
+    }
+
+    ngOnDestroy(): void {
+        this.mutationObserver?.disconnect();
     }
 }

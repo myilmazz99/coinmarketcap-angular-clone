@@ -1,17 +1,17 @@
 :host {
-    p {
-        color: var(--color-light-neutral-6);
+    .predefined-dates__title {
+        color: var(--text-color-sub);
         margin-bottom: 1rem;
     }
 
-    .predefined-dates-list {
+    .predefined-dates__list {
         &__item {
             padding: 0.6rem 1rem;
             cursor: pointer;
             white-space: nowrap;
 
             &:hover {
-                background-color: var(--color-light-neutral-2);
+                background-color: var(--color-light-1);
             }
         }
     }

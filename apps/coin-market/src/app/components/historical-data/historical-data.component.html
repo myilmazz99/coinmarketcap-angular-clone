@@ -12,6 +12,7 @@
 
     <mat-menu #dateRange>
         <ui-calendar
+            darkSelector="dark-theme"
             (dateRangeEvent)="filterByDate($event)"
             (closeMenuEvent)="menu.closeMenu()"
             [selectedRange]="dateRange$ | async"

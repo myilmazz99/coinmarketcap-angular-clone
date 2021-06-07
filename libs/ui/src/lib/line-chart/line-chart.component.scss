@@ -30,6 +30,10 @@
         fill: var(--theme-background);
     }
 
+    .axis-usd .highcharts-grid-line {
+        stroke: var(--color-light-neutral-2);
+    }
+
     .highcharts-navigator-outline {
         stroke-width: 0;
     }

@@ -12,12 +12,7 @@ import {
 import * as Highcharts from 'highcharts/highstock';
 import IndicatorsCore from 'highcharts/indicators/indicators';
 import HC_exporting from 'highcharts/modules/exporting';
-import {
-    CalendarDateRange,
-    ChartData,
-    ChartDataTab,
-    ChartDateRange,
-} from '@coin-market/data';
+import { ChartData, ChartDataTab, ChartDateRange } from '@coin-market/data';
 HC_exporting(Highcharts);
 IndicatorsCore(Highcharts);
 
@@ -36,11 +31,6 @@ export class LineChartComponent implements OnInit, AfterViewInit {
     @Input() selectedRange: ChartDateRange;
     @Output() selectedRangeChange = new EventEmitter<ChartDateRange>(null);
 
-    @Input() selectedCalendarRange: CalendarDateRange;
-    @Output() selectedCalendarRangeChange = new EventEmitter<CalendarDateRange>(
-        null
-    );
-
     highcharts: typeof Highcharts;
     chart: Highcharts.Chart;
     chartOptions: Highcharts.Options;
@@ -57,10 +47,6 @@ export class LineChartComponent implements OnInit, AfterViewInit {
 
     onRangeChange(val: ChartDateRange) {
         this.selectedRangeChange.emit(val);
-    }
-
-    onCalendarDateChange(val: CalendarDateRange) {
-        this.selectedCalendarRangeChange.emit(val);
     }
 
     generateTooltipTemplate(
@@ -94,7 +80,6 @@ export class LineChartComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.highcharts = Highcharts;
         const _this = this;
-
         const commonSeriesOptions = {
             states: {
                 hover: { lineWidth: 2 },
@@ -124,9 +109,15 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                     width: 5,
                 },
             },
+            colors: [
+                'rgb(22, 199, 132)',
+                'rgb(255, 187, 31)',
+                'var(--chart-column-color)',
+            ],
             yAxis: [
                 {
                     id: 'usd',
+                    className: 'axis-usd',
                     labels: {
                         align: 'left',
                         x: 0,
@@ -136,7 +127,6 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                             );
                         },
                     },
-                    gridLineColor: 'var(--color-light-neutral-2)',
                     opposite: false,
                     height: '80%',
                 },
@@ -153,21 +143,18 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                             return formattedValue + ' BTC';
                         },
                     },
-                    gridLineColor: '#eff2f5',
                     height: '80%',
                 },
                 {
                     id: 'volume',
                     height: '20%',
                     top: '80%',
-                    gridLineColor: '#eff2f5',
                     visible: false,
                 },
             ],
             series: [
                 {
                     name: 'USD',
-                    color: 'rgb(22, 199, 132)',
                     type: 'line',
                     visible: true,
                     data: [...this.data.price.usd],
@@ -185,7 +172,6 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                 {
                     name: 'BTC',
                     yAxis: 'coin',
-                    color: 'rgb(255, 187, 31)',
                     type: 'line',
                     data: [...this.data.price.coin],
                     visible: false,
@@ -204,7 +190,6 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                     name: 'Vol 24h',
                     type: 'column',
                     data: [...this.data.volume],
-                    color: 'var(--chart-column-color)',
                     yAxis: 'volume',
                     groupPadding: 0,
                     pointPadding: 0,
@@ -224,6 +209,13 @@ export class LineChartComponent implements OnInit, AfterViewInit {
             ],
             exporting: {
                 enabled: false,
+                chartOptions: {
+                    colors: [
+                        'rgb(22, 199, 132)',
+                        'rgb(255, 187, 31)',
+                        '#cfd6e4',
+                    ],
+                },
             },
             plotOptions: {
                 column: { states: { hover: { enabled: false } } },
