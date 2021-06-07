@@ -43,10 +43,20 @@
 
     .navbar-items {
         display: block !important;
+        font-size: 3rem;
+        padding-bottom: 4rem;
+        padding-top: 5rem;
     }
 
     coin-market-switch-theme-btn {
         display: block !important;
+        font-size: 3.5rem !important;
+    }
+
+    .expand-nav-btn {
+        justify-content: flex-end;
+        margin-left: auto;
+        float: right;
     }
 
     &.expanded {
