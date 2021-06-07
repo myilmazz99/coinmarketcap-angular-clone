@@ -17,7 +17,7 @@
 
     <div class="table-responsive">
         <table
-        #marketsTable
+            #marketsTable
             mat-table
             [dataSource]="dataSource"
             matSort
@@ -80,16 +80,7 @@
 
             <ng-container matColumnDef="liquidity">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                    <span class="icon-liquidity"
-                        >Liquidity
-                        <img
-                            class="icon-liquidity-info"
-                            nz-popover
-                            [nzPopoverContent]="liquidityInfo"
-                            nzPopoverPlacement="bottom"
-                            src="assets/img/myinfo.png"
-                        />
-                    </span>
+                    <span class="icon-liquidity">Liquidity </span>
                 </th>
                 <td mat-cell *matCellDef="let market">
                     {{ market.liquidity }}
@@ -114,17 +105,3 @@
         </mat-paginator
     ></ng-container>
 </div>
-
-<ng-template #liquidityInfo>
-    <div class="icon-info">
-        <div class="icon-info-header">
-            <p>Liquidity Score</p>
-            <a href="_blank">Read More</a>
-        </div>
-        <p>
-            Liquidity scores a market pair from 0 to 1000 based on the slippage
-            incurred by various order sizes. A higher score indicates a more
-            liquid market.
-        </p>
-    </div>
-</ng-template>

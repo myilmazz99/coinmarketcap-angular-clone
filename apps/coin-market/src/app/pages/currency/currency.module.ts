@@ -3,7 +3,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../../shared/material.module';
-import { AntModule } from '../../shared/ng-zorro-antd.module';
 import { CurrencyRoutingModule } from './currency-routing.module';
 import { BuyAddButtonSectionComponent } from '../../components/details-section/buy-add-button-section/buy-add-button-section.component';
 import { LinkSectionComponent } from '../../components/details-section/link-section/link-section.component';
@@ -24,7 +23,6 @@ import { CoinDetailBarComponent } from '../../components/coin-detail-bar/coin-de
         MaterialModule,
         FormsModule,
         HttpClientModule,
-        AntModule,
     ],
     declarations: [
         CurrencyComponent,

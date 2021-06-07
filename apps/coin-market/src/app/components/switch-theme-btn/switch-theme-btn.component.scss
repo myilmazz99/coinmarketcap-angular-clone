@@ -7,17 +7,16 @@
     color: var(--theme-color);
     cursor: pointer;
     display: inline-flex;
-    font-size: 12px;
     line-height: 12px;
+    font-size: inherit;
     margin: 0px;
     padding: 5px;
     vertical-align: baseline;
     white-space: nowrap;
-    height: 27px;
-    width: 22px;
 
     .dark-mode-moon {
         display: flex;
+        font-size: inherit !important;
         justify-content: center;
         align-items: center;
         font-weight: normal !important;

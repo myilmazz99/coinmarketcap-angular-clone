@@ -2,7 +2,7 @@
     "pipes": [
         {
             "name": "MinusPipe",
-            "id": "pipe-MinusPipe-95000f6d24879ffce8088c18e6fd96ad",
+            "id": "pipe-MinusPipe-6505b34bdb31243bf28abcb83d3a167c",
             "file": "apps/coin-market/src/app/shared/pipes/minus.pipe.ts",
             "type": "pipe",
             "description": "",
@@ -32,7 +32,7 @@
                 }
             ],
             "ngname": "minus",
-            "sourceCode": "import { Pipe, PipeTransform } from '@angular/core';\n\n@Pipe({\n    name: 'minus',\n})\nexport class MinusPipe implements PipeTransform {\n    transform(value: number): number {\n        if (value < 0) {\n            return Math.abs(value);\n        } else {\n            return value;\n        }\n    }\n}\n"
+            "sourceCode": "import { Pipe, PipeTransform } from '@angular/core';\r\n\r\n@Pipe({\r\n    name: 'minus',\r\n})\r\nexport class MinusPipe implements PipeTransform {\r\n    transform(value: number): number {\r\n        if (value < 0) {\r\n            return Math.abs(value);\r\n        } else {\r\n            return value;\r\n        }\r\n    }\r\n}\r\n"
         }
     ],
     "interfaces": [
@@ -1793,10 +1793,10 @@
         },
         {
             "name": "CoinListDatasource",
-            "id": "class-CoinListDatasource-361053b52f3f5981ae8a238187447207",
+            "id": "class-CoinListDatasource-4d3c7e0759285620a198d5ff24b4cd29",
             "file": "apps/coin-market/src/assets/data/datasource/coin-list-datasource.ts",
             "type": "class",
-            "sourceCode": "import { DataSource } from '@angular/cdk/collections';\nimport { CoinList } from 'apps/coin-market/src/app/models/coin-list.model';\nimport { CoinListService } from 'apps/coin-market/src/app/shared/services/coin-list.service';\nimport { Observable } from 'rxjs';\n\nexport class CoinListDatasource implements DataSource<CoinList> {\n    constructor(public coinListService: CoinListService) {}\n\n    connect(): Observable<CoinList[]> {\n        return this.coinListService.screenItems$;\n    }\n    disconnect() {}\n\n    loadCoins() {\n        this.coinListService.paginateCoins();\n        this.coinListService.sortCoins();\n    }\n}\n",
+            "sourceCode": "import { DataSource } from '@angular/cdk/collections';\r\nimport { CoinList } from 'apps/coin-market/src/app/models/coin-list.model';\r\nimport { CoinListService } from 'apps/coin-market/src/app/shared/services/coin-list.service';\r\nimport { Observable } from 'rxjs';\r\n\r\nexport class CoinListDatasource implements DataSource<CoinList> {\r\n    constructor(public coinListService: CoinListService) {}\r\n\r\n    connect(): Observable<CoinList[]> {\r\n        return this.coinListService.screenItems$;\r\n    }\r\n    disconnect() {}\r\n\r\n    loadCoins() {\r\n        this.coinListService.paginateCoins();\r\n        this.coinListService.sortCoins();\r\n    }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -3719,87 +3719,6 @@
             "templateData": "<coin-market-navbar></coin-market-navbar>\r\n<div class=\"root\">\r\n    <router-outlet></router-outlet>\r\n</div>\r\n<coin-market-scroll-top></coin-market-scroll-top>\r\n<coin-market-footer></coin-market-footer>\r\n"
         },
         {
-            "name": "ButtonComponent",
-            "id": "component-ButtonComponent-642c6c4e474cd5a0ac760dfda26b2fc9",
-            "file": "stories/button.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "storybook-button",
-            "styleUrls": [
-                "./button.css"
-            ],
-            "styles": [],
-            "template": "<button   type=\"button\"\n   (click)=\"onClick.emit($event)\"\n   [ngClass]=\"classes\"\n   [ngStyle]=\"{ 'background-color': backgroundColor }\"\n >\n   {{ label }}\n </button>",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "backgroundColor",
-                    "description": "<p>What background color to use</p>\n",
-                    "line": 26,
-                    "type": "string"
-                },
-                {
-                    "name": "label",
-                    "defaultValue": "'Button'",
-                    "description": "<p>Button contents</p>\n",
-                    "line": 40
-                },
-                {
-                    "name": "primary",
-                    "defaultValue": "false",
-                    "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 20
-                },
-                {
-                    "name": "size",
-                    "defaultValue": "'medium'",
-                    "description": "<p>How large should the button be?</p>\n",
-                    "line": 32,
-                    "type": "\"small\" | \"medium\" | \"large\""
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onClick",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "description": "<p>Optional click handler</p>\n",
-                    "line": 46,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  template: ` <button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".storybook-button {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 3em;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n}\n.storybook-button--primary {\n  color: white;\n  background-color: #1ea7fd;\n}\n.storybook-button--secondary {\n  color: #333;\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n}\n.storybook-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.storybook-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n.storybook-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
-                    "styleUrl": "./button.css"
-                }
-            ],
-            "stylesData": "",
-            "accessors": {
-                "classes": {
-                    "name": "classes",
-                    "getSignature": {
-                        "name": "classes",
-                        "type": "[]",
-                        "returnType": "string[]",
-                        "line": 48
-                    }
-                }
-            }
-        },
-        {
             "name": "BuyAddButtonSectionComponent",
             "id": "component-BuyAddButtonSectionComponent-a583f4108b9b9eac1cf435fd0ab3da8b",
             "file": "apps/coin-market/src/app/components/details-section/buy-add-button-section/buy-add-button-section.component.ts",
@@ -5691,68 +5610,6 @@
             "templateData": "<section id=\"gainers-losers\" class=\"home-gainers-losers-table container\">\r\n    <h1>Top Crypto Gainers And Losers Today</h1>\r\n    <p>\r\n        Which crypto coins and tokens with volume (24h) > US$50,000 have gained\r\n        or lost the most in the last 24 hours?\r\n    </p>\r\n    <div class=\"tables\">\r\n        <div class=\"table\">\r\n            <h2>Top Gainers</h2>\r\n            <ag-grid-angular\r\n                class=\"ag-theme-material\"\r\n                [rowData]=\"gainers$ | async\"\r\n                [columnDefs]=\"columnDefs\"\r\n                domLayout=\"autoHeight\"\r\n                [gridOptions]=\"gridOptions\"\r\n            >\r\n            </ag-grid-angular>\r\n        </div>\r\n        <div class=\"table\">\r\n            <h2>Top Losers</h2>\r\n            <ag-grid-angular\r\n                class=\"ag-theme-material\"\r\n                [rowData]=\"losers$ | async\"\r\n                [columnDefs]=\"columnDefs\"\r\n                domLayout=\"autoHeight\"\r\n                [gridOptions]=\"gridOptions\"\r\n            >\r\n            </ag-grid-angular>\r\n        </div>\r\n    </div>\r\n</section>\r\n"
         },
         {
-            "name": "HeaderComponent",
-            "id": "component-HeaderComponent-246e2a69dc126a3bd76c6328dd3b93e2",
-            "file": "stories/header.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "storybook-header",
-            "styleUrls": [
-                "./header.css"
-            ],
-            "styles": [],
-            "template": "<header>    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          primary\n          size=\"small\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </header>",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "user",
-                    "defaultValue": "null",
-                    "line": 53,
-                    "type": "unknown"
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onCreateAccount",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "line": 62,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogin",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "line": 56,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogout",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "line": 59,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-header',\n  template: `<header>\n    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          primary\n          size=\"small\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </header>`,\n  styleUrls: ['./header.css'],\n})\nexport default class HeaderComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".wrapper {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 15px 20px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\nsvg {\n  display: inline-block;\n  vertical-align: top;\n}\n\nh1 {\n  font-weight: 900;\n  font-size: 20px;\n  line-height: 1;\n  margin: 6px 0 6px 10px;\n  display: inline-block;\n  vertical-align: top;\n}\n\nbutton + button {\n  margin-left: 10px;\n}\n",
-                    "styleUrl": "./header.css"
-                }
-            ],
-            "stylesData": ""
-        },
-        {
             "name": "HistoricalDataComponent",
             "id": "component-HistoricalDataComponent-09f0dc71a677773e1cabfe2004301f4f",
             "file": "apps/coin-market/src/app/components/historical-data/historical-data.component.ts",
@@ -6767,7 +6624,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".navbar {\r\n    background-color: var(--theme-background);\r\n    border-bottom: 1px solid var(--nav-border);\r\n}\r\n\r\n.expand-nav-btn {\r\n    font-size: 2.4rem;\r\n    cursor: pointer;\r\n\r\n    &:first-child {\r\n        flex-grow: 1;\r\n    }\r\n}\r\n\r\n@media (min-width: 567px) {\r\n    .navbar-items {\r\n        display: block !important;\r\n    }\r\n\r\n    .expand-nav-btn {\r\n        display: none !important;\r\n    }\r\n\r\n    .expand-menu {\r\n        display: none;\r\n    }\r\n\r\n    coin-market-switch-theme-btn {\r\n        display: block !important;\r\n    }\r\n}\r\n\r\n.expand-menu {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100vw;\r\n    height: 100vh;\r\n    background-color: var(--theme-background);\r\n    z-index: 999999;\r\n    transform: translateX(100%);\r\n    transition: transform 0.6s;\r\n\r\n    .navbar-items {\r\n        display: block !important;\r\n        font-size: 3rem;\r\n        padding-bottom: 4rem;\r\n        padding-top: 5rem;\r\n    }\r\n\r\n    coin-market-switch-theme-btn {\r\n        display: block !important;\r\n    }\r\n    .expand-nav-btn {\r\n        justify-content: flex-end;\r\n        margin-left: auto;\r\n        float: right;\r\n    }\r\n\r\n    &.expanded {\r\n        transform: translateX(0);\r\n    }\r\n\r\n    .container {\r\n        flex-direction: column;\r\n    }\r\n}\r\n\r\n.container {\r\n    display: flex;\r\n    flex-direction: row;\r\n    -webkit-box-align: center;\r\n    align-items: center;\r\n    padding: 2.4rem 1.5rem;\r\n\r\n    & > .expand-nav-btn {\r\n        flex-grow: 1;\r\n        justify-content: flex-end !important;\r\n    }\r\n}\r\n.coin-market-cap {\r\n    min-width: 16.8rem;\r\n    height: 2.8rem;\r\n    position: relative;\r\n    color: var(--theme-color);\r\n    display: inline-block;\r\n    background-image: var(--logo-src);\r\n    background-position: center center;\r\n    background-repeat: no-repeat;\r\n    background-size: contain;\r\n}\r\n\r\n.navbar-items {\r\n    display: none;\r\n    color: var(--theme-color);\r\n    line-height: 2rem;\r\n    font-size: 1.4rem;\r\n    font-weight: 600;\r\n    margin: 0rem;\r\n    padding-left: 3rem;\r\n\r\n    &:hover {\r\n        color: var(--link-color);\r\n        cursor: pointer;\r\n    }\r\n}\r\n\r\ncoin-market-switch-theme-btn {\r\n    flex-grow: 1;\r\n    display: none;\r\n    text-align: right;\r\n}\r\n",
+                    "data": ".navbar {\r\n    background-color: var(--theme-background);\r\n    border-bottom: 1px solid var(--nav-border);\r\n}\r\n\r\n.expand-nav-btn {\r\n    font-size: 2.4rem;\r\n    cursor: pointer;\r\n\r\n    &:first-child {\r\n        flex-grow: 1;\r\n    }\r\n}\r\n\r\n@media (min-width: 567px) {\r\n    .navbar-items {\r\n        display: block !important;\r\n    }\r\n\r\n    .expand-nav-btn {\r\n        display: none !important;\r\n    }\r\n\r\n    .expand-menu {\r\n        display: none;\r\n    }\r\n\r\n    coin-market-switch-theme-btn {\r\n        display: block !important;\r\n    }\r\n}\r\n\r\n.expand-menu {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100vw;\r\n    height: 100vh;\r\n    background-color: var(--theme-background);\r\n    z-index: 999999;\r\n    transform: translateX(100%);\r\n    transition: transform 0.6s;\r\n\r\n    .navbar-items {\r\n        display: block !important;\r\n        font-size: 3rem;\r\n        padding-bottom: 4rem;\r\n        padding-top: 5rem;\r\n    }\r\n\r\n    coin-market-switch-theme-btn {\r\n        display: block !important;\r\n        font-size: 3.5rem !important;\r\n    }\r\n\r\n    .expand-nav-btn {\r\n        justify-content: flex-end;\r\n        margin-left: auto;\r\n        float: right;\r\n    }\r\n\r\n    &.expanded {\r\n        transform: translateX(0);\r\n    }\r\n\r\n    .container {\r\n        flex-direction: column;\r\n    }\r\n}\r\n\r\n.container {\r\n    display: flex;\r\n    flex-direction: row;\r\n    -webkit-box-align: center;\r\n    align-items: center;\r\n    padding: 2.4rem 1.5rem;\r\n\r\n    & > .expand-nav-btn {\r\n        flex-grow: 1;\r\n        justify-content: flex-end !important;\r\n    }\r\n}\r\n.coin-market-cap {\r\n    min-width: 16.8rem;\r\n    height: 2.8rem;\r\n    position: relative;\r\n    color: var(--theme-color);\r\n    display: inline-block;\r\n    background-image: var(--logo-src);\r\n    background-position: center center;\r\n    background-repeat: no-repeat;\r\n    background-size: contain;\r\n}\r\n\r\n.navbar-items {\r\n    display: none;\r\n    color: var(--theme-color);\r\n    line-height: 2rem;\r\n    font-size: 1.4rem;\r\n    font-weight: 600;\r\n    margin: 0rem;\r\n    padding-left: 3rem;\r\n\r\n    &:hover {\r\n        color: var(--link-color);\r\n        cursor: pointer;\r\n    }\r\n}\r\n\r\ncoin-market-switch-theme-btn {\r\n    flex-grow: 1;\r\n    display: none;\r\n    text-align: right;\r\n}\r\n",
                     "styleUrl": "./navbar.component.scss"
                 }
             ],
@@ -6873,68 +6730,6 @@
                 "AfterViewInit"
             ],
             "templateData": "<div class=\"coin-page container\">\r\n    <div class=\"coin-page__chart\">\r\n        <coin-market-coin-chart style=\"width: 100%\"></coin-market-coin-chart>\r\n        <coin-market-info-paragraph></coin-market-info-paragraph>\r\n        <coin-market-vote-coin></coin-market-vote-coin>\r\n    </div>\r\n    <div class=\"coin-page__sidebar\">\r\n        <coin-market-coin-converter></coin-market-coin-converter>\r\n        <coin-market-coin-statistics></coin-market-coin-statistics>\r\n        <coin-market-trending></coin-market-trending>\r\n    </div>\r\n    <div class=\"coin-page__markets-table\">\r\n        <coin-market-table\r\n            [dataSource]=\"dataSource\"\r\n            [showPairs]=\"false\"\r\n            [showPaginator]=\"false\"\r\n        ></coin-market-table>\r\n        <a routerLink=\"./markets\" class=\"large-gray-button\">See All Markets</a>\r\n    </div>\r\n</div>\r\n"
-        },
-        {
-            "name": "PageComponent",
-            "id": "component-PageComponent-8f196770333aa216860a88c0b6b221aa",
-            "file": "stories/page.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "storybook-page",
-            "styleUrls": [
-                "./page.css"
-            ],
-            "styles": [],
-            "template": "<article>    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"onLogout.emit($event)\"\n      (onLogin)=\"onLogin.emit($event)\"\n      (onCreateAccount)=\"onCreateAccount.emit($event)\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "user",
-                    "defaultValue": "null",
-                    "line": 64,
-                    "type": "unknown"
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onCreateAccount",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "line": 73,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogin",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "line": 67,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogout",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "line": 70,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-page',\n  template: `<article>\n    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"onLogout.emit($event)\"\n      (onLogin)=\"onLogin.emit($event)\"\n      (onCreateAccount)=\"onCreateAccount.emit($event)\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>`,\n  styleUrls: ['./page.css'],\n})\nexport default class PageComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n\n// export const Page = ({ user, onLogin, onLogout, onCreateAccount }) => (\n//   <article>\n//     <Header user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount} />\n\n// );\n// Page.propTypes = {\n//   user: PropTypes.shape({}),\n//   onLogin: PropTypes.func.isRequired,\n//   onLogout: PropTypes.func.isRequired,\n//   onCreateAccount: PropTypes.func.isRequired,\n// };\n\n// Page.defaultProps = {\n//   user: null,\n// };\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "section {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 48px 20px;\n  margin: 0 auto;\n  max-width: 600px;\n  color: #333;\n}\n\nh2 {\n  font-weight: 900;\n  font-size: 32px;\n  line-height: 1;\n  margin: 0 0 4px;\n  display: inline-block;\n  vertical-align: top;\n}\n\np {\n  margin: 1em 0;\n}\n\na {\n  text-decoration: none;\n  color: #1ea7fd;\n}\n\nul {\n  padding-left: 30px;\n  margin: 1em 0;\n}\n\nli {\n  margin-bottom: 8px;\n}\n\n.tip {\n  display: inline-block;\n  border-radius: 1em;\n  font-size: 11px;\n  line-height: 12px;\n  font-weight: 700;\n  background: #e7fdd8;\n  color: #66bf3c;\n  padding: 4px 12px;\n  margin-right: 10px;\n  vertical-align: top;\n}\n\n.tip-wrapper {\n  font-size: 13px;\n  line-height: 20px;\n  margin-top: 40px;\n  margin-bottom: 40px;\n}\n\n.tip-wrapper svg {\n  display: inline-block;\n  height: 12px;\n  width: 12px;\n  margin-right: 4px;\n  vertical-align: top;\n  margin-top: 3px;\n}\n\n.tip-wrapper svg path {\n  fill: #1ea7fd;\n}\n",
-                    "styleUrl": "./page.css"
-                }
-            ],
-            "stylesData": ""
         },
         {
             "name": "PredefinedDatesComponent",
@@ -7106,7 +6901,7 @@
         },
         {
             "name": "ScrollTopComponent",
-            "id": "component-ScrollTopComponent-b7f318ba2dc4fd8f67067fd7bb8d5310",
+            "id": "component-ScrollTopComponent-18c40173a8befa615a99d48a0239a6c2",
             "file": "apps/coin-market/src/app/components/scroll-top/scroll-top.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -7163,7 +6958,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { DOCUMENT } from '@angular/common';\nimport { Component, HostListener, Inject, OnInit } from '@angular/core';\n\n@Component({\n    selector: 'coin-market-scroll-top',\n    templateUrl: './scroll-top.component.html',\n    styleUrls: ['./scroll-top.component.scss'],\n})\nexport class ScrollTopComponent implements OnInit {\n    windowScrolled: boolean;\n    constructor(@Inject(DOCUMENT) private document: Document) {}\n    @HostListener('window:scroll', [])\n    onWindowScroll() {\n        if (\n            window.pageYOffset ||\n            document.documentElement.scrollTop ||\n            document.body.scrollTop > 500\n        ) {\n            this.windowScrolled = true;\n        } else if (\n            (this.windowScrolled && window.pageYOffset) ||\n            document.documentElement.scrollTop ||\n            document.body.scrollTop < 10\n        ) {\n            this.windowScrolled = false;\n        }\n    }\n    scrollToTop() {\n        (function smoothscroll() {\n            var currentScroll =\n                document.documentElement.scrollTop || document.body.scrollTop;\n            if (currentScroll > 100) {\n                window.requestAnimationFrame(smoothscroll);\n                window.scrollTo(0, currentScroll - currentScroll / 8);\n            }\n        })();\n    }\n\n    ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { DOCUMENT } from '@angular/common';\r\nimport { Component, HostListener, Inject, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n    selector: 'coin-market-scroll-top',\r\n    templateUrl: './scroll-top.component.html',\r\n    styleUrls: ['./scroll-top.component.scss'],\r\n})\r\nexport class ScrollTopComponent implements OnInit {\r\n    windowScrolled: boolean;\r\n    constructor(@Inject(DOCUMENT) private document: Document) {}\r\n    @HostListener('window:scroll', [])\r\n    onWindowScroll() {\r\n        if (\r\n            window.pageYOffset ||\r\n            document.documentElement.scrollTop ||\r\n            document.body.scrollTop > 500\r\n        ) {\r\n            this.windowScrolled = true;\r\n        } else if (\r\n            (this.windowScrolled && window.pageYOffset) ||\r\n            document.documentElement.scrollTop ||\r\n            document.body.scrollTop < 10\r\n        ) {\r\n            this.windowScrolled = false;\r\n        }\r\n    }\r\n    scrollToTop() {\r\n        (function smoothscroll() {\r\n            var currentScroll =\r\n                document.documentElement.scrollTop || document.body.scrollTop;\r\n            if (currentScroll > 100) {\r\n                window.requestAnimationFrame(smoothscroll);\r\n                window.scrollTo(0, currentScroll - currentScroll / 8);\r\n            }\r\n        })();\r\n    }\r\n\r\n    ngOnInit(): void {}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -7195,7 +6990,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"scroll-to-top\" [ngClass]=\"{ 'show-scrollTop': windowScrolled }\">\n    <button (click)=\"scrollToTop()\">\n        <mat-icon class=\"keyboard-up\">arrow_upward</mat-icon>\n    </button>\n</div>\n"
+            "templateData": "<div class=\"scroll-to-top\" [ngClass]=\"{ 'show-scrollTop': windowScrolled }\">\r\n    <button (click)=\"scrollToTop()\">\r\n        <mat-icon class=\"keyboard-up\">arrow_upward</mat-icon>\r\n    </button>\r\n</div>\r\n"
         },
         {
             "name": "StatsSectionComponent",
@@ -7344,7 +7139,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".dark-mode {\r\n    -webkit-box-align: center;\r\n    align-items: center;\r\n    background-color: transparent;\r\n    border-radius: 5px;\r\n    border: none;\r\n    color: var(--theme-color);\r\n    cursor: pointer;\r\n    display: inline-flex;\r\n    font-size: 12px;\r\n    line-height: 12px;\r\n    margin: 0px;\r\n    padding: 5px;\r\n    vertical-align: baseline;\r\n    white-space: nowrap;\r\n    height: 27px;\r\n    width: 22px;\r\n\r\n    .dark-mode-moon {\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n        font-weight: normal !important;\r\n        transform: rotate(-45deg);\r\n    }\r\n}\r\n",
+                    "data": ".dark-mode {\r\n    -webkit-box-align: center;\r\n    align-items: center;\r\n    background-color: transparent;\r\n    border-radius: 5px;\r\n    border: none;\r\n    color: var(--theme-color);\r\n    cursor: pointer;\r\n    display: inline-flex;\r\n    line-height: 12px;\r\n    font-size: inherit;\r\n    margin: 0px;\r\n    padding: 5px;\r\n    vertical-align: baseline;\r\n    white-space: nowrap;\r\n\r\n    .dark-mode-moon {\r\n        display: flex;\r\n        font-size: inherit !important;\r\n        justify-content: center;\r\n        align-items: center;\r\n        font-weight: normal !important;\r\n        transform: rotate(-45deg);\r\n    }\r\n}\r\n",
                     "styleUrl": "./switch-theme-btn.component.scss"
                 }
             ],
@@ -7376,7 +7171,7 @@
         },
         {
             "name": "TableComponent",
-            "id": "component-TableComponent-b497ceb2adcfc468eb85c0634e76d3bc",
+            "id": "component-TableComponent-d1596019913f81bf8e0bd609ee18f123",
             "file": "apps/coin-market/src/app/shared/table/table.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -7395,30 +7190,30 @@
             "inputsClass": [
                 {
                     "name": "dataLength",
-                    "line": 26,
+                    "line": 24,
                     "type": "number"
                 },
                 {
                     "name": "dataSource",
-                    "line": 25,
+                    "line": 23,
                     "type": "any"
                 },
                 {
                     "name": "showPaginator",
                     "defaultValue": "true",
-                    "line": 23
+                    "line": 21
                 },
                 {
                     "name": "showPairs",
                     "defaultValue": "true",
-                    "line": 24
+                    "line": 22
                 }
             ],
             "outputsClass": [
                 {
                     "name": "selectedEvent",
                     "defaultValue": "new EventEmitter<string>(null)",
-                    "line": 30,
+                    "line": 28,
                     "type": "EventEmitter"
                 }
             ],
@@ -7429,14 +7224,14 @@
                     "type": "[]",
                     "optional": false,
                     "description": "",
-                    "line": 32
+                    "line": 30
                 },
                 {
                     "name": "matTable",
                     "type": "any",
                     "optional": false,
                     "description": "",
-                    "line": 22,
+                    "line": 20,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -7449,7 +7244,7 @@
                     "type": "MatPaginator",
                     "optional": false,
                     "description": "",
-                    "line": 27,
+                    "line": 25,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -7463,14 +7258,14 @@
                     "type": "Pair[]",
                     "optional": false,
                     "description": "",
-                    "line": 43
+                    "line": 41
                 },
                 {
                     "name": "select",
                     "type": "MatSelect",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 27,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -7484,14 +7279,14 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 41
+                    "line": 39
                 },
                 {
                     "name": "sort",
                     "type": "MatSort",
                     "optional": false,
                     "description": "",
-                    "line": 28,
+                    "line": 26,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -7507,7 +7302,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 62
+                    "line": 60
                 },
                 {
                     "name": "onSelectChange",
@@ -7520,7 +7315,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 58,
+                    "line": 56,
                     "jsdoctags": [
                         {
                             "name": "val",
@@ -7537,7 +7332,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\r\n    AfterViewChecked,\r\n    AfterViewInit,\r\n    Component,\r\n    EventEmitter,\r\n    Input,\r\n    Output,\r\n    ViewChild,\r\n} from '@angular/core';\r\nimport { MatPaginator } from '@angular/material//paginator';\r\nimport { MatSort } from '@angular/material/sort';\r\nimport { Pair } from '../../models/pair';\r\nimport { MatSelect } from '@angular/material/select';\r\nimport { MatTable } from '@angular/material/table';\r\n\r\n@Component({\r\n    selector: 'coin-market-table',\r\n    templateUrl: './table.component.html',\r\n    styleUrls: ['./table.component.scss'],\r\n})\r\nexport class TableComponent implements AfterViewChecked {\r\n    @ViewChild('marketsTable') matTable: any;\r\n    @Input() showPaginator = true;\r\n    @Input() showPairs = true;\r\n    @Input() dataSource: any;\r\n    @Input() dataLength: number;\r\n    @ViewChild(MatPaginator) paginator: MatPaginator;\r\n    @ViewChild(MatSort) sort: MatSort;\r\n    @ViewChild(MatSelect) select: MatSelect;\r\n    @Output() selectedEvent = new EventEmitter<string>(null);\r\n\r\n    displayedColumns = [\r\n        'market_id',\r\n        'market_name',\r\n        'pairs',\r\n        'price',\r\n        'volume',\r\n        'volume_percentage',\r\n        'liquidity',\r\n    ];\r\n    selectedValue = 'All';\r\n\r\n    pairs: Pair[] = [\r\n        { viewValue: 'All' },\r\n        { viewValue: 'USDT' },\r\n        { viewValue: 'BUSD' },\r\n        { viewValue: 'USD' },\r\n        { viewValue: 'BTC' },\r\n        { viewValue: 'JPY' },\r\n        { viewValue: 'KRW' },\r\n        { viewValue: 'EUR' },\r\n        { viewValue: 'USDC' },\r\n        { viewValue: 'UST' },\r\n        { viewValue: 'GBP' },\r\n        { viewValue: 'TRY' },\r\n    ];\r\n\r\n    onSelectChange(val: string) {\r\n        this.selectedEvent.emit(val);\r\n    }\r\n\r\n    ngAfterViewChecked() {\r\n        this.matTable.updateStickyColumnStyles();\r\n    }\r\n}\r\n",
+            "sourceCode": "import {\r\n    AfterViewChecked,\r\n    Component,\r\n    EventEmitter,\r\n    Input,\r\n    Output,\r\n    ViewChild,\r\n} from '@angular/core';\r\nimport { MatPaginator } from '@angular/material//paginator';\r\nimport { MatSort } from '@angular/material/sort';\r\nimport { Pair } from '../../models/pair';\r\nimport { MatSelect } from '@angular/material/select';\r\n\r\n@Component({\r\n    selector: 'coin-market-table',\r\n    templateUrl: './table.component.html',\r\n    styleUrls: ['./table.component.scss'],\r\n})\r\nexport class TableComponent implements AfterViewChecked {\r\n    @ViewChild('marketsTable') matTable: any;\r\n    @Input() showPaginator = true;\r\n    @Input() showPairs = true;\r\n    @Input() dataSource: any;\r\n    @Input() dataLength: number;\r\n    @ViewChild(MatPaginator) paginator: MatPaginator;\r\n    @ViewChild(MatSort) sort: MatSort;\r\n    @ViewChild(MatSelect) select: MatSelect;\r\n    @Output() selectedEvent = new EventEmitter<string>(null);\r\n\r\n    displayedColumns = [\r\n        'market_id',\r\n        'market_name',\r\n        'pairs',\r\n        'price',\r\n        'volume',\r\n        'volume_percentage',\r\n        'liquidity',\r\n    ];\r\n    selectedValue = 'All';\r\n\r\n    pairs: Pair[] = [\r\n        { viewValue: 'All' },\r\n        { viewValue: 'USDT' },\r\n        { viewValue: 'BUSD' },\r\n        { viewValue: 'USD' },\r\n        { viewValue: 'BTC' },\r\n        { viewValue: 'JPY' },\r\n        { viewValue: 'KRW' },\r\n        { viewValue: 'EUR' },\r\n        { viewValue: 'USDC' },\r\n        { viewValue: 'UST' },\r\n        { viewValue: 'GBP' },\r\n        { viewValue: 'TRY' },\r\n    ];\r\n\r\n    onSelectChange(val: string) {\r\n        this.selectedEvent.emit(val);\r\n    }\r\n\r\n    ngAfterViewChecked() {\r\n        this.matTable?.updateStickyColumnStyles();\r\n    }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -7549,7 +7344,7 @@
             "implements": [
                 "AfterViewChecked"
             ],
-            "templateData": "<div class=\"container\">\r\n    <div class=\"elements-above-table\">\r\n        <h2>Bitcoin Markets</h2>\r\n        <div class=\"pair-select\" *ngIf=\"showPairs\">\r\n            <p class=\"pair-text\">Pair</p>\r\n            <mat-select\r\n                [(ngModel)]=\"selectedValue\"\r\n                (ngModelChange)=\"onSelectChange($event)\"\r\n                name=\"pair\"\r\n            >\r\n                <mat-option *ngFor=\"let pair of pairs\" [value]=\"pair.viewValue\">\r\n                    {{ pair.viewValue }}\r\n                </mat-option>\r\n            </mat-select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"table-responsive\">\r\n        <table\r\n        #marketsTable\r\n            mat-table\r\n            [dataSource]=\"dataSource\"\r\n            matSort\r\n            class=\"mat-elevation-z8\"\r\n        >\r\n            <ng-container matColumnDef=\"market_id\" sticky>\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>\r\n                <td\r\n                    mat-cell\r\n                    style=\"color: rgb(88, 102, 126)\"\r\n                    *matCellDef=\"let market\"\r\n                >\r\n                    {{ market.market_id }}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"market_name\" sticky>\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                    Source\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let market\">\r\n                    <div class=\"market-icon-name\">\r\n                        <img class=\"market-icon\" [src]=\"market.market_icon\" />\r\n                        <p class=\"market-name\">{{ market.market_name }}</p>\r\n                    </div>\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"pairs\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>Pairs</th>\r\n                <td mat-cell class=\"table-pairs\" *matCellDef=\"let market\">\r\n                    {{ market.pairs }}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"price\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>\r\n                <td mat-cell style=\"font-weight: bold\" *matCellDef=\"let market\">\r\n                    {{ market.price | currency: 'USD':'$':'1.2-2' }}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"volume\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                    Volume\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let market\">\r\n                    {{ market.volume | currency: 'USD':'$':'4.0-2' }}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"volume_percentage\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                    Volume %\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let market\">\r\n                    {{ market.volume_percentage }}%\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"liquidity\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                    <span class=\"icon-liquidity\"\r\n                        >Liquidity\r\n                        <img\r\n                            class=\"icon-liquidity-info\"\r\n                            nz-popover\r\n                            [nzPopoverContent]=\"liquidityInfo\"\r\n                            nzPopoverPlacement=\"bottom\"\r\n                            src=\"assets/img/myinfo.png\"\r\n                        />\r\n                    </span>\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let market\">\r\n                    {{ market.liquidity }}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <tr\r\n                mat-header-row\r\n                *matHeaderRowDef=\"displayedColumns; sticky: true\"\r\n            ></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns\"></tr>\r\n        </table>\r\n    </div>\r\n\r\n    <ng-container *ngIf=\"showPaginator\"\r\n        ><mat-paginator\r\n            #myPaginator\r\n            [length]=\"dataLength\"\r\n            [pageSize]=\"20\"\r\n            [pageSizeOptions]=\"[20, 40, 50, 100]\"\r\n        >\r\n        </mat-paginator\r\n    ></ng-container>\r\n</div>\r\n\r\n<ng-template #liquidityInfo>\r\n    <div class=\"icon-info\">\r\n        <div class=\"icon-info-header\">\r\n            <p>Liquidity Score</p>\r\n            <a href=\"_blank\">Read More</a>\r\n        </div>\r\n        <p>\r\n            Liquidity scores a market pair from 0 to 1000 based on the slippage\r\n            incurred by various order sizes. A higher score indicates a more\r\n            liquid market.\r\n        </p>\r\n    </div>\r\n</ng-template>\r\n"
+            "templateData": "<div class=\"container\">\r\n    <div class=\"elements-above-table\">\r\n        <h2>Bitcoin Markets</h2>\r\n        <div class=\"pair-select\" *ngIf=\"showPairs\">\r\n            <p class=\"pair-text\">Pair</p>\r\n            <mat-select\r\n                [(ngModel)]=\"selectedValue\"\r\n                (ngModelChange)=\"onSelectChange($event)\"\r\n                name=\"pair\"\r\n            >\r\n                <mat-option *ngFor=\"let pair of pairs\" [value]=\"pair.viewValue\">\r\n                    {{ pair.viewValue }}\r\n                </mat-option>\r\n            </mat-select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"table-responsive\">\r\n        <table\r\n            #marketsTable\r\n            mat-table\r\n            [dataSource]=\"dataSource\"\r\n            matSort\r\n            class=\"mat-elevation-z8\"\r\n        >\r\n            <ng-container matColumnDef=\"market_id\" sticky>\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>\r\n                <td\r\n                    mat-cell\r\n                    style=\"color: rgb(88, 102, 126)\"\r\n                    *matCellDef=\"let market\"\r\n                >\r\n                    {{ market.market_id }}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"market_name\" sticky>\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                    Source\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let market\">\r\n                    <div class=\"market-icon-name\">\r\n                        <img class=\"market-icon\" [src]=\"market.market_icon\" />\r\n                        <p class=\"market-name\">{{ market.market_name }}</p>\r\n                    </div>\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"pairs\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>Pairs</th>\r\n                <td mat-cell class=\"table-pairs\" *matCellDef=\"let market\">\r\n                    {{ market.pairs }}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"price\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>\r\n                <td mat-cell style=\"font-weight: bold\" *matCellDef=\"let market\">\r\n                    {{ market.price | currency: 'USD':'$':'1.2-2' }}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"volume\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                    Volume\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let market\">\r\n                    {{ market.volume | currency: 'USD':'$':'4.0-2' }}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"volume_percentage\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                    Volume %\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let market\">\r\n                    {{ market.volume_percentage }}%\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"liquidity\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                    <span class=\"icon-liquidity\">Liquidity </span>\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let market\">\r\n                    {{ market.liquidity }}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <tr\r\n                mat-header-row\r\n                *matHeaderRowDef=\"displayedColumns; sticky: true\"\r\n            ></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns\"></tr>\r\n        </table>\r\n    </div>\r\n\r\n    <ng-container *ngIf=\"showPaginator\"\r\n        ><mat-paginator\r\n            #myPaginator\r\n            [length]=\"dataLength\"\r\n            [pageSize]=\"20\"\r\n            [pageSizeOptions]=\"[20, 40, 50, 100]\"\r\n        >\r\n        </mat-paginator\r\n    ></ng-container>\r\n</div>\r\n"
         },
         {
             "name": "TrendingComponent",
@@ -7791,35 +7586,6 @@
     ],
     "modules": [
         {
-            "name": "AntModule",
-            "children": [
-                {
-                    "type": "providers",
-                    "elements": []
-                },
-                {
-                    "type": "declarations",
-                    "elements": []
-                },
-                {
-                    "type": "imports",
-                    "elements": []
-                },
-                {
-                    "type": "exports",
-                    "elements": []
-                },
-                {
-                    "type": "bootstrap",
-                    "elements": []
-                },
-                {
-                    "type": "classes",
-                    "elements": []
-                }
-            ]
-        },
-        {
             "name": "AppModule",
             "children": [
                 {
@@ -7949,9 +7715,6 @@
                 {
                     "type": "imports",
                     "elements": [
-                        {
-                            "name": "AntModule"
-                        },
                         {
                             "name": "CurrencyRoutingModule"
                         },
@@ -8251,9 +8014,6 @@
                     "type": "imports",
                     "elements": [
                         {
-                            "name": "AntModule"
-                        },
-                        {
                             "name": "MarketsRoutingModule"
                         },
                         {
@@ -8358,6 +8118,47 @@
                 {
                     "type": "exports",
                     "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "myModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": [
+                        {
+                            "name": "TableinterceptorInterceptor"
+                        }
+                    ]
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "TableModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "TableComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "bootstrap",
@@ -8579,12 +8380,28 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "actionsData",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/table.stories.ts",
+                "type": "object",
+                "defaultValue": "{\r\n    selectedEvent: action('selectedEvent'),\r\n}"
+            },
+            {
                 "name": "coinListData",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "apps/coin-market/src/assets/data/coinListData.ts",
                 "type": "CoinList[]",
                 "defaultValue": "[\r\n    {\r\n        coin_rank: 1,\r\n        coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',\r\n        coin_id: 'BTC',\r\n        name: 'Bitcoin',\r\n        price: 43495.85,\r\n        trend_24h: 3.29,\r\n        trend_7d: 22.72,\r\n        market_cap: 811361887199,\r\n        circulating_supply: 18713050,\r\n    },\r\n    {\r\n        coin_rank: 2,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',\r\n        coin_id: 'ETH',\r\n        name: 'Ethereum',\r\n        price: 3437.15,\r\n        trend_24h: -7.62,\r\n        trend_7d: 14.59,\r\n        market_cap: 384949668693,\r\n        circulating_supply: 115925121,\r\n    },\r\n    {\r\n        coin_rank: 3,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',\r\n        coin_id: 'BNB',\r\n        name: 'Binance Coin',\r\n        price: 521.61,\r\n        trend_24h: 3.87,\r\n        trend_7d: -21.33,\r\n        market_cap: 77614672368,\r\n        circulating_supply: 153432897,\r\n    },\r\n    {\r\n        coin_rank: 4,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/2010.png',\r\n        coin_id: 'ADA',\r\n        name: 'Cardano',\r\n        price: 2.09,\r\n        trend_24h: 5.06,\r\n        trend_7d: 18.44,\r\n        market_cap: 64251880752,\r\n        circulating_supply: 31948309441,\r\n    },\r\n    {\r\n        coin_rank: 5,\r\n        coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/74.png',\r\n        coin_id: 'DOGE',\r\n        name: 'Dogecoin',\r\n        price: 0.4826,\r\n        trend_24h: 1.15,\r\n        trend_7d: 3.83,\r\n        market_cap: 62334443585,\r\n        circulating_supply: 129652801779,\r\n    },\r\n    {\r\n        coin_rank: 6,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/825.png',\r\n        coin_id: 'USDT',\r\n        name: 'Tether',\r\n        price: 1.0,\r\n        trend_24h: -0.18,\r\n        trend_7d: -0.19,\r\n        market_cap: 58276515642,\r\n        circulating_supply: 58174298199,\r\n    },\r\n    {\r\n        coin_rank: 7,\r\n        coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/52.png',\r\n        coin_id: 'XRP',\r\n        name: 'XRP',\r\n        price: 1.61,\r\n        trend_24h: -7.98,\r\n        trend_7d: -9.59,\r\n        market_cap: 54752888984,\r\n        circulating_supply: 35108326973,\r\n    },\r\n    {\r\n        coin_rank: 8,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/6636.png',\r\n        coin_id: 'DOT',\r\n        name: 'Polkadot',\r\n        price: 39.78,\r\n        trend_24h: 4.99,\r\n        trend_7d: 5.95,\r\n        market_cap: 36099397958,\r\n        circulating_supply: 938838911,\r\n    },\r\n    {\r\n        coin_rank: 9,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/8916.png',\r\n        coin_id: 'ICP',\r\n        name: 'Internet Computer',\r\n        price: 178.63,\r\n        trend_24h: -7.67,\r\n        trend_7d: 51.14,\r\n        market_cap: 21323515710,\r\n        circulating_supply: 123949678,\r\n    },\r\n    {\r\n        coin_rank: 10,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1831.png',\r\n        coin_id: 'BHC',\r\n        name: 'Bitcoin Cash',\r\n        price: 1114.26,\r\n        trend_24h: -7.22,\r\n        trend_7d: 23.43,\r\n        market_cap: 20153902224,\r\n        circulating_supply: 5229380689,\r\n    },\r\n    {\r\n        coin_rank: 11,\r\n        coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/2.png',\r\n        coin_id: 'LTC',\r\n        name: 'Litecoin',\r\n        price: 305.05,\r\n        trend_24h: 13.88,\r\n        trend_7d: -17.36,\r\n        market_cap: 19719510173,\r\n        circulating_supply: 66752415,\r\n    },\r\n    {\r\n        coin_rank: 12,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/7083.png',\r\n        coin_id: 'UNI',\r\n        name: 'Uniswap',\r\n        price: 35.56,\r\n        trend_24h: -8.77,\r\n        trend_7d: 4.68,\r\n        market_cap: 19077916997,\r\n        circulating_supply: 559616278,\r\n    },\r\n    {\r\n        coin_rank: 13,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1975.png',\r\n        coin_id: 'LINK',\r\n        name: 'Chainlink',\r\n        price: 41.14,\r\n        trend_24h: 13.34,\r\n        trend_7d: 12.88,\r\n        market_cap: 16691887010,\r\n        circulating_supply: 426509554,\r\n    },\r\n    {\r\n        coin_rank: 14,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/512.png',\r\n        coin_id: 'XLM',\r\n        name: 'Stellar',\r\n        price: 0.6591,\r\n        trend_24h: 1.05,\r\n        trend_7d: 8.07,\r\n        market_cap: 15153643945,\r\n        circulating_supply: 23136887514,\r\n    },\r\n    {\r\n        coin_rank: 15,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png',\r\n        coin_id: 'USDC',\r\n        name: 'USD Coin',\r\n        price: 1.0,\r\n        trend_24h: 0.11,\r\n        trend_7d: -0.11,\r\n        market_cap: 14389382655,\r\n        circulating_supply: 14380157844,\r\n    },\r\n    {\r\n        coin_rank: 16,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png',\r\n        coin_id: 'SOL',\r\n        name: 'Solana',\r\n        price: 55.96,\r\n        trend_24h: -19.08,\r\n        trend_7d: -33.15,\r\n        market_cap: 14312058889,\r\n        circulating_supply: 272637428,\r\n    },\r\n    {\r\n        coin_rank: 17,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png',\r\n        coin_id: 'MATIC',\r\n        name: 'Polygon',\r\n        price: 2.47,\r\n        trend_24h: 50.14,\r\n        trend_7d: 163.3,\r\n        market_cap: 12683266216,\r\n        circulating_supply: 6145590937,\r\n    },\r\n    {\r\n        coin_rank: 18,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/3077.png',\r\n        coin_id: 'VET',\r\n        name: 'VeChain',\r\n        price: 0.1664,\r\n        trend_24h: 8.52,\r\n        trend_7d: -20.05,\r\n        market_cap: 10347177063,\r\n        circulating_supply: 64315576989,\r\n    },\r\n    {\r\n        coin_rank: 19,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1321.png',\r\n        coin_id: 'ETC',\r\n        name: 'Ethereum Classic',\r\n        price: 88.78,\r\n        trend_24h: 1.83,\r\n        trend_7d: 18.87,\r\n        market_cap: 10203517789,\r\n        circulating_supply: 116313299,\r\n    },\r\n    {\r\n        coin_rank: 20,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/2416.png',\r\n        coin_id: 'THETA',\r\n        name: 'THETA',\r\n        price: 9.77,\r\n        trend_24h: -0.79,\r\n        trend_7d: -9.3,\r\n        market_cap: 9658606819,\r\n        circulating_supply: 1000000000,\r\n    },\r\n    {\r\n        coin_rank: 1,\r\n        coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',\r\n        coin_id: 'BTC',\r\n        name: 'Bitcoin',\r\n        price: 43495.85,\r\n        trend_24h: 3.29,\r\n        trend_7d: 22.72,\r\n        market_cap: 811361887199,\r\n        circulating_supply: 18713050,\r\n    },\r\n    {\r\n        coin_rank: 2,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',\r\n        coin_id: 'ETH',\r\n        name: 'Ethereum',\r\n        price: 3437.15,\r\n        trend_24h: -7.62,\r\n        trend_7d: 14.59,\r\n        market_cap: 384949668693,\r\n        circulating_supply: 115925121,\r\n    },\r\n    {\r\n        coin_rank: 3,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',\r\n        coin_id: 'BNB',\r\n        name: 'Binance Coin',\r\n        price: 521.61,\r\n        trend_24h: 3.87,\r\n        trend_7d: -21.33,\r\n        market_cap: 77614672368,\r\n        circulating_supply: 153432897,\r\n    },\r\n    {\r\n        coin_rank: 4,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/2010.png',\r\n        coin_id: 'ADA',\r\n        name: 'Cardano',\r\n        price: 2.09,\r\n        trend_24h: 5.06,\r\n        trend_7d: 18.44,\r\n        market_cap: 64251880752,\r\n        circulating_supply: 31948309441,\r\n    },\r\n    {\r\n        coin_rank: 5,\r\n        coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/74.png',\r\n        coin_id: 'DOGE',\r\n        name: 'Dogecoin',\r\n        price: 0.4826,\r\n        trend_24h: 1.15,\r\n        trend_7d: 3.83,\r\n        market_cap: 62334443585,\r\n        circulating_supply: 129652801779,\r\n    },\r\n    {\r\n        coin_rank: 6,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/825.png',\r\n        coin_id: 'USDT',\r\n        name: 'Tether',\r\n        price: 1.0,\r\n        trend_24h: -0.18,\r\n        trend_7d: -0.19,\r\n        market_cap: 58276515642,\r\n        circulating_supply: 58174298199,\r\n    },\r\n    {\r\n        coin_rank: 7,\r\n        coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/52.png',\r\n        coin_id: 'XRP',\r\n        name: 'XRP',\r\n        price: 1.61,\r\n        trend_24h: -7.98,\r\n        trend_7d: -9.59,\r\n        market_cap: 54752888984,\r\n        circulating_supply: 35108326973,\r\n    },\r\n    {\r\n        coin_rank: 8,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/6636.png',\r\n        coin_id: 'DOT',\r\n        name: 'Polkadot',\r\n        price: 39.78,\r\n        trend_24h: 4.99,\r\n        trend_7d: 5.95,\r\n        market_cap: 36099397958,\r\n        circulating_supply: 938838911,\r\n    },\r\n    {\r\n        coin_rank: 9,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/8916.png',\r\n        coin_id: 'ICP',\r\n        name: 'Internet Computer',\r\n        price: 178.63,\r\n        trend_24h: -7.67,\r\n        trend_7d: 51.14,\r\n        market_cap: 21323515710,\r\n        circulating_supply: 123949678,\r\n    },\r\n    {\r\n        coin_rank: 10,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1831.png',\r\n        coin_id: 'BHC',\r\n        name: 'Bitcoin Cash',\r\n        price: 1114.26,\r\n        trend_24h: -7.22,\r\n        trend_7d: 23.43,\r\n        market_cap: 20153902224,\r\n        circulating_supply: 5229380689,\r\n    },\r\n    {\r\n        coin_rank: 11,\r\n        coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/2.png',\r\n        coin_id: 'LTC',\r\n        name: 'Litecoin',\r\n        price: 305.05,\r\n        trend_24h: 13.88,\r\n        trend_7d: -17.36,\r\n        market_cap: 19719510173,\r\n        circulating_supply: 66752415,\r\n    },\r\n    {\r\n        coin_rank: 12,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/7083.png',\r\n        coin_id: 'UNI',\r\n        name: 'Uniswap',\r\n        price: 35.56,\r\n        trend_24h: -8.77,\r\n        trend_7d: 4.68,\r\n        market_cap: 19077916997,\r\n        circulating_supply: 559616278,\r\n    },\r\n    {\r\n        coin_rank: 13,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1975.png',\r\n        coin_id: 'LINK',\r\n        name: 'Chainlink',\r\n        price: 41.14,\r\n        trend_24h: 13.34,\r\n        trend_7d: 12.88,\r\n        market_cap: 16691887010,\r\n        circulating_supply: 426509554,\r\n    },\r\n    {\r\n        coin_rank: 14,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/512.png',\r\n        coin_id: 'XLM',\r\n        name: 'Stellar',\r\n        price: 0.6591,\r\n        trend_24h: 1.05,\r\n        trend_7d: 8.07,\r\n        market_cap: 15153643945,\r\n        circulating_supply: 23136887514,\r\n    },\r\n    {\r\n        coin_rank: 15,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png',\r\n        coin_id: 'USDC',\r\n        name: 'USD Coin',\r\n        price: 1.0,\r\n        trend_24h: 0.11,\r\n        trend_7d: -0.11,\r\n        market_cap: 14389382655,\r\n        circulating_supply: 14380157844,\r\n    },\r\n    {\r\n        coin_rank: 16,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png',\r\n        coin_id: 'SOL',\r\n        name: 'Solana',\r\n        price: 55.96,\r\n        trend_24h: -19.08,\r\n        trend_7d: -33.15,\r\n        market_cap: 14312058889,\r\n        circulating_supply: 272637428,\r\n    },\r\n    {\r\n        coin_rank: 17,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png',\r\n        coin_id: 'MATIC',\r\n        name: 'Polygon',\r\n        price: 2.47,\r\n        trend_24h: 50.14,\r\n        trend_7d: 163.3,\r\n        market_cap: 12683266216,\r\n        circulating_supply: 6145590937,\r\n    },\r\n    {\r\n        coin_rank: 18,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/3077.png',\r\n        coin_id: 'VET',\r\n        name: 'VeChain',\r\n        price: 0.1664,\r\n        trend_24h: 8.52,\r\n        trend_7d: -20.05,\r\n        market_cap: 10347177063,\r\n        circulating_supply: 64315576989,\r\n    },\r\n    {\r\n        coin_rank: 19,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1321.png',\r\n        coin_id: 'ETC',\r\n        name: 'Ethereum Classic',\r\n        price: 88.78,\r\n        trend_24h: 1.83,\r\n        trend_7d: 18.87,\r\n        market_cap: 10203517789,\r\n        circulating_supply: 116313299,\r\n    },\r\n    {\r\n        coin_rank: 20,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/2416.png',\r\n        coin_id: 'THETA',\r\n        name: 'THETA',\r\n        price: 9.77,\r\n        trend_24h: -0.79,\r\n        trend_7d: -9.3,\r\n        market_cap: 9658606819,\r\n        circulating_supply: 1000000000,\r\n    },\r\n    {\r\n        coin_rank: 1,\r\n        coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',\r\n        coin_id: 'BTC',\r\n        name: 'Bitcoin',\r\n        price: 43495.85,\r\n        trend_24h: 3.29,\r\n        trend_7d: 22.72,\r\n        market_cap: 811361887199,\r\n        circulating_supply: 18713050,\r\n    },\r\n    {\r\n        coin_rank: 2,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',\r\n        coin_id: 'ETH',\r\n        name: 'Ethereum',\r\n        price: 3437.15,\r\n        trend_24h: -7.62,\r\n        trend_7d: 14.59,\r\n        market_cap: 384949668693,\r\n        circulating_supply: 115925121,\r\n    },\r\n    {\r\n        coin_rank: 3,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',\r\n        coin_id: 'BNB',\r\n        name: 'Binance Coin',\r\n        price: 521.61,\r\n        trend_24h: 3.87,\r\n        trend_7d: -21.33,\r\n        market_cap: 77614672368,\r\n        circulating_supply: 153432897,\r\n    },\r\n    {\r\n        coin_rank: 4,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/2010.png',\r\n        coin_id: 'ADA',\r\n        name: 'Cardano',\r\n        price: 2.09,\r\n        trend_24h: 5.06,\r\n        trend_7d: 18.44,\r\n        market_cap: 64251880752,\r\n        circulating_supply: 31948309441,\r\n    },\r\n    {\r\n        coin_rank: 5,\r\n        coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/74.png',\r\n        coin_id: 'DOGE',\r\n        name: 'Dogecoin',\r\n        price: 0.4826,\r\n        trend_24h: 1.15,\r\n        trend_7d: 3.83,\r\n        market_cap: 62334443585,\r\n        circulating_supply: 129652801779,\r\n    },\r\n    {\r\n        coin_rank: 6,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/825.png',\r\n        coin_id: 'USDT',\r\n        name: 'Tether',\r\n        price: 1.0,\r\n        trend_24h: -0.18,\r\n        trend_7d: -0.19,\r\n        market_cap: 58276515642,\r\n        circulating_supply: 58174298199,\r\n    },\r\n    {\r\n        coin_rank: 7,\r\n        coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/52.png',\r\n        coin_id: 'XRP',\r\n        name: 'XRP',\r\n        price: 1.61,\r\n        trend_24h: -7.98,\r\n        trend_7d: -9.59,\r\n        market_cap: 54752888984,\r\n        circulating_supply: 35108326973,\r\n    },\r\n    {\r\n        coin_rank: 8,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/6636.png',\r\n        coin_id: 'DOT',\r\n        name: 'Polkadot',\r\n        price: 39.78,\r\n        trend_24h: 4.99,\r\n        trend_7d: 5.95,\r\n        market_cap: 36099397958,\r\n        circulating_supply: 938838911,\r\n    },\r\n    {\r\n        coin_rank: 9,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/8916.png',\r\n        coin_id: 'ICP',\r\n        name: 'Internet Computer',\r\n        price: 178.63,\r\n        trend_24h: -7.67,\r\n        trend_7d: 51.14,\r\n        market_cap: 21323515710,\r\n        circulating_supply: 123949678,\r\n    },\r\n    {\r\n        coin_rank: 10,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1831.png',\r\n        coin_id: 'BHC',\r\n        name: 'Bitcoin Cash',\r\n        price: 1114.26,\r\n        trend_24h: -7.22,\r\n        trend_7d: 23.43,\r\n        market_cap: 20153902224,\r\n        circulating_supply: 5229380689,\r\n    },\r\n    {\r\n        coin_rank: 11,\r\n        coin_icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/2.png',\r\n        coin_id: 'LTC',\r\n        name: 'Litecoin',\r\n        price: 305.05,\r\n        trend_24h: 13.88,\r\n        trend_7d: -17.36,\r\n        market_cap: 19719510173,\r\n        circulating_supply: 66752415,\r\n    },\r\n    {\r\n        coin_rank: 12,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/7083.png',\r\n        coin_id: 'UNI',\r\n        name: 'Uniswap',\r\n        price: 35.56,\r\n        trend_24h: -8.77,\r\n        trend_7d: 4.68,\r\n        market_cap: 19077916997,\r\n        circulating_supply: 559616278,\r\n    },\r\n    {\r\n        coin_rank: 13,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1975.png',\r\n        coin_id: 'LINK',\r\n        name: 'Chainlink',\r\n        price: 41.14,\r\n        trend_24h: 13.34,\r\n        trend_7d: 12.88,\r\n        market_cap: 16691887010,\r\n        circulating_supply: 426509554,\r\n    },\r\n    {\r\n        coin_rank: 14,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/512.png',\r\n        coin_id: 'XLM',\r\n        name: 'Stellar',\r\n        price: 0.6591,\r\n        trend_24h: 1.05,\r\n        trend_7d: 8.07,\r\n        market_cap: 15153643945,\r\n        circulating_supply: 23136887514,\r\n    },\r\n    {\r\n        coin_rank: 15,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png',\r\n        coin_id: 'USDC',\r\n        name: 'USD Coin',\r\n        price: 1.0,\r\n        trend_24h: 0.11,\r\n        trend_7d: -0.11,\r\n        market_cap: 14389382655,\r\n        circulating_supply: 14380157844,\r\n    },\r\n    {\r\n        coin_rank: 16,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png',\r\n        coin_id: 'SOL',\r\n        name: 'Solana',\r\n        price: 55.96,\r\n        trend_24h: -19.08,\r\n        trend_7d: -33.15,\r\n        market_cap: 14312058889,\r\n        circulating_supply: 272637428,\r\n    },\r\n    {\r\n        coin_rank: 17,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png',\r\n        coin_id: 'MATIC',\r\n        name: 'Polygon',\r\n        price: 2.47,\r\n        trend_24h: 50.14,\r\n        trend_7d: 163.3,\r\n        market_cap: 12683266216,\r\n        circulating_supply: 6145590937,\r\n    },\r\n    {\r\n        coin_rank: 18,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/3077.png',\r\n        coin_id: 'VET',\r\n        name: 'VeChain',\r\n        price: 0.1664,\r\n        trend_24h: 8.52,\r\n        trend_7d: -20.05,\r\n        market_cap: 10347177063,\r\n        circulating_supply: 64315576989,\r\n    },\r\n    {\r\n        coin_rank: 19,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/1321.png',\r\n        coin_id: 'ETC',\r\n        name: 'Ethereum Classic',\r\n        price: 88.78,\r\n        trend_24h: 1.83,\r\n        trend_7d: 18.87,\r\n        market_cap: 10203517789,\r\n        circulating_supply: 116313299,\r\n    },\r\n    {\r\n        coin_rank: 20,\r\n        coin_icon:\r\n            'https://s2.coinmarketcap.com/static/img/coins/64x64/2416.png',\r\n        coin_id: 'THETA',\r\n        name: 'THETA',\r\n        price: 9.77,\r\n        trend_24h: -0.79,\r\n        trend_7d: -9.3,\r\n        market_cap: 9658606819,\r\n        circulating_supply: 1000000000,\r\n    },\r\n]"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/table.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "environment",
@@ -8606,17 +8423,17 @@
                 "name": "fakeCoin",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "apps/coin-market/src/assets/data/coinData.ts",
+                "file": "apps/coin-market/src/assets/data/coin-detail.data.ts",
                 "type": "Coin",
-                "defaultValue": "{\r\n    coin_id: 'btc',\r\n    price: 56201.17,\r\n    coin_name: 'Bitcoin',\r\n    market_cap: { value: 1028360948721, change_percentage: 3.27 },\r\n    fully_diluted_market_cap: {\r\n        value: 1156036894571,\r\n        change_percentage: -3.54,\r\n    },\r\n    volume: { value: 1028360948, change_percentage: 0.88 },\r\n    circulating_supply: {\r\n        circulating_supply: 18666012,\r\n        max_supply: 21000000,\r\n        total_supply: 18666012,\r\n    },\r\n    price_high_low: { high: 58429.22, low: 55889.15, interval: '24h' },\r\n    icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',\r\n}"
+                "defaultValue": "new Coin({\r\n    name: 'Bitcoin',\r\n    shortName: 'BTC',\r\n    rank: 1,\r\n    watchlists: 834727,\r\n})"
             },
             {
                 "name": "fakeCoin",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "apps/coin-market/src/assets/data/coin-detail.data.ts",
+                "file": "apps/coin-market/src/assets/data/coinData.ts",
                 "type": "Coin",
-                "defaultValue": "new Coin({\r\n    name: 'Bitcoin',\r\n    shortName: 'BTC',\r\n    rank: 1,\r\n    watchlists: 834727,\r\n})"
+                "defaultValue": "{\r\n    coin_id: 'btc',\r\n    price: 56201.17,\r\n    coin_name: 'Bitcoin',\r\n    market_cap: { value: 1028360948721, change_percentage: 3.27 },\r\n    fully_diluted_market_cap: {\r\n        value: 1156036894571,\r\n        change_percentage: -3.54,\r\n    },\r\n    volume: { value: 1028360948, change_percentage: 0.88 },\r\n    circulating_supply: {\r\n        circulating_supply: 18666012,\r\n        max_supply: 21000000,\r\n        total_supply: 18666012,\r\n    },\r\n    price_high_low: { high: 58429.22, low: 55889.15, interval: '24h' },\r\n    icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',\r\n}"
             },
             {
                 "name": "fakeCoinPrice",
@@ -8630,17 +8447,17 @@
                 "name": "fakeCoinStatistics",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "apps/coin-market/src/assets/data/coinData.ts",
-                "type": "OverviewPriceStatistics",
-                "defaultValue": "{\r\n    price: 57695.06,\r\n    price_change_24h: 653.45,\r\n    price_low_high_24h: { low: 57695.06, high: 58937.05 },\r\n    trading_volume_24h: 48568674778.31,\r\n    market_dominance: 54.95,\r\n    market_cap: 1093359164333.68,\r\n    market_rank: 1,\r\n    fully_diluted_market_cap: 1229276128246.84,\r\n    price_low_high_yesterday: { low: 55879.08, high: 58338.74 },\r\n    price_open_close_yesterday: { open: 56099.91, close: 58323.95 },\r\n    price_change_percentage_yesterday: 3.96,\r\n    price_low_high_7d: { low: 55604.02, high: 60110.27 },\r\n    price_low_high_30d: { low: 50856.02, high: 61683.27 },\r\n    price_low_high_90d: { low: 28953.02, high: 61683.27 },\r\n    price_low_high_52w: { low: 6555.02, high: 61683.27 },\r\n    price_low_high_all: {\r\n        high: { date_time: new Date().toISOString(), high_price: 61683.86 },\r\n        low: { date_time: new Date().toISOString(), low_price: 65.53 },\r\n    },\r\n}"
+                "file": "apps/coin-market/src/assets/data/coin-detail.data.ts",
+                "type": "CoinStatistics",
+                "defaultValue": "{\r\n    marketCapPrice: 1028360948721,\r\n    marketCapPercentage: 3.27,\r\n    fullyMarketCapPrice: 1156036894571,\r\n    fullyMarketCapPercentage: 3.28,\r\n    volumePrice: 1028360948,\r\n    volumePercentage: 8.27,\r\n    volumeMarketCapNumber: 0.04989,\r\n    circulatingSupplyNumber: 18666012,\r\n    circulatingSupplyPercentage: 89,\r\n    maxSupplyNumber: 21000000,\r\n    totalSupplyNumber: 18666012,\r\n}"
             },
             {
                 "name": "fakeCoinStatistics",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "apps/coin-market/src/assets/data/coin-detail.data.ts",
-                "type": "CoinStatistics",
-                "defaultValue": "{\r\n    marketCapPrice: 1028360948721,\r\n    marketCapPercentage: 3.27,\r\n    fullyMarketCapPrice: 1156036894571,\r\n    fullyMarketCapPercentage: 3.28,\r\n    volumePrice: 1028360948,\r\n    volumePercentage: 8.27,\r\n    volumeMarketCapNumber: 0.04989,\r\n    circulatingSupplyNumber: 18666012,\r\n    circulatingSupplyPercentage: 89,\r\n    maxSupplyNumber: 21000000,\r\n    totalSupplyNumber: 18666012,\r\n}"
+                "file": "apps/coin-market/src/assets/data/coinData.ts",
+                "type": "OverviewPriceStatistics",
+                "defaultValue": "{\r\n    price: 57695.06,\r\n    price_change_24h: 653.45,\r\n    price_low_high_24h: { low: 57695.06, high: 58937.05 },\r\n    trading_volume_24h: 48568674778.31,\r\n    market_dominance: 54.95,\r\n    market_cap: 1093359164333.68,\r\n    market_rank: 1,\r\n    fully_diluted_market_cap: 1229276128246.84,\r\n    price_low_high_yesterday: { low: 55879.08, high: 58338.74 },\r\n    price_open_close_yesterday: { open: 56099.91, close: 58323.95 },\r\n    price_change_percentage_yesterday: 3.96,\r\n    price_low_high_7d: { low: 55604.02, high: 60110.27 },\r\n    price_low_high_30d: { low: 50856.02, high: 61683.27 },\r\n    price_low_high_90d: { low: 28953.02, high: 61683.27 },\r\n    price_low_high_52w: { low: 6555.02, high: 61683.27 },\r\n    price_low_high_all: {\r\n        high: { date_time: new Date().toISOString(), high_price: 61683.86 },\r\n        low: { date_time: new Date().toISOString(), low_price: 65.53 },\r\n    },\r\n}"
             },
             {
                 "name": "fakeCoinVotes",
@@ -8667,46 +8484,6 @@
                 "defaultValue": "() => cy.get('h1')"
             },
             {
-                "name": "Large",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Header.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Page.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Header.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Page.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "modules",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -8718,71 +8495,49 @@
                 "name": "modules",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "apps/coin-market/src/app/shared/ng-zorro-antd.module.ts",
-                "type": "any[]",
-                "defaultValue": "[NzButtonModule, NzPopoverModule]"
-            },
-            {
-                "name": "modules",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/src/lib/line-chart/material.module.ts",
                 "type": "any[]",
                 "defaultValue": "[\r\n    MatIconModule,\r\n    MatMenuModule,\r\n    MatDatepickerModule,\r\n    MatCheckboxModule,\r\n    MatButtonModule,\r\n    MatNativeDateModule,\r\n]"
             },
             {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Small",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Header.stories.ts",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Page.stories.ts",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+                "file": "stories/table.stories.ts",
+                "type": "Story<TableComponent>",
+                "defaultValue": "(args) => ({\r\n    props: {\r\n        ...args,\r\n        selectedEvent: actionsData.selectedEvent,\r\n    },\r\n})"
             }
         ],
         "functions": [],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
+            "stories/table.stories.ts": [
+                {
+                    "name": "actionsData",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/table.stories.ts",
+                    "type": "object",
+                    "defaultValue": "{\r\n    selectedEvent: action('selectedEvent'),\r\n}"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/table.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/table.stories.ts",
+                    "type": "Story<TableComponent>",
+                    "defaultValue": "(args) => ({\r\n    props: {\r\n        ...args,\r\n        selectedEvent: actionsData.selectedEvent,\r\n    },\r\n})"
+                }
+            ],
             "apps/coin-market/src/assets/data/coinListData.ts": [
                 {
                     "name": "coinListData",
@@ -8811,6 +8566,32 @@
                     "file": "apps/coin-market/src/environments/environment.ts",
                     "type": "object",
                     "defaultValue": "{\r\n  production: false,\r\n}"
+                }
+            ],
+            "apps/coin-market/src/assets/data/coin-detail.data.ts": [
+                {
+                    "name": "fakeCoin",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "apps/coin-market/src/assets/data/coin-detail.data.ts",
+                    "type": "Coin",
+                    "defaultValue": "new Coin({\r\n    name: 'Bitcoin',\r\n    shortName: 'BTC',\r\n    rank: 1,\r\n    watchlists: 834727,\r\n})"
+                },
+                {
+                    "name": "fakeCoinPrice",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "apps/coin-market/src/assets/data/coin-detail.data.ts",
+                    "type": "CoinPrices",
+                    "defaultValue": "{\r\n    name: 'Bitcoin',\r\n    shortName: 'BTC',\r\n    price: 59959.44,\r\n    pricePercentage: 1.24,\r\n    priceStatus: 2.16,\r\n    priceSideValue: 33.49,\r\n    priceSideName: 'ETH',\r\n    priceLow: 50870.59,\r\n    priceHigh: 55210.15,\r\n}"
+                },
+                {
+                    "name": "fakeCoinStatistics",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "apps/coin-market/src/assets/data/coin-detail.data.ts",
+                    "type": "CoinStatistics",
+                    "defaultValue": "{\r\n    marketCapPrice: 1028360948721,\r\n    marketCapPercentage: 3.27,\r\n    fullyMarketCapPrice: 1156036894571,\r\n    fullyMarketCapPercentage: 3.28,\r\n    volumePrice: 1028360948,\r\n    volumePercentage: 8.27,\r\n    volumeMarketCapNumber: 0.04989,\r\n    circulatingSupplyNumber: 18666012,\r\n    circulatingSupplyPercentage: 89,\r\n    maxSupplyNumber: 21000000,\r\n    totalSupplyNumber: 18666012,\r\n}"
                 }
             ],
             "apps/coin-market/src/assets/data/coinData.ts": [
@@ -8847,32 +8628,6 @@
                     "defaultValue": "[\r\n    new Coin({\r\n        coin_name: 'Bitcoin',\r\n        price: 52556.41,\r\n        icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png',\r\n        coin_id: 'BTC',\r\n    }),\r\n    new Coin({\r\n        coin_name: 'SHD CASH',\r\n        price: 52556.41,\r\n        icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/8740.png',\r\n        coin_id: 'SHDC',\r\n    }),\r\n    new Coin({\r\n        coin_name: 'Alaya',\r\n        price: 52556.41,\r\n        icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7814.png',\r\n        coin_id: 'ATP',\r\n    }),\r\n    new Coin({\r\n        coin_name: 'Bitcashpay',\r\n        price: 52556.41,\r\n        icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7867.png',\r\n        coin_id: 'BCP',\r\n    }),\r\n    new Coin({\r\n        coin_name: 'RAMP',\r\n        price: 52556.41,\r\n        icon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7463.png',\r\n        coin_id: 'RAMP',\r\n    }),\r\n]"
                 }
             ],
-            "apps/coin-market/src/assets/data/coin-detail.data.ts": [
-                {
-                    "name": "fakeCoin",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "apps/coin-market/src/assets/data/coin-detail.data.ts",
-                    "type": "Coin",
-                    "defaultValue": "new Coin({\r\n    name: 'Bitcoin',\r\n    shortName: 'BTC',\r\n    rank: 1,\r\n    watchlists: 834727,\r\n})"
-                },
-                {
-                    "name": "fakeCoinPrice",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "apps/coin-market/src/assets/data/coin-detail.data.ts",
-                    "type": "CoinPrices",
-                    "defaultValue": "{\r\n    name: 'Bitcoin',\r\n    shortName: 'BTC',\r\n    price: 59959.44,\r\n    pricePercentage: 1.24,\r\n    priceStatus: 2.16,\r\n    priceSideValue: 33.49,\r\n    priceSideName: 'ETH',\r\n    priceLow: 50870.59,\r\n    priceHigh: 55210.15,\r\n}"
-                },
-                {
-                    "name": "fakeCoinStatistics",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "apps/coin-market/src/assets/data/coin-detail.data.ts",
-                    "type": "CoinStatistics",
-                    "defaultValue": "{\r\n    marketCapPrice: 1028360948721,\r\n    marketCapPercentage: 3.27,\r\n    fullyMarketCapPrice: 1156036894571,\r\n    fullyMarketCapPercentage: 3.28,\r\n    volumePrice: 1028360948,\r\n    volumePercentage: 8.27,\r\n    volumeMarketCapNumber: 0.04989,\r\n    circulatingSupplyNumber: 18666012,\r\n    circulatingSupplyPercentage: 89,\r\n    maxSupplyNumber: 21000000,\r\n    totalSupplyNumber: 18666012,\r\n}"
-                }
-            ],
             "apps/coin-market-e2e/src/support/app.po.ts": [
                 {
                     "name": "getGreeting",
@@ -8883,100 +8638,6 @@
                     "defaultValue": "() => cy.get('h1')"
                 }
             ],
-            "stories/Button.stories.ts": [
-                {
-                    "name": "Large",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Small",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "type": "Story<Button>",
-                    "defaultValue": "(args: Button) => ({\n  props: args,\n})"
-                }
-            ],
-            "stories/Header.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
-                    "type": "Story<Header>",
-                    "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-                }
-            ],
-            "stories/Page.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Page.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Page.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Page.stories.ts",
-                    "type": "Story<Page>",
-                    "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-                }
-            ],
             "apps/coin-market/src/app/shared/material.module.ts": [
                 {
                     "name": "modules",
@@ -8985,16 +8646,6 @@
                     "file": "apps/coin-market/src/app/shared/material.module.ts",
                     "type": "any[]",
                     "defaultValue": "[\r\n    MatSliderModule,\r\n    MatButtonModule,\r\n    MatGridListModule,\r\n    LayoutModule,\r\n    MatCardModule,\r\n    MatIconModule,\r\n    MatCheckboxModule,\r\n    MatProgressBarModule,\r\n    MatMenuModule,\r\n    MatTableModule,\r\n    MatSelectModule,\r\n    MatSortModule,\r\n    MatPaginatorModule,\r\n    MatTooltipModule,\r\n    MatTabsModule,\r\n]"
-                }
-            ],
-            "apps/coin-market/src/app/shared/ng-zorro-antd.module.ts": [
-                {
-                    "name": "modules",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "apps/coin-market/src/app/shared/ng-zorro-antd.module.ts",
-                    "type": "any[]",
-                    "defaultValue": "[NzButtonModule, NzPopoverModule]"
                 }
             ],
             "libs/ui/src/lib/line-chart/material.module.ts": [
@@ -9535,17 +9186,16 @@
                 "status": "low"
             },
             {
-                "filePath": "apps/coin-market/src/app/shared/material.module.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "modules",
+                "filePath": "apps/coin-market/src/app/shared/interceptors/tableinterceptor.interceptor.ts",
+                "type": "interceptor",
+                "linktype": "interceptor",
+                "name": "TableinterceptorInterceptor",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
-                "filePath": "apps/coin-market/src/app/shared/ng-zorro-antd.module.ts",
+                "filePath": "apps/coin-market/src/app/shared/material.module.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -9899,140 +9549,33 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/Button.stories.ts",
+                "filePath": "stories/table.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Large",
+                "name": "actionsData",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "stories/Button.stories.ts",
+                "filePath": "stories/table.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
+                "name": "Default",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Secondary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Small",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Button.stories.ts",
+                "filePath": "stories/table.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/button.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ButtonComponent",
-                "coveragePercent": 83,
-                "coverageCount": "5/6",
-                "status": "very-good"
-            },
-            {
-                "filePath": "stories/header.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "HeaderComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/page.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "PageComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
                 "status": "low"
             }
         ]

@@ -24,6 +24,10 @@ body {
     font-family: 'Inter', sans-serif;
     background: var(--theme-background);
     color: var(--theme-color);
+
+    @media (min-width: 567px) {
+        overflow: auto !important;
+    }
 }
 
 h1,
