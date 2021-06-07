@@ -1,20 +1,10 @@
 {
-  "extends": "../apps/coin-market/tsconfig.app.json",
-  "compilerOptions": {
-    "types": [
-      "node"
-    ]
-  },
-  "exclude": [
-    "../src/test.ts",
-    "../src/**/*.spec.ts",
-    "../projects/**/*.spec.ts"
-  ],
-  "include": [
-    "../src/**/*",
-    "../projects/**/*"
-  ],
-  "files": [
-    "./typings.d.ts"
-  ]
+    "extends": "../tsconfig.base.json",
+    "exclude": [
+        "../**/*.spec.js",
+        "../**/*.spec.ts",
+        "../**/*.spec.tsx",
+        "../**/*.spec.jsx"
+    ],
+    "include": ["../**/*"]
 }

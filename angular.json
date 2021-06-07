@@ -49,7 +49,8 @@
                         "aot": true,
                         "assets": [
                             "apps/coin-market/src/favicon.ico",
-                            "apps/coin-market/src/assets"
+                            "apps/coin-market/src/assets",
+                            "apps/coin-market/src/mockServiceWorker.js"
                         ],
                         "styles": [
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -124,6 +125,37 @@
                     "options": {
                         "jestConfig": "apps/coin-market/jest.config.js",
                         "passWithNoTests": true
+                    }
+                },
+                "storybook": {
+                    "builder": "@nrwl/storybook:storybook",
+                    "options": {
+                        "uiFramework": "@storybook/angular",
+                        "port": 4400,
+                        "config": {
+                            "configFolder": "apps/coin-market/.storybook"
+                        }
+                    },
+                    "configurations": {
+                        "ci": {
+                            "quiet": true
+                        }
+                    }
+                },
+                "build-storybook": {
+                    "builder": "@nrwl/storybook:build",
+                    "outputs": ["{options.outputPath}"],
+                    "options": {
+                        "uiFramework": "@storybook/angular",
+                        "outputPath": "dist/storybook/coin-market",
+                        "config": {
+                            "configFolder": "apps/coin-market/.storybook"
+                        }
+                    },
+                    "configurations": {
+                        "ci": {
+                            "quiet": true
+                        }
                     }
                 }
             }
