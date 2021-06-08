@@ -1,7 +1,8 @@
 FROM nginx:alpine
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 COPY dist/apps/coin-market /usr/share/nginx/html
-CMD ["/bin/sh", "nginx -g daemon off;"]
+COPY entrypoint.sh /entrypoint.sh
+CMD ["/bin/sh", "/entrypoint.sh"]
 
 ### STAGE 1: Build ###
 # FROM node:12.7-alpine AS build
