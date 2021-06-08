@@ -2,7 +2,6 @@ pipeline{
     agent any
     environment{
         VERSION='1.0.2'
-        REGISTRY_CREDENTIAL = 'bootcamp devops'
     }
     stages{
         stage('Npm build'){
@@ -25,7 +24,7 @@ pipeline{
         stage('Push Docker image') {
             steps{
                 script {
-                    docker.withRegistry('https://docker.pkg.github.com', REGISTRY_CREDENTIAL) {
+                    docker.withRegistry('https://docker.pkg.github.com', 'bootcamp devops') {
                         def image = docker.image("galaksiyait/bootcamp2021-helm-charts/frontend:${env.VERSION}")
                         image.push()
                     }
