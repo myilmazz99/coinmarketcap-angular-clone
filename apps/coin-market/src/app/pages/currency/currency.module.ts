@@ -12,7 +12,6 @@ import { PriceSectionComponent } from '../../components/details-section/price-se
 import { StatsSectionComponent } from '../../components/details-section/stats-section/stats-section.component';
 import { CurrencyComponent } from './currency.component';
 import { CurrencyTabsComponent } from '../../components/currency-tabs/currency-tabs.component';
-import { LoadingBarComponent } from '../../components/loading-bar/loading-bar.component';
 import { DetailsSectionComponent } from '../../components/details-section/details-section.component';
 import { CoinDetailBarComponent } from '../../components/coin-detail-bar/coin-detail-bar.component';
 
@@ -32,7 +31,6 @@ import { CoinDetailBarComponent } from '../../components/coin-detail-bar/coin-de
         BuyAddButtonSectionComponent,
         LinkSectionComponent,
         CurrencyTabsComponent,
-        LoadingBarComponent,
         DetailsSectionComponent,
         CoinDetailBarComponent,
     ],

@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 import { MaterialModule } from './shared/material.module';
 import { SwitchThemeBtnComponent } from './components/switch-theme-btn/switch-theme-btn.component';
+import { LoadingBarComponent } from './components/loading-bar/loading-bar.component';
 
 registerLocaleData(tr);
 @NgModule({
@@ -20,6 +21,7 @@ registerLocaleData(tr);
         NavbarComponent,
         FooterComponent,
         ScrollTopComponent,
+        LoadingBarComponent,
         SwitchThemeBtnComponent,
     ],
     imports: [
