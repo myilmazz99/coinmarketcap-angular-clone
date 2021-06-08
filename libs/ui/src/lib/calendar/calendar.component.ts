@@ -69,6 +69,7 @@ export class CalendarComponent implements OnChanges, AfterViewInit, OnDestroy {
         if (changes.selectedRange.currentValue) {
             const { start, end } = changes.selectedRange.currentValue;
             this.selected = new DateRange(start, end);
+            this.setRange();
         }
     }
 
@@ -90,14 +91,19 @@ export class CalendarComponent implements OnChanges, AfterViewInit, OnDestroy {
             this.selected = new DateRange(event, null);
         } else if (!end && event > start) {
             this.selected = new DateRange(this.selected.start, event);
-            this.range = Math.floor(
-                (this.selected.end.getTime() - this.selected.start.getTime()) /
-                    86400000
-            ); //sets range between dates in days
+            this.setRange();
         } else {
             this.range = 0;
             this.selected = new DateRange(event, null);
         }
+    }
+
+    setRange(): void {
+        const { start, end } = this.selected;
+        if (start && end)
+            this.range = Math.floor(
+                (end.getTime() - start.getTime()) / 86400000
+            );
     }
 
     closeMenu() {
