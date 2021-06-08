@@ -1,6 +1,6 @@
 FROM nginx:alpine
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build-stage dist /usr/share/nginx/html
+COPY --from=build-stage dist/apps/coin-market /usr/share/nginx/html
 CMD ["/bin/sh", "nginx -g daemon off;"]
 
 ### STAGE 1: Build ###
