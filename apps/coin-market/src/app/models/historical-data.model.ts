@@ -20,3 +20,15 @@ export class HistoricalData {
         this.date_time = item.opening.date_time;
     }
 }
+
+export class HistoricalDataRequest {
+    date_range: string;
+    start_date: string;
+    end_date: string;
+
+    constructor(item?: any) {
+        this.date_range = item.date_range || null;
+        this.start_date = item.start_date || null;
+        this.end_date = item.end_date || null;
+    }
+}

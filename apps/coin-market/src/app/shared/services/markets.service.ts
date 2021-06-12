@@ -26,14 +26,14 @@ export class MarketsService {
     sortEvent: BehaviorSubject<string> = new BehaviorSubject('');
 
     constructor(private http: HttpClient) {
-        this.getMarketItems();
+        this.getMarketItems(); //delete after backend implementation
         this.marketItems$ = this.marketItems.asObservable();
         this.filteredItems$ = this.filteredItems.asObservable();
         this.screenItems$ = this.screenItems.asObservable();
         this.dataLength$ = this.dataLength.asObservable();
     }
 
-    getMarketItems() {
+    getMarketItems(coin_id?: string) {
         return this.http
             .get<MarketList[]>('assets/data/marketsData.json')
             .subscribe((x) => {
@@ -48,8 +48,8 @@ export class MarketsService {
     }
 
     findMarkets(): void {
-        let pageNumber = this.pageNumber.getValue();
-        let pageSize = this.pageSize.getValue();
+        const pageNumber = this.pageNumber.getValue();
+        const pageSize = this.pageSize.getValue();
 
         let res = [...this.filteredItems.getValue()];
 
@@ -60,9 +60,9 @@ export class MarketsService {
     }
 
     sortData() {
-        let arr = this.filteredItems.getValue();
-        let sortEvent = this.sortEvent.getValue();
-        let sortOrder = this.sortOrder.getValue();
+        const arr = this.filteredItems.getValue();
+        const sortEvent = this.sortEvent.getValue();
+        const sortOrder = this.sortOrder.getValue();
 
         if (sortEvent === 'market_name') {
             // Spesific(case insensitive) sorting algorithm for source column
@@ -112,9 +112,9 @@ export class MarketsService {
 
     filterPair() {
         let arrAll = [];
-        let arrFiltered = [];
+        const arrFiltered = [];
 
-        let selection = this.selection.getValue();
+        const selection = this.selection.getValue();
         arrAll = this.marketItems.getValue();
 
         if (selection === 'All') {
