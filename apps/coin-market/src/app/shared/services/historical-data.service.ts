@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
 import { CalendarDateRange } from '@coin-market/data';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { HistoricalData } from '../../models/historical-data.model';
+import {
+    HistoricalData,
+    HistoricalDataRequest,
+} from '../../models/historical-data.model';
+import { subMonths } from 'date-fns';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root',
@@ -17,11 +22,17 @@ export class HistoricalDataService {
     );
     public dateRange$: Observable<CalendarDateRange>;
 
-    constructor() {
-        this.getHistoricalData();
+    private _coinId = new BehaviorSubject<string>(null);
+
+    constructor(private http: HttpClient) {
+        this.getHistoricalData(); //delete after backend implementation
         this.historicalData$ = this.historicalData.asObservable();
 
         this.dateRange$ = this.dateRange.asObservable();
+    }
+
+    set coinId(val: string) {
+        this._coinId.next(val);
     }
 
     //this will request another month of data, starting from oldest data shown on table
@@ -32,31 +43,51 @@ export class HistoricalDataService {
         this.historicalData.next([...existingData, ...dataToAdd]);
     }
 
-    //this will request last 2 months of data or the date range if provided
-    getHistoricalData(date?: CalendarDateRange) {
-        if (date) {
-            //send request for dates provided
-            const data = this.generateDataByDate(date); //will be replaced with http request
+    //this will request last 2 months of data
+    getHistoricalData() {
+        //send request for last 2 months
+        const data = this.generateInitialData();
 
-            this.historicalData.next(data);
-            this.dateRange.next(date);
-        } else {
-            //send request for last 2 months
-            const data = this.generateInitialData();
+        this.historicalData.next(data);
 
-            this.historicalData.next(data);
-            this.dateRange.next(
-                new CalendarDateRange(
-                    new Date(new Date().setHours(-24 * 10)),
-                    new Date()
-                )
-            );
-        }
+        this.dateRange.next(
+            new CalendarDateRange(
+                new Date(new Date().setHours(-24 * 10)),
+                new Date()
+            )
+        );
+
+        //backend implementation
+        // const reqParams = new HistoricalDataRequest({
+        //     start_date: subMonths(new Date(), 2).toISOString(),
+        //     end_date: new Date().toISOString(),
+        // });
+
+        // const coin_id = this._coinId.getValue();
+
+        // this.http
+        //     .post<HistoricalData[]>(`https://.../${coin_id}`, reqParams)
+        //     .subscribe(
+        //         (x) => {
+        //             this.historicalData.next(x);
+        //             this.dateRange.next(
+        //                 new CalendarDateRange(
+        //                     //todo fix start_date
+        //                     new Date(reqParams.start_date),
+        //                     new Date(reqParams.end_date)
+        //                 )
+        //             );
+        //         },
+        //         (err) => console.log(err)
+        //     );
     }
 
     //updates date with values passed
     filterByDate(dates: CalendarDateRange) {
-        this.getHistoricalData(dates);
+        const data = this.generateDataByDate(dates); //will be replaced with http request
+
+        this.historicalData.next(data);
+        this.dateRange.next(dates);
     }
 
     //generates fake data with dates provided

@@ -53,7 +53,6 @@ export class CalendarComponent implements OnChanges, AfterViewInit, OnDestroy {
                 const isDarkMode = (list[0].target as any).classList.contains(
                     this.darkSelector
                 );
-
                 if (isDarkMode) {
                     element.classList.add('dark-mode');
                 } else {
@@ -61,7 +60,9 @@ export class CalendarComponent implements OnChanges, AfterViewInit, OnDestroy {
                 }
             });
 
-            this.mutationObserver.observe(document.body, { attributes: true });
+            this.mutationObserver.observe(document.body, {
+                attributes: true,
+            });
         }
     }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { ActivatedRoute } from '@angular/router';
 import { CalendarDateRange } from '@coin-market/data';
 import { Observable } from 'rxjs';
 import { HistoricalData } from '../../models/historical-data.model';
@@ -24,11 +25,19 @@ export class HistoricalDataComponent implements OnInit {
         'marketCap',
     ];
 
-    constructor(private historicalDataService: HistoricalDataService) {}
+    constructor(
+        private historicalDataService: HistoricalDataService,
+        private route: ActivatedRoute
+    ) {}
 
     ngOnInit(): void {
         this.historicalData$ = this.historicalDataService.historicalData$;
         this.dateRange$ = this.historicalDataService.dateRange$;
+        this.route.paramMap.subscribe((x) => {
+            const coin_id = x.get('coin_id');
+            this.historicalDataService.coinId = coin_id;
+            this.historicalDataService.getHistoricalData();
+        });
     }
 
     loadMore() {

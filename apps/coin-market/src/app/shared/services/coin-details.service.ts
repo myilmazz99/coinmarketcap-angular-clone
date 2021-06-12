@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Coin } from '../../models/coin.model';
 import { fakeCoin } from '../../../assets/data/coin-detail.data';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root',
@@ -10,32 +11,26 @@ export class CoinDetailsService {
     private coinItems = new BehaviorSubject<Coin>(null);
     public coinItems$: Observable<Coin>;
 
-    // private coinStatistics = new BehaviorSubject<CoinStatistics>(null);
-    // public coinStatistics$: Observable<CoinStatistics>;
-
-    // private coinPrice = new BehaviorSubject<CoinPrices>(null);
-    // public coinPrice$: Observable<CoinPrices>;
-
-    constructor() {
+    constructor(private http: HttpClient) {
         this.coinItems$ = this.coinItems.asObservable();
-        this.getCoin();
-
-        // this.coinStatistics$ = this.coinStatistics.asObservable();
-        // this.getCoinStatistics();
-
-        // this.coinPrice$ = this.coinPrice.asObservable();
-        // this.getCoinPrice();
+        this.getCoin(); //?delete after backend implementation
     }
 
-    getCoin() {
+    getCoin(coin_id?: string) {
+        // this.http
+        //     .post<Coin>(`.../currencies/${coin_id}/summary`, {
+        //         date_range: '24h',
+        //     })
+        //     .subscribe(
+        //         (data) => {
+        //             this.coinItems.next(data);
+        //         },
+        //         (err) => {
+        //             console.log(err);
+        //         }
+        //     );
+
+        //? delete after http implementation
         this.coinItems.next(fakeCoin);
     }
-
-    // getCoinStatistics() {
-    //   this.coinStatistics.next(fakeCoinStatistics);
-    // }
-
-    // getCoinPrice() {
-    //   this.coinPrice.next(fakeCoinPrice);
-    // }
 }

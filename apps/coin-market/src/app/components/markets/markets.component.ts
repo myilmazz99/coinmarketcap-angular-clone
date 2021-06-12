@@ -5,6 +5,7 @@ import { MarketList } from '../../models/market';
 import { MarketsService } from '../../shared/services/markets.service';
 import { TableComponent } from '../../shared/table/table.component';
 import { MarketsDataSource } from '../../../assets/data/market-datasource';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'coin-market-markets',
@@ -17,13 +18,21 @@ export class MarketsComponent implements OnInit, AfterViewInit {
     dataLength$: Observable<number>;
     dataSource: MarketsDataSource;
 
-    constructor(private marketsService: MarketsService) {
+    constructor(
+        private marketsService: MarketsService,
+        private route: ActivatedRoute
+    ) {
         this.dataLength$ = marketsService.dataLength$;
     }
 
     ngOnInit() {
         this.dataSource = new MarketsDataSource(this.marketsService);
         this.dataSource.loadMarkets();
+
+        this.route.paramMap.subscribe((x) => {
+            const coin_id = x.get('coin_id');
+            this.marketsService.getMarketItems(coin_id);
+        });
     }
 
     ngAfterViewInit() {
