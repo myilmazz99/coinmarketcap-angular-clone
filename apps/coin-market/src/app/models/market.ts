@@ -9,7 +9,9 @@ export class MarketList {
     liquidity: number;
 
     constructor(item: any) {
-        this.market_id = Number(item.market_id || '');
+        this.market_id = isNaN(item.market_id || '')
+            ? 0
+            : Number(item.market_id);
         this.market_icon = item.market_icon || null;
         this.market_name = item.market_name || '';
         this.pairs = item.pairs || '';
