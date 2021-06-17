@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        VERSION='1.0.3'
+        VERSION='1.0.4'
     }
     stages{
         stage('Npm build'){
