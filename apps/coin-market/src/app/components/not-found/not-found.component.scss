@@ -1,0 +1,16 @@
+.not-found-page {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+        margin-bottom: 1.4rem;
+        font-size: 2.4rem;
+    }
+
+    a {
+        color: var(--color-primary-blue);
+    }
+}

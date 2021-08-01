@@ -29,6 +29,10 @@ const routes: Routes = [
                         '../../components/historical-data/historical-data.module'
                     ).then((m) => m.HistoricalDataModule),
             },
+            {
+                path: '**',
+                redirectTo: '',
+            },
         ],
     },
 ]; // sets up routes constant where you define your routes

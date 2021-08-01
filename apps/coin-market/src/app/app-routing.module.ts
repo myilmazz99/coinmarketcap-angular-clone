@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router'; // CLI imports router
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
     {
@@ -21,6 +22,10 @@ const routes: Routes = [
             import('./pages/gainers-losers/gainers-losers.module').then(
                 (m) => m.GainersLosersModule
             ),
+    },
+    {
+        path: '**',
+        component: NotFoundComponent,
     },
 ]; // sets up routes constant where you define your routes
 

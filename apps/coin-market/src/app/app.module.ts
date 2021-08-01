@@ -13,6 +13,7 @@ import { ScrollTopComponent } from './components/scroll-top/scroll-top.component
 import { MaterialModule } from './shared/material.module';
 import { SwitchThemeBtnComponent } from './components/switch-theme-btn/switch-theme-btn.component';
 import { LoadingBarComponent } from './components/loading-bar/loading-bar.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 registerLocaleData(tr);
 @NgModule({
@@ -23,6 +24,7 @@ registerLocaleData(tr);
         ScrollTopComponent,
         LoadingBarComponent,
         SwitchThemeBtnComponent,
+        NotFoundComponent,
     ],
     imports: [
         BrowserModule,
