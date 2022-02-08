@@ -1,5 +1,5 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { coinListData } from 'apps/coin-market/src/assets/data/coinListData';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CoinList } from '../../models/coin-list.model';
 
@@ -21,21 +21,32 @@ export class CoinListService {
     public sortEvent: BehaviorSubject<string> = new BehaviorSubject('');
     public sortOrder: BehaviorSubject<string> = new BehaviorSubject('asc');
 
-    constructor() {
-        this.coinItems.next(coinListData);
-        this.paginateCoins();
-        this.coinItems.subscribe((x) => {
-            this.dataLength.next(x.length);
-        });
+    constructor(private httpClient: HttpClient) {
+        this.getCoins();
 
         this.coinItems$ = this.coinItems.asObservable();
         this.screenItems$ = this.screenItems.asObservable();
         this.dataLength$ = this.dataLength.asObservable();
     }
 
+    getCoinList() {
+        return this.coinItems.getValue();
+    }
+
+    getCoins() {
+        this.httpClient
+            .get<CoinList[]>('assets/data/coin-list.json')
+            .toPromise()
+            .then((data) => {
+                this.coinItems.next(data);
+                this.dataLength.next(data.length);
+                this.paginateCoins();
+            });
+    }
+
     paginateCoins() {
-        let pageNumber = this.pageNumber.getValue();
-        let pageSize = this.pageSize.getValue();
+        const pageNumber = this.pageNumber.getValue();
+        const pageSize = this.pageSize.getValue();
 
         let res = [...this.coinItems.getValue()];
 
@@ -46,9 +57,9 @@ export class CoinListService {
     }
 
     sortCoins() {
-        let arr = this.coinItems.getValue();
-        let sortEvent = this.sortEvent.getValue();
-        let sortOrder = this.sortOrder.getValue();
+        const arr = this.coinItems.getValue();
+        const sortEvent = this.sortEvent.getValue();
+        const sortOrder = this.sortOrder.getValue();
 
         if (sortOrder === 'asc') {
             arr.sort((a, b) =>

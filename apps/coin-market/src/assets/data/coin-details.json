@@ -1,0 +1,443 @@
+[
+    {
+        "coin_id": "BTC",
+        "price": 56201.17,
+        "coin_name": "Bitcoin",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png"
+    },
+    {
+        "coin_id": "ETH",
+        "price": 3437.15,
+        "coin_name": "Ethereum",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png"
+    },
+    {
+        "coin_id": "BNB",
+        "price": 56201.17,
+        "coin_name": "Binance Coin",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png"
+    },
+    {
+        "coin_id": "ADA",
+        "price": 2.09,
+        "coin_name": "Cardano",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/2010.png"
+    },
+    {
+        "coin_id": "DOGE",
+        "price": 0.4826,
+        "coin_name": "Dogecoin",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/74.png"
+    },
+    {
+        "coin_id": "USDT",
+        "price": 56201.17,
+        "coin_name": "Tether",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png"
+    },
+    {
+        "coin_id": "XRP",
+        "price": 1.61,
+        "coin_name": "XRP",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/52.png"
+    },
+    {
+        "coin_id": "DOT",
+        "price": 39.78,
+        "coin_name": "Polkadot",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/6636.png"
+    },
+    {
+        "coin_id": "ICP",
+        "price": 178.63,
+        "coin_name": "Internet Computer",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/8916.png"
+    },
+    {
+        "coin_id": "BHC",
+        "price": 1114.26,
+        "coin_name": "Bitcoin Cash",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/1831.png"
+    },
+
+    {
+        "coin_id": "LTC",
+        "price": 305.05,
+        "coin_name": "Litecoin",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/2.png"
+    },
+    {
+        "coin_id": "UNI",
+        "price": 35.56,
+        "coin_name": "Uniswap",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/7083.png"
+    },
+    {
+        "coin_id": "LINK",
+        "price": 41.14,
+        "coin_name": "Chainlink",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/1975.png"
+    },
+    {
+        "coin_id": "XLM",
+        "price": 56201.17,
+        "coin_name": "Stellar",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/512.png"
+    },
+    {
+        "coin_id": "USDC",
+        "price": 1.0,
+        "coin_name": "USD Coin",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
+    },
+    {
+        "coin_id": "SOL",
+        "price": 55.96,
+        "coin_name": "Solana",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png"
+    },
+    {
+        "coin_id": "MATIC",
+        "price": 2.47,
+        "coin_name": "Polygon",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png"
+    },
+    {
+        "coin_id": "VET",
+        "price": 0.1664,
+        "coin_name": "VeChain",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/3077.png"
+    },
+    {
+        "coin_id": "ETC",
+        "price": 88.78,
+        "coin_name": "Ethereum Classic",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/1321.png"
+    },
+    {
+        "coin_id": "THETA",
+        "price": 9.77,
+        "coin_name": "THETA",
+        "market_cap": { "value": 1028360948721, "change_percentage": 3.27 },
+        "fully_diluted_market_cap": {
+            "value": 1156036894571,
+            "change_percentage": -3.54
+        },
+        "volume": { "value": 1028360948, "change_percentage": 0.88 },
+        "circulating_supply": {
+            "circulating_supply": 18666012,
+            "max_supply": 21000000,
+            "total_supply": 18666012
+        },
+        "price_high_low": {
+            "high": 58429.22,
+            "low": 55889.15,
+            "interval": "24h"
+        },
+        "icon": "https://s2.coinmarketcap.com/static/img/coins/64x64/2416.png"
+    }
+]
