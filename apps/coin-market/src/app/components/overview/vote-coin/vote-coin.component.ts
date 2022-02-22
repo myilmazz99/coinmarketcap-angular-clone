@@ -5,6 +5,7 @@ import { VoteCoinData } from '../../../models/voteCoinData.model';
 import { OverviewService } from '../../../shared/services/overview.service';
 import { LocalStorageService } from '../../../shared/services/local-storage.service';
 import { isValid } from 'date-fns';
+import { CoinService } from '../../../shared/services/coin.service';
 
 @Component({
     selector: 'coin-market-vote-coin',
@@ -20,11 +21,12 @@ export class VoteCoinComponent implements OnInit, OnDestroy {
 
     constructor(
         private localStorageService: LocalStorageService,
+        private coinService: CoinService,
         private overviewService: OverviewService
     ) {}
 
     ngOnInit(): void {
-        this.coinSubscription = this.overviewService.coin$.subscribe(
+        this.coinSubscription = this.coinService.coin$.subscribe(
             (s) => (this.coinName = s.coin_name)
         );
 

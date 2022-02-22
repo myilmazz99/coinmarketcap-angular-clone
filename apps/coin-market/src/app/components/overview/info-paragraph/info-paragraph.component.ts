@@ -1,3 +1,4 @@
+import { CoinService } from './../../../shared/services/coin.service';
 import { Component, OnInit } from '@angular/core';
 import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,11 +13,14 @@ export class InfoParagraphComponent implements OnInit {
     data$: Observable<any>;
     expanded = false;
 
-    constructor(private overviewService: OverviewService) {}
+    constructor(
+        private overviewService: OverviewService,
+        private coinService: CoinService
+    ) {}
 
     ngOnInit(): void {
         this.data$ = combineLatest([
-            this.overviewService.coin$,
+            this.coinService.coin$,
             this.overviewService.coinStatistics$,
         ]).pipe(map((obs) => ({ ...obs[0], ...obs[1] })));
     }

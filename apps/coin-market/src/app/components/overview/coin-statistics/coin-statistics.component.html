@@ -1,9 +1,11 @@
 <section class="coin-statistics" *ngIf="coinStatistics$ | async as s">
     <h2>{{ s.coin_id | uppercase }} Price Statistics</h2>
     <div class="coin-statistics__table">
-        <div class="coin-statistics__table__caption">Bitcoin Price Today</div>
+        <div class="coin-statistics__table__caption">
+            {{ s.coin_name }} Price Today
+        </div>
         <coin-market-coin-statistic-row
-            title="Bitcoin Price"
+            [title]="s.coin_name + ' Price'"
             [value]="s.price"
             [isCurrency]="true"
         ></coin-market-coin-statistic-row>
@@ -36,7 +38,9 @@
             title="Market Rank"
             [value]="'#' + s.market_rank"
         ></coin-market-coin-statistic-row>
-        <div class="coin-statistics__table__caption">Bitcoin Market Cap</div>
+        <div class="coin-statistics__table__caption">
+            {{ s.coin_name }} Market Cap
+        </div>
         <coin-market-coin-statistic-row
             title="Market Cap"
             [isCurrency]="true"
@@ -51,7 +55,7 @@
     <ng-container *ngIf="expanded">
         <div class="coin-statistics__table">
             <div class="coin-statistics__table__caption">
-                Bitcoin Price Yesterday
+                {{ s.coin_name }} Price Yesterday
             </div>
             <coin-market-coin-statistic-row
                 title="Yesterday's Low / High"
@@ -73,7 +77,7 @@
             ></coin-market-coin-statistic-row>
 
             <div class="coin-statistics__table__caption">
-                Bitcoin Price History
+                {{ s.coin_name }} Price History
             </div>
             <coin-market-coin-statistic-row
                 title="7d Low / 7d High"
@@ -104,7 +108,9 @@
                 [date]="s.price_low_high_all.low.date"
             ></coin-market-coin-statistic-row>
 
-            <div class="coin-statistics__table__caption">Bitcoin Supply</div>
+            <div class="coin-statistics__table__caption">
+                {{ s.coin_name }} Supply
+            </div>
             <coin-market-coin-statistic-row
                 title="Circulating Supply"
                 [value]="

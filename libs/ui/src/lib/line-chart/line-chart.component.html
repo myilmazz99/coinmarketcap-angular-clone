@@ -31,5 +31,8 @@
         constructorType="stockChart"
         (chartInstance)="getChartInstance($event)"
     ></highcharts-chart>
-    <ui-coin-chart-legend [chart]="chart"></ui-coin-chart-legend>
+    <ui-coin-chart-legend
+        [chart]="chart"
+        [coinId]="data.coinId"
+    ></ui-coin-chart-legend>
 </div>

@@ -32,6 +32,10 @@
 
     tr:hover {
         background-color: var(--table-row-hover-background-color);
+
+        .coin-name {
+            color: blue;
+        }
     }
 
     h1 {

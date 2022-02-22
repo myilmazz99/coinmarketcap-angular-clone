@@ -1,3 +1,4 @@
+import { CoinService } from './../../../shared/services/coin.service';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Coin } from '../../../models/coin.model';
@@ -13,8 +14,11 @@ export class CoinConverterComponent {
     coinAmount: number;
     usdAmount: number;
 
-    constructor(private overviewService: OverviewService) {
-        this.coin$ = this.overviewService.coin$;
+    constructor(
+        private overviewService: OverviewService,
+        private coinService: CoinService
+    ) {
+        this.coin$ = this.coinService.coin$;
     }
 
     onFocus(e: any, input: HTMLInputElement) {

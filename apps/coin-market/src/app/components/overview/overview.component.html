@@ -10,6 +10,7 @@
         <coin-market-trending></coin-market-trending>
     </div>
     <div class="coin-page__markets-table">
+        <h2>{{ (coin$ | async).coin_name }} Markets</h2>
         <coin-market-table
             [dataSource]="dataSource"
             [showPairs]="false"

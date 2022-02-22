@@ -19,6 +19,7 @@ export class OverviewPriceStatistics {
     price_low_high_all: PriceAllTime;
 
     coin_id?: string;
+    coin_name?: string;
     circulating_supply?: CoinSupplyNumbers;
 
     constructor(item: any) {
@@ -48,6 +49,8 @@ export class OverviewPriceStatistics {
         this.circulating_supply = new CoinSupplyNumbers(
             item.circulating_supply
         );
+
+        this.coin_name = item.coin_name || '';
     }
 }
 

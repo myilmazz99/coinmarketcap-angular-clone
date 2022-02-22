@@ -1,3 +1,4 @@
+import { CoinService } from './coin.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Coin } from '../../models/coin.model';
@@ -22,9 +23,6 @@ import { OverviewPriceStatistics } from '../../models/overview-price-statistics.
 export class OverviewService {
     private overviewPrice = new BehaviorSubject<OverviewPrice[]>(null);
     private overviewMarketcap = new BehaviorSubject<OverviewMarketcap[]>(null);
-
-    private coin = new BehaviorSubject<Coin>(null);
-    public coin$: Observable<Coin>;
 
     private coinVotes = new BehaviorSubject<VoteCoinData>(null);
     public coinVotes$: Observable<VoteCoinData>;
@@ -56,25 +54,25 @@ export class OverviewService {
     /*
   This service is used for state of active coin
   */
-    constructor() {
-        this.fakeChartData();
-        this.getOverviewPrice();
-        this.getOverviewMarketcap();
-
-        this.coin$ = this.coin.asObservable();
-        this.getCoin();
-
+    constructor(private _coinService: CoinService) {
         this.chartData$ = this.chartData.asObservable();
-        this.mapChartData();
 
         this.coinVotes$ = this.coinVotes.asObservable();
-        this.getCoinVotes();
 
         this.coinStatistics$ = this.coinStatistics.asObservable();
-        this.getCoinStatistics();
 
         this.selectedTab$ = this._selectedTab.asObservable();
         this.selectedRange$ = this._selectedRange.asObservable();
+
+        //renew coin statistics data everytime coin data gets changed.
+        this._coinService.coin$.subscribe(() => {
+            this.fakeChartData();
+            this.getOverviewPrice();
+            this.getOverviewMarketcap();
+            this.getCoinStatistics();
+            this.mapChartData();
+            this.getCoinVotes();
+        });
     }
 
     set selectedTab(val: ChartDataTab) {
@@ -83,15 +81,6 @@ export class OverviewService {
 
     set selectedRange(val: ChartDateRange) {
         this._selectedRange.next(val);
-    }
-
-    /*
-  This method sends a request to get active Coin Detail
-  Params(@coindID)
-  Response(Coin)
-  */
-    getCoin(): void {
-        this.coin.next(fakeCoin);
     }
 
     getCoinVotes(): void {
@@ -129,12 +118,18 @@ export class OverviewService {
     }
 
     getCoinStatistics(): void {
-        const { coin_id, circulating_supply } = this.coin.getValue();
+        const {
+            coin_id,
+            circulating_supply,
+            coin_name,
+        } = this._coinService.coin;
+
         this.coinStatistics.next(
             new OverviewPriceStatistics({
                 ...fakeCoinStatistics,
                 coin_id,
                 circulating_supply,
+                coin_name,
             })
         );
     }
@@ -142,8 +137,10 @@ export class OverviewService {
     private mapChartData() {
         const price = this.overviewPrice.getValue();
         const marketcap = this.overviewMarketcap.getValue();
-        const coin = this.coin.getValue();
+        const coin = this._coinService.coin;
 
-        this.chartData.next(new ChartData(coin.coin_name, price, marketcap));
+        this.chartData.next(
+            new ChartData(coin.coin_id, coin.coin_name, price, marketcap)
+        );
     }
 }

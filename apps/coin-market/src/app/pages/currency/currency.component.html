@@ -1,7 +1,9 @@
-<coin-market-coin-detail-bar></coin-market-coin-detail-bar>
+<ng-container *ngIf="coin$ | async">
+    <coin-market-coin-detail-bar></coin-market-coin-detail-bar>
 
-<coin-market-details-section></coin-market-details-section>
+    <coin-market-details-section></coin-market-details-section>
 
-<coin-market-currency-tabs></coin-market-currency-tabs>
+    <coin-market-currency-tabs></coin-market-currency-tabs>
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+</ng-container>

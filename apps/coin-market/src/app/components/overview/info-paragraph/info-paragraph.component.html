@@ -7,14 +7,14 @@
         >
             <h2>{{ (d.coin_id | uppercase) + ' Price Live Data' }}</h2>
             <p>
-                The live <strong>Bitcoin price today</strong> is
+                The live <strong>{{ d.coin_name }} price today</strong> is
                 {{ d.price | currency: 'USD':'symbol':'1.0-6' }} USD with a
                 24-hour trading volume of
                 {{ d.volume.value | currency: 'USD':'symbol':'1.0-6' }} USD.
-                Bitcoin is down {{ d.price_change_percentage_yesterday }}% in
-                the last 24 hours. The current CoinMarketCap ranking is #{{
-                    d.market_rank
-                }}, with a live market cap of
+                {{ d.coin_name }} is down
+                {{ d.price_change_percentage_yesterday }}% in the last 24 hours.
+                The current CoinMarketCap ranking is #{{ d.market_rank }}, with
+                a live market cap of
                 {{ d.market_cap.value | currency: 'USD':'symbol':'1.0-6' }} USD.
                 It has a circulating supply of
                 {{ d.circulating_supply.circulating_supply | number }} BTC coins

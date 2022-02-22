@@ -1,12 +1,15 @@
-<div class="container-cryptocurrencies-coins-bitcoin container">
+<div
+    class="container-cryptocurrencies-coins-bitcoin container"
+    *ngIf="coin$ | async as coin"
+>
     <div class="top-links-section">
         <a href="/" class="crypto-link">Cryptocurrencies</a>
         <span class="material-icons">chevron_right</span>
         <a href="/coins/" class="coins-link">Coins</a>
         <span class="material-icons">chevron_right</span>
-        <span font-size="2,3" class="finally-span">Bitcoin</span>
+        <span font-size="2,3" class="finally-span">{{ coin.coin_name }}</span>
     </div>
-    <div class="container-inner" *ngIf="coin$ | async as coin">
+    <div class="container-inner">
         <coin-market-name-section
             [coin]="coin"
             class="nameSection"

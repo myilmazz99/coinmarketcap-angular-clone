@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Coin } from '../../models/coin.model';
+import { CoinService } from '../../shared/services/coin.service';
 import { OverviewService } from '../../shared/services/overview.service';
 
 @Component({
@@ -18,10 +19,13 @@ export class CoinDetailBarComponent implements OnInit {
     @ViewChild('bar') bar: ElementRef;
     coin$: Observable<Coin>;
 
-    constructor(private overviewService: OverviewService) {}
+    constructor(
+        private overviewService: OverviewService,
+        private coinService: CoinService
+    ) {}
 
     ngOnInit(): void {
-        this.coin$ = this.overviewService.coin$;
+        this.coin$ = this.coinService.coin$;
     }
 
     @HostListener('window:scroll') onScroll() {
