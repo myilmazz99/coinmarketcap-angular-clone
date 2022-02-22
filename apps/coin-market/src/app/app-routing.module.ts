@@ -1,3 +1,4 @@
+import { DevelopersModule } from './pages/developers/developers.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router'; // CLI imports router
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -21,6 +22,13 @@ const routes: Routes = [
         loadChildren: () =>
             import('./pages/gainers-losers/gainers-losers.module').then(
                 (m) => m.GainersLosersModule
+            ),
+    },
+    {
+        path: 'developers',
+        loadChildren: () =>
+            import('./pages/developers/developers.module').then(
+                (m) => m.DevelopersModule
             ),
     },
     {

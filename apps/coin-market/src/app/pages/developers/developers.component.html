@@ -1,0 +1,35 @@
+<section class="developers-container">
+    <div class="developer">
+        <div class="img-container">
+            <img [src]="developers[0].img" />
+        </div>
+        <h2>{{ developers[0].fullName }}</h2>
+        <p>{{ developers[0].role }}</p>
+        <div class="contact">
+            <a [href]="developers[0].github" target="_blank">
+                <i class="fa-brands fa-github fa-xl"></i>
+            </a>
+            <a [href]="developers[0].linkedin" target="_blank">
+                <i class="fa-brands fa-linkedin-in fa-xl"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="team">
+        <div class="developer" *ngFor="let developer of developers.slice(1)">
+            <div class="img-container">
+                <img [src]="developer.img" />
+            </div>
+            <h2>{{ developer.fullName }}</h2>
+            <p>{{ developer.role }}</p>
+            <div class="contact">
+                <a [href]="developer.github" target="_blank">
+                    <i class="fa-brands fa-github fa-xl"></i>
+                </a>
+                <a [href]="developer.linkedin" target="_blank">
+                    <i class="fa-brands fa-linkedin-in fa-xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
