@@ -67,9 +67,6 @@ table {
     flex-direction: row;
     align-items: center;
     font-weight: bold;
-    &:hover {
-        cursor: pointer;
-    }
 }
 
 .market-icon {
@@ -88,9 +85,6 @@ table {
 .table-pairs {
     color: var(--link-color) !important;
     font-weight: 500;
-    &:hover {
-        cursor: pointer;
-    }
 }
 
 .icon-liquidity {
